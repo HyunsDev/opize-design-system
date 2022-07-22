@@ -1,7 +1,7 @@
 import styled from "styled-components"
-import { cssVar } from "../style/css"
+import { cssVar } from "../../style/css"
 import { IconContext } from 'phosphor-react'
-import '../style/var.css'
+import '../../style/var.css'
 import { Spinner } from "../spinner/spinner"
 
 const ButtonDiv = styled.button<{

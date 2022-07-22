@@ -1,6 +1,6 @@
 import styled, { keyframes } from "styled-components";
 import React from 'react';
-import '../style/var.css'
+import '../../style/var.css'
 
 interface Loader {
     size: number;
