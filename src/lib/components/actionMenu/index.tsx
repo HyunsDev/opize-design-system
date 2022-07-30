@@ -51,12 +51,12 @@ const FadeInFromBottom = keyframes`
     }
 `
 
-const OverlayDiv = styled.div<{top?: number, right?: number; bottom?: number, left?:number}>`
+const OverlayDiv = styled.div<{top?: number, right?: number; bottom?: number, left?:number, buttonHeight: number}>`
     position: absolute;
     min-width: 200px;
-    ${props => props.top !== undefined && `top: ${props.top + 30}px;`};
+    ${props => props.top !== undefined && `top: ${props.top + props.buttonHeight}px;`};
     ${props => props.right !== undefined && `right: ${props.right}px;`};
-    ${props => props.bottom !== undefined && `bottom: ${props.bottom + 30}px;`};
+    ${props => props.bottom !== undefined && `bottom: ${props.bottom + props.buttonHeight}px;`};
     ${props => props.left !== undefined && `left: ${props.left}px;`};
     padding: 8px 0px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 8%);
@@ -137,6 +137,7 @@ export function ActionMenu({actions, label, icon}: {
     }>({})
 
     const ref = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLDivElement>(null)
     const overlayRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -183,7 +184,7 @@ export function ActionMenu({actions, label, icon}: {
 
     return (
         <ActionMenuDiv ref={ref}>
-            <ButtonDiv onClick={() => {calcPos(); setIsOpen(!isOpen)}} isOpen={isOpen} onlyIcon={!!icon && !label} >
+            <ButtonDiv onClick={() => {calcPos(); setIsOpen(!isOpen)}} isOpen={isOpen} onlyIcon={!!icon && !label} ref={buttonRef} >
                 {icon}
                 {label}       
             </ButtonDiv>
@@ -195,7 +196,7 @@ export function ActionMenu({actions, label, icon}: {
                 }}    
             >
                 {
-                    isOpen && <OverlayDiv {...direction} ref={overlayRef}>
+                    isOpen && <OverlayDiv {...direction} ref={overlayRef} buttonHeight={buttonRef.current?.offsetHeight || 30}>
                         {
                             actions.map((e, i) => <ActionsDiv key={i}>
                                 {

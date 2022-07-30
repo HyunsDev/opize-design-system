@@ -18,7 +18,7 @@ const ButtonDiv = styled.button<{
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: ${props => props.isOnlyIcon ? '6px' : '6px 12px'};
+    padding: ${props => props.isOnlyIcon ? '7px' : '7px 14px'};
     gap: 8px;
 
     font-size: 14px;
@@ -40,7 +40,7 @@ const ButtonDiv = styled.button<{
     }
 `
 
-interface ButtonProps {
+export interface ButtonProps {
     label?: string
     variant?: 'contained' | 'outlined' | 'text'
     color?: 'gray' | 'red'
@@ -52,7 +52,7 @@ interface ButtonProps {
 
 function Button({
     label,
-    variant = 'contained',
+    variant = 'outlined',
     isDisabled = false,
     isLoading = false,
     color = 'gray',
@@ -78,12 +78,12 @@ function Button({
         if (color === 'gray') {
             if (!isDisabled) {
                 ButtonColor = {
-                    bgColor: cssVar('gray9'),
-                    bgColorHover: '',
-                    borderColor: cssVar('gray9'),
-                    borderColorHover: '',
+                    bgColor: cssVar('gray8'),
+                    bgColorHover: cssVar('white'),
+                    borderColor: cssVar('gray8'),
+                    borderColorHover: cssVar('gray9'),
                     color: cssVar('white'),
-                    colorHover: ''
+                    colorHover: cssVar('black')
                 }
             } else {
                 ButtonColor = {
@@ -120,10 +120,10 @@ function Button({
         if (color === 'gray') {
             if (!isDisabled) {
                 ButtonColor = {
-                    bgColor: cssVar('white'),
-                    bgColorHover: '',
-                    borderColor: cssVar('gray5'),
-                    borderColorHover: cssVar('gray9'),
+                    bgColor: cssVar('gray0'),
+                    bgColorHover: cssVar('gray1'),
+                    borderColor: cssVar('gray4'),
+                    borderColorHover: cssVar('gray6'),
                     color: cssVar('black'),
                     colorHover: ''
                 }
@@ -140,9 +140,9 @@ function Button({
         } else if (color === 'red') {
             if (!isDisabled) {
                 ButtonColor = {
-                    bgColor: cssVar('white'),
+                    bgColor: cssVar('red0'),
                     bgColorHover: '',
-                    borderColor: cssVar('red5'),
+                    borderColor: cssVar('red4'),
                     borderColorHover: cssVar('red9'),
                     color: cssVar('red9'),
                     colorHover: ''

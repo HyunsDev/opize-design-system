@@ -5,6 +5,7 @@ import { DotsThreeVertical, Gear, X } from 'phosphor-react'
 import { ActionMenu } from '.';
 import styled from 'styled-components';
 
+import profileImg from '../../../assets/hyuns.jpg'
 
 
 export default {
@@ -89,6 +90,34 @@ const TemplateRight: ComponentStory<typeof ActionMenu> = (args) => <RightPos><Ac
 export const Right = TemplateRight.bind({});
 Right.args = {
     icon: <DotsThreeVertical />,
+    actions: [
+        [
+            {
+                label: '라벨',
+                icon: <Gear />,
+                onClick: () => null,
+            }
+        ], [
+            {
+                label: '삭제',
+                icon: <X />,
+                onClick: () => null,
+                color: 'red'
+            }
+        ]
+    ]
+};
+
+const ProfileImg = styled.img`
+    width: 28px;
+    height: 28px;
+    border-radius: 28px;
+`
+
+const AvatarRight: ComponentStory<typeof ActionMenu> = (args) => <RightPos><ActionMenu {...args} /></RightPos>;
+export const Avatar = AvatarRight.bind({});
+Avatar.args = {
+    icon: <ProfileImg src={profileImg} alt='' />,
     actions: [
         [
             {

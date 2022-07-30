@@ -1,7 +1,20 @@
+import { X } from "phosphor-react"
 import { useEffect, useRef, useState } from "react"
-import styled from "styled-components"
+import styled, {keyframes} from "styled-components"
 
 const Divver = styled.div`
+
+`
+
+const FadeInFromBottom = keyframes`
+    0% {
+        transform: translateY(10px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0px);
+        opacity: 1;
+    }
 `
 
 const Background = styled.div<{isOpen: Boolean}>`
@@ -27,12 +40,14 @@ const ModalBoxDivver = styled.div`
     align-items: center;
     justify-content: center;
     pointer-events: none;
+
+    animation: ${FadeInFromBottom} 200ms cubic-bezier(0.07, 0.75, 0.54, 0.93);
 `
 
 const ModalBox = styled.div<{isOpen: boolean, width: number}>`
     background-color: #ffffff;
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
-    border-radius: 4px;
+    border-radius: 8px;
     padding: 16px;
     pointer-events: auto;
     min-width: ${props => props.width}px;
@@ -54,12 +69,28 @@ const ModalTitleBox = styled.div`
     margin-bottom: 8px;
 `
 
+const CloseBtn = styled.div`
+    cursor: pointer;
+    padding: 6px;
+    background-color: #ffffff;
+    transition: 200ms;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 25565px;
+
+    &:hover {
+        background-color: var(--gray1);
+    }
+`
+
 interface ModalProps {
     setOpen: Function
     isOpen: boolean
     content: React.ReactElement
     width: number
     title?: string
+    close: Function
 }
 
 export function Modal(props: ModalProps) {
@@ -85,7 +116,10 @@ export function Modal(props: ModalProps) {
                         <Background isOpen={props.isOpen} onClick={() => props.setOpen(false)} />
                         <ModalBoxDivver>
                             <ModalBox isOpen={props.isOpen} width={props.width}>
-                                { props.title && <ModalTitleBox><ModalTitle>{props.title}</ModalTitle></ModalTitleBox> }
+                                { props.title && <ModalTitleBox>
+                                    <ModalTitle>{props.title}</ModalTitle>
+                                    <CloseBtn onClick={() => props.close()}><X /></CloseBtn>
+                                </ModalTitleBox> }
                                 { props.content }
                             </ModalBox>
                         </ModalBoxDivver>

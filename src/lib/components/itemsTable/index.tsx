@@ -1,7 +1,7 @@
 import { DotsThreeVertical, IconContext } from "phosphor-react"
 import styled from "styled-components"
 import { ActionMenu } from "../actionMenu"
-import { StatusBadgeTag } from "../badge/statusBadge"
+import { StatusBadge } from ".."
 
 const ItemButton = styled.div`
     position: relative;
@@ -188,7 +188,7 @@ const A = styled.a`
 `
 
 
-export function Items(props: Props) {
+export function ItemsTable(props: Props) {
     return (
         <ItemsDiv>
             <IconContext.Provider
@@ -229,7 +229,7 @@ export function Items(props: Props) {
                                 } else if (menu.type === 'status') {
                                     return (
                                         <StateDiv key={ii}>
-                                            <StatusBadgeTag color={colorMap(menu.status.toLowerCase())} text={capitalize(menu.status)} />
+                                            <StatusBadge color={colorMap(menu.status.toLowerCase())} text={capitalize(menu.status)} />
                                             {menu.label && <TypeDiv>{menu.label}</TypeDiv>}
                                         </StateDiv>
                                     )

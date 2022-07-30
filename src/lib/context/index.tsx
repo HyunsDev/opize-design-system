@@ -1,7 +1,7 @@
 import ModalContextProvider from "./modal/modalContext"
 
 
-export function ODSContextWrapper({children}: {
+export function OpizeDesignSystemContextProvider({children}: {
     children: React.ReactElement
 }) {
     return (

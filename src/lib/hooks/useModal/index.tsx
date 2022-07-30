@@ -1,9 +1,9 @@
 import { useContext } from "react";
 import { CodeBlock } from "../../components";
-import { ModalContext } from "../../context/modal/modalContext";
+import { ModalContext, ModalContextProps } from "../../context/modal/modalContext";
 
 
-export function useModal() {
+export function useModal(): ModalContextProps {
     return useContext(ModalContext)
 }
 

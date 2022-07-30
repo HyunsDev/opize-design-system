@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { StatusBadge } from './statusBadge';
+import { StatusBadge } from './';
 
 
 export default {

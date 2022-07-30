@@ -1,7 +1,24 @@
 {
   "name": "opize-design-system",
   "version": "0.1.0",
-  "private": true,
+  "private": false,
+  "license": "MIT",
+  "description": "Opize Design System",
+  "homepage": "https://github.com/HyunsDev/opize-design-system",
+  "author": "Opize <hello@opize.me> (https://opize.me)",
+  "module": "dist/index.js",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "bugs": {
+    "url": "https://github.com/HyunsDev/opize-design-system/issues",
+    "email": "hello@opize.me"
+  },
+  "babel": {
+    "presets": [
+      "@babel/preset-react",
+      "@babel/preset-typescript"
+    ]
+  },
   "dependencies": {
     "@testing-library/jest-dom": "^5.14.1",
     "@testing-library/react": "^13.0.0",
@@ -27,7 +44,8 @@
     "test": "react-scripts test",
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
-    "build-storybook": "build-storybook -s public"
+    "build-storybook": "build-storybook -s public",
+    "publish:npm": "rmdir dist /s /q && mkdir dist && babel src/lib -d dist --copy-files --extensions \".ts,.tsx\" --ignore \"src/**/*.stories.tsx\" --no-copy-ignored && tsc --p tsconfig.module.json"
   },
   "eslintConfig": {
     "extends": [
@@ -58,6 +76,9 @@
     ]
   },
   "devDependencies": {
+    "@babel/cli": "^7.17.6",
+    "@babel/preset-react": "^7.16.7",
+    "@babel/preset-typescript": "^7.16.7",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",

@@ -1,7 +1,7 @@
 import React, { createContext, useCallback, useState } from "react";
 import { Modal } from "../../components/modal";
 
-interface ModalContextProps {
+export interface ModalContextProps {
     isOpen: boolean
     open: (content: React.ReactElement, title?: string) => void
     close: Function
@@ -43,7 +43,7 @@ const ModalContextProvider = ({children}: {children: React.ReactElement}) => {
                 title
             }}
         >
-            <Modal setOpen={setOpen} isOpen={isOpen} content={content} width={width} title={title} />
+            <Modal setOpen={setOpen} isOpen={isOpen} content={content} width={width} title={title} close={() => setOpen(false)} />
             {children}
         </ModalContext.Provider>
     )
