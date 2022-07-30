@@ -1,0 +1,67 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    /* Color styles */
+    --white: rgba(255,255,255,1);
+    --black: rgba(0,0,0,1);
+    --gray0: rgba(243, 247, 252, 1);
+    --gray1: rgba(239, 243, 248, 1);
+    --gray2: rgba(224, 231, 238, 1);
+    --gray3: rgba(216, 223, 230, 1);
+    --gray4: rgba(201, 209, 218, 1);
+    --gray5: rgba(170, 180, 189, 1);
+    --gray6: rgba(129, 140, 150, 1);
+    --gray7: rgba(70, 78, 87, 1);
+    --gray8: rgba(49, 56, 64, 1);
+    --gray9: rgba(31, 36, 41, 1);
+    --red0: rgba(255, 245, 245, 1);
+    --red1: rgba(255, 227, 227, 1);
+    --red2: rgba(255, 201, 201, 1);
+    --red3: rgba(255, 168, 168, 1);
+    --red4: rgba(255, 135, 135, 1);
+    --red5: rgba(255, 107, 107, 1);
+    --red6: rgba(250, 82, 82, 1);
+    --red7: rgba(240, 62, 62, 1);
+    --red8: rgba(224, 49, 49, 1);
+    --red9: rgba(201, 42, 42, 1);
+    --blue0: rgba(239, 247, 255, 1);
+    --blue1: rgba(225, 241, 255, 1);
+    --blue2: rgba(199, 228, 255, 1);
+    --blue3: rgba(172, 215, 255, 1);
+    --blue4: rgba(135, 197, 255, 1);
+    --blue5: rgba(104, 178, 247, 1);
+    --blue6: rgba(82, 170, 250, 1);
+    --blue7: rgba(62, 155, 240, 1);
+    --blue8: rgba(49, 140, 224, 1);
+    --blue9: rgba(42, 125, 201, 1);
+    --teal0: #EAF9F8;
+    --teal1: #BCECE8;
+    --teal2: #94E9E3;
+    --teal3: #55DBD0;
+    --teal4: #4FCCC3;
+    --teal5: #4CC2B9; /* Highlight */
+    --teal6: #48ACA5;
+    --teal7: #469B94;
+    --teal8: #3D857F;
+    --teal9: #2D6560; /* Brand */
+    
+    --status-red: rgba(216, 80, 74, 1);
+    --status-yellow: rgba(250, 175, 0, 1);
+    --status-green: rgba(57, 183, 93, 1);
+    --status-blue: rgba(32, 151, 246, 1);
+
+    --status-red-background: rgba(216, 80, 74, 0.1);
+    --status-yellow-background: rgba(250, 175, 0, 0.1);
+    --status-green-background: rgba(57, 183, 93, 0.1);
+    --status-blue-background: rgba(32, 151, 246, 0.1);
+
+    /* Effect styles */
+    --drop-shadow:  0px 4px 30px rgba(26, 30, 33, 0.1);
+
+
+    --vh: 1vh;
+}
