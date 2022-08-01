@@ -6,6 +6,15 @@
 
 :root {
     /* Color styles */
+    --color-primary: rgba(31, 36, 41, 1);
+
+    --color-bg-page0: rgba(255, 255, 255, 1);
+    --color-bg-page1: rgba(255, 255, 255, 1);
+    --color-bg-element0: rgba(245, 250, 252, 1);
+}
+
+:root {
+    /* Color styles */
     --white: rgba(255,255,255,1);
     --black: rgba(0,0,0,1);
     --gray0: rgba(245, 250, 252, 1);
@@ -61,7 +70,6 @@
 
     /* Effect styles */
     --drop-shadow:  0px 4px 30px rgba(26, 30, 33, 0.1);
-
 
     --vh: 1vh;
 }

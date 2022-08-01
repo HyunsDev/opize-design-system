@@ -1,7 +1,7 @@
 import styled from "styled-components"
 import { cssVar } from "../../style/css"
 import { IconContext } from 'phosphor-react'
-import '../../style/init.css'
+import '../../style/style.css'
 import { Spinner } from "../spinner"
 
 const ButtonDiv = styled.button<{
@@ -123,7 +123,7 @@ function Button({
                     bgColor: cssVar('gray0'),
                     bgColorHover: cssVar('gray1'),
                     borderColor: cssVar('gray4'),
-                    borderColorHover: cssVar('gray6'),
+                    borderColorHover: cssVar('gray4'),
                     color: cssVar('black'),
                     colorHover: ''
                 }
