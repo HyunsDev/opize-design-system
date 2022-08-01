@@ -47,7 +47,7 @@ type VariableKey = keyof ThemeVariables
 type ThemedPalette = Record<VariableKey, string>;
 
 // TODO: #3 black 테마 추가시 box-shadow에 대한 수정 필요
-const themeVariableSets: Record<Theme, ThemeVariables> = {
+export const themeVariableSets: Record<Theme, ThemeVariables> = {
     light: {
         white: '#fff',
         black: '#000',
