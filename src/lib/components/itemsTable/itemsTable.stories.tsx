@@ -58,7 +58,7 @@ Primary.args = {
         label: 'label'
       }, {
         type: 'text',
-        text: 'text',
+        text: 'https://design.opize.me',
         subText: 'subText'
       }, {
         type: 'status',

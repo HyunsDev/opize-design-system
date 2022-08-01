@@ -28,6 +28,10 @@ Primary.args = {
                 label: '라벨',
                 icon: <Gear />,
                 onClick: () => null,
+            }, {
+                label: '라벨',
+                icon: <Gear />,
+                onClick: () => null,
             }
         ], [
             {

@@ -2,6 +2,7 @@ import { DotsThreeVertical, IconContext } from "phosphor-react"
 import styled from "styled-components"
 import { ActionMenu } from "../actionMenu"
 import { StatusBadge } from ".."
+import { css } from "../../style"
 
 const ItemButton = styled.div`
     position: relative;
@@ -32,9 +33,9 @@ const ItemDiv = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 16px;
-    border-right: solid 1px var(--gray4);
-    border-left: solid 1px var(--gray4);
-    border-top: solid 1px var(--gray4);
+    border-right: solid 1px ${css.border3};
+    border-left: solid 1px ${css.border3};
+    border-top: solid 1px ${css.border3};
 
     @media ( max-width: 767px ) {
         flex-direction: column;
@@ -59,8 +60,8 @@ const ItemDiv = styled.div`
 
 const ItemsDiv = styled.div`
     margin-top: 8px;
-    border-top: solid 1px var(--gray4);
-    border-bottom: solid 1px var(--gray4);
+    border-top: solid 1px ${css.border3};
+    border-bottom: solid 1px ${css.border3};
     border-radius: 8px;
 
     ${ItemDiv}:hover ${ItemButton} {
@@ -72,26 +73,33 @@ const AvatarDiv = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 200px;
+    width: 250px;
 `
 
 const AvatarIcon = styled.img`
     border-radius: 999px;
-    background-color: var(--gray4);
+    background-color: ${css.bg_element2};
 
     width: 36px;
     height: 36px;
 `
 
+const AvatarInfo = styled.div`
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
+`
+
 const AvatarName = styled.div`
-    font-weight: 500;
+    color: ${css.text2};  
     font-size: 14px;
     line-height: 17px;
+    font-weight: 600;
 `
 
 const AvatarLabel = styled.div`
-    font-size: 12px;
-    color: var(--gray5);
+    font-size: 14px;
+    color: ${css.text2};
 `
 
 const StateDiv = styled.div`
@@ -109,23 +117,27 @@ const StateDiv = styled.div`
 `
 
 const TypeDiv = styled.div`
-    color: var(--gray5);
-    font-size: 12px;
+    color:  ${css.text2};
+    font-size: 14px;
     margin-left: 8px;
 `
 
 const TextsDiv = styled.div`
     flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 2px;
 `
 
 const TextDiv = styled.div`
-    font-weight: 500;
+    font-weight: 600;
+    color: ${css.text2};  
     font-size: 14px;
 `
 
 const SubTextDiv = styled.div`
-    color: var(--gray6);  
-    font-size: 12px;  
+    color: ${css.text2};  
+    font-size: 14px;  
 `
 
 interface Avatar {
@@ -180,10 +192,11 @@ function capitalize(str:string) {
 
 const A = styled.a`
     text-decoration: none;
-    color: var(--gray6);
+    color: ${css.text3};
+    transition: 125ms;
 
     &:hover {
-        text-decoration: underline;
+        color: ${css.text2};
     }
 `
 
@@ -193,9 +206,9 @@ export function ItemsTable(props: Props) {
         <ItemsDiv>
             <IconContext.Provider
                 value={{
-                    size: 20,
-                    weight: 'bold',
-                    color: 'var(--gray5)'
+                    size: 36,
+                    weight: 'regular',
+                    color: css.border1
                 }}    
             >
             {
@@ -213,16 +226,23 @@ export function ItemsTable(props: Props) {
                                                     : menu.icon
                                                 }
                                             </>
-                                            <div>
+                                            <AvatarInfo>
                                                 <AvatarName>{menu.name}</AvatarName>
                                                 <AvatarLabel>{menu.label}</AvatarLabel>
-                                            </div>
+                                            </AvatarInfo>
                                         </AvatarDiv>
                                     )
                                 } else if (menu.type === 'buttons') {
                                     return (
                                         <ItemButtons key={ii}>
-                                            <ActionMenu icon={<DotsThreeVertical />} actions={menu.button} />
+                                            <IconContext.Provider
+                                                value={{
+                                                    size: 18,
+                                                    weight: 'bold',
+                                                }}    
+                                            >
+                                                <ActionMenu icon={<DotsThreeVertical />} actions={menu.button} />
+                                            </IconContext.Provider>
                                         </ItemButtons>
                                         
                                     )

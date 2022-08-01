@@ -1,4 +1,5 @@
 import styled from "styled-components"
+import { css } from "../../style"
 
 interface Props {
     type: 'text' | 'password' | 'search' | 'url'
@@ -7,8 +8,7 @@ interface Props {
     placeholder?: string
     readonly?: boolean
     label?: string
-    error?: boolean
-    message?: string
+    error?: string
     ref?: any
 }
 
@@ -25,25 +25,24 @@ const Input = styled.textarea<Props>`
     height: 100px;
 
     transition: 100ms, height 0ms;
-    border: solid 1px var(--gray4);
-    outline: solid 0px var(--blue3);
+    border: solid 1px ${css.border3};
+    outline: solid 0px ${css.outline};
 
     &:focus {
-        border: solid 1px var(--gray4);
-        outline: solid 3px var(--blue3);
+        outline: solid 3px ${css.outline};
     }
 `
 
 const Label = styled.label`
     display: block;
     font-size: 12px;
-    color: var(--gray5);
+    color: ${css.text3};
     margin-bottom: 4px;
 `
 
-const Message = styled.div<{error: boolean}>`
+const Message = styled.div`
     height: 20px;
-    color: ${(props) => props.error ? "var(--status-red)" : "var(--gray5)"};
+    color: ${css.red1};
     font-size: 12px;
     margin-top: 4px;
 `
@@ -53,7 +52,7 @@ export function TextArea(props:Props) {
         <Divver>
             {props.label && <Label>{props.label}</Label>}
             <Input {...props} onChange={(e) => !props.readonly && props.onChange(e.target.value)} />
-            { props.message && <Message error={props.error || false}>{props.message}</Message>}
+            { props.error && <Message>{props.error}</Message>}
         </Divver>
     )
 }

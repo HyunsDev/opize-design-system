@@ -1,7 +1,7 @@
 import ModalContextProvider from "./modal/modalContext"
 
 
-export function OpizeDesignSystemContextProvider({children}: {
+export function OpizeContextProvider({children}: {
     children: React.ReactElement
 }) {
     return (

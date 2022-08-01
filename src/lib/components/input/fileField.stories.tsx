@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Check } from 'phosphor-react'
 
 import { FileField } from '.';
 import styled from 'styled-components';

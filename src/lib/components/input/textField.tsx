@@ -1,5 +1,6 @@
 import styled from "styled-components"
 import { IconContext } from 'phosphor-react'
+import { css } from "../../style"
 
 type ButtonAddon = {
     type: 'button',
@@ -36,25 +37,26 @@ const Input = styled.input<TextFieldProps>`
     transition: 100ms;
     flex: 1;
     border: 0;
+    font-size: 14px;
 
-    outline: solid 0px var(--blue3);
+    outline: solid 0px ${css.outline};
     &:focus {
         border: 0;
         outline: 0;
-        outline: solid 3px var(--blue3);
+        outline: solid 3px ${css.outline};
     }
 `
 
 const Label = styled.label`
     display: block;
     font-size: 14px;
-    color: var(--gray6);
+    color: ${css.text3};
     margin-bottom: 4px;
 `
 
 const Message = styled.div`
     height: 20px;
-    color: var(--status-red);
+    color: ${css.red1};
     font-size: 14px;
     margin-top: 4px;
 `
@@ -64,11 +66,7 @@ const Inputs = styled.div`
     align-items: center;
     border-radius: 4px;
     height: 32px;
-
-    border: solid 1px var(--gray4);
-    &:focus-within {
-        border: solid 1px var(--gray4);
-    }
+    border: solid 1px ${css.border3};
 `
 
 const AddonTextDiv = styled.div<{position: 'left' | 'right'}>`
@@ -77,9 +75,9 @@ const AddonTextDiv = styled.div<{position: 'left' | 'right'}>`
     align-items: center;
     height: 100%;
     font-size: 14px;
-    background-color: var(--gray2);
+    background-color: ${css.bg_element3};
 
-    ${props => props.position === 'left' ? `border-right: solid 1px var(--gray4);` : 'border-left: solid 1px var(--gray4);'};
+    ${props => props.position === 'left' ? `border-right: solid 1px ${css.border3};` : `border-left: solid 1px ${css.border3};`};
     ${props => props.position === 'left'
         ? `border-bottom-left-radius: 4px; border-top-left-radius: 4px;`
         : 'border-bottom-right-radius: 4px; border-top-right-radius: 4px;'};
@@ -91,11 +89,11 @@ const AddonButtonDiv = styled.div<{position: 'left' | 'right'}>`
     align-items: center;
     height: 100%;
     font-size: 14px;
-    background-color: var(--gray9);
+    background-color: ${css.bg_element5};
     color: #ffffff;
     cursor: pointer;
 
-    ${props => props.position === 'left' ? `border-right: solid 1px var(--gray4);` : 'border-left: solid 1px var(--gray4);'};
+    ${props => props.position === 'left' ? `border-right: solid 1px ${css.border3};` : `border-left: solid 1px ${css.border3};`};
     ${props => props.position === 'left'
         ? `border-bottom-left-radius: 4px; border-top-left-radius: 4px;`
         : 'border-bottom-right-radius: 4px; border-top-right-radius: 4px;'};
@@ -125,7 +123,7 @@ export function TextField(props:TextFieldProps) {
         <IconContext.Provider value={{
             weight: 'bold',
             size: 14,
-            color: '#ffffff'
+            color: css.text5
         }}>
             <Divver>
                 {props.label && (<Label>{props.label}</Label>)}

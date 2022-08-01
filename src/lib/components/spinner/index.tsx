@@ -1,12 +1,11 @@
 import styled, { keyframes } from "styled-components";
 import React from 'react';
-import '../../style/init.css'
+import '../../style/style.css'
+import { css } from "../../style";
 
-interface Loader {
-    size: number;
-}
 
-const Loader = styled.div<Loader>`
+
+const Loader = styled.div<{size: number}>`
     position: relative;
     margin: 0 auto;
     width: ${props => props.size}px;
@@ -54,7 +53,7 @@ const Circular = styled.svg`
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0;
         animation: ${dash} 1.5s ease-in-out infinite;
-        stroke: ${props => props.color || "#ffffff"};
+        stroke: ${props => props.color || css.text1};
         stroke-linecap: round;
     }
 `
@@ -67,7 +66,7 @@ interface SpinnerProps {
 
 export const Spinner = ({
     strokeWidth = 4,
-    color = 'var(--gray9)',
+    color = css.text1,
     size = 32
 }: SpinnerProps) => {
     return (

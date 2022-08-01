@@ -1,3 +1,5 @@
+/* 이 파일은 더 이상 사용되지 않습니다 */
+
 * {
     padding: 0;
     margin: 0;
@@ -43,11 +45,11 @@
     --teal2: #94E9E3;
     --teal3: #55DBD0;
     --teal4: #4FCCC3;
-    --teal5: #4CC2B9; /* Highlight */
+    --teal5: #4CC2B9;
     --teal6: #48ACA5;
     --teal7: #469B94;
     --teal8: #3D857F;
-    --teal9: #2D6560; /* Brand */
+    --teal9: #2D6560;
     
     --status-red: rgba(216, 80, 74, 1);
     --status-yellow: rgba(250, 175, 0, 1);
@@ -61,7 +63,6 @@
 
     /* Effect styles */
     --drop-shadow:  0px 4px 30px rgba(26, 30, 33, 0.1);
-
 
     --vh: 1vh;
 }
