@@ -1,9 +1,9 @@
 import styled from "styled-components"
+import { css } from "../../style";
 
 const CheckBoxDiv = styled.div`
     display: flex;
     align-items: center;
-    justify-content: space-between;
     gap: 8px;
 `
 
@@ -22,8 +22,10 @@ const Input = styled.input`
 
 const Icon = styled.svg`
     fill: none;
-    stroke: var(--gray1);
+    stroke: ${css.text5};
     stroke-width: 2px;
+    width: 18px;
+    height: 18px;
 `;
 
 interface FakeCheckBoxProps {
@@ -36,7 +38,6 @@ interface FakeCheckBoxProps {
 }
 
 const FakeCheckBox = styled.div<FakeCheckBoxProps>`
-    display: inline-block;
     min-width: 24px; 
     width: 24px;
     height: 24px;
@@ -44,9 +45,11 @@ const FakeCheckBox = styled.div<FakeCheckBoxProps>`
     background: ${(props) => props.backgroundColor};
     border-radius: 4px;
     transition: 200ms;
-    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-    cursor: ${(props) => props.disabled ? 'not-allowed' : 'cursor'};
+    cursor: ${(props) => props.disabled ? 'not-allowed' : 'pointer'};
 
     &:hover {
         border: solid 1px ${(props) => props.borderColorHover};
@@ -60,7 +63,7 @@ const FakeCheckBox = styled.div<FakeCheckBoxProps>`
 const Label = styled.div`
     display: block;
     font-size: 14px;
-    color: var(--gray6);
+    color: ${css.text3};
     margin-bottom: 4px;
 `
 
@@ -82,23 +85,23 @@ export function Checkbox(props: CheckboxProps) {
 
     if (props.value) {
         if (props.disabled) {
-            style.backgroundColor = 'var(--gray5)'
-            style.backgroundColorHover = 'var(--gray5)'
-            style.borderColor = 'var(--gray5)'
-            style.borderColorHover = 'var(--gray5)'
+            style.backgroundColor = css.bg_element6
+            style.backgroundColorHover = css.bg_element6
+            style.borderColor = css.bg_element6
+            style.borderColorHover = css.bg_element6
         } else {
-            style.backgroundColor = 'var(--gray9)'
-            style.backgroundColorHover = 'var(--gray9)'
-            style.borderColor = 'var(--gray9)'
-            style.borderColorHover = 'var(--gray9)'
+            style.backgroundColor = css.bg_element5
+            style.backgroundColorHover = css.bg_element5
+            style.borderColor = css.bg_element5
+            style.borderColorHover = css.bg_element5
         }
     } else {
         if (props.disabled) {
-            style.borderColor = 'var(--gray3)'
-            style.borderColorHover = 'var(--gray3)'
+            style.borderColor = css.border3
+            style.borderColorHover = css.border3
         } else {
-            style.borderColor = 'var(--gray4)'
-            style.borderColorHover = 'var(--gray4)'
+            style.borderColor = css.border3
+            style.borderColorHover = css.border3
         }
     }
 
@@ -108,13 +111,13 @@ export function Checkbox(props: CheckboxProps) {
 
     return (
         <CheckBoxDiv>
-            <Label>{props.label}</Label>
             <Input type={'checkbox'} checked={props.value} onChange={props.onChange} disabled={props.disabled} />
             <FakeCheckBox {...style} checked={props.value} onClick={onClick} disabled={props.disabled} >
                 <Icon viewBox="0 0 24 24">
                     <polyline points="19 7 10 17 5 12" />
                 </Icon>
             </FakeCheckBox>
+            <Label>{props.label}</Label>
         </CheckBoxDiv>
     )
 }

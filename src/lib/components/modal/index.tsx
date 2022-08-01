@@ -1,6 +1,7 @@
 import { X } from "phosphor-react"
 import { useEffect, useRef, useState } from "react"
 import styled, {keyframes} from "styled-components"
+import { css } from "../../style"
 
 const Divver = styled.div`
 
@@ -22,9 +23,9 @@ const Background = styled.div<{isOpen: Boolean}>`
     top: 0;
     left: 0;
     width: 100vw;
-    height: calc(var(--vh)*100);
+    height: calc(${css.vh}*100);
     z-index: 99998;
-    background-color: rgb(0, 0, 0);
+    background-color: ${css.black};
     transition: 200ms;
     opacity: ${props => props.isOpen ? 0.2 : 0};
 `
@@ -34,7 +35,7 @@ const ModalBoxDivver = styled.div`
     top: 0;
     left: 0;
     width: 100vw;
-    height: calc(var(--vh)*100);
+    height: calc(${css.vh}*100);
     z-index: 99999;
     display: flex;
     align-items: center;
@@ -45,7 +46,8 @@ const ModalBoxDivver = styled.div`
 `
 
 const ModalBox = styled.div<{isOpen: boolean, width: number}>`
-    background-color: #ffffff;
+    background-color: ${css.bg_page2};
+    color: ${css.text1};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     padding: 16px;
@@ -67,12 +69,13 @@ const ModalTitleBox = styled.div`
     align-items: center;
     justify-content: space-between;
     margin-bottom: 8px;
+    color: ${css.text1};
 `
 
 const CloseBtn = styled.div`
     cursor: pointer;
     padding: 6px;
-    background-color: #ffffff;
+    background-color: ${css.bg_element7};
     transition: 200ms;
     display: flex;
     align-items: center;
@@ -80,7 +83,7 @@ const CloseBtn = styled.div`
     border-radius: 25565px;
 
     &:hover {
-        background-color: var(--gray1);
+        background-color: ${css.bg_element8};
     }
 `
 

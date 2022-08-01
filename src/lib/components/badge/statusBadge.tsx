@@ -1,25 +1,26 @@
 import styled from "styled-components"
+import { css } from "../../style"
 
 const colorMap = {
     green: {
-        color: "var(--status-green)",
-        backgroundColor: 'var(--status-green-background)'
+        color: css.green1,
+        backgroundColor: css.bg_green1
     },
     red: {
-        color: "var(--status-red)",
-        backgroundColor: 'var(--status-red-background)'
+        color: css.red1,
+        backgroundColor: css.bg_red1
     },
     yellow: {
-        color: "var(--status-yellow)",
-        backgroundColor: 'var(--status-yellow-background)'
+        color: css.yellow1,
+        backgroundColor: css.bg_yellow1
     },
     blue: {
-        color: "var(--status-blue)",
-        backgroundColor: 'var(--status-yellow-background)'
+        color: css.blue1,
+        backgroundColor: css.bg_blue1
     },
     gray: {
-        color: "var(--gray7)",
-        backgroundColor: 'var(--gray2)'
+        color: css.text3,
+        backgroundColor: css.bg_element4
     },
 }
 
@@ -27,7 +28,7 @@ const Badge = styled.div<{color: 'red' | 'yellow' | 'green' | 'blue' | 'gray', s
     position: relative;
 
     ${props => props.size === 'small' && `background-color: ${colorMap[props.color].backgroundColor};`}
-    color: ${props => props.size === 'normal' ? '#555761' :colorMap[props.color].color};
+    color: ${props => colorMap[props.color].color};
     padding: ${props => props.size === 'normal' ? '4px 8px' : '0px 8px'};
     border-radius: 12px;
     height: 16px;

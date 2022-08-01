@@ -30,14 +30,19 @@ const Template = () => {
     )
 }
 
-const TemplateWrapper = () => {
+export const Primary = Template.bind({});
+
+
+const Template2 = () => {
+    const modal = useModal()
+
     return (
-        <>
-            <OpizeContextProvider>
-                <Template />
-            </OpizeContextProvider>
-        </>
+        <Divver>
+            <Button label='Open Modal' onClick={() => {
+                modal.open(<>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maxime ipsum praesentium molestias unde velit quas, sunt nesciunt animi, alias tempora. Totam ab voluptatum facere esse accusantium aut laboriosam dignissimos?</>, 'title')
+            }} />
+        </Divver>
     )
 }
 
-export const Primary = TemplateWrapper.bind({});
+export const WithTitle = Template2.bind({});

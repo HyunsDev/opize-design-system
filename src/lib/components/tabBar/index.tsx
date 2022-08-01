@@ -1,8 +1,9 @@
 import styled from "styled-components";
 import { useEffect, useRef, useState } from "react";
+import { css } from "../../style";
 
 const Div = styled.div`
-    border-bottom: solid 1px var(--gray3);
+    border-bottom: solid 1px ${css.border3};
     align-items: center;
     display: flex;
     position: relative;
@@ -23,7 +24,7 @@ const Item = styled.div`
     transition: 200ms;
 
     &:hover {
-        background-color: var(--gray1);
+        background-color: ${css.bg_element8};
     }
 `
 
@@ -35,11 +36,11 @@ interface UnderLineIF {
 const UnderLine = styled.div`
     position: absolute;
     transition: 100ms, left 200ms cubic-bezier(0, 0.61, 0.4, 1.15);
-    bottom: 0;
+    bottom: -1px;
     left: ${(props: UnderLineIF) => props.left || 0}px;
     width: ${(props: UnderLineIF) => props.width}px;
     height: 1px;
-    border-bottom: solid 2px var(--gray5);
+    border-bottom: solid 2px ${css.border1};
 `
 
 interface Props {

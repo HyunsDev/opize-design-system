@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { cssVar } from "../../style/css"
+import { css } from "../../style"
 import { IconContext } from 'phosphor-react'
 import '../../style/style.css'
 import { Spinner } from "../spinner"
@@ -78,40 +78,40 @@ function Button({
         if (color === 'gray') {
             if (!isDisabled) {
                 ButtonColor = {
-                    bgColor: cssVar('gray8'),
-                    bgColorHover: cssVar('white'),
-                    borderColor: cssVar('gray8'),
-                    borderColorHover: cssVar('gray9'),
-                    color: cssVar('white'),
-                    colorHover: cssVar('black')
+                    bgColor: css.bg_element5,
+                    bgColorHover: css.bg_element7,
+                    borderColor: css.bg_element5,
+                    borderColorHover: '',
+                    color: css.bg_element7,
+                    colorHover: css.bg_element5
                 }
             } else {
                 ButtonColor = {
-                    bgColor: cssVar('gray5'),
+                    bgColor: css.bg_element3,
                     bgColorHover: '',
-                    borderColor: cssVar('gray5'),
+                    borderColor: css.bg_element3,
                     borderColorHover: '',
-                    color: cssVar('white'),
+                    color: css.bg_element7,
                     colorHover: ''
                 }
             }
         } else if (color === 'red') {
             if (!isDisabled) {
                 ButtonColor = {
-                    bgColor: cssVar('red7'),
-                    bgColorHover: cssVar('white'),
-                    borderColor: cssVar('red7'),
+                    bgColor: css.red1,
+                    bgColorHover: css.bg_element7,
+                    borderColor: css.red1,
                     borderColorHover: '',
-                    color: cssVar('white'),
-                    colorHover: cssVar('red7')
+                    color: css.bg_element7,
+                    colorHover: css.red1
                 }
             } else {
                 ButtonColor = {
-                    bgColor: cssVar('red3'),
+                    bgColor: css.bg_red1,
                     bgColorHover: '',
-                    borderColor: cssVar('red3'),
+                    borderColor: css.bg_red1,
                     borderColorHover: '',
-                    color: cssVar('white'),
+                    color: css.bg_element7,
                     colorHover: ''
                 }
             }
@@ -120,40 +120,40 @@ function Button({
         if (color === 'gray') {
             if (!isDisabled) {
                 ButtonColor = {
-                    bgColor: cssVar('gray0'),
-                    bgColorHover: cssVar('gray1'),
-                    borderColor: cssVar('gray4'),
-                    borderColorHover: cssVar('gray4'),
-                    color: cssVar('black'),
+                    bgColor: css.bg_element2,
+                    bgColorHover: css.bg_element3,
+                    borderColor: css.border2,
+                    borderColorHover: '',
+                    color: css.text1,
                     colorHover: ''
                 }
             } else {
                 ButtonColor = {
-                    bgColor: cssVar('white'),
+                    bgColor: css.white,
                     bgColorHover: '',
-                    borderColor: cssVar('gray5'),
+                    borderColor: css.border3,
                     borderColorHover: '',
-                    color: cssVar('gray5'),
+                    color: css.border3,
                     colorHover: ''
                 }
             }
         } else if (color === 'red') {
             if (!isDisabled) {
                 ButtonColor = {
-                    bgColor: cssVar('red0'),
-                    bgColorHover: '',
-                    borderColor: cssVar('red4'),
-                    borderColorHover: cssVar('red9'),
-                    color: cssVar('red9'),
+                    bgColor: css.bg_red1,
+                    bgColorHover: css.bg_red1_hover,
+                    borderColor: css.red1,
+                    borderColorHover: '',
+                    color: css.red1,
                     colorHover: ''
                 }
             } else {
                 ButtonColor = {
-                    bgColor: cssVar('white'),
+                    bgColor: css.white,
                     bgColorHover: '',
-                    borderColor: cssVar('red3'),
+                    borderColor: css.bg_red1,
                     borderColorHover: '',
-                    color: cssVar('red3'),
+                    color: css.bg_red1,
                     colorHover: ''
                 }
             }
@@ -162,40 +162,40 @@ function Button({
         if (color === 'gray') {
             if (!isDisabled) {
                 ButtonColor = {
-                    bgColor: cssVar('white'),
-                    bgColorHover: cssVar('gray1'),
-                    borderColor: cssVar('white'),
+                    bgColor: css.bg_element1,
+                    bgColorHover: css.bg_element2,
+                    borderColor: css.bg_element1,
                     borderColorHover: '',
-                    color: cssVar('black'),
-                    colorHover: ''
+                    color: css.text3,
+                    colorHover: css.text1
                 }
             } else {
                 ButtonColor = {
-                    bgColor: cssVar('white'),
+                    bgColor: css.bg_element1,
                     bgColorHover: '',
-                    borderColor: cssVar('white'),
+                    borderColor: css.bg_element1,
                     borderColorHover: '',
-                    color: cssVar('gray5'),
+                    color: css.text3,
                     colorHover: ''
                 }
             }
         } else if (color === 'red') {
             if (!isDisabled) {
                 ButtonColor = {
-                    bgColor: cssVar('white'),
-                    bgColorHover: cssVar('red1'),
-                    borderColor: cssVar('white'),
+                    bgColor: css.bg_element1,
+                    bgColorHover: css.bg_red1,
+                    borderColor: css.bg_element1,
                     borderColorHover: '',
-                    color: cssVar('red9'),
+                    color: css.red1,
                     colorHover: ''
                 }
             } else {
                 ButtonColor = {
-                    bgColor: cssVar('white'),
+                    bgColor: css.white,
                     bgColorHover: '',
-                    borderColor: cssVar('white'),
+                    borderColor: css.white,
                     borderColorHover: '',
-                    color: cssVar('red3'),
+                    color: css.red1,
                     colorHover: ''
                 }
             }
@@ -204,7 +204,7 @@ function Button({
 
     return (
         <ButtonDiv isDisabled={isDisabled} isOnlyIcon={!!icon && !label} {...ButtonColor} onClick={() => onClick()}>
-            { isLoading && <Spinner size={14} color={cssVar('local-color')} />}
+            { isLoading && <Spinner size={14} color='var(--local-color)' />}
 
             <IconContext.Provider
                 value={{

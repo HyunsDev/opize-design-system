@@ -1,6 +1,7 @@
 import { IconContext } from "phosphor-react"
 import { useCallback, useEffect, useRef, useState } from "react"
 import styled, { keyframes } from "styled-components"
+import { css } from "../../style"
 
 const ActionMenuDiv = styled.div`
     display: flex;
@@ -22,10 +23,10 @@ const ButtonDiv = styled.div<{isOpen: boolean, onlyIcon: boolean}>`
     gap: 6px;
     
     border-radius: ${props => props.onlyIcon ? '99999px' : '4px'};
-    background-color: ${props => props.isOpen ? 'var(--gray1)' : '#ffffff'};
+    background-color: ${props => props.isOpen ? css.bg_element8 : css.bg_element7};
 
     &:hover {
-        background-color: var(--gray1);
+        background-color: ${css.bg_element8};
     }
 `
 
@@ -60,14 +61,14 @@ const OverlayDiv = styled.div<{top?: number, right?: number; bottom?: number, le
     ${props => props.left !== undefined && `left: ${props.left}px;`};
     padding: 8px 0px;
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 8%);
-    background-color: #ffffff;
+    background-color: ${css.bg_element7};
     font-size: 14px;
     display: flex;
     flex-direction: column;
     gap: 0px;
     z-index: 10;
     border-radius: 8px;
-    border: solid 1px var(--gray3);
+    border: solid 1px ${css.border3};
     animation: ${props => props.top !== undefined ? FadeInFromTop : FadeInFromBottom} 180ms cubic-bezier(0.07, 0.75, 0.54, 0.93);
 `
 
@@ -76,9 +77,9 @@ const ActionsDiv = styled.div`
     flex-direction: column;
     gap: 0px;
     width: 100%;
-    padding: 0px 8px;
+    padding: 0px 6px;
 
-    border-bottom: solid 1px var(--gray3);
+    border-bottom: solid 1px ${css.border3};
     padding-bottom: 8px;
     margin-bottom: 8px;
     &:last-child {
@@ -92,16 +93,16 @@ const ActionDiv = styled.div<{color: 'normal' | 'red'}>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4px 8px;
+    padding: 6px 10px;
     border-radius: 4px;
-    background-color: #ffffff;
+    background-color: ${css.bg_element7};
     cursor: pointer;
     transition: background-color 50ms;
     user-select: none;
-    ${props => props.color === 'red' && 'color: var(--status-red)'};
+    ${props => props.color === 'red' && `color: ${css.red1}`};
 
     &:hover {
-        background-color: ${props => props.color === 'red' ? 'var(--status-red-background)' : 'var(--gray1)'};
+        background-color: ${props => props.color === 'red' ? css.bg_red1 : css.bg_element8};
     }
 `
 
@@ -192,7 +193,7 @@ export function ActionMenu({actions, label, icon}: {
                 value={{
                     size: 16,
                     weight: 'bold',
-                    color: 'var(--gray5)'
+                    color: css.text3
                 }}    
             >
                 {
