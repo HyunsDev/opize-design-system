@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Button } from '../../components'
 import styled from 'styled-components';
 import { useModal } from '../useModal';
-import { OpizeDesignSystemContextProvider } from '../../context';
+import { OpizeContextProvider } from '../../context';
 import { useDialog } from '.';
 
 export default {
@@ -67,9 +67,9 @@ const Template = () => {
 const TemplateWrapper = () => {
     return (
         <>
-            <OpizeDesignSystemContextProvider>
+            <OpizeContextProvider>
                 <Template />
-            </OpizeDesignSystemContextProvider>
+            </OpizeContextProvider>
         </>
     )
 }

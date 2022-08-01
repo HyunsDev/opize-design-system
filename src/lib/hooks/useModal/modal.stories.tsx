@@ -3,7 +3,7 @@ import React from 'react';
 import { Button } from '../../components'
 import styled from 'styled-components';
 import { useModal } from '.';
-import { OpizeDesignSystemContextProvider } from '../../context';
+import { OpizeContextProvider } from '../../context';
 
 export default {
   title: 'Library/Modal',
@@ -33,9 +33,9 @@ const Template = () => {
 const TemplateWrapper = () => {
     return (
         <>
-            <OpizeDesignSystemContextProvider>
+            <OpizeContextProvider>
                 <Template />
-            </OpizeDesignSystemContextProvider>
+            </OpizeContextProvider>
         </>
     )
 }
