@@ -10,7 +10,7 @@ const Buttons = styled.div`
     justify-content: flex-end;
 `
 
-type DialogButtonType = (ButtonProps & { closeModal?: boolean })
+type DialogButtonType = (ButtonProps & { closeModal?: boolean, onClick: Function })
 
 function DialogScreen(props: {
     content?: string

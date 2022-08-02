@@ -1,8 +1,9 @@
-import styled from "styled-components"
+import styled, { css as styledCss } from "styled-components"
 import { css } from "../../style"
 import { IconContext } from 'phosphor-react'
 import '../../style/style.css'
 import { Spinner } from "../spinner"
+import { Link } from "react-router-dom"
 
 const ButtonDiv = styled.button<{
     bgColor: string,
@@ -15,7 +16,6 @@ const ButtonDiv = styled.button<{
     isDisabled: boolean
     isOnlyIcon: boolean
 }>`
-    display: flex;
     justify-content: center;
     align-items: center;
     padding: ${props => props.isOnlyIcon ? '7px' : '7px 14px'};
@@ -24,6 +24,7 @@ const ButtonDiv = styled.button<{
     font-size: 14px;
     border: 0;
     border-radius: 4px;
+    text-decoration: none;
 
     transition: 200ms;
     cursor: ${props => props.isDisabled ? 'not-allowed' : 'pointer'};
@@ -47,8 +48,11 @@ export interface ButtonProps {
     isDisabled?: boolean
     isLoading?: boolean
     icon?: React.ReactNode | string
-    onClick: Function
+    onClick?: Function,
+    to?: string,
 }
+
+// const ButtonA = (props: any) => <Link to={props.to}><buttonA  /></Link>
 
 function Button({
     label,
@@ -57,7 +61,8 @@ function Button({
     isLoading = false,
     color = 'gray',
     icon,
-    onClick
+    onClick,
+    to
 }: ButtonProps) {
     // 아이콘
     let Icon
@@ -202,21 +207,48 @@ function Button({
         }
     }
 
-    return (
-        <ButtonDiv isDisabled={isDisabled} isOnlyIcon={!!icon && !label} {...ButtonColor} onClick={() => onClick()}>
+    const children = (
+        <>
             { isLoading && <Spinner size={14} color='var(--local-color)' />}
 
             <IconContext.Provider
                 value={{
                     size: 16,
                     weight: "bold",
-                 }}
+                }}
             >
                 {Icon || icon}
             </IconContext.Provider>
             {label}
-        </ButtonDiv>
+        </>
     )
+
+    if (to && to?.includes('http')) {
+        return (
+            <a href={to}>
+                <ButtonDiv isDisabled={isDisabled} isOnlyIcon={!!icon && !label} {...ButtonColor}>
+                    {children}
+                </ButtonDiv>
+            </a>
+        )
+    } else if (to) {
+        return (
+            <Link to={to}>
+                <ButtonDiv isDisabled={isDisabled} isOnlyIcon={!!icon && !label} {...ButtonColor}>
+                    {children}
+                </ButtonDiv>
+            </Link>
+        )
+    }else if (onClick) {
+         return (
+            <ButtonDiv isDisabled={isDisabled} isOnlyIcon={!!icon && !label} {...ButtonColor} onClick={() => onClick && onClick()}>
+                {children}
+            </ButtonDiv>
+        )
+    } else {
+        console.error("<Button /> Need 'onClick' or 'to' prop")
+        return (<></>)
+    }
 }
 
 export {

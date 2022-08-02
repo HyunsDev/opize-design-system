@@ -17,7 +17,14 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    label: "hello, World!"
+    label: "hello, World!",
+    onClick: () => null
+};
+
+export const Link = Template.bind({});
+Link.args = {
+    label: "hello, World!",
+    to: '/'
 };
 
 export const OnlyIcon = Template.bind({});
