@@ -1,4 +1,4 @@
-import styled, { css as styledCss } from "styled-components"
+import styled from "styled-components"
 import { css } from "../../style"
 import { IconContext } from 'phosphor-react'
 import '../../style/style.css'
@@ -12,13 +12,13 @@ const ButtonDiv = styled.button<{
     borderColorHover: string,
     color: string,
     colorHover: string
-
     isDisabled: boolean
-    isOnlyIcon: boolean
+    padding: string
 }>`
+    display: flex;
     justify-content: center;
     align-items: center;
-    padding: ${props => props.isOnlyIcon ? '7px' : '7px 14px'};
+    padding: ${props => props.padding};
     gap: 8px;
 
     font-size: 14px;
@@ -41,10 +41,19 @@ const ButtonDiv = styled.button<{
     }
 `
 
+const StyledLink = styled(Link)`
+    text-decoration: none;
+`
+
+const A = styled.a`
+    text-decoration: none;
+`
+
 export interface ButtonProps {
     label?: string
     variant?: 'contained' | 'outlined' | 'text'
-    color?: 'gray' | 'red'
+    color?: 'gray' | 'red',
+    size?: 'medium' | 'large',
     isDisabled?: boolean
     isLoading?: boolean
     icon?: React.ReactNode | string
@@ -60,6 +69,7 @@ function Button({
     isDisabled = false,
     isLoading = false,
     color = 'gray',
+    size = 'medium',
     icon,
     onClick,
     to
@@ -207,6 +217,21 @@ function Button({
         }
     }
 
+    let padding = ''
+    if (size === 'medium') {
+        if (!!icon && !label) {
+            padding = '7px'
+        } else {
+            padding = '7px 14px'
+        }
+    } else if (size === 'large') {
+        if (!!icon && !label) {
+            padding = '10px'
+        } else {
+            padding = '10px 20px'
+        }
+    }
+
     const children = (
         <>
             { isLoading && <Spinner size={14} color='var(--local-color)' />}
@@ -225,23 +250,23 @@ function Button({
 
     if (to && to?.includes('http')) {
         return (
-            <a href={to}>
-                <ButtonDiv isDisabled={isDisabled} isOnlyIcon={!!icon && !label} {...ButtonColor}>
+            <A href={to}>
+                <ButtonDiv isDisabled={isDisabled} {...ButtonColor} padding={padding}>
                     {children}
                 </ButtonDiv>
-            </a>
+            </A>
         )
     } else if (to) {
         return (
-            <Link to={to}>
-                <ButtonDiv isDisabled={isDisabled} isOnlyIcon={!!icon && !label} {...ButtonColor}>
+            <StyledLink to={to}>
+                <ButtonDiv isDisabled={isDisabled} {...ButtonColor} padding={padding}>
                     {children}
                 </ButtonDiv>
-            </Link>
+            </StyledLink>
         )
     }else if (onClick) {
          return (
-            <ButtonDiv isDisabled={isDisabled} isOnlyIcon={!!icon && !label} {...ButtonColor} onClick={() => onClick && onClick()}>
+            <ButtonDiv isDisabled={isDisabled} {...ButtonColor} onClick={() => onClick && onClick()} padding={padding}>
                 {children}
             </ButtonDiv>
         )
