@@ -28,7 +28,7 @@ const Badge = styled.div<{color: 'red' | 'yellow' | 'green' | 'blue' | 'gray', s
     position: relative;
 
     ${props => props.size === 'small' && `background-color: ${colorMap[props.color].backgroundColor};`}
-    color: ${props => colorMap[props.color].color};
+    color: ${props => props.size === 'small' ? colorMap[props.color].color : css.text3};
     padding: ${props => props.size === 'normal' ? '4px 8px' : '0px 8px'};
     border-radius: 12px;
     height: 16px;
