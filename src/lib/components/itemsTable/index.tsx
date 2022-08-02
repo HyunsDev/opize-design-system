@@ -33,6 +33,7 @@ const ItemDiv = styled.div`
     align-items: center;
     justify-content: space-between;
     padding: 16px;
+    gap: 8px;
     border-right: solid 1px ${css.border3};
     border-left: solid 1px ${css.border3};
     border-top: solid 1px ${css.border3};
@@ -69,11 +70,12 @@ const ItemsDiv = styled.div`
     }
 `
 
-const AvatarDiv = styled.div`
+const AvatarDiv = styled.div<{flex?: number}>`
     display: flex;
     align-items: center;
     gap: 8px;
-    width: 250px;
+    flex: ${props => props.flex || 1};
+    width: 100%;
 `
 
 const AvatarIcon = styled.img`
@@ -91,7 +93,7 @@ const AvatarInfo = styled.div`
 `
 
 const AvatarName = styled.div`
-    color: ${css.text2};  
+    color: ${css.text2};
     font-size: 14px;
     line-height: 17px;
     font-weight: 600;
@@ -102,11 +104,13 @@ const AvatarLabel = styled.div`
     color: ${css.text2};
 `
 
-const StateDiv = styled.div`
+const StateDiv = styled.div<{flex?: number}>`
     width: 120px;
     display: flex;
     flex-direction: column;
     gap: 2px;
+    flex: ${props => props.flex || 1};
+    width: 100%;
 
     @media ( max-width: 767px ) {
         margin-top: 4px;
@@ -116,17 +120,20 @@ const StateDiv = styled.div`
     }
 `
 
-const TypeDiv = styled.div`
+const TypeDiv = styled.div<{flex?: number}>`
     color:  ${css.text2};
     font-size: 14px;
     margin-left: 8px;
+    flex: ${props => props.flex || 1};
+    width: 100%;
 `
 
-const TextsDiv = styled.div`
-    flex: 1;
+const TextsDiv = styled.div<{flex?: number}>`
+    flex: ${props => props.flex || 3};
     display: flex;
     flex-direction: column;
     gap: 2px;
+    width: 100%;
 `
 
 const TextDiv = styled.div`
@@ -142,6 +149,7 @@ const SubTextDiv = styled.div`
 
 interface Avatar {
     type: 'avatar'
+    flex?: number
     icon: string | React.ReactElement
     name: string
     label: string
@@ -149,18 +157,21 @@ interface Avatar {
 
 interface Status {
     type: 'status'
+    flex?: number
     status: 'stateless' | 'error' | 'warning' | 'done' | 'good'
     label?: string
 }
 
 interface Text {
     type?: 'text'
+    flex?: number
     text?: string
     subText?: string
 }
 
 interface Buttons {
     type: 'buttons'
+    flex?: number
     button: {
         label: string
         onClick: Function
