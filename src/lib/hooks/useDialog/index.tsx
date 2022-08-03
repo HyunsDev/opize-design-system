@@ -8,9 +8,10 @@ const Buttons = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
+    gap: 8px;
 `
 
-type DialogButtonType = (ButtonProps & { closeModal?: boolean })
+type DialogButtonType = (ButtonProps & { closeModal?: boolean, onClick: Function })
 
 function DialogScreen(props: {
     content?: string

@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { css } from "../../style"
+import { cv } from "../../style"
 
 interface Props {
     type: 'text' | 'password' | 'search' | 'url'
@@ -25,24 +25,24 @@ const Input = styled.textarea<Props>`
     height: 100px;
 
     transition: 100ms, height 0ms;
-    border: solid 1px ${css.border3};
-    outline: solid 0px ${css.outline};
+    border: solid 1px ${cv.border3};
+    outline: solid 0px ${cv.outline};
 
     &:focus {
-        outline: solid 3px ${css.outline};
+        outline: solid 3px ${cv.outline};
     }
 `
 
 const Label = styled.label`
     display: block;
     font-size: 12px;
-    color: ${css.text3};
+    color: ${cv.text3};
     margin-bottom: 4px;
 `
 
 const Message = styled.div`
     height: 20px;
-    color: ${css.red1};
+    color: ${cv.red1};
     font-size: 12px;
     margin-top: 4px;
 `

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 
 export default {
-  title: 'Library/FileField',
+  title: 'Library/input/FileField',
   component: FileField,
   argTypes: {
     // backgroundColor: { control: 'color' },

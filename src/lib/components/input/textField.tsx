@@ -1,6 +1,6 @@
 import styled from "styled-components"
 import { IconContext } from 'phosphor-react'
-import { css } from "../../style"
+import { cv } from "../../style"
 
 type ButtonAddon = {
     type: 'button',
@@ -30,33 +30,32 @@ const Divver = styled.div`
 const Input = styled.input<TextFieldProps>`
     z-index: 1;
     padding: 0px 12px;
-    border-radius: 4px;
     height: 100%;
     display: flex;
     align-items: center;
-    transition: 100ms;
+    transition: 200ms;
     flex: 1;
     border: 0;
     font-size: 14px;
+    border-radius: 2px;
 
-    outline: solid 0px ${css.outline};
+    outline: solid 3px rgba(0,0,0,0);
     &:focus {
         border: 0;
-        outline: 0;
-        outline: solid 3px ${css.outline};
+        outline: solid 3px ${cv.outline};
     }
 `
 
 const Label = styled.label`
     display: block;
     font-size: 14px;
-    color: ${css.text3};
+    color: ${cv.text3};
     margin-bottom: 4px;
 `
 
 const Message = styled.div`
     height: 20px;
-    color: ${css.red1};
+    color: ${cv.red1};
     font-size: 14px;
     margin-top: 4px;
 `
@@ -66,7 +65,7 @@ const Inputs = styled.div`
     align-items: center;
     border-radius: 4px;
     height: 32px;
-    border: solid 1px ${css.border3};
+    border: solid 1px ${cv.border3};
 `
 
 const AddonTextDiv = styled.div<{position: 'left' | 'right'}>`
@@ -75,9 +74,9 @@ const AddonTextDiv = styled.div<{position: 'left' | 'right'}>`
     align-items: center;
     height: 100%;
     font-size: 14px;
-    background-color: ${css.bg_element3};
+    background-color: ${cv.bg_element3};
 
-    ${props => props.position === 'left' ? `border-right: solid 1px ${css.border3};` : `border-left: solid 1px ${css.border3};`};
+    ${props => props.position === 'left' ? `border-right: solid 1px ${cv.border3};` : `border-left: solid 1px ${cv.border3};`};
     ${props => props.position === 'left'
         ? `border-bottom-left-radius: 4px; border-top-left-radius: 4px;`
         : 'border-bottom-right-radius: 4px; border-top-right-radius: 4px;'};
@@ -89,11 +88,11 @@ const AddonButtonDiv = styled.div<{position: 'left' | 'right'}>`
     align-items: center;
     height: 100%;
     font-size: 14px;
-    background-color: ${css.bg_element5};
+    background-color: ${cv.bg_element5};
     color: #ffffff;
     cursor: pointer;
 
-    ${props => props.position === 'left' ? `border-right: solid 1px ${css.border3};` : `border-left: solid 1px ${css.border3};`};
+    ${props => props.position === 'left' ? `border-right: solid 1px ${cv.border3};` : `border-left: solid 1px ${cv.border3};`};
     ${props => props.position === 'left'
         ? `border-bottom-left-radius: 4px; border-top-left-radius: 4px;`
         : 'border-bottom-right-radius: 4px; border-top-right-radius: 4px;'};
@@ -123,7 +122,7 @@ export function TextField(props:TextFieldProps) {
         <IconContext.Provider value={{
             weight: 'bold',
             size: 14,
-            color: css.text5
+            color: cv.text5
         }}>
             <Divver>
                 {props.label && (<Label>{props.label}</Label>)}

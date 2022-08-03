@@ -1,6 +1,6 @@
 import { useState } from "react"
 import styled from "styled-components"
-import { css } from "../../style"
+import { cv } from "../../style"
 
 const ToolTipBox = styled.div`
     position: absolute;
@@ -8,8 +8,8 @@ const ToolTipBox = styled.div`
     visibility: hidden;
     transition: 100ms;
 
-    background-color: ${css.bg_element5};
-    color: ${css.text5};
+    background-color: ${cv.bg_element5};
+    color: ${cv.text5};
     font-size: 12px;
     border-radius: 6px;
     padding: 4px 8px;
@@ -48,7 +48,7 @@ const ToolTipBoxTop = styled(ToolTipBox)`
         top: 100%;
         left: 50%;
         transform: translate(-50%, 0%);
-        border-color: ${css.bg_element5} transparent transparent transparent;
+        border-color: ${cv.bg_element5} transparent transparent transparent;
     }
 `
 
@@ -61,7 +61,7 @@ const ToolTipBoxBottom = styled(ToolTipBox)`
         bottom: 100%;
         left: 50%;
         transform: translate(-50%, 0%);
-        border-color: transparent transparent ${css.bg_element5} transparent;
+        border-color: transparent transparent ${cv.bg_element5} transparent;
     }
 `
 
@@ -72,7 +72,7 @@ const ToolTipBoxRight = styled(ToolTipBox)`
     &::after {
         top: 25%;
         right: 100%;
-        border-color: transparent ${css.bg_element5} transparent transparent;
+        border-color: transparent ${cv.bg_element5} transparent transparent;
     }
 `
 
@@ -83,7 +83,7 @@ const ToolTipBoxLeft = styled(ToolTipBox)`
     &::after {
         top: 35%;
         left: 100%;
-        border-color: transparent transparent transparent ${css.bg_element5};
+        border-color: transparent transparent transparent ${cv.bg_element5};
     }
 `
 

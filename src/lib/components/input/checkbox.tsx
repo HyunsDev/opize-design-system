@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { css } from "../../style";
+import { cv } from "../../style";
 
 const CheckBoxDiv = styled.div`
     display: flex;
@@ -22,7 +22,7 @@ const Input = styled.input`
 
 const Icon = styled.svg`
     fill: none;
-    stroke: ${css.text5};
+    stroke: ${cv.text5};
     stroke-width: 2px;
     width: 18px;
     height: 18px;
@@ -63,7 +63,7 @@ const FakeCheckBox = styled.div<FakeCheckBoxProps>`
 const Label = styled.div`
     display: block;
     font-size: 14px;
-    color: ${css.text3};
+    color: ${cv.text3};
     margin-bottom: 4px;
 `
 
@@ -85,23 +85,23 @@ export function Checkbox(props: CheckboxProps) {
 
     if (props.value) {
         if (props.disabled) {
-            style.backgroundColor = css.bg_element6
-            style.backgroundColorHover = css.bg_element6
-            style.borderColor = css.bg_element6
-            style.borderColorHover = css.bg_element6
+            style.backgroundColor = cv.bg_element6
+            style.backgroundColorHover = cv.bg_element6
+            style.borderColor = cv.bg_element6
+            style.borderColorHover = cv.bg_element6
         } else {
-            style.backgroundColor = css.bg_element5
-            style.backgroundColorHover = css.bg_element5
-            style.borderColor = css.bg_element5
-            style.borderColorHover = css.bg_element5
+            style.backgroundColor = cv.bg_element5
+            style.backgroundColorHover = cv.bg_element5
+            style.borderColor = cv.bg_element5
+            style.borderColorHover = cv.bg_element5
         }
     } else {
         if (props.disabled) {
-            style.borderColor = css.border3
-            style.borderColorHover = css.border3
+            style.borderColor = cv.border3
+            style.borderColorHover = cv.border3
         } else {
-            style.borderColor = css.border3
-            style.borderColorHover = css.border3
+            style.borderColor = cv.border3
+            style.borderColorHover = cv.border3
         }
     }
 

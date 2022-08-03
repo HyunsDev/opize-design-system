@@ -1,26 +1,26 @@
 import styled from "styled-components"
-import { css } from "../../style"
+import { cv } from "../../style"
 
 const colorMap = {
     green: {
-        color: css.green1,
-        backgroundColor: css.bg_green1
+        color: cv.green1,
+        backgroundColor: cv.bg_green1
     },
     red: {
-        color: css.red1,
-        backgroundColor: css.bg_red1
+        color: cv.red1,
+        backgroundColor: cv.bg_red1
     },
     yellow: {
-        color: css.yellow1,
-        backgroundColor: css.bg_yellow1
+        color: cv.yellow1,
+        backgroundColor: cv.bg_yellow1
     },
     blue: {
-        color: css.blue1,
-        backgroundColor: css.bg_blue1
+        color: cv.blue1,
+        backgroundColor: cv.bg_blue1
     },
     gray: {
-        color: css.text3,
-        backgroundColor: css.bg_element4
+        color: cv.text3,
+        backgroundColor: cv.bg_element4
     },
 }
 
@@ -28,7 +28,7 @@ const Badge = styled.div<{color: 'red' | 'yellow' | 'green' | 'blue' | 'gray', s
     position: relative;
 
     ${props => props.size === 'small' && `background-color: ${colorMap[props.color].backgroundColor};`}
-    color: ${props => colorMap[props.color].color};
+    color: ${props => props.size === 'small' ? colorMap[props.color].color : cv.text3};
     padding: ${props => props.size === 'normal' ? '4px 8px' : '0px 8px'};
     border-radius: 12px;
     height: 16px;
