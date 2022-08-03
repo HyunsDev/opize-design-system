@@ -1,5 +1,5 @@
 import styled from "styled-components"
-import { css } from "../../style"
+import { cv } from "../../style"
 
 interface TextFieldProps {
     value: any
@@ -20,28 +20,28 @@ const Input = styled.input`
     padding: 0px 12px;
     height: 32px;
     transition: 100ms;
-    border: solid 1px ${css.border3};
-    outline: solid 0px ${css.outline};
+    border: solid 1px ${cv.border3};
+    outline: solid 0px ${cv.outline};
     
     display: flex;
     align-items: center;
 
     &:focus {
-        border: solid 1px ${css.border3};
-        outline: solid 3px ${css.outline};
+        border: solid 1px ${cv.border3};
+        outline: solid 3px ${cv.outline};
     }
 `
 
 const Label = styled.label`
     display: block;
     font-size: 12px;
-    color: ${css.text3};
+    color: ${cv.text3};
     margin-bottom: 4px;
 `
 
 const Message = styled.div<{error: boolean}>`
     height: 20px;
-    color: ${(props) => props.error ? css.red1 : css.text3};
+    color: ${(props) => props.error ? cv.red1 : cv.text3};
     font-size: 12px;
     margin-top: 4px;
 `

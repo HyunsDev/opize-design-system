@@ -2,7 +2,7 @@ import { DotsThreeVertical, IconContext } from "phosphor-react"
 import styled from "styled-components"
 import { ActionMenu } from "../actionMenu"
 import { StatusBadge } from ".."
-import { css } from "../../style"
+import { cv } from "../../style"
 
 const ItemButton = styled.div`
     position: relative;
@@ -34,9 +34,9 @@ const ItemDiv = styled.div`
     justify-content: space-between;
     padding: 16px;
     gap: 8px;
-    border-right: solid 1px ${css.border3};
-    border-left: solid 1px ${css.border3};
-    border-top: solid 1px ${css.border3};
+    border-right: solid 1px ${cv.border3};
+    border-left: solid 1px ${cv.border3};
+    border-top: solid 1px ${cv.border3};
 
     @media ( max-width: 767px ) {
         flex-direction: column;
@@ -61,8 +61,8 @@ const ItemDiv = styled.div`
 
 const ItemsDiv = styled.div`
     margin-top: 8px;
-    border-top: solid 1px ${css.border3};
-    border-bottom: solid 1px ${css.border3};
+    border-top: solid 1px ${cv.border3};
+    border-bottom: solid 1px ${cv.border3};
     border-radius: 8px;
 
     ${ItemDiv}:hover ${ItemButton} {
@@ -80,7 +80,7 @@ const AvatarDiv = styled.div<{flex?: number}>`
 
 const AvatarIcon = styled.img`
     border-radius: 999px;
-    background-color: ${css.bg_element2};
+    background-color: ${cv.bg_element2};
 
     width: 36px;
     height: 36px;
@@ -93,7 +93,7 @@ const AvatarInfo = styled.div`
 `
 
 const AvatarName = styled.div`
-    color: ${css.text2};
+    color: ${cv.text2};
     font-size: 14px;
     line-height: 17px;
     font-weight: 600;
@@ -101,7 +101,7 @@ const AvatarName = styled.div`
 
 const AvatarLabel = styled.div`
     font-size: 14px;
-    color: ${css.text2};
+    color: ${cv.text2};
 `
 
 const StateDiv = styled.div<{flex?: number}>`
@@ -121,7 +121,7 @@ const StateDiv = styled.div<{flex?: number}>`
 `
 
 const TypeDiv = styled.div<{flex?: number}>`
-    color:  ${css.text2};
+    color:  ${cv.text2};
     font-size: 14px;
     margin-left: 8px;
     flex: ${props => props.flex || 1};
@@ -138,12 +138,12 @@ const TextsDiv = styled.div<{flex?: number}>`
 
 const TextDiv = styled.div`
     font-weight: 600;
-    color: ${css.text2};  
+    color: ${cv.text2};  
     font-size: 14px;
 `
 
 const SubTextDiv = styled.div`
-    color: ${css.text2};  
+    color: ${cv.text2};  
     font-size: 14px;  
 `
 
@@ -203,11 +203,11 @@ function capitalize(str:string) {
 
 const A = styled.a`
     text-decoration: none;
-    color: ${css.text3};
+    color: ${cv.text3};
     transition: 125ms;
 
     &:hover {
-        color: ${css.text2};
+        color: ${cv.text2};
     }
 `
 
@@ -219,7 +219,7 @@ export function ItemsTable(props: Props) {
                 value={{
                     size: 36,
                     weight: 'regular',
-                    color: css.border1
+                    color: cv.border1
                 }}    
             >
             {

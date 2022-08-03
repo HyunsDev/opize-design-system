@@ -63,12 +63,12 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
         bg_element5: '#212529',
         bg_element6: '#343A40',
         bg_element7: '#FFFFFF',
-        bg_element8: '#f1f5fa',
+        bg_element8: '#f5f6f8',
 
         border1: '#343A40',
         border2: '#ADB5BD',
         border3: '#c9d1da', // gray4
-        border4: '#F1F3F5',
+        border4: '#e5e9ec',
         outline: '#acd7ff', //blue3
 
         text1: '#212529',

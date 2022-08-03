@@ -1,6 +1,5 @@
 import styled from "styled-components";
 
-
 export const FlexRow = styled.div<{gap?: number}>`
     display: flex;
     align-items: center;
@@ -25,4 +24,11 @@ export const FlexBetween = styled.div<{gap?: number}>`
     gap: ${props => props.gap || 8}px;
     align-items: center;
     justify-content: space-between;
+`
+
+export const Flex = styled.div<{
+    flexDirection?: 'row' | 'column',
+}>`
+    display: flex;
+    gap: 8px;
 `
