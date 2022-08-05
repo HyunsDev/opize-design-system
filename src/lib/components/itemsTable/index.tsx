@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { ActionMenu } from "../actionMenu"
 import { StatusBadge } from ".."
 import { cv } from "../../style"
+import { ComponentProps } from "react"
 
 const ItemButton = styled.div`
     position: relative;
@@ -285,5 +286,4 @@ export function ItemsTable(props: Props) {
     )
 }
 
-export type ItemsType = Item[]
-export type ItemType = Item
+export type ItemsTableProps = ComponentProps<typeof ItemsTable>

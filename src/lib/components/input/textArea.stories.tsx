@@ -1,6 +1,5 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Check } from 'phosphor-react'
 
 import { TextArea } from '.';
 import styled from 'styled-components';
@@ -25,9 +24,4 @@ const Template: ComponentStory<typeof TextArea> = (args) => <Width500><TextArea 
 export const Primary = Template.bind({});
 Primary.args = {
 
-};
-
-export const Addon = Template.bind({});
-Addon.args = {
-  label: 'opize'
 };

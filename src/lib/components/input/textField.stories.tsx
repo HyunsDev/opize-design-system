@@ -30,8 +30,7 @@ Primary.args = {
 export const Addon = Template.bind({});
 Addon.args = {
   leftAddon: 'https://',
-  rightAddon: '/opize',
-  label: 'opize'
+  rightAddon: '/opize'
 };
 
 export const AddonButton = Template.bind({});
@@ -40,8 +39,7 @@ AddonButton.args = {
     type: 'button',
     onClick: () => null,
     label: 'button'
-  },
-  label: 'opize'
+  }
 };
 
 export const AddonIconButton = Template.bind({});
@@ -50,6 +48,5 @@ AddonIconButton.args = {
     type: 'button',
     onClick: () => null,
     icon: <PaperPlaneTilt />
-  },
-  label: 'opize'
+  }
 };

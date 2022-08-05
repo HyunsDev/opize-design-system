@@ -1,3 +1,4 @@
+import { ComponentProps } from "react";
 import styled from "styled-components"
 import { cv } from "../../style";
 
@@ -67,7 +68,7 @@ const Label = styled.div`
     margin-bottom: 4px;
 `
 
-interface CheckboxProps {
+interface _CheckboxProps {
     value: boolean;
     onChange: any;
     label: string;
@@ -75,7 +76,7 @@ interface CheckboxProps {
     ref?: any
 }
 
-export function Checkbox(props: CheckboxProps) {
+export function Checkbox(props: _CheckboxProps) {
     const style = {
         backgroundColor: '',
         backgroundColorHover: '',
@@ -128,3 +129,5 @@ Checkbox.defaultProps = {
     label: '',
     disabled: false
 }
+
+export type CheckboxProps = ComponentProps<typeof Checkbox>

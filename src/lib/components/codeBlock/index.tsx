@@ -1,3 +1,4 @@
+import { ComponentProps } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import a11yLight from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-light';
 import styled from 'styled-components';
@@ -9,12 +10,10 @@ const Divver = styled.div`
     }
 `
 
-interface CodeProps {
+export function CodeBlock(props: {
     children: string,
     language?: string
-}
-
-export function CodeBlock(props: CodeProps) {
+}) {
     return (
         <Divver>
             <SyntaxHighlighter language={props.language || 'json'} style={a11yLight}>
@@ -23,3 +22,5 @@ export function CodeBlock(props: CodeProps) {
         </Divver>
     )
 }
+
+export type CodeBlockProps = ComponentProps<typeof CodeBlock>

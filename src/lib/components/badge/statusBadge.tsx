@@ -1,3 +1,4 @@
+import { ComponentProps } from "react"
 import styled from "styled-components"
 import { cv } from "../../style"
 
@@ -65,3 +66,5 @@ export function StatusBadge({
         </Badge>
     )
 }
+
+export type StatusBadgeProps = ComponentProps<typeof StatusBadge>

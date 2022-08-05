@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MouseEvent, useEffect, useRef, useState, useCallback } from "react";
+import { useEffect, useRef, useState, useCallback, ComponentProps } from "react";
 import { cv } from "../../style";
 
 const Div = styled.div`
@@ -13,6 +13,7 @@ const Div = styled.div`
 
 const ItemDivver = styled.div`
     padding-bottom: 6px;
+    z-index: 1;
 `
 
 const Item = styled.div<{selected?: boolean}>`
@@ -22,6 +23,7 @@ const Item = styled.div<{selected?: boolean}>`
     user-select: none;
     transition: 200ms;
     font-weight: 400;
+    font-size: .875rem;
     color: ${props => props.selected ? cv.text1 : cv.text2};
     &:hover {
         color: ${cv.text1};
@@ -52,7 +54,6 @@ const HoverBox = styled.div<FlowProps & {show: boolean}>`
     transform: translateX(${props => props.left}px);
     width: ${props => props.width}px;
     margin-bottom: 4px;
-    z-index: -1;
     background-color: rgba(0,0,0,0);
     ${props => props.show && `background-color: ${cv.bg_element3}`};
 `
@@ -114,3 +115,5 @@ export function TabNav(props: Props) {
         </Div>
     )
 }
+
+export type TabNavProps = ComponentProps<typeof TabNav>

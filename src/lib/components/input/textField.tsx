@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { IconContext } from 'phosphor-react'
 import { cv } from "../../style"
+import { ComponentProps } from "react"
 
 type ButtonAddon = {
     type: 'button',
@@ -9,14 +10,12 @@ type ButtonAddon = {
     onClick: Function
 }
 
-
-interface TextFieldProps {
+interface Props {
     type: 'text' | 'password' | 'search' | 'url'
     value: string
     onChange: Function
     placeholder?: string
     readonly?: boolean
-    label?: string
     error?: string
     ref?: any
     leftAddon?: string | ButtonAddon
@@ -27,7 +26,7 @@ const Divver = styled.div`
     width: 100%;
 `
 
-const Input = styled.input<TextFieldProps>`
+const Input = styled.input<Props>`
     z-index: 1;
     padding: 0px 12px;
     height: 100%;
@@ -44,13 +43,6 @@ const Input = styled.input<TextFieldProps>`
         border: 0;
         outline: solid 3px ${cv.outline};
     }
-`
-
-const Label = styled.label`
-    display: block;
-    font-size: 14px;
-    color: ${cv.text3};
-    margin-bottom: 4px;
 `
 
 const Message = styled.div`
@@ -117,7 +109,7 @@ function Addon(props: {
 }
 
 
-export function TextField(props:TextFieldProps) {
+export function TextField(props:Props) {
     return (
         <IconContext.Provider value={{
             weight: 'bold',
@@ -125,7 +117,6 @@ export function TextField(props:TextFieldProps) {
             color: cv.text5
         }}>
             <Divver>
-                {props.label && (<Label>{props.label}</Label>)}
                 <Inputs>
                     {props.leftAddon && <Addon position="left" data={props.leftAddon} />}
                     <Input {...props} onChange={(e) => !props.readonly && props.onChange(e.target.value)} />
@@ -136,3 +127,5 @@ export function TextField(props:TextFieldProps) {
         </IconContext.Provider>
     )
 }
+
+export type TextFieldProps = ComponentProps<typeof TextField>

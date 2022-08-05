@@ -1,5 +1,5 @@
 import { X } from "phosphor-react"
-import { useEffect, useRef, useState } from "react"
+import { ComponentProps, useEffect, useRef, useState } from "react"
 import styled, {keyframes} from "styled-components"
 import { cv } from "../../style"
 
@@ -87,16 +87,14 @@ const CloseBtn = styled.div`
     }
 `
 
-interface ModalProps {
+export function Modal(props: {
     setOpen: Function
     isOpen: boolean
     content: React.ReactElement
     width: number
     title?: string
     close: Function
-}
-
-export function Modal(props: ModalProps) {
+}) {
     const timer = useRef<any>(0)
     const [ isOpen, setOpen ] = useState(props.isOpen)
 
@@ -132,3 +130,5 @@ export function Modal(props: ModalProps) {
         </>
     )
 }
+
+export type ModalProps = ComponentProps<typeof Modal>
