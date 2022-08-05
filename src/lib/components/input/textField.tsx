@@ -10,14 +10,12 @@ type ButtonAddon = {
     onClick: Function
 }
 
-
 interface Props {
     type: 'text' | 'password' | 'search' | 'url'
     value: string
     onChange: Function
     placeholder?: string
     readonly?: boolean
-    label?: string
     error?: string
     ref?: any
     leftAddon?: string | ButtonAddon
@@ -45,13 +43,6 @@ const Input = styled.input<Props>`
         border: 0;
         outline: solid 3px ${cv.outline};
     }
-`
-
-const Label = styled.label`
-    display: block;
-    font-size: 14px;
-    color: ${cv.text3};
-    margin-bottom: 4px;
 `
 
 const Message = styled.div`
@@ -126,7 +117,6 @@ export function TextField(props:Props) {
             color: cv.text5
         }}>
             <Divver>
-                {props.label && (<Label>{props.label}</Label>)}
                 <Inputs>
                     {props.leftAddon && <Addon position="left" data={props.leftAddon} />}
                     <Input {...props} onChange={(e) => !props.readonly && props.onChange(e.target.value)} />

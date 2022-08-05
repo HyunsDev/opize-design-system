@@ -13,7 +13,6 @@ interface Props {
     onChange: Function
     placeholder?: string
     readonly?: boolean
-    label?: string
     error?: string
     ref?: any
 }
@@ -35,13 +34,6 @@ const Input = styled.textarea<Props>`
     }
 `
 
-const Label = styled.label`
-    display: block;
-    font-size: 12px;
-    color: ${cv.text3};
-    margin-bottom: 4px;
-`
-
 const Message = styled.div`
     height: 20px;
     color: ${cv.red1};
@@ -52,7 +44,6 @@ const Message = styled.div`
 export function TextArea(props: Props) {
     return (
         <Divver>
-            {props.label && <Label>{props.label}</Label>}
             <Input {...props} onChange={(e) => !props.readonly && props.onChange(e.target.value)} />
             { props.error && <Message>{props.error}</Message>}
         </Divver>

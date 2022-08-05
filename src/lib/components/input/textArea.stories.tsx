@@ -26,8 +26,3 @@ export const Primary = Template.bind({});
 Primary.args = {
 
 };
-
-export const Addon = Template.bind({});
-Addon.args = {
-  label: 'opize'
-};
