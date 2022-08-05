@@ -21,6 +21,9 @@ const ButtonDiv = styled.div<{isOpen: boolean, onlyIcon: boolean}>`
     align-items: center;
     justify-content: center;
     gap: 6px;
+
+    font-size: .875rem;
+    line-height: 24px;
     
     border-radius: ${props => props.onlyIcon ? '99999px' : '4px'};
     background-color: ${props => props.isOpen ? cv.bg_element8 : cv.bg_element7};
@@ -77,7 +80,7 @@ const ActionsDiv = styled.div`
     flex-direction: column;
     gap: 0px;
     width: 100%;
-    padding: 0px 6px;
+    padding: 0px 0px;
 
     border-bottom: solid 1px ${cv.border3};
     padding-bottom: 8px;
@@ -93,15 +96,18 @@ const ActionDiv = styled.div<{color: 'normal' | 'red'}>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 6px 10px;
+    padding: 4px 16px;
     border-radius: 4px;
     background-color: ${cv.bg_element7};
     cursor: pointer;
-    transition: background-color 100ms;
+    transition: 100ms;
     user-select: none;
-    ${props => props.color === 'red' && `color: ${cv.red1}`};
+    color: ${props => props.color === 'red' ? cv.red1 : cv.text2};
+    font-size: .875rem;
+    line-height: 24px;
 
     &:hover {
+        color: ${props => props.color === 'red' ? cv.red1 : cv.text1};
         background-color: ${props => props.color === 'red' ? cv.bg_red1 : cv.bg_element8};
     }
 `

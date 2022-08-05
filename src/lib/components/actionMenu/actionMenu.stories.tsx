@@ -25,6 +25,10 @@ Primary.args = {
     actions: [
         [
             {
+                label: 'Label',
+                icon: <Gear />,
+                onClick: () => null,
+            }, {
                 label: '라벨',
                 icon: <Gear />,
                 onClick: () => null,
@@ -50,6 +54,14 @@ OnlyLabel.args = {
     actions: [
         [
             {
+                label: 'Label',
+                icon: <Gear />,
+                onClick: () => null,
+            }, {
+                label: '라벨',
+                icon: <Gear />,
+                onClick: () => null,
+            }, {
                 label: '라벨',
                 icon: <Gear />,
                 onClick: () => null,
@@ -71,6 +83,14 @@ OnlyIcon.args = {
     actions: [
         [
             {
+                label: 'Label',
+                icon: <Gear />,
+                onClick: () => null,
+            }, {
+                label: '라벨',
+                icon: <Gear />,
+                onClick: () => null,
+            }, {
                 label: '라벨',
                 icon: <Gear />,
                 onClick: () => null,
@@ -97,6 +117,14 @@ Right.args = {
     actions: [
         [
             {
+                label: 'Label',
+                icon: <Gear />,
+                onClick: () => null,
+            }, {
+                label: '라벨',
+                icon: <Gear />,
+                onClick: () => null,
+            }, {
                 label: '라벨',
                 icon: <Gear />,
                 onClick: () => null,
@@ -125,6 +153,14 @@ Avatar.args = {
     actions: [
         [
             {
+                label: 'Label',
+                icon: <Gear />,
+                onClick: () => null,
+            }, {
+                label: '라벨',
+                icon: <Gear />,
+                onClick: () => null,
+            }, {
                 label: '라벨',
                 icon: <Gear />,
                 onClick: () => null,
