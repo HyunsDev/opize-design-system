@@ -4,7 +4,7 @@ import { IconContext } from 'phosphor-react'
 import '../../style/style.css'
 import { Spinner } from "../spinner"
 import { Link } from "react-router-dom"
-import { ComponentProps, ComponentType } from "react"
+import { ComponentProps } from "react"
 
 interface ButtonDivProps {
     bgColor: string;
@@ -95,7 +95,7 @@ export function Button({
             if (!isDisabled) {
                 ButtonColor = {
                     bgColor: cv.bg_element5,
-                    bgColorHover: cv.bg_element7,
+                    bgColorHover: 'rgba(0,0,0,0)',
                     borderColor: cv.bg_element5,
                     borderColorHover: '',
                     color: cv.bg_element7,

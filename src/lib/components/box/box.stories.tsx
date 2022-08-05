@@ -29,3 +29,29 @@ WithTitle.args = {
     </>,
     title: 'Title'
 };
+
+export const WithFooter = Template.bind({});
+WithFooter.args = {
+    children: <>
+        Hello, World!
+        <TextField type='text' value='' onChange={() => null}  />
+    </>,
+    title: 'Title',
+    footerTemplate: {
+        text: 'text',
+        button: {
+            label: 'label',
+            variant: 'contained',
+            to: '/'
+        }
+    }
+};
+
+export const WithHeader = Template.bind({});
+WithHeader.args = {
+    children: <>
+        Hello, World!
+        <TextField type='text' value='' onChange={() => null}  />
+    </>,
+    header: 'Hello, world!' 
+};
