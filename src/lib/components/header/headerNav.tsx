@@ -1,3 +1,4 @@
+import { ComponentProps } from "react"
 import { Link } from "react-router-dom"
 import styled from "styled-components"
 import { cv } from "../../style"
@@ -97,4 +98,5 @@ export const HeaderNav = Object.assign(HeaderNavComponent, {
     Link: HeaderLink,
     Logo: HeaderLogo,
     Button: HeaderButton
-} )
+})
+export type HeaderNavProps = ComponentProps<typeof HeaderNav>

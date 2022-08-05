@@ -1,6 +1,7 @@
 import styled from "styled-components"
 import { IconContext } from 'phosphor-react'
 import { cv } from "../../style"
+import { ComponentProps } from "react"
 
 type ButtonAddon = {
     type: 'button',
@@ -10,7 +11,7 @@ type ButtonAddon = {
 }
 
 
-interface TextFieldProps {
+interface Props {
     type: 'text' | 'password' | 'search' | 'url'
     value: string
     onChange: Function
@@ -27,7 +28,7 @@ const Divver = styled.div`
     width: 100%;
 `
 
-const Input = styled.input<TextFieldProps>`
+const Input = styled.input<Props>`
     z-index: 1;
     padding: 0px 12px;
     height: 100%;
@@ -117,7 +118,7 @@ function Addon(props: {
 }
 
 
-export function TextField(props:TextFieldProps) {
+export function TextField(props:Props) {
     return (
         <IconContext.Provider value={{
             weight: 'bold',
@@ -136,3 +137,5 @@ export function TextField(props:TextFieldProps) {
         </IconContext.Provider>
     )
 }
+
+export type TextFieldProps = ComponentProps<typeof TextField>

@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { MouseEvent, useEffect, useRef, useState, useCallback } from "react";
+import { MouseEvent, useEffect, useRef, useState, useCallback, ComponentProps } from "react";
 import { cv } from "../../style";
 
 const Div = styled.div`
@@ -114,3 +114,5 @@ export function TabNav(props: Props) {
         </Div>
     )
 }
+
+export type TabNavProps = ComponentProps<typeof TabNav>

@@ -1,4 +1,4 @@
-import { useContext, useMemo } from "react";
+import { useContext } from "react";
 import styled from "styled-components";
 import { Button, ButtonProps } from "../../components";
 import { ModalContext } from "../../context/modal/modalContext";

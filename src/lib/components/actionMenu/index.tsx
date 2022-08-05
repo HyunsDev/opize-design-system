@@ -1,5 +1,5 @@
 import { IconContext } from "phosphor-react"
-import { useCallback, useEffect, useRef, useState } from "react"
+import { ComponentProps, useCallback, useEffect, useRef, useState } from "react"
 import styled, { keyframes } from "styled-components"
 import { cv } from "../../style"
 
@@ -212,3 +212,5 @@ export function ActionMenu({actions, label, icon}: {
         
     )
 }
+
+export type ActionMenuProps = ComponentProps<typeof ActionMenu>

@@ -1,14 +1,6 @@
+import { ComponentProps } from "react"
 import styled from "styled-components"
 import { cv } from "../../style"
-
-interface TextFieldProps {
-    value: any
-    onChange: Function
-    label?: string
-    error?: boolean
-    message?: string
-    ref?: any
-}
 
 const Divver = styled.div`
 
@@ -46,7 +38,14 @@ const Message = styled.div<{error: boolean}>`
     margin-top: 4px;
 `
 
-export function FileField(props:TextFieldProps) {
+export function FileField(props: {
+    value: any
+    onChange: Function
+    label?: string
+    error?: boolean
+    message?: string
+    ref?: any
+}) {
     return (
         <Divver>
             {props.label && (<Label>{props.label}</Label>)}
@@ -55,3 +54,5 @@ export function FileField(props:TextFieldProps) {
         </Divver>
     )
 }
+
+export type FileFieldProps = ComponentProps<typeof FileField>

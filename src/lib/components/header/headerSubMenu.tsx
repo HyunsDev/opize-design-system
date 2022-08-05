@@ -1,8 +1,7 @@
-import { useEffect, useState } from "react"
+import { ComponentProps, useEffect, useState } from "react"
 import styled, { css } from "styled-components"
 import { TabNav } from '..'
 import { cv } from "../../style"
-import { ComponentProps } from '../../utils'
 
 const DivverOuter = styled.div<{isScrolled: boolean}>`
     position: relative;
@@ -62,3 +61,5 @@ export function HeaderSubMenu(props: ComponentProps<typeof TabNav>) {
         
     )
 }
+
+export type HeaderSubMenuProps = ComponentProps<typeof HeaderSubMenu>

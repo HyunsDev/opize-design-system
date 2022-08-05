@@ -1,4 +1,4 @@
-import { useState } from "react"
+import { ComponentProps, useState } from "react"
 import styled from "styled-components"
 import { cv } from "../../style"
 
@@ -87,13 +87,13 @@ const ToolTipBoxLeft = styled(ToolTipBox)`
     }
 `
 
-interface ToolTipProps {
+interface Props {
     children: React.ReactNode;
     text: string;
     direction?: 'top' | 'bottom' | 'right' | 'left'
 }
 
-export function ToolTip(props: ToolTipProps) {
+export function ToolTip(props: Props) {
     const [ isHover, setIsHover ] = useState(false)
 
     let box;
@@ -126,3 +126,5 @@ export function ToolTip(props: ToolTipProps) {
         </Divver>
     )
 }
+
+export type ToolTipProps = ComponentProps<typeof ToolTip>

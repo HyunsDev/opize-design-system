@@ -4,17 +4,20 @@ import { IconContext } from 'phosphor-react'
 import '../../style/style.css'
 import { Spinner } from "../spinner"
 import { Link } from "react-router-dom"
+import { ComponentProps, ComponentType } from "react"
 
-const ButtonDiv = styled.button<{
-    bgColor: string,
-    bgColorHover: string,
-    borderColor: string,
-    borderColorHover: string,
-    color: string,
-    colorHover: string
-    isDisabled: boolean
-    padding: string
-}>`
+interface ButtonDivProps {
+    bgColor: string;
+    bgColorHover: string;
+    borderColor: string;
+    borderColorHover: string;
+    color: string;
+    colorHover: string;
+    isDisabled: boolean;
+    padding: string;
+}
+
+const ButtonDiv = styled.button<ButtonDivProps>`
     display: flex;
     justify-content: center;
     align-items: center;
@@ -49,7 +52,7 @@ const A = styled.a`
     text-decoration: none;
 `
 
-export interface ButtonProps {
+interface _ButtonProps {
     label?: string
     variant?: 'contained' | 'outlined' | 'text'
     color?: 'gray' | 'red',
@@ -61,9 +64,7 @@ export interface ButtonProps {
     to?: string,
 }
 
-// const ButtonA = (props: any) => <Link to={props.to}><buttonA  /></Link>
-
-function Button({
+export function Button({
     label,
     variant = 'outlined',
     isDisabled = false,
@@ -73,7 +74,7 @@ function Button({
     icon,
     onClick,
     to
-}: ButtonProps) {
+}: _ButtonProps) {
     // 아이콘
     let Icon
     if (typeof icon === 'string') {
@@ -275,7 +276,4 @@ function Button({
         return (<></>)
     }
 }
-
-export {
-    Button
-}
+export type ButtonProps = ComponentProps<typeof Button>

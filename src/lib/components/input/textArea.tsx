@@ -1,5 +1,11 @@
+import { ComponentProps } from "react"
 import styled from "styled-components"
 import { cv } from "../../style"
+
+
+const Divver = styled.div`
+
+`
 
 interface Props {
     type: 'text' | 'password' | 'search' | 'url'
@@ -11,10 +17,6 @@ interface Props {
     error?: string
     ref?: any
 }
-
-const Divver = styled.div`
-
-`
 
 const Input = styled.textarea<Props>`
     display: block;
@@ -47,7 +49,7 @@ const Message = styled.div`
     margin-top: 4px;
 `
 
-export function TextArea(props:Props) {
+export function TextArea(props: Props) {
     return (
         <Divver>
             {props.label && <Label>{props.label}</Label>}
@@ -56,3 +58,5 @@ export function TextArea(props:Props) {
         </Divver>
     )
 }
+
+export type TextAreaProps = ComponentProps<typeof TextArea>
