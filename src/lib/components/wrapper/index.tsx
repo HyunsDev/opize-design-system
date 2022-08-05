@@ -9,6 +9,9 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
         font-family: "Inter", -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+        ::selection {
+            background: #74fde0;
+        }
     }
 
     :root {
