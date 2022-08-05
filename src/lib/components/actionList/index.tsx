@@ -1,3 +1,4 @@
+import { ComponentProps } from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { cv } from "../../style";
@@ -40,3 +41,5 @@ export const ActionList = Object.assign(ActionListDiv, {
     Item: ActionListItem,
     Divider: ActionListDivider
 })
+
+export type ActionListProps = ComponentProps<typeof ActionList>
