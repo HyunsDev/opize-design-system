@@ -1,13 +1,14 @@
 import ModalContextProvider from "../../context/modal/modalContext"
 import { createGlobalStyle } from 'styled-components';
 import { themes, builtCssVariable } from "../../style";
+import '../../style/font.css'
 
 const GlobalStyles = createGlobalStyle`
     * {
         padding: 0;
         margin: 0;
         box-sizing: border-box;
-        font-family: "Inter",-apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+        font-family: "Inter", -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
     }
 
     :root {
