@@ -45,15 +45,15 @@ const ModalBoxDivver = styled.div`
     animation: ${FadeInFromBottom} 200ms cubic-bezier(0.07, 0.75, 0.54, 0.93);
 `
 
-const ModalBox = styled.div<{isOpen: boolean, width: number}>`
+const ModalBox = styled.div<{isOpen: boolean, width: number, isPadding?: boolean}>`
     background-color: ${cv.bg_page2};
     color: ${cv.text1};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
-    padding: 16px;
     pointer-events: auto;
     min-width: ${props => props.width}px;
     max-width: 80vw;
+    padding: ${props => props.isPadding ? 16 : 0}px;
 
     transition: 200ms;
     opacity: ${props => props.isOpen ? 1 : 0};
@@ -94,6 +94,7 @@ export function Modal(props: {
     width: number
     title?: string
     close: Function
+    isPadding?: boolean
 }) {
     const timer = useRef<any>(0)
     const [ isOpen, setOpen ] = useState(props.isOpen)
@@ -116,7 +117,7 @@ export function Modal(props: {
                     <Divver>
                         <Background isOpen={props.isOpen} onClick={() => props.setOpen(false)} />
                         <ModalBoxDivver>
-                            <ModalBox isOpen={props.isOpen} width={props.width}>
+                            <ModalBox isOpen={props.isOpen} width={props.width} isPadding={props.isPadding}>
                                 { props.title && <ModalTitleBox>
                                     <ModalTitle>{props.title}</ModalTitle>
                                     <CloseBtn onClick={() => props.close()}><X /></CloseBtn>

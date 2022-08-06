@@ -13,7 +13,6 @@ export default {
   },
 } as ComponentMeta<typeof Select>;
 
-
 const Width500 = styled.div`
   width: 500px;
   margin: 0 auto;

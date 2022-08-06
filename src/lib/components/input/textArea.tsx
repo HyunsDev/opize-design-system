@@ -1,6 +1,7 @@
 import { ComponentProps } from "react"
 import styled from "styled-components"
 import { cv } from "../../style"
+import { Label } from "./label"
 
 
 const Divver = styled.div`
@@ -14,7 +15,9 @@ interface Props {
     placeholder?: string
     readonly?: boolean
     error?: string
-    ref?: any
+    required?: boolean
+    disabled?: boolean
+    label?: string
 }
 
 const Input = styled.textarea<Props>`
@@ -44,7 +47,8 @@ const Message = styled.div`
 export function TextArea(props: Props) {
     return (
         <Divver>
-            <Input {...props} onChange={(e) => !props.readonly && props.onChange(e.target.value)} />
+            {props.label && <Label required={props.required || false}>{props.label}</Label>}
+            <Input {...props} onChange={(e) => !props.readonly && props.onChange(e.target.value)}/>
             { props.error && <Message>{props.error}</Message>}
         </Divver>
     )

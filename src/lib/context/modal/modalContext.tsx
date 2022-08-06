@@ -3,7 +3,7 @@ import { Modal } from "../../components/modal";
 
 export interface ModalContextProps {
     isOpen: boolean
-    open: (content: React.ReactElement, title?: string) => void
+    open: (content: React.ReactElement, title?: string, width?: number, isPadding?: boolean) => void
     close: Function
     width: number
     title?: string
@@ -21,12 +21,14 @@ const ModalContextProvider = ({children}: {children: React.ReactElement}) => {
     const [ content, setContent ] = useState(<></>)
     const [ width, setWidth ] = useState(350)
     const [ title, setTitle ] = useState<undefined | string>()
+    const [ isPadding, setPadding ] = useState(true)
 
-    const open = useCallback((content: React.ReactElement, title?: string, width?:number) => {
+    const open = useCallback((content: React.ReactElement, title?: string, width?:number, isPadding: boolean = true) => {
         setOpen(true)
         setTitle(title)
         setWidth(width || 350)
         setContent(content)
+        setPadding(isPadding)
     }, [])
 
     const close = useCallback((content: React.ReactElement) => {
@@ -43,7 +45,16 @@ const ModalContextProvider = ({children}: {children: React.ReactElement}) => {
                 title
             }}
         >
-            <Modal setOpen={setOpen} isOpen={isOpen} content={content} width={width} title={title} close={() => setOpen(false)} />
+            <Modal
+                setOpen={setOpen}
+                isOpen={isOpen}
+                content={content}
+                width={width}
+                title={title}
+                close={() => setOpen(false)}
+                isPadding={isPadding}
+            />
+
             {children}
         </ModalContext.Provider>
     )

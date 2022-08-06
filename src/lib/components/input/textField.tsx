@@ -1,7 +1,8 @@
 import styled from "styled-components"
 import { IconContext } from 'phosphor-react'
 import { cv } from "../../style"
-import { ComponentProps } from "react"
+import React, { ComponentProps } from "react"
+import { Label } from "./label"
 
 type ButtonAddon = {
     type: 'button',
@@ -18,6 +19,9 @@ interface Props {
     readonly?: boolean
     error?: string
     ref?: any
+    required?: boolean
+    disabled?: boolean
+    label?: string
     leftAddon?: string | ButtonAddon
     rightAddon?: string | ButtonAddon
 }
@@ -109,7 +113,7 @@ function Addon(props: {
 }
 
 
-export function TextField(props:Props) {
+export const TextField = React.forwardRef<HTMLInputElement, Props>((props:Props, ref) => {
     return (
         <IconContext.Provider value={{
             weight: 'bold',
@@ -117,15 +121,16 @@ export function TextField(props:Props) {
             color: cv.text5
         }}>
             <Divver>
+                {props.label && <Label required={props.required || false}>{props.label}</Label>}
                 <Inputs>
                     {props.leftAddon && <Addon position="left" data={props.leftAddon} />}
-                    <Input {...props} onChange={(e) => !props.readonly && props.onChange(e.target.value)} />
+                    <Input ref={ref} {...props} onChange={(e) => !props.readonly && props.onChange(e.target.value)} disabled={props.disabled} required={props.required} />
                     {props.rightAddon && <Addon position="right" data={props.rightAddon} />}
                 </Inputs>
                 { props.error && (<Message>{props.error}</Message>)}
             </Divver>
         </IconContext.Provider>
     )
-}
+})
 
 export type TextFieldProps = ComponentProps<typeof TextField>

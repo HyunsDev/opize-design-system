@@ -1,5 +1,5 @@
-import { ComponentProps } from "react";
-import styled from "styled-components"
+import React, { ComponentProps, useRef } from "react";
+import styled, { css } from "styled-components"
 import { cv } from "../../style";
 
 const CheckBoxDiv = styled.div`
@@ -61,22 +61,29 @@ const FakeCheckBox = styled.div<FakeCheckBoxProps>`
     }
 `
 
-const Label = styled.div`
+const Label = styled.div<{required: Boolean}>`
     display: block;
     font-size: 14px;
     color: ${cv.text3};
     margin-bottom: 4px;
+
+    ${props => props.required && css`
+        ::after {
+            content: ' *'
+        }
+    `}
 `
 
-interface _CheckboxProps {
+interface Props {
     value: boolean;
     onChange: any;
     label: string;
-    disabled: boolean;
+    disabled?: boolean;
+    required?: boolean
     ref?: any
 }
 
-export function Checkbox(props: _CheckboxProps) {
+export const Checkbox = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
     const style = {
         backgroundColor: '',
         backgroundColorHover: '',
@@ -112,22 +119,15 @@ export function Checkbox(props: _CheckboxProps) {
 
     return (
         <CheckBoxDiv>
-            <Input type={'checkbox'} checked={props.value} onChange={props.onChange} disabled={props.disabled} />
-            <FakeCheckBox {...style} checked={props.value} onClick={onClick} disabled={props.disabled} >
+            <Input type='checkbox' checked={props.value} onChange={props.onChange} disabled={props.disabled} required={props.required || false} ref={ref} />
+            <FakeCheckBox {...style} checked={props.value} onClick={onClick} disabled={props.disabled || false} >
                 <Icon viewBox="0 0 24 24">
                     <polyline points="19 7 10 17 5 12" />
                 </Icon>
             </FakeCheckBox>
-            <Label>{props.label}</Label>
+            <Label required={props.required || false}>{props.label}</Label>
         </CheckBoxDiv>
     )
-}
-
-Checkbox.defaultProps = {
-    value: true,
-    onChange: () => null,
-    label: '',
-    disabled: false
-}
+})
 
 export type CheckboxProps = ComponentProps<typeof Checkbox>
