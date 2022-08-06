@@ -29,7 +29,8 @@ const Template = () => {
                 dialog('title', [
                     {
                         label: 'label',
-                        onClick: () => {}
+                        onClick: () => {},
+                        variant: 'contained'
                     }
                 ], 'content')
             }} variant="outlined" />
@@ -52,11 +53,13 @@ const Template = () => {
                 dialog('title', [
                     {
                         label: 'not close',
-                        onClick: () => null
+                        onClick: () => null,
+                        variant: 'outlined'
                     }, {
                         label: 'close',
                         onClick: () => null,
-                        closeModal: true
+                        closeModal: true,
+                        variant: 'contained'
                     }
                 ], 'content', true)
             }} variant="outlined" />

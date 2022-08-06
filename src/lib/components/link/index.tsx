@@ -9,6 +9,7 @@ const LinkStyle = css`
     text-decoration: none;
     font-size: .875rem;
     line-height: 24px;
+    cursor: pointer;
 
     &:hover {
         border-bottom: solid 1px ${cv.blue1};
@@ -24,19 +25,18 @@ const LinkLink = styled(LinkRouter)`
 `
 
 export function Link(props: {
-    to?: string
-    href?: string
+    to: string
     newTab?: boolean
-    showIcon?: boolean
+    hideIcon?: boolean
     children: React.ReactNode
 }) {
-    if (props.to) {
+    if (!props.to.includes('http')) {
         return <LinkLink to={props.to}>{props.children}</LinkLink>
     } else {
         return (
-            <LinkA href={props.href} target={props.newTab ? '_self' : '_blank'} rel='noreferrer' >
+            <LinkA href={props.to} target={props.newTab ? '_self' : '_blank'} rel='noreferrer' >
                 {props.children}
-                {props.showIcon && <Share size={16} color={cv.blue1} style={{marginLeft: '4px'}} />}
+                {!props.hideIcon && <Share size={16} color={cv.blue1} weight='bold' style={{marginLeft: '4px', marginBottom: '-2px'}} />}
             </LinkA>
         )
     }

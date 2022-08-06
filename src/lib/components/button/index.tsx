@@ -6,6 +6,8 @@ import { Spinner } from "../spinner"
 import { Link } from "react-router-dom"
 import { ComponentProps } from "react"
 
+type ButtonWidth = 'fit-content' | '100%' | string;
+
 interface ButtonDivProps {
     bgColor: string;
     bgColorHover: string;
@@ -15,6 +17,7 @@ interface ButtonDivProps {
     colorHover: string;
     isDisabled: boolean;
     padding: string;
+    width: ButtonWidth;
 }
 
 const ButtonDiv = styled.button<ButtonDivProps>`
@@ -23,6 +26,9 @@ const ButtonDiv = styled.button<ButtonDivProps>`
     align-items: center;
     padding: ${props => props.padding};
     gap: 8px;
+    user-select: none;
+
+    width: ${props => props.width};
 
     font-size: 14px;
     border: 0;
@@ -62,6 +68,8 @@ interface _ButtonProps {
     icon?: React.ReactNode | string
     onClick?: Function,
     to?: string,
+    type?: 'submit',
+    width?: ButtonWidth
 }
 
 export function Button({
@@ -73,7 +81,9 @@ export function Button({
     size = 'medium',
     icon,
     onClick,
-    to
+    to,
+    type,
+    width = 'fit-content'
 }: _ButtonProps) {
     // 아이콘
     let Icon
@@ -252,7 +262,7 @@ export function Button({
     if (to && to?.includes('http')) {
         return (
             <A href={to}>
-                <ButtonDiv isDisabled={isDisabled} {...ButtonColor} padding={padding}>
+                <ButtonDiv width={width} isDisabled={isDisabled} {...ButtonColor} padding={padding}>
                     {children}
                 </ButtonDiv>
             </A>
@@ -260,14 +270,20 @@ export function Button({
     } else if (to) {
         return (
             <StyledLink to={to}>
-                <ButtonDiv isDisabled={isDisabled} {...ButtonColor} padding={padding}>
+                <ButtonDiv width={width} isDisabled={isDisabled} {...ButtonColor} padding={padding}>
                     {children}
                 </ButtonDiv>
             </StyledLink>
         )
-    }else if (onClick) {
+    } else if (onClick) {
          return (
-            <ButtonDiv isDisabled={isDisabled} {...ButtonColor} onClick={() => onClick && onClick()} padding={padding}>
+            <ButtonDiv width={width} isDisabled={isDisabled} {...ButtonColor} onClick={() => onClick && onClick()} padding={padding}>
+                {children}
+            </ButtonDiv>
+        )
+    } else if (type === 'submit') {
+        return (
+            <ButtonDiv width={width} isDisabled={isDisabled} {...ButtonColor} padding={padding} type='submit'>
                 {children}
             </ButtonDiv>
         )

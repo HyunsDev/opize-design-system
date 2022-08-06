@@ -21,14 +21,14 @@ Primary.args = {
 
 export const A = Template.bind({});
 A.args = {
-    href: '/',
+    to: '/',
+    hideIcon: false,
     children: 'This is a Link'
 };
 
 export const OuterLink = Template.bind({});
 OuterLink.args = {
-    href: '/',
+    to: 'https://design.opize.me',
     newTab: true,
-    showIcon: true,
     children: 'This is a Link'
 };

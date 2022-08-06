@@ -6,13 +6,12 @@ import styled from 'styled-components';
 
 
 export default {
-  title: 'Library/input/Select',
+  title: 'Library/Form/Select',
   component: Select,
   argTypes: {
     // backgroundColor: { control: 'color' },
   },
 } as ComponentMeta<typeof Select>;
-
 
 const Width500 = styled.div`
   width: 500px;
