@@ -149,6 +149,12 @@ const SubTextDiv = styled.div`
     font-size: 14px;  
 `
 
+const Components = styled.div<{flex?: number}>`
+    flex: ${props => props.flex || 3};
+    display: flex;
+    width: 100%;
+`
+
 interface Avatar {
     type: 'avatar'
     flex?: number
@@ -171,6 +177,13 @@ interface Text {
     subText?: string
 }
 
+
+interface Component {
+    type: 'component',
+    flex?: number
+    component: React.ReactNode
+}
+
 interface Buttons {
     type: 'buttons'
     flex?: number
@@ -182,7 +195,7 @@ interface Buttons {
     }[][]
 }
 
-type Item = (Avatar | Status | Text | Buttons)[]
+type Item = (Avatar | Status | Text | Buttons | Component)[]
 
 interface Props {
     data: Item[]
@@ -203,17 +216,6 @@ function capitalize(str:string) {
 	return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-const A = styled.a`
-    text-decoration: none;
-    color: ${cv.text3};
-    transition: 125ms;
-
-    &:hover {
-        color: ${cv.text2};
-    }
-`
-
-
 export function ItemsTable(props: Props) {
     return (
         <ItemsDiv>
@@ -231,7 +233,7 @@ export function ItemsTable(props: Props) {
                             item.map((menu, ii) => {
                                 if (menu.type === 'avatar') {
                                     return (
-                                        <AvatarDiv key={ii}>
+                                        <AvatarDiv key={ii} flex={menu.flex}>
                                             <>
                                                 {
                                                     typeof menu.icon === 'string' 
@@ -261,14 +263,16 @@ export function ItemsTable(props: Props) {
                                     )
                                 } else if (menu.type === 'status') {
                                     return (
-                                        <StateDiv key={ii}>
+                                        <StateDiv key={ii} flex={menu.flex}>
                                             <StatusBadge color={colorMap(menu.status.toLowerCase())} text={capitalize(menu.status)} />
                                             {menu.label && <TypeDiv>{menu.label}</TypeDiv>}
                                         </StateDiv>
                                     )
+                                } else if (menu.type === 'component') {
+                                    return <Components>{menu.component}</Components>
                                 } else {
                                     return (
-                                        <TextsDiv key={ii}>
+                                        <TextsDiv key={ii} flex={menu.flex}>
                                             {menu.text && (menu.text.startsWith('https')
                                                 ? <TextDiv><Link to={menu.text}>{`${menu.text.substring(0, 50)}${menu.text.length > 50 ? '...' : ''}`}</Link></TextDiv>
                                                 : <TextDiv>{`${menu.text.substring(0, 50)}${menu.text.length > 50 ? '...' : ''}`}</TextDiv>)}
