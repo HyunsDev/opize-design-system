@@ -69,7 +69,7 @@ const Select_ = React.forwardRef<HTMLSelectElement, SelectProps>((props: SelectP
         }}>
             { props.label && <Label required={props.required || false}>{props.label}</Label>}
             <Divver>
-                <StyledSelect ref={ref} required={props.required} disabled={props.disabled}>
+                <StyledSelect ref={ref} required={props.required} disabled={props.disabled} {...props}>
                     { props.children }
                 </StyledSelect>
                 <Icon size={16} color={cv.text2} />

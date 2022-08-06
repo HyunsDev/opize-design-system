@@ -67,7 +67,7 @@ export function Box(props: {
         text: string,
         button: ButtonProps
     }
-    footer?: React.ReactNode
+    footer?: React.ReactNode,
 }) {
     if (props.footer && props.footerTemplate) {
         console.error('You can ese either "footer" or "footerNode"')

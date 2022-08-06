@@ -1,6 +1,8 @@
-import React, { ComponentProps, useRef } from "react";
+import React, { ComponentProps } from "react";
 import styled, { css } from "styled-components"
 import { cv } from "../../style";
+import { Label } from "./label";
+import { Flex } from '..'
 
 const CheckBoxDiv = styled.div`
     display: flex;
@@ -8,47 +10,27 @@ const CheckBoxDiv = styled.div`
     gap: 8px;
 `
 
-const Input = styled.input`
-    border: 0;
-    clip: rect(0 0 0 0);
-    clip-path: inset(50%);
-    height: 1px;
-    margin: -1px;
-    overflow: hidden;
-    padding: 0;
-    position: absolute;
-    white-space: nowrap;
-    width: 1px;
-`
-
-const Icon = styled.svg`
-    fill: none;
-    stroke: ${cv.text5};
-    stroke-width: 2px;
-    width: 18px;
-    height: 18px;
-`;
-
-interface FakeCheckBoxProps {
+interface InputCheckBoxProps {
     backgroundColor: string;
     backgroundColorHover: string;
     borderColor: string;
     borderColorHover: string;
-    checked: boolean;
-    disabled: boolean;
+    checked?:  boolean;
+    disabled?: boolean;
 }
 
-const FakeCheckBox = styled.div<FakeCheckBoxProps>`
-    min-width: 24px; 
-    width: 24px;
-    height: 24px;
+const Input = styled.input<InputCheckBoxProps>`
+    appearance: none;
+
+    width: 26px;
+    height: 26px;
+    border-radius: 4px;
     border: solid 1px ${(props) => props.borderColor};
     background: ${(props) => props.backgroundColor};
-    border-radius: 4px;
-    transition: 200ms;
     display: flex;
     align-items: center;
     justify-content: center;
+    transition: 200ms;
 
     cursor: ${(props) => props.disabled ? 'not-allowed' : 'pointer'};
 
@@ -56,12 +38,17 @@ const FakeCheckBox = styled.div<FakeCheckBoxProps>`
         border: solid 1px ${(props) => props.borderColorHover};
     }
 
-    ${Icon} {
-        visibility: ${(props) => props.checked ? 'visible' : 'hidden'};
+    &:checked {
+        border-color: transparent;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='white' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpolyline points='19 7 10 17 5 12' /%3E%3C/svg%3E");
+        background-size: 100% 100%;
+        background-position: 50%;
+        background-repeat: no-repeat;
+        background-color: ${cv.bg_element5};
     }
 `
 
-const Label = styled.div<{required: Boolean}>`
+const Text = styled.div<{required: Boolean}>`
     display: block;
     font-size: 14px;
     color: ${cv.text3};
@@ -75,9 +62,10 @@ const Label = styled.div<{required: Boolean}>`
 `
 
 interface Props {
-    value: boolean;
-    onChange: any;
-    label: string;
+    checked?: boolean;
+    onChange?: any;
+    label?: string;
+    text?: string;
     disabled?: boolean;
     required?: boolean
     ref?: any
@@ -91,7 +79,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>((props: Props,
         borderColorHover: '',
     }
 
-    if (props.value) {
+    if (props.checked) {
         if (props.disabled) {
             style.backgroundColor = cv.bg_element6
             style.backgroundColorHover = cv.bg_element6
@@ -113,20 +101,18 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>((props: Props,
         }
     }
 
-    const onClick = () => {
-        if (!props.disabled) props.onChange(!props.value)
-    }
 
     return (
-        <CheckBoxDiv>
-            <Input type='checkbox' checked={props.value} onChange={props.onChange} disabled={props.disabled} required={props.required || false} ref={ref} />
-            <FakeCheckBox {...style} checked={props.value} onClick={onClick} disabled={props.disabled || false} >
-                <Icon viewBox="0 0 24 24">
-                    <polyline points="19 7 10 17 5 12" />
-                </Icon>
-            </FakeCheckBox>
-            <Label required={props.required || false}>{props.label}</Label>
-        </CheckBoxDiv>
+        <Flex style={{
+            flexDirection: 'column',
+        }}>
+            { props.label && <Label required={props.required || false}>{props.label}</Label>}
+            <CheckBoxDiv>
+                <Input type='checkbox' {...style} {...props} ref={ref} />
+                <Text required={props.required || false}>{props.text}</Text>
+            </CheckBoxDiv>
+        </Flex>
+
     )
 })
 

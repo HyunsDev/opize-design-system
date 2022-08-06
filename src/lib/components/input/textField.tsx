@@ -12,9 +12,9 @@ type ButtonAddon = {
 }
 
 interface Props {
-    type: 'text' | 'password' | 'search' | 'url'
-    value: string
-    onChange: Function
+    type?: 'text' | 'password' | 'search' | 'url'
+    value?: string
+    onChange?: Function
     placeholder?: string
     readonly?: boolean
     error?: string
@@ -30,7 +30,7 @@ const Divver = styled.div`
     width: 100%;
 `
 
-const Input = styled.input<Props>`
+const Input = styled.input`
     z-index: 1;
     padding: 0px 12px;
     height: 100%;
@@ -124,7 +124,7 @@ export const TextField = React.forwardRef<HTMLInputElement, Props>((props:Props,
                 {props.label && <Label required={props.required || false}>{props.label}</Label>}
                 <Inputs>
                     {props.leftAddon && <Addon position="left" data={props.leftAddon} />}
-                    <Input ref={ref} {...props} onChange={(e) => !props.readonly && props.onChange(e.target.value)} disabled={props.disabled} required={props.required} />
+                    <Input ref={ref} {...props} onChange={(e) => props.onChange && props.onChange(e)}/>
                     {props.rightAddon && <Addon position="right" data={props.rightAddon} />}
                 </Inputs>
                 { props.error && (<Message>{props.error}</Message>)}

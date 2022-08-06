@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 
 export default {
-  title: 'Library/input/Select',
+  title: 'Library/Form/Select',
   component: Select,
   argTypes: {
     // backgroundColor: { control: 'color' },

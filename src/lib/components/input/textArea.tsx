@@ -1,4 +1,4 @@
-import { ComponentProps } from "react"
+import React, { ComponentProps } from "react"
 import styled from "styled-components"
 import { cv } from "../../style"
 import { Label } from "./label"
@@ -9,9 +9,9 @@ const Divver = styled.div`
 `
 
 interface Props {
-    type: 'text' | 'password' | 'search' | 'url'
-    value: string
-    onChange: Function
+    type?: 'text' | 'password' | 'search' | 'url'
+    value?: string
+    onChange?: Function
     placeholder?: string
     readonly?: boolean
     error?: string
@@ -27,6 +27,7 @@ const Input = styled.textarea<Props>`
     padding: 6px 12px;
     resize: vertical;
     height: 100px;
+    font-size: .875rem;
 
     transition: 100ms, height 0ms;
     border: solid 1px ${cv.border3};
@@ -44,14 +45,14 @@ const Message = styled.div`
     margin-top: 4px;
 `
 
-export function TextArea(props: Props) {
+export const TextArea = React.forwardRef<HTMLTextAreaElement, Props>((props: Props, ref) => {
     return (
         <Divver>
             {props.label && <Label required={props.required || false}>{props.label}</Label>}
-            <Input {...props} onChange={(e) => !props.readonly && props.onChange(e.target.value)}/>
+            <Input ref={ref} {...props} onChange={(e) => !props.readonly && props.onChange && props.onChange(e)}/>
             { props.error && <Message>{props.error}</Message>}
         </Divver>
     )
-}
+})
 
 export type TextAreaProps = ComponentProps<typeof TextArea>
