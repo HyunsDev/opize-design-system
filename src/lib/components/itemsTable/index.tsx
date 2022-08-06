@@ -4,6 +4,7 @@ import { ActionMenu } from "../actionMenu"
 import { StatusBadge } from ".."
 import { cv } from "../../style"
 import { ComponentProps } from "react"
+import { Link } from "../link"
 
 const ItemButton = styled.div`
     position: relative;
@@ -269,7 +270,7 @@ export function ItemsTable(props: Props) {
                                     return (
                                         <TextsDiv key={ii}>
                                             {menu.text && (menu.text.startsWith('https')
-                                                ? <TextDiv><A href={menu.text} target={'_blank'} rel="noreferrer">{`${menu.text.substring(0, 50)}${menu.text.length > 50 ? '...' : ''}`}</A></TextDiv>
+                                                ? <TextDiv><Link to={menu.text}>{`${menu.text.substring(0, 50)}${menu.text.length > 50 ? '...' : ''}`}</Link></TextDiv>
                                                 : <TextDiv>{`${menu.text.substring(0, 50)}${menu.text.length > 50 ? '...' : ''}`}</TextDiv>)}
                                             {menu.subText && <SubTextDiv>{`${menu.subText.substring(0, 50)}${menu.subText.length > 50 ? '...'  : ''}`}</SubTextDiv>}
                                         </TextsDiv>
