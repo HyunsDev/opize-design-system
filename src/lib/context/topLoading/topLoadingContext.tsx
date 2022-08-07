@@ -1,7 +1,7 @@
 import React, { useState, createContext, useCallback, useRef } from "react";
 import { TopLoadingBar } from "../../components/topLoadingBar";
 
-interface TopLoadingContextProps {
+export interface TopLoadingContextProps {
     progress: number
     start: Function,
     end: Function,
