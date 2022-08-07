@@ -4,7 +4,7 @@ import { Button, Flex } from '../../components'
 import { useTopLoading } from '.';
 
 export default {
-  title: 'Library/TopLoading',
+  title: 'Hook/useTopLoading',
   argTypes: {
   
   },

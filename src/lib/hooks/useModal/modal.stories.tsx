@@ -6,7 +6,7 @@ import { useModal } from '.';
 import { OpizeContextProvider } from '../../context';
 
 export default {
-  title: 'Library/Modal',
+  title: 'Hook/useModal',
   argTypes: {
 
   }
