@@ -113,7 +113,7 @@ const ActionDiv = styled.div<{color: 'normal' | 'red'}>`
 `
 
 export interface ActionType {
-    label: string,
+    label: React.ReactNode,
     icon?: React.ReactNode,
     onClick: Function
     color?: 'normal' | 'red'
@@ -132,7 +132,7 @@ function Action({icon, label, onClick, color = 'normal'}: ActionType) {
 
 export function ActionMenu({actions, label, icon}: {
     actions: ActionType[][],
-    label?: string,
+    label?: React.ReactNode,
     icon?: React.ReactNode
 }) {
     const [ isOpen, setIsOpen ] = useState(false)

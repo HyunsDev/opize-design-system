@@ -90,9 +90,9 @@ const CloseBtn = styled.div`
 export function Modal(props: {
     setOpen: Function
     isOpen: boolean
-    content: React.ReactElement
+    content: React.ReactNode
     width: number
-    title?: string
+    title?: React.ReactNode
     close: Function
     isPadding?: boolean
 }) {

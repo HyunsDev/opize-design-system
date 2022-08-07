@@ -17,13 +17,13 @@ interface Props {
     onChange?: Function
     placeholder?: string
     readonly?: boolean
-    error?: string
+    error?: React.ReactNode
     ref?: any
     required?: boolean
     disabled?: boolean
-    label?: string
-    leftAddon?: string | ButtonAddon
-    rightAddon?: string | ButtonAddon
+    label?: React.ReactNode
+    leftAddon?: React.ReactNode | ButtonAddon
+    rightAddon?: React.ReactNode | ButtonAddon
 }
 
 const Divver = styled.div`
@@ -96,7 +96,7 @@ const AddonButtonDiv = styled.div<{position: 'left' | 'right'}>`
 
 function Addon(props: {
     position: 'left' | 'right',
-    data: ButtonAddon | string | any
+    data: ButtonAddon | React.ReactNode | any
 }) {
     if (typeof props.data === 'string') {
         return <AddonTextDiv position={props.position}>{props.data}</AddonTextDiv>

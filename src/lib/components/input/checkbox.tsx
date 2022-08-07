@@ -64,8 +64,8 @@ const Text = styled.div<{required: Boolean}>`
 interface Props {
     checked?: boolean;
     onChange?: any;
-    label?: string;
-    text?: string;
+    label?: React.ReactNode;
+    text?: React.ReactNode;
     disabled?: boolean;
     required?: boolean
     ref?: any

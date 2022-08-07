@@ -51,7 +51,7 @@ const Badge = styled.div<{color: 'red' | 'yellow' | 'green' | 'blue' | 'gray', s
 
 interface StatusBadgeTagProps {
     color: 'green' | 'yellow' | 'red' | 'blue' | 'gray'
-    text: string
+    text: React.ReactNode
     size?: 'small' | 'normal'
 }
 

@@ -89,7 +89,7 @@ const ToolTipBoxLeft = styled(ToolTipBox)`
 
 interface Props {
     children: React.ReactNode;
-    text: string;
+    text: React.ReactNode;
     direction?: 'top' | 'bottom' | 'right' | 'left'
 }
 

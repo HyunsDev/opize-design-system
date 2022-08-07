@@ -47,7 +47,7 @@ const BoxFooterDiv = styled.div`
     font-size: .875rem;
 `
 function BoxFooter(props: {
-    text: string,
+    text: React.ReactNode,
     button: ButtonProps
 }) {
 
@@ -61,10 +61,10 @@ function BoxFooter(props: {
 
 export function Box(props: {
     children: React.ReactNode,
-    title?: string,
+    title?: React.ReactNode,
     header?: React.ReactNode,
     footerTemplate?: {
-        text: string,
+        text: React.ReactNode,
         button: ButtonProps
     }
     footer?: React.ReactNode,
@@ -77,7 +77,7 @@ export function Box(props: {
         <BoxOuter>
             <>
                 { props.header &&  <BoxHeaderDiv>{props.header}</BoxHeaderDiv>}
-                <BoxDiv {...props}>
+                <BoxDiv>
                     { props.title && <BoxTitle>{props.title}</BoxTitle> }
                     { props.children }
                 </BoxDiv>
