@@ -5,7 +5,7 @@ import { PageHead } from '.';
 
 
 export default {
-  title: 'Library/PageHead',
+  title: 'Component/PageHead',
   component: PageHead,
   argTypes: {
   },

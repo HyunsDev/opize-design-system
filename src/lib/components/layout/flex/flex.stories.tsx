@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 
 export default {
-  title: 'Library/Flex',
+  title: 'Component/Flex',
   component: Flex,
   argTypes: {
     // backgroundColor: { control: 'color' },

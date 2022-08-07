@@ -9,7 +9,7 @@ import profileImg from '../../../assets/hyuns.jpg'
 
 
 export default {
-  title: 'Library/ActionMenu',
+  title: 'Component/ActionMenu',
   component: ActionMenu,
   argTypes: {
     // backgroundColor: { control: 'color' },

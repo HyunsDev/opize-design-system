@@ -5,7 +5,7 @@ import { H1, H2, H3 } from '.';
 
 
 export default {
-  title: 'Library/Title',
+  title: 'Component/Title',
   argTypes: {
 
   },

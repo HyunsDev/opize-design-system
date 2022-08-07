@@ -9,7 +9,7 @@ import { Spacer } from '../spacer';
 
 
 export default {
-  title: 'Library/Form/Form',
+  title: 'Component/Form/Form',
   argTypes: {
     // backgroundColor: { control: 'color' },
   },

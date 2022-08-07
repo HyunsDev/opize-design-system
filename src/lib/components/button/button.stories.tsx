@@ -6,7 +6,7 @@ import { Button } from '.';
 
 
 export default {
-  title: 'Library/Button',
+  title: 'Component/Button',
   component: Button,
   argTypes: {
     // backgroundColor: { control: 'color' },

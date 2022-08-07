@@ -5,7 +5,7 @@ import { TabNav } from '.';
 
 
 export default {
-  title: 'Library/TabNav',
+  title: 'Component/TabNav',
   component: TabNav,
   argTypes: {
   },

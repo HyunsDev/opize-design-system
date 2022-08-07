@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 
 export default {
-  title: 'Library/ToolTip',
+  title: 'Component/ToolTip',
   component: ToolTip,
   argTypes: {
   },

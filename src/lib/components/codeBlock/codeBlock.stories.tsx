@@ -5,7 +5,7 @@ import { CodeBlock } from '.';
 
 
 export default {
-  title: 'Library/CodeBlock',
+  title: 'Component/CodeBlock',
   component: CodeBlock,
   argTypes: {
     // backgroundColor: { control: 'color' },

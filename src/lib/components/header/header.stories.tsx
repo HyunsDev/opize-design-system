@@ -9,7 +9,7 @@ import Logo from '../../../assets/opize.png'
 import { HeaderSubMenu } from './headerSubMenu';
 
 export default {
-  title: 'Library/Header',
+  title: 'Component/Header',
   argTypes: {
   },
   fullscreen: true

@@ -5,7 +5,7 @@ import { StatusBadge } from './';
 
 
 export default {
-  title: 'Library/StatusBadge',
+  title: 'Component/StatusBadge',
   component: StatusBadge,
   argTypes: {
   },

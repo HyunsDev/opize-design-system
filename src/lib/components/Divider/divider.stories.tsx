@@ -5,7 +5,7 @@ import { Divider } from '.';
 
 
 export default {
-  title: 'Library/Divider',
+  title: 'Component/Divider',
   component: Divider,
   argTypes: {
   },

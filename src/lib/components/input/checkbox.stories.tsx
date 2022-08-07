@@ -7,7 +7,7 @@ import styled from 'styled-components';
 
 
 export default {
-  title: 'Library/Form/Checkbox',
+  title: 'Component/Form/Checkbox',
   component: Checkbox,
   argTypes: {
     // backgroundColor: { control: 'color' },
