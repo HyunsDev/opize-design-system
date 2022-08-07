@@ -27,6 +27,7 @@ const ButtonDiv = styled.button<ButtonDivProps>`
     padding: ${props => props.padding};
     gap: 8px;
     user-select: none;
+    min-height: 33px;
 
     width: ${props => props.width};
 
@@ -59,7 +60,7 @@ const A = styled.a`
 `
 
 interface _ButtonProps {
-    label?: string
+    label?: React.ReactNode
     variant?: 'contained' | 'outlined' | 'text'
     color?: 'gray' | 'red',
     size?: 'medium' | 'large',
@@ -245,17 +246,16 @@ export function Button({
 
     const children = (
         <>
-            { isLoading && <Spinner size={14} color='var(--local-color)' />}
-
             <IconContext.Provider
                 value={{
                     size: 16,
                     weight: "bold",
                 }}
             >
-                {Icon || icon}
+                { isLoading && <Spinner size={16} color='var(--local-color)' />}
+                {!isLoading && (Icon || icon)}
+                {!isLoading && label}
             </IconContext.Provider>
-            {label}
         </>
     )
 
