@@ -1,12 +1,14 @@
 import ModalContextProvider from "./modal/modalContext"
-
+import TopLoadingContextProvider from "./topLoading/topLoadingContext"
 
 export function OpizeContextProvider({children}: {
     children: React.ReactElement
 }) {
     return (
         <ModalContextProvider>
-            {children}
+            <TopLoadingContextProvider>
+                {children}
+            </TopLoadingContextProvider>
         </ModalContextProvider>
     )
 }
