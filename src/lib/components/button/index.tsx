@@ -109,7 +109,7 @@ export function Button({
                     bgColorHover: 'rgba(0,0,0,0)',
                     borderColor: cv.bg_element5,
                     borderColorHover: '',
-                    color: cv.bg_element7,
+                    color: cv.bg_element1,
                     colorHover: cv.bg_element5
                 }
             } else {
@@ -118,7 +118,7 @@ export function Button({
                     bgColorHover: '',
                     borderColor: cv.bg_element3,
                     borderColorHover: '',
-                    color: cv.bg_element7,
+                    color: cv.bg_element1,
                     colorHover: ''
                 }
             }
@@ -126,10 +126,10 @@ export function Button({
             if (!isDisabled) {
                 ButtonColor = {
                     bgColor: cv.red1,
-                    bgColorHover: cv.bg_element7,
+                    bgColorHover: cv.bg_element1,
                     borderColor: cv.red1,
                     borderColorHover: '',
-                    color: cv.bg_element7,
+                    color: cv.bg_element1,
                     colorHover: cv.red1
                 }
             } else {
@@ -138,7 +138,7 @@ export function Button({
                     bgColorHover: '',
                     borderColor: cv.bg_red1,
                     borderColorHover: '',
-                    color: cv.bg_element7,
+                    color: cv.bg_element1,
                     colorHover: ''
                 }
             }

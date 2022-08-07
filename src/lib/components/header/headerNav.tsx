@@ -65,7 +65,7 @@ const HeaderButton = styled.button`
     justify-content: center;
     align-items: center;
     padding: 0px 4px;
-    background-color: ${cv.bg_element7};
+    background-color: ${cv.bg_element1};
     cursor: pointer;
     border: 0;
     font-size: 14px;

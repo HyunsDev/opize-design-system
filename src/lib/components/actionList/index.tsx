@@ -18,7 +18,7 @@ const ActionListItem = styled(Link)`
     align-items: center;
     padding: 8px 12px;
     border-radius: 4px;
-    background-color: ${cv.bg_element7};
+    background-color: ${cv.bg_element1};
     transition: background-color 100ms;
     user-select: none;
     font-size: 0.875rem;
@@ -27,7 +27,7 @@ const ActionListItem = styled(Link)`
     line-height: 24px;
     cursor: pointer;
     &:hover {
-        background-color: ${props => props.color === 'red' ? cv.bg_red1 : cv.bg_element8};
+        background-color: ${props => props.color === 'red' ? cv.bg_red1 : cv.bg_element2};
     }
 `
 

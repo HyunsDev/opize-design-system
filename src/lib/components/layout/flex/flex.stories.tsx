@@ -24,5 +24,5 @@ const Item = styled.div`
 const Template: ComponentStory<typeof Flex> = (args) => <Flex {...args}><Item /><Item /><Item /></Flex>;
 export const FlexRow = Template.bind({});
 FlexRow.args = {
-
+  style: {gap: '8px'}
 };
