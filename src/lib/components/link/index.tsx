@@ -10,18 +10,22 @@ const LinkStyle = css`
     font-size: .875rem;
     line-height: 24px;
     cursor: pointer;
+`
 
+const LinkA = styled.a<{color: String}>`
+    ${LinkStyle}
+    color: ${props => props.color};
     &:hover {
-        border-bottom: solid 1px ${cv.blue1};
+        border-bottom: solid 1px ${props => props.color};
     }
 `
 
-const LinkA = styled.a`
+const LinkLink = styled(LinkRouter)<{color: String}>`
     ${LinkStyle}
-`
-
-const LinkLink = styled(LinkRouter)`
-    ${LinkStyle}
+    color: ${props => props.color};
+    &:hover {
+        border-bottom: solid 1px ${props => props.color};
+    }
 `
 
 export function Link(props: {
@@ -29,14 +33,15 @@ export function Link(props: {
     newTab?: boolean
     hideIcon?: boolean
     children: React.ReactNode
+    color?: string
 }) {
     if (!props.to.includes('http')) {
-        return <LinkLink to={props.to}>{props.children}</LinkLink>
+        return <LinkLink to={props.to} color={props.color || cv.blue1}>{props.children}</LinkLink>
     } else {
         return (
-            <LinkA href={props.to} target={props.newTab ? '_self' : '_blank'} rel='noreferrer' >
+            <LinkA href={props.to} target={props.newTab ? '_self' : '_blank'} rel='noreferrer' color={props.color || cv.blue1}>
                 {props.children}
-                {!props.hideIcon && <Share size={16} color={cv.blue1} weight='bold' style={{marginLeft: '4px', marginBottom: '-2px'}} />}
+                {!props.hideIcon && <Share size={16} color={props.color || cv.blue1} weight='bold' style={{marginLeft: '4px', marginBottom: '-2px'}} />}
             </LinkA>
         )
     }
