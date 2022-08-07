@@ -2,6 +2,7 @@ import ModalContextProvider from "../../context/modal/modalContext"
 import { createGlobalStyle } from 'styled-components';
 import { themes, builtCssVariable } from "../../style";
 import '../../style/font.css'
+import TopLoadingContextProvider from "../../context/topLoading/topLoadingContext";
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -52,7 +53,9 @@ export function OpizeWrapper({ children }: {
         <>
             <GlobalStyles />
             <ModalContextProvider>
-                { children }
+                <TopLoadingContextProvider>
+                    { children }
+                </TopLoadingContextProvider>
             </ModalContextProvider>
         </>
     )
