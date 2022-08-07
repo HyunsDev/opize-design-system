@@ -8,7 +8,7 @@ import { OpizeContextProvider } from '../../context';
 import { useDialog } from '.';
 
 export default {
-  title: 'Library/Dialog',
+  title: 'Hook/useDialog',
   argTypes: {
 
   }

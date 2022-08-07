@@ -75,7 +75,7 @@ const ModalTitleBox = styled.div`
 const CloseBtn = styled.div`
     cursor: pointer;
     padding: 6px;
-    background-color: ${cv.bg_element7};
+    background-color: ${cv.bg_element1};
     transition: 200ms;
     display: flex;
     align-items: center;
@@ -83,16 +83,16 @@ const CloseBtn = styled.div`
     border-radius: 25565px;
 
     &:hover {
-        background-color: ${cv.bg_element8};
+        background-color: ${cv.bg_element2};
     }
 `
 
 export function Modal(props: {
     setOpen: Function
     isOpen: boolean
-    content: React.ReactElement
+    content: React.ReactNode
     width: number
-    title?: string
+    title?: React.ReactNode
     close: Function
     isPadding?: boolean
 }) {

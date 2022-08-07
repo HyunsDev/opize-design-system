@@ -5,7 +5,7 @@ import { TextField } from '../input';
 
 
 export default {
-  title: 'Library/Box',
+  title: 'Component/Box',
   component: Box,
   argTypes: {
   },

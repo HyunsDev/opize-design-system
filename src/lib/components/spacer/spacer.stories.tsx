@@ -5,7 +5,7 @@ import { Spacer } from '.';
 import styled from 'styled-components';
 
 export default {
-  title: 'Library/Spacer',
+  title: 'Component/Spacer',
   component: Spacer,
   argTypes: {
   },

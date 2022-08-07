@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 
 export default {
-  title: 'Library/Form/TextArea',
+  title: 'Component/Form/TextArea',
   component: TextArea,
   argTypes: {
     // backgroundColor: { control: 'color' },

@@ -6,7 +6,7 @@ import styled from 'styled-components';
 
 
 export default {
-  title: 'Library/ActionList',
+  title: 'Component/ActionList',
   component: ActionList,
   argTypes: {
     isSticky: {

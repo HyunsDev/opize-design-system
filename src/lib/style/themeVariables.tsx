@@ -10,8 +10,6 @@ interface ThemeVariables {
     bg_element4: string
     bg_element5: string
     bg_element6: string
-    bg_element7: string
-    bg_element8: string
 
     border1: string
     border2: string
@@ -56,14 +54,12 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
         bg_page2: '#FFFFFF',
 
         bg_element1: '#FFFFFF',
-        bg_element2: '#F8F9FA',
+        bg_element2: '#F5F6F8',
         bg_element3: '#E9ECEF',
         bg_element4: '#DEE2E6',
 
         bg_element5: '#212529',
         bg_element6: '#343A40',
-        bg_element7: '#FFFFFF',
-        bg_element8: '#f5f6f8',
 
         border1: '#343A40',
         border2: '#ADB5BD',

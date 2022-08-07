@@ -158,16 +158,16 @@ const Components = styled.div<{flex?: number}>`
 interface Avatar {
     type: 'avatar'
     flex?: number
-    icon: string | React.ReactElement
-    name: string
-    label: string
+    icon: React.ReactNode
+    name: React.ReactNode
+    label: React.ReactNode
 }
 
 interface Status {
     type: 'status'
     flex?: number
     status: 'stateless' | 'error' | 'warning' | 'done' | 'good'
-    label?: string
+    label?: React.ReactNode
 }
 
 interface Text {

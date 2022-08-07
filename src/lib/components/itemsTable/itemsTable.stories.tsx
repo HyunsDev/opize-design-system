@@ -6,7 +6,7 @@ import { Gear, UserCircle, X } from 'phosphor-react';
 
 
 export default {
-  title: 'Library/ItemsTable',
+  title: 'Component/ItemsTable',
   component: ItemsTable,
   argTypes: {
   },

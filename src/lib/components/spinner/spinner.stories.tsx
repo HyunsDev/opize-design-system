@@ -5,7 +5,7 @@ import { Spinner } from '.';
 
 
 export default {
-  title: 'Library/Spinner',
+  title: 'Component/Spinner',
   component: Spinner,
   argTypes: {
   },

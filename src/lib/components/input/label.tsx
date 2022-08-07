@@ -13,5 +13,4 @@ export const Label = styled.label<{required: Boolean}>`
             content: ' *'
         }
     `}
-    
 `

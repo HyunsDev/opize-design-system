@@ -8,6 +8,7 @@ const ActionMenuDiv = styled.div`
     align-items: center;
     position: relative;
     width: fit-content;
+    user-select: none;
 `
 
 const ButtonDiv = styled.div<{isOpen: boolean, onlyIcon: boolean}>`
@@ -26,10 +27,10 @@ const ButtonDiv = styled.div<{isOpen: boolean, onlyIcon: boolean}>`
     line-height: 24px;
     
     border-radius: ${props => props.onlyIcon ? '99999px' : '4px'};
-    background-color: ${props => props.isOpen ? cv.bg_element8 : cv.bg_element7};
+    background-color: ${props => props.isOpen ? cv.bg_element2 : cv.bg_element1};
 
     &:hover {
-        background-color: ${cv.bg_element8};
+        background-color: ${cv.bg_element2};
     }
 `
 
@@ -64,7 +65,7 @@ const OverlayDiv = styled.div<{top?: number, right?: number; bottom?: number, le
     ${props => props.left !== undefined && `left: ${props.left}px;`};
     padding: 8px 0px;
     box-shadow: 0 8px 30px rgba(0,0,0,10%);
-    background-color: ${cv.bg_element7};
+    background-color: ${cv.bg_element1};
     font-size: 14px;
     display: flex;
     flex-direction: column;
@@ -98,7 +99,7 @@ const ActionDiv = styled.div<{color: 'normal' | 'red'}>`
     justify-content: space-between;
     padding: 4px 16px;
     border-radius: 4px;
-    background-color: ${cv.bg_element7};
+    background-color: ${cv.bg_element1};
     cursor: pointer;
     transition: 100ms;
     user-select: none;
@@ -108,12 +109,12 @@ const ActionDiv = styled.div<{color: 'normal' | 'red'}>`
 
     &:hover {
         color: ${props => props.color === 'red' ? cv.red1 : cv.text1};
-        background-color: ${props => props.color === 'red' ? cv.bg_red1 : cv.bg_element8};
+        background-color: ${props => props.color === 'red' ? cv.bg_red1 : cv.bg_element2};
     }
 `
 
 export interface ActionType {
-    label: string,
+    label: React.ReactNode,
     icon?: React.ReactNode,
     onClick: Function
     color?: 'normal' | 'red'
@@ -132,7 +133,7 @@ function Action({icon, label, onClick, color = 'normal'}: ActionType) {
 
 export function ActionMenu({actions, label, icon}: {
     actions: ActionType[][],
-    label?: string,
+    label?: React.ReactNode,
     icon?: React.ReactNode
 }) {
     const [ isOpen, setIsOpen ] = useState(false)

@@ -5,7 +5,7 @@ import { Link } from './';
 
 
 export default {
-  title: 'Library/Link',
+  title: 'Component/Link',
   component: Link,
   argTypes: {
   },

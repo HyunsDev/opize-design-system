@@ -14,10 +14,10 @@ interface Props {
     onChange?: Function
     placeholder?: string
     readonly?: boolean
-    error?: string
+    error?: React.ReactNode
     required?: boolean
     disabled?: boolean
-    label?: string
+    label?: React.ReactNode
 }
 
 const Input = styled.textarea<Props>`

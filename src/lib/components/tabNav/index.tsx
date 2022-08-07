@@ -62,7 +62,7 @@ interface Props {
     selected: string;
     menu: {
         [key: string]: {
-            text: string,
+            text: React.ReactNode,
             onClick: Function,
         }
     }

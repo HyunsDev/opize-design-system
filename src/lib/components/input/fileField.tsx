@@ -41,9 +41,9 @@ const Message = styled.div<{error: boolean}>`
 export function FileField(props: {
     value: any
     onChange: Function
-    label?: string
+    label?: React.ReactNode
     error?: boolean
-    message?: string
+    message?: React.ReactNode
     ref?: any
 }) {
     return (
