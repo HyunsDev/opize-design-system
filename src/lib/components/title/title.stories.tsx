@@ -1,7 +1,7 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import styled from 'styled-components';
 
-import { H1, H2, H3 } from '.';
+import { H1, H2, H3 } from '..';
 
 
 export default {

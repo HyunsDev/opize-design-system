@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DotsThreeVertical, Gear, X } from 'phosphor-react'
 
-import { ActionMenu } from '.';
+import { ActionMenu } from '..';
 import styled from 'styled-components';
 
 import profileImg from '../../../assets/hyuns.jpg'

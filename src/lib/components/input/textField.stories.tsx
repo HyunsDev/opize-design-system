@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PaperPlaneTilt } from 'phosphor-react'
 
-import { TextField } from './';
+import { TextField } from '..';
 import styled from 'styled-components';
 
 
@@ -10,7 +10,9 @@ export default {
   title: 'Component/Form/TextField',
   component: TextField,
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    label: {
+      control: { type: 'text' }
+    }
   },
 } as ComponentMeta<typeof TextField>;
 

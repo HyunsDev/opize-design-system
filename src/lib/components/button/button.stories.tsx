@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Check } from 'phosphor-react'
 
-import { Button } from '.';
+import { Button } from '..';
 
 
 export default {

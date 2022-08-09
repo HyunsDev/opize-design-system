@@ -1,18 +1,17 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta, Story } from '@storybook/react';
 
-import { HeaderNav } from './headerNav';
+import { Header } from '..';
+
 import styled from 'styled-components';
 import { ActionMenu } from '../actionMenu';
-
 import Logo from '../../../assets/opize.png'
-import { HeaderSubMenu } from './headerSubMenu';
+
 
 export default {
   title: 'Component/Header',
   argTypes: {
   },
-  fullscreen: true
 };
 
 const ProfileImg = styled.img`
@@ -27,35 +26,37 @@ const Void = styled.div`
 `
 
 const Template = () => (<>
-  <HeaderNav>
-    <HeaderNav.Left>
-      <HeaderNav.Logo src={Logo} to='/' />
-    </HeaderNav.Left>
+  <Header>
+    <Header.Nav>
+      <Header.Nav.Left>
+        <Header.Nav.Logo src={Logo} to='/' />
+      </Header.Nav.Left>
 
-    <HeaderNav.Right>
-    <HeaderNav.Button onClick={() => null}>Button2</HeaderNav.Button>
-      <HeaderNav.Button onClick={() => null}>Button</HeaderNav.Button>
-      <ActionMenu icon={<ProfileImg src={Logo} alt='' />} actions={[
-        [
-          {
-            label: 'label',
-            onClick: () => null
-          }
-        ]
-      ]}  />
-    </HeaderNav.Right>
-  </HeaderNav>
-  <HeaderSubMenu selected='a' menu={{
-    a: {
-      text: 'Tab A',
-      onClick: () => null
-    }, 
-    b: {
-      text: 'Tab B',
-      onClick: () => null
-    }
-  }} />
-  <Void />
+      <Header.Nav.Right>
+      <Header.Nav.Button onClick={() => null}>Button2</Header.Nav.Button>
+        <Header.Nav.Button onClick={() => null}>Button</Header.Nav.Button>
+        <ActionMenu icon={<ProfileImg src={Logo} alt='' />} actions={[
+          [
+            {
+              label: 'label',
+              onClick: () => null
+            }
+          ]
+        ]}  />
+      </Header.Nav.Right>
+    </Header.Nav>
+    <Header.SubMenu selected='a' menu={{
+      a: {
+        text: 'Tab A',
+        onClick: () => null
+      }, 
+      b: {
+        text: 'Tab B',
+        onClick: () => null
+      }
+    }} />
+    <Void />
+  </Header>
 </>);
 
 export const Primary: Story = Template.bind({});

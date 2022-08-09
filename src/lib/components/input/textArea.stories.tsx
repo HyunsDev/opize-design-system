@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { TextArea } from '.';
+import { TextArea } from '..';
 import styled from 'styled-components';
 
 
@@ -9,7 +9,9 @@ export default {
   title: 'Component/Form/TextArea',
   component: TextArea,
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    label: {
+      control: { type: 'text' }
+    }
   },
 } as ComponentMeta<typeof TextArea>;
 

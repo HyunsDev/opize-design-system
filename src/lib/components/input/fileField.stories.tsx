@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { FileField } from '.';
+import { FileField } from '..';
 import styled from 'styled-components';
 
 
@@ -9,7 +9,9 @@ export default {
   title: 'Component/Form/FileField',
   component: FileField,
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    label: {
+      control: { type: 'text' }
+    }
   },
 } as ComponentMeta<typeof FileField>;
 

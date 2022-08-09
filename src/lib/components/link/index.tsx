@@ -10,39 +10,55 @@ const LinkStyle = css`
     font-size: .875rem;
     line-height: 24px;
     cursor: pointer;
+    border-bottom: solid 1px rgba(0,0,0,0);
 `
 
-const LinkA = styled.a<{color: String}>`
+const LinkA = styled.a<{color: String, showUnderline: Boolean}>`
     ${LinkStyle}
     color: ${props => props.color};
-    &:hover {
-        border-bottom: solid 1px ${props => props.color};
-    }
+    ${props => props.showUnderline && css`
+        &:hover {
+            border-bottom: solid 1px ${props.color};
+        }
+    `}
 `
 
-const LinkLink = styled(LinkRouter)<{color: String}>`
+const LinkLink = styled(LinkRouter)<{color: String, showUnderline: Boolean}>`
     ${LinkStyle}
     color: ${props => props.color};
-    &:hover {
-        border-bottom: solid 1px ${props => props.color};
-    }
+
+    ${props => props.showUnderline && css`
+        &:hover {
+            border-bottom: solid 1px ${props.color};
+        }
+    `}
 `
 
-export function Link(props: {
+export function Link({
+    to,
+    color,
+    newTab,
+    hideIcon,
+    children,
+    showUnderline = true
+}: {
     to: string
     newTab?: boolean
     hideIcon?: boolean
     children: React.ReactNode
     color?: string
+    showUnderline?: boolean
 }) {
-    if (!props.to.includes('http')) {
-        return <LinkLink to={props.to} color={props.color || cv.blue1}>{props.children}</LinkLink>
+    if (!to.includes('http')) {
+        return <><LinkLink to={to} color={color || cv.blue1} showUnderline={showUnderline}>{children}</LinkLink></>
     } else {
         return (
-            <LinkA href={props.to} target={props.newTab ? '_self' : '_blank'} rel='noreferrer' color={props.color || cv.blue1}>
-                {props.children}
-                {!props.hideIcon && <Share size={16} color={props.color || cv.blue1} weight='bold' style={{marginLeft: '4px', marginBottom: '-2px'}} />}
-            </LinkA>
+            <>
+                <LinkA href={to} target={newTab ? '_self' : '_blank'} rel='noreferrer' color={color || cv.blue1} showUnderline={showUnderline}>
+                    {children}
+                    {!hideIcon && <Share size={16} color={color || cv.blue1} weight='bold' style={{marginLeft: '4px', marginBottom: '-2px'}} />}
+                </LinkA>
+            </>
         )
     }
 }

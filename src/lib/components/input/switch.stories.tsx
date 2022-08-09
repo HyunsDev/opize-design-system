@@ -1,22 +1,19 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Checkbox } from '..';
+import { Switch } from '..';
 import styled from 'styled-components';
 
 
 export default {
-  title: 'Component/Form/Checkbox',
-  component: Checkbox,
+  title: 'Component/Form/Switch',
+  component: Switch,
   argTypes: {
     label: {
       control: { type: 'text' }
-    },
-    text: {
-      control: { type: 'text' }
     }
   },
-} as ComponentMeta<typeof Checkbox>;
+} as ComponentMeta<typeof Switch>;
 
 
 const Width500 = styled.div`
@@ -24,7 +21,7 @@ const Width500 = styled.div`
   margin: 0 auto;
 `
 
-const Template: ComponentStory<typeof Checkbox> = (args) => <Width500><Checkbox {...args} /></Width500>;
+const Template: ComponentStory<typeof Switch> = (args) => <Width500><Switch {...args} /></Width500>;
 
 export const Primary = Template.bind({});
 Primary.args = {

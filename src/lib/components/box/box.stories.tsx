@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Box } from '.';
+import { Box } from '..';
 import { TextField } from '../input';
 
 

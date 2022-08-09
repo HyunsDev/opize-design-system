@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Select } from '.';
+import { Select } from '..';
 import styled from 'styled-components';
 
 
@@ -9,7 +9,9 @@ export default {
   title: 'Component/Form/Select',
   component: Select,
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    label: {
+      control: { type: 'text' }
+    }
   },
 } as ComponentMeta<typeof Select>;
 
