@@ -10,12 +10,12 @@ const LinkStyle = css`
     font-size: .875rem;
     line-height: 24px;
     cursor: pointer;
+    border-bottom: solid 1px rgba(0,0,0,0);
 `
 
 const LinkA = styled.a<{color: String, showUnderline: Boolean}>`
     ${LinkStyle}
     color: ${props => props.color};
-
     ${props => props.showUnderline && css`
         &:hover {
             border-bottom: solid 1px ${props.color};
