@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { ActionList } from './';
+import { ActionList } from '..';
 import styled from 'styled-components';
 
 

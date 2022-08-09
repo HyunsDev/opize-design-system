@@ -1,6 +1,6 @@
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Avatar } from '.';
+import { Avatar } from '..';
 import Img from '../../../assets/opize.png'
 
 export default {

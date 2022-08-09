@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { TextArea } from '.';
+import { TextArea } from '..';
 import styled from 'styled-components';
 
 

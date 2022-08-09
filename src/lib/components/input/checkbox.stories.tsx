@@ -1,8 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { Check } from 'phosphor-react'
 
-import { Checkbox } from '.';
+import { Checkbox } from '..';
 import styled from 'styled-components';
 
 

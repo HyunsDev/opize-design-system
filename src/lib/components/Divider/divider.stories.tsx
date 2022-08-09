@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Divider } from '.';
+import { Divider } from '..';
 
 
 export default {

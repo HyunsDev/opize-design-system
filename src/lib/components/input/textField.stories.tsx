@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PaperPlaneTilt } from 'phosphor-react'
 
-import { TextField } from './';
+import { TextField } from '..';
 import styled from 'styled-components';
 
 
