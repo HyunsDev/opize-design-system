@@ -9,7 +9,9 @@ export default {
   title: 'Component/Form/TextArea',
   component: TextArea,
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    label: {
+      control: { type: 'text' }
+    }
   },
 } as ComponentMeta<typeof TextArea>;
 

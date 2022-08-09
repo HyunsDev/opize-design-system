@@ -9,7 +9,9 @@ export default {
   title: 'Component/Form/FileField',
   component: FileField,
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    label: {
+      control: { type: 'text' }
+    }
   },
 } as ComponentMeta<typeof FileField>;
 

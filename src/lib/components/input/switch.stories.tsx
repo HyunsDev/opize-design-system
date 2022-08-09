@@ -9,7 +9,9 @@ export default {
   title: 'Component/Form/Switch',
   component: Switch,
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    label: {
+      control: { type: 'text' }
+    }
   },
 } as ComponentMeta<typeof Switch>;
 

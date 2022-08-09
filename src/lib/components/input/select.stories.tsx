@@ -9,7 +9,9 @@ export default {
   title: 'Component/Form/Select',
   component: Select,
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    label: {
+      control: { type: 'text' }
+    }
   },
 } as ComponentMeta<typeof Select>;
 

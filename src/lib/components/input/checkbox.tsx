@@ -22,8 +22,8 @@ interface InputCheckBoxProps {
 const Input = styled.input<InputCheckBoxProps>`
     appearance: none;
 
-    width: 26px;
-    height: 26px;
+    width: 22px;
+    height: 22px;
     border-radius: 4px;
     border: solid 1px ${(props) => props.borderColor};
     background: ${(props) => props.backgroundColor};
@@ -51,8 +51,6 @@ const Input = styled.input<InputCheckBoxProps>`
 const Text = styled.div<{required: Boolean}>`
     display: block;
     font-size: 14px;
-    color: ${cv.text3};
-    margin-bottom: 4px;
 
     ${props => props.required && css`
         ::after {

@@ -12,6 +12,9 @@ export default {
     type: {
       options: ['date', 'datetime-local', 'month', 'time', 'week'],
       control: { type: 'select' }
+    },
+    label: {
+      control: { type: 'text' }
     }
   },
 } as ComponentMeta<typeof Datetime>;

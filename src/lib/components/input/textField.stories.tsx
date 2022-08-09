@@ -10,7 +10,9 @@ export default {
   title: 'Component/Form/TextField',
   component: TextField,
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    label: {
+      control: { type: 'text' }
+    }
   },
 } as ComponentMeta<typeof TextField>;
 

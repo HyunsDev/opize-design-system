@@ -5,10 +5,11 @@ const FlexLayout = styled.div`
     display: flex;
 `
 
-const FlexCenter = styled.div`
+const FlexCenter = styled.div<{gap?: string}>`
     display: flex;
     align-items: center;
     justify-content: center;
+    ${props => props.gap && `gap: ${props.gap}`};
 `
 
 const FlexBetween = styled.div`
@@ -17,10 +18,10 @@ const FlexBetween = styled.div`
     justify-content: space-between;
 `
 
-const FlexColumn = styled.div<{gap: string}>`
+const FlexColumn = styled.div<{gap?: string}>`
     display: flex;
     flex-direction: column;
-    ${props => props.gap || props.gap};
+    ${props => props.gap && `gap: ${props.gap}`};
 `
 
 export const Flex = Object.assign(FlexLayout, {

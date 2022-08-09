@@ -9,7 +9,12 @@ export default {
   title: 'Component/Form/Checkbox',
   component: Checkbox,
   argTypes: {
-    // backgroundColor: { control: 'color' },
+    label: {
+      control: { type: 'text' }
+    },
+    text: {
+      control: { type: 'text' }
+    }
   },
 } as ComponentMeta<typeof Checkbox>;
 
