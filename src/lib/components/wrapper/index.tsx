@@ -1,6 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { themes, builtCssVariable } from "../../style";
 import { OpizeContextProvider } from "../../context";
+import React from 'react';
 import '../../style/font.css'
 
 const GlobalStyles = createGlobalStyle`

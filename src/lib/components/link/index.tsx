@@ -1,5 +1,5 @@
 import { Share } from "phosphor-react"
-import { ComponentProps } from "react"
+import React, { ComponentProps } from "react"
 import { Link as LinkRouter } from "react-router-dom"
 import styled, { css } from "styled-components"
 import { cv } from "../../style"

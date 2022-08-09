@@ -1,5 +1,5 @@
 import { IconContext } from "phosphor-react"
-import { ComponentProps, useCallback, useEffect, useRef, useState } from "react"
+import React, { ComponentProps, useCallback, useEffect, useRef, useState } from "react"
 import styled, { keyframes } from "styled-components"
 import { cv } from "../../style"
 
