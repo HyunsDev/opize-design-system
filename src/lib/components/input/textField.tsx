@@ -1,29 +1,22 @@
 import styled from "styled-components"
 import { IconContext } from 'phosphor-react'
 import { cv } from "../../style"
-import React, { ComponentProps } from "react"
+import React from "react"
 import { Label } from "./label"
+
+export type TextFieldProps = React.ComponentPropsWithoutRef<'input'> & { 
+    label?: React.ReactNode,
+    type?: 'text' | 'password' | 'search' | 'url' | 'email' | 'number' | 'tel',
+    error?: React.ReactNode
+    leftAddon?: React.ReactNode | ButtonAddon
+    rightAddon?: React.ReactNode | ButtonAddon
+}
 
 type ButtonAddon = {
     type: 'button',
     label?: string,
     icon?: React.ReactElement
     onClick: Function
-}
-
-interface Props {
-    type?: 'text' | 'password' | 'search' | 'url'
-    value?: string
-    onChange?: Function
-    placeholder?: string
-    readonly?: boolean
-    error?: React.ReactNode
-    ref?: any
-    required?: boolean
-    disabled?: boolean
-    label?: React.ReactNode
-    leftAddon?: React.ReactNode | ButtonAddon
-    rightAddon?: React.ReactNode | ButtonAddon
 }
 
 const Divver = styled.div`
@@ -113,7 +106,7 @@ function Addon(props: {
 }
 
 
-export const TextField = React.forwardRef<HTMLInputElement, Props>((props:Props, ref) => {
+export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>((props:TextFieldProps, ref) => {
     return (
         <IconContext.Provider value={{
             weight: 'bold',
@@ -124,7 +117,7 @@ export const TextField = React.forwardRef<HTMLInputElement, Props>((props:Props,
                 {props.label && <Label required={props.required || false}>{props.label}</Label>}
                 <Inputs>
                     {props.leftAddon && <Addon position="left" data={props.leftAddon} />}
-                    <Input ref={ref} {...props} onChange={(e) => props.onChange && props.onChange(e)}/>
+                    <Input ref={ref} {...props} type={props.type || 'text'} />
                     {props.rightAddon && <Addon position="right" data={props.rightAddon} />}
                 </Inputs>
                 { props.error && (<Message>{props.error}</Message>)}
@@ -132,5 +125,3 @@ export const TextField = React.forwardRef<HTMLInputElement, Props>((props:Props,
         </IconContext.Provider>
     )
 })
-
-export type TextFieldProps = ComponentProps<typeof TextField>

@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
-import { TextField, Checkbox, TextArea, Select } from '.';
+import { TextField, Checkbox, TextArea, Select, Switch, Datetime } from '.';
 import { Button, CodeBlock } from '..'
 import styled from 'styled-components';
 
@@ -9,7 +9,7 @@ import styled from 'styled-components';
 export default {
   title: 'Component/Form/Form',
   argTypes: {
-    // backgroundColor: { control: 'color' },
+
   },
 };
 
@@ -27,6 +27,9 @@ type FormData = {
     text2: string
     select: string
     check: boolean
+    switch: string
+    date: string
+    datetime: string
 }
 
 const Template = () => {
@@ -47,6 +50,9 @@ const Template = () => {
                 <Select.Option value='option3'>Option 3</Select.Option>
             </Select>
             <Checkbox {...register('check')} label='CheckBox' />
+            <Switch {...register('switch')} label='switch' />
+            <Datetime type='date' {...register('date')} label='date' />
+            <Datetime type='datetime-local' {...register('datetime')} label='datetime' />
 
             <Button type='submit' label='Submit' variant='contained' width='100%' />
 
