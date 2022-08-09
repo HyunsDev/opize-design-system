@@ -1,7 +1,6 @@
 import styled from "styled-components"
 import { cv } from "../../style"
 import { IconContext } from 'phosphor-react'
-import '../../style/style.css'
 import { Spinner } from "../spinner"
 import { Link } from "react-router-dom"
 import React, { ComponentProps } from "react"
