@@ -4,7 +4,7 @@ import { IconContext } from 'phosphor-react'
 import '../../style/style.css'
 import { Spinner } from "../spinner"
 import { Link } from "react-router-dom"
-import { ComponentProps } from "react"
+import React, { ComponentProps } from "react"
 
 type ButtonWidth = 'fit-content' | '100%' | string;
 

@@ -1,4 +1,4 @@
-import { ComponentProps, useState } from "react"
+import React, { ComponentProps, useState } from "react"
 import styled from "styled-components"
 import { cv } from "../../style"
 

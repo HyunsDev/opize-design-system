@@ -3,7 +3,7 @@ import styled from "styled-components"
 import { ActionMenu } from "../actionMenu"
 import { StatusBadge } from ".."
 import { cv } from "../../style"
-import { ComponentProps } from "react"
+import React, { ComponentProps } from "react"
 import { Link } from "../link"
 
 const ItemButton = styled.div`

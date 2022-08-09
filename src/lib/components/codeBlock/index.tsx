@@ -1,4 +1,4 @@
-import { ComponentProps } from 'react';
+import React, { ComponentProps } from 'react';
 import SyntaxHighlighter from 'react-syntax-highlighter';
 import a11yLight from 'react-syntax-highlighter/dist/esm/styles/hljs/a11y-light';
 import styled from 'styled-components';

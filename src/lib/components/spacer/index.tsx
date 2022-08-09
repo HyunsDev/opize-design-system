@@ -1,5 +1,5 @@
 import styled from "styled-components";
-
+import React from "react";
 
 export const Spacer = styled.div<{height: number}>`
     user-select: none;

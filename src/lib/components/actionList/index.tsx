@@ -1,4 +1,4 @@
-import { ComponentProps } from "react";
+import React, { ComponentProps } from "react";
 import { Link } from "react-router-dom";
 import styled, { css } from "styled-components";
 import { cv } from "../../style";

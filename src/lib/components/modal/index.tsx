@@ -1,5 +1,5 @@
 import { X } from "phosphor-react"
-import { ComponentProps, useEffect, useRef, useState } from "react"
+import React, { ComponentProps, useEffect, useRef, useState } from "react"
 import styled, {keyframes} from "styled-components"
 import { cv } from "../../style"
 
