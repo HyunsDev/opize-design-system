@@ -10,7 +10,7 @@ const Input = styled.input`
     width: 100%;
     border-radius: 4px;
     padding: 0px 12px;
-    height: 32px;
+    height: 36px;
     transition: 100ms;
     border: solid 1px ${cv.border3};
     outline: solid 0px ${cv.outline};

@@ -13,7 +13,7 @@ const Divver = styled.div`
     display: flex;
     align-items: center;
     border-radius: 4px;
-    height: 32px;
+    height: 36px;
     font-size: .875rem;
 `
 

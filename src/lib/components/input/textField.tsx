@@ -33,7 +33,7 @@ const Divver = styled.div`
 const Input = styled.input`
     z-index: 1;
     padding: 0px 12px;
-    height: 100%;
+    height: 32px;
     display: flex;
     align-items: center;
     transition: 200ms;
@@ -60,7 +60,7 @@ const Inputs = styled.div`
     display: flex;
     align-items: center;
     border-radius: 4px;
-    height: 32px;
+    height: 36px;
     border: solid 1px ${cv.border3};
 `
 
