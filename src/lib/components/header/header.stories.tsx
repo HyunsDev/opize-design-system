@@ -12,7 +12,6 @@ export default {
   title: 'Component/Header',
   argTypes: {
   },
-  fullscreen: true
 };
 
 const ProfileImg = styled.img`
