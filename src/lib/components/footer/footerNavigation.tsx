@@ -23,12 +23,12 @@ const StyledLink = styled(Link)`
 
 const TitleLink = (props: ComponentProps<typeof Link>) => {
     return (
-        <Flex style={{ alignItems: 'center' }}>
+        <div>
             <StyledTitleLink {...props} showUnderline={false} color={cv.text1}>
                 {props.children}
                 <CaretRight size={14} color={cv.text1} style={{marginBottom: '-2px'}} />
             </StyledTitleLink>
-        </Flex>
+        </div>
     )
 }
 
@@ -49,6 +49,18 @@ const StyledFooterNavigation = styled.div`
     display: flex;
     justify-content: space-between;
     gap: 8px;
+
+    @media ( max-width: 767px ) {
+        column-gap: 12px;
+        row-gap: 48px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        text-align: center;
+
+        ${Item} {
+            align-items: center;
+        }
+    }
 `
 
 export const FooterNavigation = Object.assign(StyledFooterNavigation, {

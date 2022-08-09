@@ -38,6 +38,17 @@ function Item(props: {
 const StyledFooterMenu = styled.div`
     display: flex;
     justify-content: space-between;
+
+    @media ( max-width: 767px ) {
+        flex-direction: column;
+        align-self: center;
+        text-align: center;
+        gap: 12px;
+
+        ${StyledItem} {
+            justify-content: center;
+        }
+    }
 `
 
 export const FooterMenu = Object.assign(StyledFooterMenu, {
