@@ -51,7 +51,7 @@ const ModalBox = styled.div<{isOpen: boolean, width: number, isPadding?: boolean
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     pointer-events: auto;
-    min-width: ${props => props.width}px;
+    width: ${props => props.width}px;
     max-width: 80vw;
     padding: ${props => props.isPadding ? 16 : 0}px;
 
