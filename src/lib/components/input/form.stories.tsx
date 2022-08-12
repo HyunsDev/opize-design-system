@@ -47,7 +47,7 @@ const Template = () => {
             <TextField {...register('text')} placeholder='text' label='TextField' />
             <TextField {...register('number')} type='number' min={0} max={10} placeholder='number (0~10)' label='TextField (number)' />
             <TextArea {...register('text2')} placeholder='text2' label='TextArea' />
-            <Select {...register('select')} name='select' label='Select'>
+            <Select {...register('select')} label='Select'>
                 <Select.Option value='option1'>Option 1</Select.Option>
                 <Select.Option value='option2'>Option 2</Select.Option>
                 <Select.Option value='option3'>Option 3</Select.Option>

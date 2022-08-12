@@ -11,6 +11,7 @@ const StyledBar = styled.div<{isShow: boolean}>`
     background-color: ${props => props.isShow ? cv.bg_element2 : 'rgba(0,0,0,0)'};
     user-select: none;
     pointer-events: none;
+    z-index: 9999;
 `
 
 const StyledBarInner = styled.div<{width: number, isShow: boolean}>`
