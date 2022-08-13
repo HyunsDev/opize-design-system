@@ -1,5 +1,5 @@
-import ModalContextProvider from "./modal/modalContext"
-import TopLoadingContextProvider from "./topLoading/topLoadingContext"
+import ModalContextProvider from "../hooks/useModal/modalContext"
+import TopLoadingContextProvider from "../hooks/useTopLoading/context"
 import React from 'react'
 
 export function OpizeContextProvider({children}: {

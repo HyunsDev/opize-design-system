@@ -1,6 +1,6 @@
 import React, { useContext } from "react";
 import { CodeBlock } from "../../components";
-import { ModalContext, ModalContextProps } from "../../context/modal/modalContext";
+import { ModalContext, ModalContextProps } from "./modalContext";
 
 
 export function useModal(): ModalContextProps {
@@ -11,6 +11,8 @@ export function useCodeModal() {
     const modal = useModal()
 
     return (title: string, code: any) => {
-        modal.open((<CodeBlock>{JSON.stringify(code, null, 2)}</CodeBlock>), title)
+        modal.open((<CodeBlock>{JSON.stringify(code, null, 2)}</CodeBlock>), {
+            title
+        })
     }
 }

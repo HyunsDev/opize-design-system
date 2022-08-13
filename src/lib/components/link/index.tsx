@@ -13,21 +13,25 @@ const LinkStyle = css`
     border-bottom: solid 1px rgba(0,0,0,0);
 `
 
-const LinkA = styled.a<{color: String, showUnderline: Boolean}>`
+const LinkA = styled.a<{color: String, $showUnderline: Boolean}>`
+    /*
+        만약 showUnderline 앞에 $를 붙이지 않으면 해당 prop이 a 태그로 전해지기 때문에 warning이 발생합니다.
+        prefix로 $를 붙이면 해당 prop이 a 태그로 전해지는 것을 방지하기 때문에 warning을 방지할 수 있습니다.
+    */
     ${LinkStyle}
     color: ${props => props.color};
-    ${props => props.showUnderline && css`
+    ${props => props.$showUnderline && css`
         &:hover {
             border-bottom: solid 1px ${props.color};
         }
     `}
 `
 
-const LinkLink = styled(LinkRouter)<{color: String, showUnderline: Boolean}>`
+const LinkLink = styled(LinkRouter)<{color: String, $showUnderline: Boolean}>`
     ${LinkStyle}
     color: ${props => props.color};
 
-    ${props => props.showUnderline && css`
+    ${props => props.$showUnderline && css`
         &:hover {
             border-bottom: solid 1px ${props.color};
         }
@@ -50,11 +54,11 @@ export function Link({
     showUnderline?: boolean
 }) {
     if (!to.includes('http')) {
-        return <><LinkLink to={to} color={color || cv.blue1} showUnderline={showUnderline}>{children}</LinkLink></>
+        return <><LinkLink to={to} color={color || cv.blue1} $showUnderline={showUnderline}>{children}</LinkLink></>
     } else {
         return (
             <>
-                <LinkA href={to} target={newTab ? '_self' : '_blank'} rel='noreferrer' color={color || cv.blue1} showUnderline={showUnderline}>
+                <LinkA href={to} target={newTab ? '_self' : '_blank'} rel='noreferrer' color={color || cv.blue1} $showUnderline={showUnderline}>
                     {children}
                     {!hideIcon && <Share size={16} color={color || cv.blue1} weight='bold' style={{marginLeft: '4px', marginBottom: '-2px'}} />}
                 </LinkA>

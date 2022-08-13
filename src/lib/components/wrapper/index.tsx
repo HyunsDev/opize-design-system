@@ -10,6 +10,7 @@ const GlobalStyles = createGlobalStyle`
         margin: 0;
         box-sizing: border-box;
         font-family: "Inter", 'Noto Sans KR', -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+        -webkit-tap-highlight-color : transparent;
         ::selection {
             background: #74fde0;
         }

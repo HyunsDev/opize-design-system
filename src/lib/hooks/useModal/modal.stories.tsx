@@ -39,7 +39,9 @@ const Template2 = () => {
     return (
         <Divver>
             <Button label='Open Modal' onClick={() => {
-                modal.open(<>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maxime ipsum praesentium molestias unde velit quas, sunt nesciunt animi, alias tempora. Totam ab voluptatum facere esse accusantium aut laboriosam dignissimos?</>, 'title')
+                modal.open(<>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maxime ipsum praesentium molestias unde velit quas, sunt nesciunt animi, alias tempora. Totam ab voluptatum facere esse accusantium aut laboriosam dignissimos?</>, {
+                    title: 'title'
+                })
             }} />
         </Divver>
     )

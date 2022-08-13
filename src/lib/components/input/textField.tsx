@@ -1,4 +1,4 @@
-import styled from "styled-components"
+import styled, { css } from "styled-components"
 import { IconContext } from 'phosphor-react'
 import { cv } from "../../style"
 import React from "react"
@@ -10,6 +10,7 @@ export type TextFieldProps = React.ComponentPropsWithoutRef<'input'> & {
     error?: React.ReactNode
     leftAddon?: React.ReactNode | ButtonAddon
     rightAddon?: React.ReactNode | ButtonAddon
+    border?: 'all' | 'bottom' | 'none'
 }
 
 type ButtonAddon = {
@@ -23,7 +24,7 @@ const Divver = styled.div`
     width: 100%;
 `
 
-const Input = styled.input`
+const Input = styled.input<{border: 'all' | 'bottom' | 'none'}>`
     z-index: 1;
     padding: 0px 12px;
     height: 32px;
@@ -31,14 +32,25 @@ const Input = styled.input`
     align-items: center;
     transition: 200ms;
     flex: 1;
+    box-sizing: content-box;
     border: 0;
     font-size: 14px;
-    border-radius: 2px;
-
     outline: solid 3px rgba(0,0,0,0);
+    box-shadow: 0px 0px 3px transparent;
+
+    ${props => props.border === 'all' ? css`
+            border-radius: 2px;
+        ` : props.border === 'bottom' ? css`
+        
+        `: ''
+    }
+
     &:focus {
-        border: 0;
-        outline: solid 3px ${cv.outline};
+        ${props => props.border === 'all' ? css`
+            outline: solid 3px ${cv.outline};
+        ` : props.border === 'bottom' ? css`
+            box-shadow: 0px 3px 0px ${cv.outline};
+        `: ''}
     }
 `
 
@@ -49,16 +61,21 @@ const Message = styled.div`
     margin-top: 4px;
 `
 
-const Inputs = styled.div`
+const Inputs = styled.div<{border: 'all' | 'bottom' | 'none'}>`
     display: flex;
     align-items: center;
-    border-radius: 4px;
     height: 36px;
-    border: solid 1px ${cv.border3};
+    ${props => props.border === 'all' ? css`
+            border-radius: 4px;
+            border: solid 1px ${cv.border3};
+        ` : props.border === 'bottom' ? css`
+            border-bottom: solid 1px ${cv.border3};
+        ` : ''
+    }
 `
 
 const AddonTextDiv = styled.div<{position: 'left' | 'right'}>`
-    padding: 0px 8px;
+    padding: 0px 12px;
     display: flex;
     align-items: center;
     height: 100%;
@@ -115,9 +132,9 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>((pro
         }}>
             <Divver>
                 {props.label && <Label required={props.required || false}>{props.label}</Label>}
-                <Inputs>
+                <Inputs border={props.border || 'all'}>
                     {props.leftAddon && <Addon position="left" data={props.leftAddon} />}
-                    <Input ref={ref} {...props} type={props.type || 'text'} />
+                    <Input ref={ref} {...props} type={props.type || 'text'} border={props.border || 'all'} />
                     {props.rightAddon && <Addon position="right" data={props.rightAddon} />}
                 </Inputs>
                 { props.error && (<Message>{props.error}</Message>)}

@@ -1,7 +1,8 @@
-import React, { useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 
 import { Button, Flex } from '../../components'
 import { useTopLoading } from '.';
+import { sleep } from '../../utils/sleep';
 
 export default {
   title: 'Hook/useTopLoading',
@@ -22,6 +23,14 @@ const Template = () => {
             topLoading.end()
         }, 1000)
     }
+
+    useEffect(() => {
+        ;(async () => {
+            topLoading.start()
+            await sleep(1000)
+            topLoading.end()
+        })()
+    }, [topLoading])
 
     return (
         <Flex style={{
