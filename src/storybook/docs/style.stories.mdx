@@ -1,0 +1,75 @@
+import { Meta } from '@storybook/addon-docs';
+import { Box, BoxItem } from './components/box.tsx';
+import { Text, OpizeWrapper, Flex, sv } from '../../lib';
+import { GrayBox } from './components/component.tsx';
+
+import { TypographyStyleExample } from './components/example/TypoStyleExample.tsx'
+
+<Meta title="Opize Design System/style" />
+
+
+
+# Style
+아래는 Color를 제외한 Style에 대해서 설명합니다.
+
+<OpizeWrapper>
+
+## CSS Variable
+
+### Usage
+```jsx
+import { cv } from 'opize-design-system'
+
+<Text size={cv.fontSizeNormal}>Text</Text>
+```
+
+
+### Font family
+<Box>
+    <BoxItem label={'fontFamily'}><Text font={'base'}>"Inter", 'Noto Sans KR', -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif</Text></BoxItem>
+    <BoxItem label={'fontFamilyMonospace'}><Text font={'monospace'}>Consolas, 'Courier New', Courier, monospaceFont family fontFamilyMonospace</Text></BoxItem>
+</Box>
+
+
+### Font size
+<Box>
+    <BoxItem label={'fontSizeNoraml'}><Text size={'14px'}>fontSizeNormal (fontSize400)</Text></BoxItem>
+    <BoxItem label={'fontSize200'}><Text size={'10px'}>fontSize200 (10px)</Text></BoxItem>
+    <BoxItem label={'fontSize300'}><Text size={'12px'}>fontSize300 (12px)</Text></BoxItem>
+    <BoxItem label={'fontSize400'}><Text size={'14px'}>fontSize400 (14px)</Text></BoxItem>
+    <BoxItem label={'fontSize500'}><Text size={'16px'}>fontSize500 (16px)</Text></BoxItem>
+    <BoxItem label={'fontSize600'}><Text size={'20px'}>fontSize600 (20px)</Text></BoxItem>
+</Box>
+
+
+### line height
+<Box>
+    <BoxItem label={'lineHeightNormal'}><GrayBox /><Text lineHeight={'24px'}>lineHeightNormal (lineHeight400)</Text><GrayBox /></BoxItem>
+    <BoxItem label={'lineHeight200'}><GrayBox /><Text lineHeight={'16px'}>lineHeight200 (16px)</Text><GrayBox /></BoxItem>
+    <BoxItem label={'lineHeight300'}><GrayBox /><Text lineHeight={'20px'}>lineHeight300 (20px)</Text><GrayBox /></BoxItem>
+    <BoxItem label={'lineHeight400'}><GrayBox /><Text lineHeight={'24px'}>lineHeight400 (24px)</Text><GrayBox /></BoxItem>
+</Box>
+
+
+## Style Variable
+
+### Usage
+
+
+### Typography styles
+<Box>
+    <BoxItem label={'sv.text.body1'}>
+        <Flex style={{gap: '32px', alignItems: 'center'}}>
+            <Text>Font family: fontFamily<br />Font weight: fontWeightRegular<br />Font size: fontSizeNormal<br />Line height: lineHeightNormal</Text>
+            <TypographyStyleExample css={sv.text.body1}>Hello, Opize Design System!</TypographyStyleExample>
+        </Flex>
+    </BoxItem>
+    <BoxItem label={'sv.text.caption1'}>
+        <Flex style={{gap: '32px', alignItems: 'center'}}>
+            <Text>Font family: fontFamily<br />Font weight: fontWeightRegular<br />Font size: fontSize300<br />Line height: lineHeight200</Text>
+            <TypographyStyleExample css={sv.text.caption1}>Hello, Opize Design System!</TypographyStyleExample>
+        </Flex>
+    </BoxItem>
+</Box>
+
+</OpizeWrapper>
