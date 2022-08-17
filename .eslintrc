@@ -1,16 +1,18 @@
 {
+    "root": true,
     "parser": "@typescript-eslint/parser",
     "plugins": [
         "@typescript-eslint"
     ],
+    "parserOptions": {
+        "project": "./tsconfig.json"
+    },
     "extends": [
         "prettier",
         "airbnb",
         "airbnb/hooks",
         "plugin:@typescript-eslint/recommended",
-        "plugin:prettier/recommended",
-        "react-app",
-        "react-app/jest"
+        "plugin:prettier/recommended"
     ],
     "rules": {
         "react/jsx-filename-extension": [
@@ -68,15 +70,5 @@
                 ]
             }
         }
-    },
-    "overrides": [
-        {
-            "files": [
-                "**/*.stories.*"
-            ],
-            "rules": {
-                "import/no-anonymous-default-export": "off"
-            }
-        }
-    ]
+    }
 }
