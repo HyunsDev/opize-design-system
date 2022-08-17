@@ -18,6 +18,8 @@ interface CssVariable {
     lineHeight200: string;
     lineHeight300: string;
     lineHeight400: string;
+
+    pageWidth: string;
 }
 
 type VariableKey = keyof CssVariable
@@ -42,6 +44,8 @@ const cssVariable: CssVariable = {
     lineHeight200: '16px',
     lineHeight300: '20px',
     lineHeight400: '24px',
+
+    pageWidth: '1200px'
 };
 
 const buildCssVariable = (variables: CssVariable) => {

@@ -16,9 +16,6 @@ const text = {
     `
 }
 
-
-
-
 export const sv = {
     text
 }
