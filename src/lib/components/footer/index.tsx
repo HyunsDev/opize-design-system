@@ -1,8 +1,8 @@
-import styled from "styled-components"
-import { cv } from "../../style"
-import { FooterMenu } from "./footerMenu"
-import { FooterNavigation } from "./footerNavigation"
-import React from "react";
+import styled from 'styled-components';
+import React from 'react';
+import { cv } from '../../style';
+import { FooterMenu } from './footerMenu';
+import { FooterNavigation } from './footerNavigation';
 
 const FooterOuter = styled.div`
     width: 100%;
@@ -10,7 +10,7 @@ const FooterOuter = styled.div`
     border-top: solid 1px ${cv.border4};
     position: relative;
     padding: 36px 0px;
-`
+`;
 
 const FooterInner = styled.footer`
     display: flex;
@@ -21,25 +21,20 @@ const FooterInner = styled.footer`
     margin: auto;
     gap: 52px;
 
-    @media ( max-width: 767px ) {
+    @media (max-width: 767px) {
         padding: 0px 8px;
     }
-`
+`;
 
-function StyledFooter(props: {
-    children: React.ReactNode
-}) {
-
+function StyledFooter({ children }: { children: React.ReactNode }) {
     return (
         <FooterOuter>
-            <FooterInner>
-                {props.children}
-            </FooterInner>
+            <FooterInner>{children}</FooterInner>
         </FooterOuter>
-    )
+    );
 }
 
 export const Footer = Object.assign(StyledFooter, {
     Navigation: FooterNavigation,
     Menu: FooterMenu,
-})
+});

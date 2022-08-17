@@ -12,6 +12,52 @@ import { TypographyStyleExample } from './components/example/TypoStyleExample.ts
 # Style
 아래는 Color를 제외한 Style에 대해서 설명합니다.
 
+## Base Style
+
+```css
+/* lib/components/wrapper/index.tsx */
+
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: "Inter", 'Noto Sans KR', -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
+    -webkit-tap-highlight-color : transparent;
+    ::selection {
+        background: #74fde0;
+    }
+}
+
+:root {
+    ${builtCssVariable}
+    ${themes.light}
+    transition: 0.125s all ease-in;
+    scroll-padding-top: 64px;
+
+    text-rendering: optimizeLegibility;
+    -webkit-font-smoothing: antialiased;
+    touch-action: manipulation;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+        ${themes.light}
+    }
+}
+
+body[data-theme='light'] {
+    ${themes.light};
+}
+
+body[data-theme='dark'] {
+    ${themes.light};
+}
+
+a {
+    -webkit-tap-highlight-color: rgba(0,0,0,0);
+}
+```
+
 <OpizeWrapper>
 
 ## CSS Variable
@@ -19,7 +65,8 @@ import { TypographyStyleExample } from './components/example/TypoStyleExample.ts
 ### Usage
 ```jsx
 import { cv } from 'opize-design-system'
-
+...
+// cv.fontSizeNormal === 'var(--fontSizeNormal)'
 <Text size={cv.fontSizeNormal}>Text</Text>
 ```
 

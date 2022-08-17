@@ -8,19 +8,16 @@ const Divver = styled.div`
         border-radius: 4px;
         font-size: 12px;
     }
-`
+`;
 
-export function CodeBlock(props: {
-    children: string,
-    language?: string
-}) {
+export function CodeBlock(props: { children: string; language?: string }) {
     return (
         <Divver>
             <SyntaxHighlighter language={props.language || 'json'} style={a11yLight}>
-                {props.children || ""}
+                {props.children || ''}
             </SyntaxHighlighter>
         </Divver>
-    )
+    );
 }
 
-export type CodeBlockProps = ComponentProps<typeof CodeBlock>
+export type CodeBlockProps = ComponentProps<typeof CodeBlock>;

@@ -3,15 +3,11 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { TabNav } from '..';
 
-
 export default {
-  title: 'Component/TabNav',
-  component: TabNav,
-  argTypes: {
-  },
+    title: 'Component/TabNav',
+    component: TabNav,
+    argTypes: {},
 } as ComponentMeta<typeof TabNav>;
-
-
 
 const Template: ComponentStory<typeof TabNav> = (args) => <TabNav {...args} />;
 
@@ -21,25 +17,33 @@ Primary.args = {
     menu: {
         Menu1: {
             text: 'Menu1',
-            onClick: () => null
-        }, Menu2: {
-            text: 'Menu2',
-            onClick: () => null
+            onClick: () => null,
         },
-    }
+        Menu2: {
+            text: 'Menu2',
+            onClick: () => null,
+        },
+    },
 };
 
 const ExampleTemplate: ComponentStory<typeof TabNav> = (args) => {
-    const [selectedMenu, setSelectedMenu ] = useState('Menu1')
+    const [selectedMenu, setSelectedMenu] = useState('Menu1');
 
-    return <TabNav {...args} selected={selectedMenu} menu={{
-        Menu1: {
-            text: 'Menu1',
-            onClick: () => setSelectedMenu('Menu1')
-        }, Menu2: {
-            text: 'Menu2',
-            onClick: () => setSelectedMenu('Menu2')
-        },
-    }} />
+    return (
+        <TabNav
+            {...args}
+            selected={selectedMenu}
+            menu={{
+                Menu1: {
+                    text: 'Menu1',
+                    onClick: () => setSelectedMenu('Menu1'),
+                },
+                Menu2: {
+                    text: 'Menu2',
+                    onClick: () => setSelectedMenu('Menu2'),
+                },
+            }}
+        />
+    );
 };
 export const Example = ExampleTemplate.bind({});

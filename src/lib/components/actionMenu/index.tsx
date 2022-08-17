@@ -1,7 +1,9 @@
-import { IconContext } from "phosphor-react"
-import React, { ComponentProps, useCallback, useEffect, useRef, useState } from "react"
-import styled, { keyframes } from "styled-components"
-import { cv } from "../../style"
+/* eslint-disable react/no-array-index-key */
+/* eslint-disable react/jsx-no-constructed-context-values */
+import { IconContext } from 'phosphor-react';
+import React, { ComponentProps, useCallback, useEffect, useRef, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { cv } from '../../style';
 
 const ActionMenuDiv = styled.div`
     display: flex;
@@ -9,10 +11,10 @@ const ActionMenuDiv = styled.div`
     position: relative;
     width: fit-content;
     user-select: none;
-`
+`;
 
-const ButtonDiv = styled.div<{isOpen: boolean, onlyIcon: boolean}>`
-    padding: ${props => props.onlyIcon ? '6px' : '6px 12px'};
+const ButtonDiv = styled.div<{ isOpen: boolean; onlyIcon: boolean }>`
+    padding: ${(props) => (props.onlyIcon ? '6px' : '6px 12px')};
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -23,16 +25,16 @@ const ButtonDiv = styled.div<{isOpen: boolean, onlyIcon: boolean}>`
     justify-content: center;
     gap: 6px;
 
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 24px;
-    
-    border-radius: ${props => props.onlyIcon ? '99999px' : '4px'};
-    background-color: ${props => props.isOpen ? cv.bg_element2 : cv.bg_element1};
+
+    border-radius: ${(props) => (props.onlyIcon ? '99999px' : '4px')};
+    background-color: ${(props) => (props.isOpen ? cv.bg_element2 : cv.bg_element1)};
 
     &:hover {
         background-color: ${cv.bg_element2};
     }
-`
+`;
 
 const FadeInFromTop = keyframes`
     0% {
@@ -43,7 +45,7 @@ const FadeInFromTop = keyframes`
         transform: translateY(0px);
         opacity: 1;
     }
-`
+`;
 
 const FadeInFromBottom = keyframes`
     0% {
@@ -54,17 +56,17 @@ const FadeInFromBottom = keyframes`
         transform: translateY(0px);
         opacity: 1;
     }
-`
+`;
 
-const OverlayDiv = styled.div<{top?: number, right?: number; bottom?: number, left?:number, buttonHeight: number}>`
+const OverlayDiv = styled.div<{ top?: number; right?: number; bottom?: number; left?: number; buttonHeight: number }>`
     position: absolute;
     min-width: 230px;
-    ${props => props.top !== undefined && `top: ${props.top + props.buttonHeight}px;`};
-    ${props => props.right !== undefined && `right: ${props.right}px;`};
-    ${props => props.bottom !== undefined && `bottom: ${props.bottom + props.buttonHeight}px;`};
-    ${props => props.left !== undefined && `left: ${props.left}px;`};
+    ${(props) => props.top !== undefined && `top: ${props.top + props.buttonHeight}px;`};
+    ${(props) => props.right !== undefined && `right: ${props.right}px;`};
+    ${(props) => props.bottom !== undefined && `bottom: ${props.bottom + props.buttonHeight}px;`};
+    ${(props) => props.left !== undefined && `left: ${props.left}px;`};
     padding: 8px 0px;
-    box-shadow: 0 8px 30px rgba(0,0,0,10%);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 10%);
     background-color: ${cv.bg_element1};
     font-size: 14px;
     display: flex;
@@ -73,8 +75,9 @@ const OverlayDiv = styled.div<{top?: number, right?: number; bottom?: number, le
     z-index: 10;
     border-radius: 6px;
     border: solid 1px ${cv.border3};
-    animation: ${props => props.top !== undefined ? FadeInFromTop : FadeInFromBottom} 150ms cubic-bezier(0.07, 0.75, 0.54, 0.93);
-`
+    animation: ${(props) => (props.top !== undefined ? FadeInFromTop : FadeInFromBottom)} 150ms
+        cubic-bezier(0.07, 0.75, 0.54, 0.93);
+`;
 
 const ActionsDiv = styled.div`
     display: flex;
@@ -91,9 +94,9 @@ const ActionsDiv = styled.div`
         margin-bottom: 0;
         padding-bottom: 0;
     }
-`
+`;
 
-const ActionDiv = styled.div<{color: 'normal' | 'red'}>`
+const ActionDiv = styled.div<{ color: 'normal' | 'red' }>`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -103,49 +106,53 @@ const ActionDiv = styled.div<{color: 'normal' | 'red'}>`
     cursor: pointer;
     transition: 100ms;
     user-select: none;
-    color: ${props => props.color === 'red' ? cv.red1 : cv.text2};
-    font-size: .875rem;
+    color: ${(props) => (props.color === 'red' ? cv.red1 : cv.text2)};
+    font-size: 0.875rem;
     line-height: 24px;
 
     &:hover {
-        color: ${props => props.color === 'red' ? cv.red1 : cv.text1};
-        background-color: ${props => props.color === 'red' ? cv.bg_red1 : cv.bg_element2};
+        color: ${(props) => (props.color === 'red' ? cv.red1 : cv.text1)};
+        background-color: ${(props) => (props.color === 'red' ? cv.bg_red1 : cv.bg_element2)};
     }
-`
+`;
 
 export interface ActionType {
-    label: React.ReactNode,
-    icon?: React.ReactNode,
-    onClick: Function
-    color?: 'normal' | 'red'
+    label: React.ReactNode;
+    icon?: React.ReactNode;
+    onClick: () => void;
+    color?: 'normal' | 'red';
 }
 
-function Action({icon, label, onClick, color = 'normal'}: ActionType) {
+function Action({ icon, label, onClick, color = 'normal' }: ActionType) {
     return (
         <ActionDiv onClick={() => onClick()} color={color}>
             <>
-                { label }
-                { icon }
+                {label}
+                {icon}
             </>
         </ActionDiv>
-    )
+    );
 }
 
-export function ActionMenu({actions, label, icon}: {
-    actions: ActionType[][],
-    label?: React.ReactNode,
-    icon?: React.ReactNode
+export function ActionMenu({
+    actions,
+    label,
+    icon,
+}: {
+    actions: ActionType[][];
+    label?: React.ReactNode;
+    icon?: React.ReactNode;
 }) {
-    const [ isOpen, setIsOpen ] = useState(false)
-    const [ direction, setDirection ] = useState<{
-        top?: number,
-        right?: number, 
-        bottom?: number,
-        left?: number
-    }>({})
+    const [isOpen, setIsOpen] = useState(false);
+    const [direction, setDirection] = useState<{
+        top?: number;
+        right?: number;
+        bottom?: number;
+        left?: number;
+    }>({});
 
     const ref = useRef<HTMLDivElement>(null);
-    const buttonRef = useRef<HTMLDivElement>(null)
+    const buttonRef = useRef<HTMLDivElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -161,63 +168,73 @@ export function ActionMenu({actions, label, icon}: {
     }, [ref]);
 
     const calcPos = useCallback(() => {
-        if (!ref.current) return
+        if (!ref.current) return;
 
-        let pos: {
-            top?: number,
-            right?: number, 
-            bottom?: number,
-            left?: number
-        } = {}
+        const pos: {
+            top?: number;
+            right?: number;
+            bottom?: number;
+            left?: number;
+        } = {};
 
-        if (ref.current.getBoundingClientRect().right + 250 > (window.innerWidth >= 1200 ? (window.innerWidth - 1200)/2 + 1200 : window.innerWidth) ) {
-            pos.right = 0
+        if (
+            ref.current.getBoundingClientRect().right + 250 >
+            (window.innerWidth >= 1200 ? (window.innerWidth - 1200) / 2 + 1200 : window.innerWidth)
+        ) {
+            pos.right = 0;
         } else {
-            pos.left = 0
+            pos.left = 0;
         }
 
         if (ref.current.getBoundingClientRect().bottom + 300 > window.innerHeight) {
-            pos.bottom = 0
+            pos.bottom = 0;
         } else {
-            pos.top = 0
+            pos.top = 0;
         }
 
-        setDirection(pos)
-    }, [])
+        setDirection(pos);
+    }, []);
 
-    const ActionClick = (onClick: Function) => {
-        setIsOpen(false)
-        onClick()
-    }
+    const ActionClick = (onClick: () => void) => {
+        setIsOpen(false);
+        onClick();
+    };
 
     return (
         <ActionMenuDiv ref={ref}>
-            <ButtonDiv onClick={() => {calcPos(); setIsOpen(!isOpen)}} isOpen={isOpen} onlyIcon={!!icon && !label} ref={buttonRef} >
+            <ButtonDiv
+                onClick={() => {
+                    calcPos();
+                    setIsOpen(!isOpen);
+                }}
+                isOpen={isOpen}
+                onlyIcon={!!icon && !label}
+                ref={buttonRef}
+            >
                 {icon}
-                {label}       
+                {label}
             </ButtonDiv>
             <IconContext.Provider
                 value={{
                     size: 16,
                     weight: 'bold',
-                    color: cv.text3
-                }}    
+                    color: cv.text3,
+                }}
             >
-                {
-                    isOpen && <OverlayDiv {...direction} ref={overlayRef} buttonHeight={buttonRef.current?.offsetHeight || 30}>
-                        {
-                            actions.map((e, i) => <ActionsDiv key={i}>
-                                {
-                                    e.map((action, ii) => <Action key={ii} {...action} onClick={() => (ActionClick(action.onClick))} />)
-                                }
-                            </ActionsDiv>)
-                        }
+                {isOpen && (
+                    <OverlayDiv {...direction} ref={overlayRef} buttonHeight={buttonRef.current?.offsetHeight || 30}>
+                        {actions.map((e, i) => (
+                            <ActionsDiv key={i}>
+                                {e.map((action, ii) => (
+                                    <Action key={ii} {...action} onClick={() => ActionClick(action.onClick)} />
+                                ))}
+                            </ActionsDiv>
+                        ))}
                     </OverlayDiv>
-                }
+                )}
             </IconContext.Provider>
         </ActionMenuDiv>
-        
-    )
+    );
 }
 
-export type ActionMenuProps = ComponentProps<typeof ActionMenu>
+export type ActionMenuProps = ComponentProps<typeof ActionMenu>;

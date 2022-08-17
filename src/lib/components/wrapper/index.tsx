@@ -1,8 +1,8 @@
 import { createGlobalStyle } from 'styled-components';
-import { themes, builtCssVariable } from "../../style";
-import { OpizeContextProvider } from "../../context";
 import React from 'react';
-import '../../style/font.css'
+import { themes, builtCssVariable } from '../../style';
+import { OpizeContextProvider } from '../../context';
+import '../../style/font.css';
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -44,18 +44,13 @@ const GlobalStyles = createGlobalStyle`
     a {
         -webkit-tap-highlight-color: rgba(0,0,0,0);
     }
-`
+`;
 
-export function OpizeWrapper({ children }: {
-    children: React.ReactElement
-}) {
-
+export function OpizeWrapper({ children }: { children: React.ReactElement }) {
     return (
         <>
             <GlobalStyles />
-            <OpizeContextProvider>
-                { children }
-            </OpizeContextProvider>
+            <OpizeContextProvider>{children}</OpizeContextProvider>
         </>
-    )
+    );
 }

@@ -1,12 +1,12 @@
-import React, { createContext, useCallback, useState } from "react";
-import { Modal } from "../../components/modal";
+import React, { createContext, useCallback, useMemo, useState } from 'react';
+import { Modal } from '../../components/modal';
 
 export interface ModalContextProps {
-    isOpen: boolean
-    open: (content: React.ReactElement, option?: {title?: string, width?: number, isPadding?: boolean}) => void
-    close: Function
-    width: number
-    title?: string
+    isOpen: boolean;
+    open: (content: React.ReactNode, option?: { title?: string; width?: number; isPadding?: boolean }) => void;
+    close: () => void;
+    width: number;
+    title?: string;
 }
 
 export const ModalContext = createContext<ModalContextProps>({
@@ -14,45 +14,54 @@ export const ModalContext = createContext<ModalContextProps>({
     open: () => null,
     close: () => null,
     width: 350,
-})
+});
 
-const ModalContextProvider = ({children}: {children: React.ReactElement}) => {
-    const [ isOpen, setOpen ] = useState(false)
-    const [ content, setContent ] = useState(<></>)
-    const [ width, setWidth ] = useState(350)
-    const [ title, setTitle ] = useState<undefined | string>()
-    const [ isPadding, setPadding ] = useState(true)
+function ModalContextProvider({ children }: { children: React.ReactNode }) {
+    const [isOpen, setOpen] = useState(false);
+    const [modalContent, setModalContent] = useState<React.ReactNode>('');
+    const [width, setWidth] = useState(350);
+    const [title, setTitle] = useState<undefined | string>();
+    const [isPadding, setPadding] = useState(true);
 
-    const open = useCallback((content: React.ReactElement, option?: {
-        title?: string,
-        width?:number,
-        isPadding?: boolean
-    }) => {
-        setOpen(true)
-        setTitle(option?.title)
-        setWidth(option?.width || 300)
-        setContent(content)
-        setPadding(option?.isPadding === undefined ? true : option?.isPadding)
-    }, [])
+    const open = useCallback(
+        (
+            content: React.ReactNode,
+            option?: {
+                title?: string;
+                width?: number;
+                isPadding?: boolean;
+            }
+        ) => {
+            setOpen(true);
+            setTitle(option?.title);
+            setWidth(option?.width || 300);
+            setModalContent(content);
+            setPadding(option?.isPadding === undefined ? true : option?.isPadding);
+        },
+        []
+    );
 
-    const close = useCallback((content: React.ReactElement) => {
-        setOpen(false)
-    }, [])
+    const close = useCallback(() => {
+        setOpen(false);
+    }, []);
+
+    const value = useMemo(
+        () => ({
+            isOpen,
+            open,
+            close,
+            width,
+            title,
+        }),
+        [close, isOpen, open, title, width]
+    );
 
     return (
-        <ModalContext.Provider
-            value={{
-                isOpen,
-                open,
-                close,
-                width,
-                title
-            }}
-        >
+        <ModalContext.Provider value={value}>
             <Modal
                 setOpen={setOpen}
                 isOpen={isOpen}
-                content={content}
+                content={modalContent}
                 width={width}
                 title={title}
                 close={() => setOpen(false)}
@@ -61,7 +70,7 @@ const ModalContextProvider = ({children}: {children: React.ReactElement}) => {
 
             {children}
         </ModalContext.Provider>
-    )
+    );
 }
 
 export default ModalContextProvider;

@@ -6,12 +6,22 @@ import { Meta } from '@storybook/addon-docs';
 Opize Design System과 함께 쓰면 좋은 라이브러리
 
 ## Relevant library
-개발 단계부터 Opize Design System과 함께 사용하는 것을 전제로 한 라이브러리입니다.
+Opize Design System과 함께 사용하는 것을 추천하는 라이브러리입니다. 아래 라이브러리는 개발 단계에서 사용하였거나, 사용할 수 있도록 되어 있습니다.
 
 ### [styled-components](https://www.npmjs.com/package/styled-components)
+`opize-design-system`은 `styled-components`를 사용하였습니다. 일부 컴포넌트에서 `styled-components`를 사용할 수 있습니다.
 
 ### [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+`opize-design-system`은 `react-router-dom`을 사용하였습니다.
+
+`Link`컴포넌트 `to`에 상대주소(http가 포함되지 않는 주소)인 경우 `react-router-dom`의 `<Link />`를 사용합니다.
 
 ### [react-hook-form](https://www.npmjs.com/package/react-hook-form)
+`opize-design-system`은 `react-hook-form`을 사용하지는 않았으나 해당 라이브러리 사용을 전제로 개발되었습니다.
+
+`ODS`의 모든 input(`button, autocomplete, checkbox, date, fileField, radio, select, switch, textArea, textField`)은 `react-hook-form`으로 `<Controller />` 없이 사용할 수 있습니다. 
 
 ### [phosphor-react](https://www.npmjs.com/package/phosphor-react)
+`opize-design-system`은 `phosphor-react`을 사용하였습니다.
+
+`ODS` 내부의 아이콘은 대부분 `phosphor-react`의 아이콘을 사용하였으며, `phosphor-react`의 `IconContext`가 적용되어 있는 컴포넌트도 존재합니다.

@@ -3,12 +3,10 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { StatusBadge } from '..';
 
-
 export default {
-  title: 'Component/StatusBadge',
-  component: StatusBadge,
-  argTypes: {
-  },
+    title: 'Component/StatusBadge',
+    component: StatusBadge,
+    argTypes: {},
 } as ComponentMeta<typeof StatusBadge>;
 
 const Template: ComponentStory<typeof StatusBadge> = (args) => <StatusBadge {...args} />;
@@ -16,5 +14,5 @@ const Template: ComponentStory<typeof StatusBadge> = (args) => <StatusBadge {...
 export const Primary = Template.bind({});
 Primary.args = {
     text: 'Text',
-    color: 'green'
+    color: 'green',
 };

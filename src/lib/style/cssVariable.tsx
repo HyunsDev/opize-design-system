@@ -1,7 +1,7 @@
 interface CssVariable {
-    vh: string
+    vh: string;
 
-    fontFamily: string
+    fontFamily: string;
     fontFamilyMonospace: string;
 
     fontWeightRegular: number;
@@ -18,9 +18,11 @@ interface CssVariable {
     lineHeight200: string;
     lineHeight300: string;
     lineHeight400: string;
+
+    pageWidth: string;
 }
 
-type VariableKey = keyof CssVariable
+type VariableKey = keyof CssVariable;
 type CssPalette = Record<VariableKey, string>;
 
 const cssVariable: CssVariable = {
@@ -42,26 +44,22 @@ const cssVariable: CssVariable = {
     lineHeight200: '16px',
     lineHeight300: '20px',
     lineHeight400: '24px',
+
+    pageWidth: '1200px',
 };
 
 const buildCssVariable = (variables: CssVariable) => {
     const keys = Object.keys(variables) as (keyof CssVariable)[];
-    return keys.reduce(
-        (acc, key) =>
-            acc.concat(`--${key.replace(/_/g, '-')}: ${variables[key]};`, '\n'),
-        '',
-    );
+    return keys.reduce((acc, key) => acc.concat(`--${key.replace(/_/g, '-')}: ${variables[key]};`, '\n'), '');
 };
 
-export const builtCssVariable = buildCssVariable(cssVariable)
+export const builtCssVariable = buildCssVariable(cssVariable);
 
 const cssVar = (name: string) => `var(--${name.replace(/_/g, '-')})`;
 
 const variableKeys = Object.keys(cssVariable) as VariableKey[];
 
-export const cssPalette: Record<VariableKey, string> = variableKeys.reduce(
-    (acc, current) => {
-        acc[current] = cssVar(current);
-        return acc;
-    }, {} as CssPalette,
-);
+export const cssPalette: Record<VariableKey, string> = variableKeys.reduce((acc, current) => {
+    acc[current] = cssVar(current);
+    return acc;
+}, {} as CssPalette);

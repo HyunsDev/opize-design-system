@@ -1,11 +1,10 @@
-import { X } from "phosphor-react"
-import React, { ComponentProps, useEffect, useRef, useState } from "react"
-import styled, {keyframes} from "styled-components"
-import { cv } from "../../style"
+/* eslint-disable react/destructuring-assignment */
+import { X } from 'phosphor-react';
+import React, { ComponentProps, useEffect, useRef, useState } from 'react';
+import styled, { keyframes } from 'styled-components';
+import { cv } from '../../style';
 
-const Divver = styled.div`
-
-`
+const Divver = styled.div``;
 
 const FadeInFromBottom = keyframes`
     0% {
@@ -16,9 +15,9 @@ const FadeInFromBottom = keyframes`
         transform: translateY(0px);
         opacity: 1;
     }
-`
+`;
 
-const Background = styled.div<{isOpen: Boolean}>`
+const Background = styled.div<{ isOpen: boolean }>`
     position: fixed;
     top: 0;
     left: 0;
@@ -27,8 +26,8 @@ const Background = styled.div<{isOpen: Boolean}>`
     z-index: 99998;
     background-color: ${cv.black};
     transition: 200ms;
-    opacity: ${props => props.isOpen ? 0.2 : 0};
-`
+    opacity: ${(props) => (props.isOpen ? 0.2 : 0)};
+`;
 
 const ModalBoxDivver = styled.div`
     position: fixed;
@@ -43,26 +42,26 @@ const ModalBoxDivver = styled.div`
     pointer-events: none;
 
     animation: ${FadeInFromBottom} 200ms cubic-bezier(0.07, 0.75, 0.54, 0.93);
-`
+`;
 
-const ModalBox = styled.div<{isOpen: boolean, width: number, isPadding?: boolean}>`
+const ModalBox = styled.div<{ isOpen: boolean; width: number; isPadding?: boolean }>`
     background-color: ${cv.bg_page2};
     color: ${cv.text1};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     pointer-events: auto;
-    width: ${props => props.width}px;
+    width: ${(props) => props.width}px;
     max-width: 80vw;
-    padding: ${props => props.isPadding ? 16 : 0}px;
+    padding: ${(props) => (props.isPadding ? 16 : 0)}px;
 
     transition: 200ms;
-    opacity: ${props => props.isOpen ? 1 : 0};
-`
+    opacity: ${(props) => (props.isOpen ? 1 : 0)};
+`;
 
 const ModalTitle = styled.div`
     font-weight: 700;
     font-size: 20px;
-`
+`;
 
 const ModalTitleBox = styled.div`
     display: flex;
@@ -70,7 +69,7 @@ const ModalTitleBox = styled.div`
     justify-content: space-between;
     margin-bottom: 8px;
     color: ${cv.text1};
-`
+`;
 
 const CloseBtn = styled.div`
     cursor: pointer;
@@ -85,51 +84,52 @@ const CloseBtn = styled.div`
     &:hover {
         background-color: ${cv.bg_element2};
     }
-`
+`;
 
 export function Modal(props: {
-    setOpen: Function
-    isOpen: boolean
-    content: React.ReactNode
-    width: number
-    title?: React.ReactNode
-    close: Function
-    isPadding?: boolean
+    setOpen: (isOpen: boolean) => void;
+    isOpen: boolean;
+    content: React.ReactNode;
+    width: number;
+    title?: React.ReactNode;
+    close: () => void;
+    isPadding?: boolean;
 }) {
-    const timer = useRef<any>(0)
-    const [ isOpen, setOpen ] = useState(props.isOpen)
+    const timer = useRef<NodeJS.Timeout>();
+    const [isOpen, setOpen] = useState(props.isOpen);
 
     useEffect(() => {
-        clearTimeout(timer.current)
+        clearTimeout(timer.current);
         if (props.isOpen) {
-            setOpen(props.isOpen)
+            setOpen(props.isOpen);
         } else {
             timer.current = setTimeout(() => {
-                setOpen(props.isOpen)
-            }, 200)
+                setOpen(props.isOpen);
+            }, 200);
         }
-    }, [props.isOpen])
+    }, [props.isOpen]);
 
-    return (
-        <>
-            {
-                isOpen && (
-                    <Divver>
-                        <Background isOpen={props.isOpen} onClick={() => props.setOpen(false)} />
-                        <ModalBoxDivver>
-                            <ModalBox isOpen={props.isOpen} width={props.width} isPadding={props.isPadding}>
-                                { props.title && <ModalTitleBox>
-                                    <ModalTitle>{props.title}</ModalTitle>
-                                    <CloseBtn onClick={() => props.close()}><X /></CloseBtn>
-                                </ModalTitleBox> }
-                                { props.content }
-                            </ModalBox>
-                        </ModalBoxDivver>
-                    </Divver>
-                )
-            }
-        </>
-    )
+    if (isOpen) {
+        return (
+            <Divver>
+                <Background isOpen={props.isOpen} onClick={() => props.setOpen(false)} />
+                <ModalBoxDivver>
+                    <ModalBox isOpen={props.isOpen} width={props.width} isPadding={props.isPadding}>
+                        {props.title && (
+                            <ModalTitleBox>
+                                <ModalTitle>{props.title}</ModalTitle>
+                                <CloseBtn onClick={() => props.close()}>
+                                    <X />
+                                </CloseBtn>
+                            </ModalTitleBox>
+                        )}
+                        {props.content}
+                    </ModalBox>
+                </ModalBoxDivver>
+            </Divver>
+        );
+    }
+    return null;
 }
 
-export type ModalProps = ComponentProps<typeof Modal>
+export type ModalProps = ComponentProps<typeof Modal>;

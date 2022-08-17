@@ -3,17 +3,13 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Divider } from '..';
 
-
 export default {
-  title: 'Component/Divider',
-  component: Divider,
-  argTypes: {
-  },
+    title: 'Component/Divider',
+    component: Divider,
+    argTypes: {},
 } as ComponentMeta<typeof Divider>;
 
 const Template: ComponentStory<typeof Divider> = (args) => <Divider {...args} />;
 
 export const Primary = Template.bind({});
-Primary.args = {
-
-};
+Primary.args = {};
