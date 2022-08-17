@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useForm } from "react-hook-form";
 
-import { TextField, Checkbox, TextArea, Select, Switch, Datetime, RadioGroup, Radio } from '.';
+import { TextField, Checkbox, TextArea, Select, Switch, Datetime, RadioGroup, Radio, Autocomplete } from '.';
 import { Button, CodeBlock } from '..'
 import styled from 'styled-components';
 
@@ -32,14 +32,17 @@ type FormData = {
     date: string
     datetime: string
     radio: string
+    autocomplete: string
 }
 
 const Template = () => {
-    const { register, handleSubmit } = useForm<FormData>();
+    const { register, handleSubmit, watch } = useForm<FormData>();
     const [ result, setResult ] = useState('')
     const onSubmit = (data:any) => {
         setResult(JSON.stringify(data, null, 2))
     };
+
+    console.log(watch('autocomplete'))
 
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
@@ -61,6 +64,24 @@ const Template = () => {
               <Radio {...register("radio")} label='radio 2' value='radio 2' />
               <Radio {...register("radio")} label='radio 3' value='radio 3' />
             </RadioGroup>
+            <Autocomplete {...register('autocomplete')} items={[
+              {
+                text: 'html',
+                id: 1,
+              },
+              {
+                text: 'css',
+                id: 2,
+              },
+              {
+                text: 'javascript',
+                id: 3,
+              },
+              {
+                text: 'css-in-javascript',
+                id: 4,
+              }
+            ]} label='autocomplete' />
 
             <Button type='submit' label='Submit' variant='contained' width='100%' />
 

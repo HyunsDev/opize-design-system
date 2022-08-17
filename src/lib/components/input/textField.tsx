@@ -134,7 +134,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>((pro
                 {props.label && <Label required={props.required || false}>{props.label}</Label>}
                 <Inputs border={props.border || 'all'}>
                     {props.leftAddon && <Addon position="left" data={props.leftAddon} />}
-                    <Input ref={ref} {...props} type={props.type || 'text'} border={props.border || 'all'} />
+                    <Input {...props} value={props.value} ref={ref} type={props.type || 'text'} border={props.border || 'all'} />
                     {props.rightAddon && <Addon position="right" data={props.rightAddon} />}
                 </Inputs>
                 { props.error && (<Message>{props.error}</Message>)}
