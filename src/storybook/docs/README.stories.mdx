@@ -1,34 +1,20 @@
 import { Meta } from '@storybook/addon-docs';
+import { Banner } from './components/banner'
 
 <Meta title="Opize Design System/Introduction" />
 
-# Opize Design System
+<Banner />
 
-Opize Design System은 Opize를 위한 새로운 디자인 시스템입니다.
 
-## WIP
 
+## Overview
+Opize Design System은 디자인에 대한 고민 대신, 아이디어를 현실로 만들도록 도와주는 컴포넌트 라이브러리이자 디자인 시스템입니다.
+
+ODS는 다음과 같은 철학을 가지고 만들어집니다.
+* **일관적인**: 다양한 형태의 독창적인 디자인 대신 일관적이고 통일된 디자인을 향합니다.
+* **접합하기 쉬운**: 다양한 라이브러리의 사용을 고려합니다.
+* **직관적인**: 아이디어 로직을 곧바로 표현할 수 있도록 직관적으로 설계합니다.
+* **기능적인**: 필요한 기능을 미리 포함하여 빠르게 사용하도록 돕습니다.
+
+## Work In Process
 Opize Design System은 현재 개발중인 프로젝트로, 아직은 이 라이브러리를 사용하는 것을 추천하지 않습니다.
-
-
-## Install
-
-- npm: `npm install opize-design-system`
-- yarn: `yarn add opize-design-system`
-
-
-## Use
-
-Opize Design System은 내부적으로 Context를 사용합니다. 따라서 Opize Design System을 사용하기 위해서는 상위 레벨에 `OpizeWrapper` 컴포넌트를 추가해야 합니다.
-
-```jsx
-<OpizeWrapper>
-    { children }
-</OpizeWrapper>
-```
-
-컴포넌트는 다음과 같이 불러와 사용할 수 있습니다.
-
-```jsx
-import { Button, TextField } from 'opize-design-system';
-```

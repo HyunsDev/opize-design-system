@@ -4,4 +4,21 @@ import { Colors } from './components/colors.tsx'
 <Meta title="Opize Design System/Colors" />
 
 # Colors
+
+## Usage
+```jsx
+import { cv } from 'opize-design-system'
+import styled from 'styled-components'
+
+// cv.bg_element1 === 'var(--bg-element1)'
+const Text = styled.p`
+    background: ${cv.bg_element1};
+`
+...
+<Text>Text</Text>
+```
+> ### Comment
+> 현재 컴포넌트를 개발하면서 필요한 색상한 추가한 상태입니다. 지속적으로 다양한 색을 추가할 예정입니다.
+
+## Color Palette
 <Colors />

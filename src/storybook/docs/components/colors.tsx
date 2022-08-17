@@ -1,6 +1,17 @@
 import { useState } from '@storybook/addons'
-import styled from 'styled-components'
+import styled, {keyframes} from 'styled-components'
 import { themeVariableSets } from '../../../lib/style/themeVariables'
+
+const fadeIn = keyframes`
+    0% {
+        transform: translate(0, 12px);
+        opacity: 0;
+    }
+    100% {
+        transform: translate(0px, 0px);
+        opacity: 1;
+    }
+`
 
 const ColorsDiv = styled.div`
     display: flex;
@@ -10,10 +21,13 @@ const ColorsDiv = styled.div`
     margin: 0 auto;
 `
 
-const ColorDiv = styled.div`
+const ColorDiv = styled.div<{delay: number}>`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    opacity: 0;
+    animation: ${fadeIn} 1s cubic-bezier(0.08, 0.37, 0, 1.02) forwards;
+    animation-delay: ${props => props.delay}ms;
 `
 
 const ColorLabel = styled.div`
@@ -44,8 +58,8 @@ export function Colors() {
     return (
         <ColorsDiv>
             {
-                Object.entries(themeVariableSets.light).map(([key, value]) => (
-                    <ColorDiv>
+                Object.entries(themeVariableSets.light).map(([key, value], i) => (
+                    <ColorDiv key={key} delay={i*100}>
                         <ColorLabel>
                             <div>{key}</div>
                             <div>{value}</div>
