@@ -1,17 +1,17 @@
-import styled, { keyframes } from "styled-components";
+import styled, { keyframes } from 'styled-components';
 import React, { ComponentProps } from 'react';
-import { cv } from "../../style";
+import { cv } from '../../style';
 
-const Loader = styled.div<{size: number}>`
+const Loader = styled.div<{ size: number }>`
     position: relative;
     margin: 0 auto;
-    width: ${props => props.size}px;
+    width: ${(props) => props.size}px;
     &:before {
         content: '';
         display: block;
         padding-top: 100%;
     }
-`
+`;
 
 const dash = keyframes`
     0% {
@@ -26,13 +26,13 @@ const dash = keyframes`
         stroke-dasharray: 89, 200;
         stroke-dashoffset: -124px;
     }
-`
+`;
 
 const rotate = keyframes`
     100% {
         transform: rotate(360deg);
     }
-`
+`;
 
 const Circular = styled.svg`
     animation: ${rotate} 2s linear infinite;
@@ -50,28 +50,35 @@ const Circular = styled.svg`
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0;
         animation: ${dash} 1.5s ease-in-out infinite;
-        stroke: ${props => props.color || cv.text1};
+        stroke: ${(props) => props.color || cv.text1};
         stroke-linecap: round;
     }
-`
+`;
 
-
-export const Spinner = ({
+export function Spinner({
     strokeWidth = 4,
     color = cv.text1,
-    size = 32
+    size = 32,
 }: {
     size?: number;
     color?: string;
     strokeWidth?: number;
-}) => {
+}) {
     return (
         <Loader size={size}>
             <Circular viewBox="25 25 50 50" color={color}>
-                <circle className="path" cx="50" cy="50" r="20" fill="none" strokeWidth={strokeWidth} strokeMiterlimit="10" />
+                <circle
+                    className="path"
+                    cx="50"
+                    cy="50"
+                    r="20"
+                    fill="none"
+                    strokeWidth={strokeWidth}
+                    strokeMiterlimit="10"
+                />
             </Circular>
         </Loader>
-    )
+    );
 }
 
-export type SpinnerProps = ComponentProps<typeof Spinner>
+export type SpinnerProps = ComponentProps<typeof Spinner>;

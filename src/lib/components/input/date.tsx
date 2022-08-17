@@ -1,13 +1,14 @@
-import styled from "styled-components"
-import React from 'react'
-import { cv } from "../../style"
-import { Label } from "./label"
-import { Flex } from "../layout"
+/* eslint-disable react/prop-types */
+import styled from 'styled-components';
+import React from 'react';
+import { cv } from '../../style';
+import { Label } from './label';
+import { Flex } from '../layout';
 
-export type DateProps = React.ComponentPropsWithoutRef<'input'> & { 
-    label?: string,
-    type: 'date' | 'datetime-local' | 'month' | 'time' | 'week'
-}
+export type DateProps = React.ComponentPropsWithoutRef<'input'> & {
+    label?: string;
+    type: 'date' | 'datetime-local' | 'month' | 'time' | 'week';
+};
 
 const Divver = styled.div`
     position: relative;
@@ -16,8 +17,8 @@ const Divver = styled.div`
     align-items: center;
     border-radius: 4px;
     height: 36px;
-    font-size: .875rem;
-`
+    font-size: 0.875rem;
+`;
 
 const StyledInput = styled.input`
     cursor: auto;
@@ -28,12 +29,12 @@ const StyledInput = styled.input`
     font-size: inherit;
     outline: none;
     width: 100%;
-    
+
     padding: 0px 12px;
     height: 100%;
 
     transition: 200ms;
-    outline: solid 3px rgba(0,0,0,0);
+    outline: solid 3px rgba(0, 0, 0, 0);
 
     &:focus-within {
         border: 0;
@@ -55,19 +56,21 @@ const StyledInput = styled.input`
     &::-webkit-calendar-picker-indicator {
         cursor: pointer;
     }
-`
+`;
 
 export const Datetime = React.forwardRef<HTMLInputElement, DateProps>((props: DateProps, ref) => {
     return (
-        <Flex style={{
-            flexDirection: 'column'
-        }}>
-            { props.label && <Label required={props.required || false}>{props.label}</Label>}
+        <Flex
+            style={{
+                flexDirection: 'column',
+            }}
+        >
+            {props.label && <Label required={props.required || false}>{props.label}</Label>}
             <Divver>
                 <StyledInput {...props} type={props.type} ref={ref}>
-                    { props.children }
+                    {props.children}
                 </StyledInput>
             </Divver>
         </Flex>
-    )
-})
+    );
+});

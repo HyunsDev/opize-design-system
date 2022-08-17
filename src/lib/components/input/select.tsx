@@ -1,11 +1,12 @@
-import styled from "styled-components"
-import React from 'react'
-import { cv } from "../../style"
-import { CaretDown } from "phosphor-react"
-import { Label } from "./label"
-import { Flex } from "../layout"
+/* eslint-disable react/prop-types */
+import styled from 'styled-components';
+import React from 'react';
+import { CaretDown } from 'phosphor-react';
+import { cv } from '../../style';
+import { Label } from './label';
+import { Flex } from '../layout';
 
-export type SelectProps = React.ComponentPropsWithoutRef<'select'> & { label?: string }
+export type SelectProps = React.ComponentPropsWithoutRef<'select'> & { label?: string };
 
 const Divver = styled.div`
     position: relative;
@@ -14,8 +15,8 @@ const Divver = styled.div`
     align-items: center;
     border-radius: 4px;
     height: 36px;
-    font-size: .875rem;
-`
+    font-size: 0.875rem;
+`;
 
 const StyledSelect = styled.select`
     cursor: pointer;
@@ -26,12 +27,12 @@ const StyledSelect = styled.select`
     font-size: inherit;
     outline: none;
     width: 100%;
-    
+
     padding: 0px 12px;
     height: 100%;
 
     transition: 200ms;
-    outline: solid 3px rgba(0,0,0,0);
+    outline: solid 3px rgba(0, 0, 0, 0);
     &:focus-within {
         border: 0;
         outline: solid 3px ${cv.outline};
@@ -53,42 +54,42 @@ const StyledSelect = styled.select`
             background-color: -moz-combobox;
         }
     }
-`
+`;
 
 const Icon = styled(CaretDown)`
     position: absolute;
     right: 8px;
     user-select: none;
     pointer-events: none;
-`
+`;
 
-const Select_ = React.forwardRef<HTMLSelectElement, SelectProps>((props: SelectProps, ref) => {
+const SelectA = React.forwardRef<HTMLSelectElement, SelectProps>((props: SelectProps, ref) => {
     return (
-        <Flex style={{
-            flexDirection: 'column'
-        }}>
-            { props.label && <Label required={props.required || false}>{props.label}</Label>}
+        <Flex
+            style={{
+                flexDirection: 'column',
+            }}
+        >
+            {props.label && <Label required={props.required || false}>{props.label}</Label>}
             <Divver>
                 <StyledSelect ref={ref} required={props.required} disabled={props.disabled} {...props}>
-                    { props.children }
+                    {props.children}
                 </StyledSelect>
                 <Icon size={16} color={cv.text2} />
             </Divver>
         </Flex>
+    );
+});
 
-        
-    )
-})
-
-const Option: React.FC<React.PropsWithChildren<React.HTMLProps<HTMLOptionElement> & {value: string}>> = props => (
+const Option: React.FC<React.PropsWithChildren<React.HTMLProps<HTMLOptionElement> & { value: string }>> = (props) => (
     <option {...props} />
-  )
-  
-const OptionGroup: React.FC<React.PropsWithChildren<React.HTMLProps<HTMLOptGroupElement>>> = props => (
-    <optgroup {...props} />
-)
+);
 
-export const Select = Object.assign(Select_, {
+const OptionGroup: React.FC<React.PropsWithChildren<React.HTMLProps<HTMLOptGroupElement>>> = (props) => (
+    <optgroup {...props} />
+);
+
+export const Select = Object.assign(SelectA, {
     Option,
-    OptionGroup
-})
+    OptionGroup,
+});

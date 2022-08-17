@@ -28,7 +28,10 @@
     "@types/react": "^18.0.0",
     "@types/react-dom": "^18.0.0",
     "@types/styled-components": "^5.1.25",
+    "eslint": "8.2.0",
+    "eslint-config-airbnb-typescript": "^17.0.0",
     "phosphor-react": "^1.4.1",
+    "prettier": "^2.7.1",
     "react": "^18.2.0",
     "react-dom": "^18.2.0",
     "react-hook-form": "^7.34.0",
@@ -46,7 +49,9 @@
     "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "publish:npm": "rmdir dist /s /q && mkdir dist && babel src/lib -d dist --copy-files --extensions \".ts,.tsx\" --ignore \"src/**/*.stories.tsx\" --no-copy-ignored && tsc --p tsconfig.module.json"
+    "publish:npm": "rmdir dist /s /q && mkdir dist && babel src/lib -d dist --copy-files --extensions \".ts,.tsx\" --ignore \"src/**/*.stories.tsx\" --no-copy-ignored && tsc --p tsconfig.module.json",
+    "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
+    "lint:fix": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\""
   },
   "eslintConfig": {
     "extends": [
@@ -91,7 +96,16 @@
     "@storybook/react": "^6.5.9",
     "@storybook/testing-library": "^0.0.13",
     "@types/react-router-dom": "^5.3.3",
+    "@typescript-eslint/eslint-plugin": "^5.33.1",
+    "@typescript-eslint/parser": "^5.33.1",
     "babel-plugin-named-exports-order": "^0.0.2",
+    "eslint-config-airbnb": "19.0.4",
+    "eslint-config-prettier": "^8.5.0",
+    "eslint-plugin-import": "2.25.3",
+    "eslint-plugin-jsx-a11y": "6.5.1",
+    "eslint-plugin-prettier": "^4.2.1",
+    "eslint-plugin-react": "7.28.0",
+    "eslint-plugin-react-hooks": "4.3.0",
     "prop-types": "^15.8.1",
     "webpack": "^5.73.0"
   }

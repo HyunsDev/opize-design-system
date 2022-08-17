@@ -1,21 +1,21 @@
-import React, { ComponentProps } from "react";
-import styled, { css } from "styled-components"
-import { cv } from "../../style";
-import { Label } from "./label";
-import { Flex } from '..'
+import React, { ComponentProps } from 'react';
+import styled, { css } from 'styled-components';
+import { cv } from '../../style';
+import { Label } from './label';
+import { Flex } from '..';
 
 const SwitchDiv = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
-`
+`;
 
 interface InputSwitchProps {
     backgroundColor: string;
     backgroundColorHover: string;
     borderColor: string;
     borderColorHover: string;
-    checked?:  boolean;
+    checked?: boolean;
     disabled?: boolean;
 }
 
@@ -33,7 +33,7 @@ const Input = styled.input<InputSwitchProps>`
     transition: 150ms;
     position: relative;
 
-    cursor: ${(props) => props.disabled ? 'not-allowed' : 'pointer'};
+    cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 
     &:checked {
         background-color: ${cv.blue1};
@@ -56,20 +56,22 @@ const Input = styled.input<InputSwitchProps>`
             left: 16px;
         }
     }
-`
+`;
 
-const Text = styled.div<{required: Boolean}>`
+const Text = styled.div<{ required: boolean }>`
     display: block;
     font-size: 14px;
     color: ${cv.text3};
     margin-bottom: 4px;
 
-    ${props => props.required && css`
-        ::after {
-            content: ' *'
-        }
-    `}
-`
+    ${(props) =>
+        props.required &&
+        css`
+            ::after {
+                content: ' *';
+            }
+        `}
+`;
 
 interface Props {
     checked?: boolean;
@@ -77,8 +79,8 @@ interface Props {
     label?: React.ReactNode;
     text?: React.ReactNode;
     disabled?: boolean;
-    required?: boolean
-    ref?: any
+    required?: boolean;
+    ref?: any;
 }
 
 export const Switch = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
@@ -87,20 +89,21 @@ export const Switch = React.forwardRef<HTMLInputElement, Props>((props: Props, r
         backgroundColorHover: '',
         borderColor: '',
         borderColorHover: '',
-    }
+    };
 
     return (
-        <Flex style={{
-            flexDirection: 'column',
-        }}>
-            { props.label && <Label required={props.required || false}>{props.label}</Label>}
+        <Flex
+            style={{
+                flexDirection: 'column',
+            }}
+        >
+            {props.label && <Label required={props.required || false}>{props.label}</Label>}
             <SwitchDiv>
-                <Input type='checkbox' {...style} {...props} ref={ref} />
+                <Input type="checkbox" {...style} {...props} ref={ref} />
                 <Text required={props.required || false}>{props.text}</Text>
             </SwitchDiv>
         </Flex>
+    );
+});
 
-    )
-})
-
-export type SwitchProps = ComponentProps<typeof Switch>
+export type SwitchProps = ComponentProps<typeof Switch>;

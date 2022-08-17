@@ -1,5 +1,5 @@
-import styled from "styled-components";
+import styled from 'styled-components';
 
-export const TypographyStyleExample = styled.div<{css: any}>`
-    ${props => props.css};
-`
+export const TypographyStyleExample = styled.div<{ css: string }>`
+    ${(props) => props.css};
+`;

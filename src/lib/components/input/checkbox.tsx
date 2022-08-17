@@ -1,21 +1,21 @@
-import React, { ComponentProps } from "react";
-import styled, { css } from "styled-components"
-import { cv } from "../../style";
-import { Label } from "./label";
-import { Flex } from '..'
+import React, { ComponentProps } from 'react';
+import styled, { css } from 'styled-components';
+import { cv } from '../../style';
+import { Label } from './label';
+import { Flex } from '..';
 
 const CheckBoxDiv = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
-`
+`;
 
 interface InputCheckBoxProps {
     backgroundColor: string;
     backgroundColorHover: string;
     borderColor: string;
     borderColorHover: string;
-    checked?:  boolean;
+    checked?: boolean;
     disabled?: boolean;
 }
 
@@ -32,7 +32,7 @@ const Input = styled.input<InputCheckBoxProps>`
     justify-content: center;
     transition: 200ms;
 
-    cursor: ${(props) => props.disabled ? 'not-allowed' : 'pointer'};
+    cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
 
     &:hover {
         border: solid 1px ${(props) => props.borderColorHover};
@@ -46,18 +46,20 @@ const Input = styled.input<InputCheckBoxProps>`
         background-repeat: no-repeat;
         background-color: ${cv.bg_element5};
     }
-`
+`;
 
-const Text = styled.div<{required: Boolean}>`
+const Text = styled.div<{ required: boolean }>`
     display: block;
     font-size: 14px;
 
-    ${props => props.required && css`
-        ::after {
-            content: ' *'
-        }
-    `}
-`
+    ${(props) =>
+        props.required &&
+        css`
+            ::after {
+                content: ' *';
+            }
+        `}
+`;
 
 interface Props {
     checked?: boolean;
@@ -65,8 +67,7 @@ interface Props {
     label?: React.ReactNode;
     text?: React.ReactNode;
     disabled?: boolean;
-    required?: boolean
-    ref?: any
+    required?: boolean;
 }
 
 export const Checkbox = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
@@ -75,43 +76,41 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>((props: Props,
         backgroundColorHover: '',
         borderColor: '',
         borderColorHover: '',
-    }
+    };
 
     if (props.checked) {
         if (props.disabled) {
-            style.backgroundColor = cv.bg_element6
-            style.backgroundColorHover = cv.bg_element6
-            style.borderColor = cv.bg_element6
-            style.borderColorHover = cv.bg_element6
+            style.backgroundColor = cv.bg_element6;
+            style.backgroundColorHover = cv.bg_element6;
+            style.borderColor = cv.bg_element6;
+            style.borderColorHover = cv.bg_element6;
         } else {
-            style.backgroundColor = cv.bg_element5
-            style.backgroundColorHover = cv.bg_element5
-            style.borderColor = cv.bg_element5
-            style.borderColorHover = cv.bg_element5
+            style.backgroundColor = cv.bg_element5;
+            style.backgroundColorHover = cv.bg_element5;
+            style.borderColor = cv.bg_element5;
+            style.borderColorHover = cv.bg_element5;
         }
+    } else if (props.disabled) {
+        style.borderColor = cv.border3;
+        style.borderColorHover = cv.border3;
     } else {
-        if (props.disabled) {
-            style.borderColor = cv.border3
-            style.borderColorHover = cv.border3
-        } else {
-            style.borderColor = cv.border3
-            style.borderColorHover = cv.border3
-        }
+        style.borderColor = cv.border3;
+        style.borderColorHover = cv.border3;
     }
 
-
     return (
-        <Flex style={{
-            flexDirection: 'column',
-        }}>
-            { props.label && <Label required={props.required || false}>{props.label}</Label>}
+        <Flex
+            style={{
+                flexDirection: 'column',
+            }}
+        >
+            {props.label && <Label required={props.required || false}>{props.label}</Label>}
             <CheckBoxDiv>
-                <Input type='checkbox' {...style} {...props} ref={ref} />
+                <Input type="checkbox" {...style} {...props} ref={ref} />
                 <Text required={props.required || false}>{props.text}</Text>
             </CheckBoxDiv>
         </Flex>
+    );
+});
 
-    )
-})
-
-export type CheckboxProps = ComponentProps<typeof Checkbox>
+export type CheckboxProps = ComponentProps<typeof Checkbox>;

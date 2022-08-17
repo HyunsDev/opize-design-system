@@ -1,22 +1,23 @@
-import { TextField, TextFieldProps } from ".";
-import React, { useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react'
-import styled, { css, keyframes } from "styled-components";
-import { cv } from "../../style";
+/* eslint-disable react/prop-types */
+import React, { useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
+import styled, { css, keyframes } from 'styled-components';
+import { TextField, TextFieldProps } from '.';
+import { cv } from '../../style';
 
 type AutocompleteItem = {
-    text: string
-    id: number
-}
+    text: string;
+    id: number;
+};
 export type AutocompleteProps = TextFieldProps & {
-    items: AutocompleteItem[],
-    type?: 'text' | 'password' | 'search' | 'url' | 'email',
-}
+    items: AutocompleteItem[];
+    type?: 'text' | 'password' | 'search' | 'url' | 'email';
+};
 
 const Div = styled.div`
     position: relative;
-`
+`;
 
-const SPACE = '​'
+const SPACE = '​';
 
 const FadeInFromTop = keyframes`
     0% {
@@ -27,7 +28,7 @@ const FadeInFromTop = keyframes`
         transform: translateY(0px);
         opacity: 1;
     }
-`
+`;
 
 const FadeInFromBottom = keyframes`
     0% {
@@ -38,17 +39,17 @@ const FadeInFromBottom = keyframes`
         transform: translateY(0px);
         opacity: 1;
     }
-`
+`;
 
-const OverlayDiv = styled.div<{ top?: number, right?: number; bottom?: number, left?: number, paddingHeight: number }>`
+const OverlayDiv = styled.div<{ top?: number; right?: number; bottom?: number; left?: number; paddingHeight: number }>`
     position: absolute;
     min-width: 230px;
-    ${props => props.top !== undefined && `top: ${props.top + props.paddingHeight}px;`};
-    ${props => props.right !== undefined && `right: ${props.right}px;`};
-    ${props => props.bottom !== undefined && `bottom: ${props.bottom + props.paddingHeight}px;`};
-    ${props => props.left !== undefined && `left: ${props.left}px;`};
+    ${(props) => props.top !== undefined && `top: ${props.top + props.paddingHeight}px;`};
+    ${(props) => props.right !== undefined && `right: ${props.right}px;`};
+    ${(props) => props.bottom !== undefined && `bottom: ${props.bottom + props.paddingHeight}px;`};
+    ${(props) => props.left !== undefined && `left: ${props.left}px;`};
     padding: 8px 0px;
-    box-shadow: 0 8px 30px rgba(0,0,0,10%);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 10%);
     background-color: ${cv.bg_element1};
     font-size: 14px;
     display: flex;
@@ -57,8 +58,9 @@ const OverlayDiv = styled.div<{ top?: number, right?: number; bottom?: number, l
     z-index: 10;
     border-radius: 6px;
     border: solid 1px ${cv.border3};
-    animation: ${props => props.top !== undefined ? FadeInFromTop : FadeInFromBottom} 150ms cubic-bezier(0.07, 0.75, 0.54, 0.93);
-`
+    animation: ${(props) => (props.top !== undefined ? FadeInFromTop : FadeInFromBottom)} 150ms
+        cubic-bezier(0.07, 0.75, 0.54, 0.93);
+`;
 
 const OverlayItem = styled.div<{ isHover: boolean }>`
     display: flex;
@@ -71,51 +73,65 @@ const OverlayItem = styled.div<{ isHover: boolean }>`
     transition: 100ms;
     user-select: none;
     color: ${cv.text2};
-    font-size: .875rem;
+    font-size: 0.875rem;
     line-height: 24px;
 
-    ${props => props.isHover && css`
-        color: ${cv.text1};
-        background-color: ${cv.bg_element3};
-    `}
+    ${(props) =>
+        props.isHover &&
+        css`
+            color: ${cv.text1};
+            background-color: ${cv.bg_element3};
+        `}
 
     &:hover {
         color: ${cv.text1};
         background-color: ${cv.bg_element3};
     }
-`
+`;
 
-function Item(props: { id: number, text: string, onClick: Function, isHover?: boolean, onMouseOver: Function }) {
+function Item({
+    id,
+    onClick,
+    isHover,
+    onMouseOver,
+    text,
+}: {
+    id: number;
+    text: string;
+    onClick: () => void;
+    isHover?: boolean;
+    onMouseOver: () => void;
+}) {
     return (
-        <OverlayItem key={props.id} onClick={() => props.onClick()} isHover={props.isHover || false} onMouseOver={() => props.onMouseOver()}>
-            {props.text}
+        <OverlayItem key={id} onClick={() => onClick()} isHover={isHover || false} onMouseOver={() => onMouseOver()}>
+            {text}
         </OverlayItem>
-    )
+    );
 }
 
 export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>((props, ref) => {
-    const inputRef = useRef<HTMLInputElement>(null)
-    useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
+    const inputRef = useRef<HTMLInputElement>(null);
+    useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);
 
-    const [currentItems, setCurrentItems] = useState(props.items)
-    const [value, setValue] = useState<string>(String(props.value || ''))
-    const currentValue = useRef<string>(String(props.value || ''))
-    const [autocompleteSuggestion, setAutocompleteSuggestion] = useState<string | null>('')
-    const [isHighlight, setHighlight] = useState(false)
-    const [isOpen, setIsOpen] = useState(false)
-    const [cursor, setCursor] = useState(props.items[0].id)
+    const [currentItems, setCurrentItems] = useState(props.items);
+    const [value, setValue] = useState<string>(String(props.value || ''));
+    const currentValue = useRef<string>(String(props.value || ''));
+    const [autocompleteSuggestion, setAutocompleteSuggestion] = useState<string | null>('');
+    const [isHighlight, setHighlight] = useState(false);
+    const [isOpen, setIsOpen] = useState(false);
+    const [cursor, setCursor] = useState(props.items[0].id);
     const [direction, setDirection] = useState<{
-        top?: number,
-        right?: number,
-        bottom?: number,
-        left?: number
-    }>({})
-    const outRef = useRef<HTMLDivElement>(null)
+        top?: number;
+        right?: number;
+        bottom?: number;
+        left?: number;
+    }>({});
+    const outRef = useRef<HTMLDivElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
-        function handleClickOutside(e: any): void {
-            if (outRef.current && !outRef.current.contains(e.target)) {
+        function handleClickOutside(e: MouseEvent): void {
+            if (outRef.current && !outRef.current.contains(e.target as HTMLDivElement)) {
                 setIsOpen(false);
             }
         }
@@ -126,240 +142,283 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
     }, [ref]);
 
     const calcPos = useCallback(() => {
-        if (!outRef.current) return
-        let pos: {
-            top?: number,
-            right?: number,
-            bottom?: number,
-            left?: number
-        } = {}
+        if (!outRef.current) return;
+        const pos: {
+            top?: number;
+            right?: number;
+            bottom?: number;
+            left?: number;
+        } = {};
 
-        if (outRef.current.getBoundingClientRect().right + 250 > (window.innerWidth >= 1200 ? (window.innerWidth - 1200) / 2 + 1200 : window.innerWidth)) {
-            pos.right = 0
+        if (
+            outRef.current.getBoundingClientRect().right + 250 >
+            (window.innerWidth >= 1200 ? (window.innerWidth - 1200) / 2 + 1200 : window.innerWidth)
+        ) {
+            pos.right = 0;
         } else {
-            pos.left = 0
+            pos.left = 0;
         }
         if (outRef.current.getBoundingClientRect().bottom + 300 > window.innerHeight) {
-            pos.bottom = 0
+            pos.bottom = 0;
         } else {
-            pos.top = 0
+            pos.top = 0;
         }
-        setDirection(pos)
-    }, [])
+        setDirection(pos);
+    }, []);
 
-    const onInput = useCallback((e: React.FormEvent<HTMLInputElement>) => {
-        props.onInput && props.onInput(e)
-    }, [props])
+    const onInput = useCallback(
+        (e: React.FormEvent<HTMLInputElement>) => {
+            if (props.onInput) props.onInput(e);
+        },
+        [props]
+    );
 
-    const onChange = useCallback((e: React.ChangeEvent<HTMLInputElement>) => {
-        setIsOpen(true)
-        currentValue.current = e.target.value.replaceAll(SPACE, '')
-        setValue(currentValue.current)
-        const newCurrentItems = props.items.filter(item => item.text.startsWith(e.target.value))
-        setCurrentItems(newCurrentItems)
-        if (!props.items.find(e => e.id === cursor)?.text.startsWith(e.target.value)) {
-            setCursor(newCurrentItems[0]?.id || -1)
-        }
-
-        if (newCurrentItems.length === 1 && currentValue.current === currentItems.find(e => e.id === cursor)?.text) {
-            setHighlight(false)
-        }
-
-        setTimeout(() => {
-            if (inputRef.current) {
-                const event = new Event('change', { bubbles: true })
-                props.onChange && props.onChange({
-                    ...event,
-                    nativeEvent: event,
-                    isDefaultPrevented: () => e.isDefaultPrevented(),
-                    isPropagationStopped: () => e.isPropagationStopped(),
-                    persist: () => e.persist(),
-                    target: inputRef.current,
-                    currentTarget: inputRef.current
-                })
+    const onChange = useCallback(
+        (e: React.ChangeEvent<HTMLInputElement>) => {
+            setIsOpen(true);
+            currentValue.current = e.target.value.replaceAll(SPACE, '');
+            setValue(currentValue.current);
+            const newCurrentItems = props.items.filter((item) => item.text.startsWith(e.target.value));
+            setCurrentItems(newCurrentItems);
+            if (!props.items.find((ee) => ee.id === cursor)?.text.startsWith(e.target.value)) {
+                setCursor(newCurrentItems[0]?.id || -1);
             }
-        }, 0)
-    }, [currentItems, cursor, props])
 
-    const onFocus = useCallback((e: React.FocusEvent<HTMLInputElement, Element>) => {
-        props.onFocus && props.onFocus(e)
-
-        calcPos()
-        setIsOpen(true)
-
-        const newCurrentItems = props.items.filter(item => item.text.startsWith(value))
-        setCurrentItems(newCurrentItems)
-        if (!props.items.find(e => e.id === cursor)?.text.startsWith(value)) {
-            setCursor(newCurrentItems[0]?.id || -1)
-        }
-    }, [calcPos, cursor, props, value])
-
-    const onKeyDown = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
-        if (e.code === 'ArrowUp') {
-            setCursor(prev => {
-                const index = currentItems.findIndex(e => e.id === prev)
-                if (currentItems[index - 1]) {
-                    return currentItems[index - 1].id
-                } else {
-                    return currentItems[currentItems.length - 1].id
-                }
-            })
-            e.preventDefault()
-        } else if (e.code === 'ArrowDown') {
-            setCursor(prev => {
-                const index = currentItems.findIndex(e => e.id === prev)
-                if (currentItems[index + 1]) {
-                    return currentItems[index + 1].id
-                } else {
-                    return currentItems[0].id
-                }
-            })
-            e.preventDefault()
-        } else if (e.code === 'Tab') {
-            setCursor(prev => {
-                const index = currentItems.findIndex(e => e.id === prev)
-                if (currentItems[index + 1]) {
-                    return currentItems[index + 1].id
-                } else {
-                    return currentItems[0].id
-                }
-            })
-            e.preventDefault()
-        } else if (e.code === 'Enter') {
-            const text = currentItems.find(e => e.id === cursor)?.text
-            if (text) {
-                setValue(text)
-                setIsOpen(false)
-                currentValue.current = text
-                setHighlight(false)
-                inputRef.current?.blur()
-                setTimeout(() => {
-                    const event = new Event('change', { bubbles: true })
-                    props.onChange && props.onChange({
-                        ...event,
-                        nativeEvent: event,
-                        isDefaultPrevented: () => false,
-                        isPropagationStopped: () => false,
-                        persist: () => null,
-                        target: inputRef.current,
-                        currentTarget: inputRef.current
-                    } as React.ChangeEvent<HTMLInputElement>)
-                }, 0)
+            if (
+                newCurrentItems.length === 1 &&
+                currentValue.current === currentItems.find((ee) => ee.id === cursor)?.text
+            ) {
+                setHighlight(false);
             }
-        } else if (e.code === 'Escape') {
-            setValue('')
-            currentValue.current = ''
+
             setTimeout(() => {
-                const event = new Event('change', { bubbles: true })
-                props.onChange && props.onChange({
-                    ...event,
-                    nativeEvent: event,
-                    isDefaultPrevented: () => false,
-                    isPropagationStopped: () => false,
-                    persist: () => null,
-                    target: inputRef.current,
-                    currentTarget: inputRef.current
-                } as React.ChangeEvent<HTMLInputElement>)
-            }, 0)
-            inputRef.current?.blur()
-            setIsOpen(false)
-        }
+                if (inputRef.current) {
+                    const event = new Event('change', { bubbles: true });
+                    if (props.onChange) {
+                        props.onChange({
+                            ...event,
+                            nativeEvent: event,
+                            isDefaultPrevented: () => e.isDefaultPrevented(),
+                            isPropagationStopped: () => e.isPropagationStopped(),
+                            persist: () => e.persist(),
+                            target: inputRef.current,
+                            currentTarget: inputRef.current,
+                        });
+                    }
+                }
+            }, 0);
+        },
+        [currentItems, cursor, props]
+    );
 
-        if (e.code === 'Backspace') {
-            if (window.getSelection()?.toString() === autocompleteSuggestion?.slice(currentValue.current.length, autocompleteSuggestion?.length)) {
-                if (isHighlight) {
-                    setValue(currentValue.current + ' ')
+    const onFocus = useCallback(
+        (e: React.FocusEvent<HTMLInputElement, Element>) => {
+            if (props.onFocus) props.onFocus(e);
+
+            calcPos();
+            setIsOpen(true);
+
+            const newCurrentItems = props.items.filter((item) => item.text.startsWith(value));
+            setCurrentItems(newCurrentItems);
+            if (!props.items.find((ee) => ee.id === cursor)?.text.startsWith(value)) {
+                setCursor(newCurrentItems[0]?.id || -1);
+            }
+        },
+        [calcPos, cursor, props, value]
+    );
+
+    const onKeyDown = useCallback(
+        (e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (e.code === 'ArrowUp') {
+                setCursor((prev) => {
+                    const index = currentItems.findIndex((ee) => ee.id === prev);
+                    if (currentItems[index - 1]) {
+                        return currentItems[index - 1].id;
+                    }
+                    return currentItems[currentItems.length - 1].id;
+                });
+                e.preventDefault();
+            } else if (e.code === 'ArrowDown') {
+                setCursor((prev) => {
+                    const index = currentItems.findIndex((ee) => ee.id === prev);
+                    if (currentItems[index + 1]) {
+                        return currentItems[index + 1].id;
+                    }
+                    return currentItems[0].id;
+                });
+                e.preventDefault();
+            } else if (e.code === 'Tab') {
+                setCursor((prev) => {
+                    const index = currentItems.findIndex((ee) => ee.id === prev);
+                    if (currentItems[index + 1]) {
+                        return currentItems[index + 1].id;
+                    }
+                    return currentItems[0].id;
+                });
+                e.preventDefault();
+            } else if (e.code === 'Enter') {
+                const text = currentItems.find((ee) => ee.id === cursor)?.text;
+                if (text) {
+                    setValue(text);
+                    setIsOpen(false);
+                    currentValue.current = text;
+                    setHighlight(false);
+                    inputRef.current?.blur();
+                    setTimeout(() => {
+                        const event = new Event('change', { bubbles: true });
+                        if (props.onChange) {
+                            props.onChange({
+                                ...event,
+                                nativeEvent: event,
+                                isDefaultPrevented: () => false,
+                                isPropagationStopped: () => false,
+                                persist: () => null,
+                                target: inputRef.current,
+                                currentTarget: inputRef.current,
+                            } as React.ChangeEvent<HTMLInputElement>);
+                        }
+                    }, 0);
+                }
+            } else if (e.code === 'Escape') {
+                setValue('');
+                currentValue.current = '';
+                setTimeout(() => {
+                    const event = new Event('change', { bubbles: true });
+                    if (props.onChange) {
+                        props.onChange({
+                            ...event,
+                            nativeEvent: event,
+                            isDefaultPrevented: () => false,
+                            isPropagationStopped: () => false,
+                            persist: () => null,
+                            target: inputRef.current,
+                            currentTarget: inputRef.current,
+                        } as React.ChangeEvent<HTMLInputElement>);
+                    }
+                }, 0);
+                inputRef.current?.blur();
+                setIsOpen(false);
+            }
+
+            if (e.code === 'Backspace') {
+                if (
+                    window.getSelection()?.toString() ===
+                    autocompleteSuggestion?.slice(currentValue.current.length, autocompleteSuggestion?.length)
+                ) {
+                    if (isHighlight) {
+                        setValue(`${currentValue.current} `);
+                    }
+                }
+
+                setHighlight(false);
+            } else {
+                setHighlight(true);
+            }
+
+            if (autocompleteSuggestion && currentValue.current.length < autocompleteSuggestion?.length) {
+                setAutocompleteSuggestion((prev) => (prev?.replaceAll(SPACE, '') || '') + SPACE);
+            }
+
+            if (props.onKeyDown) props.onKeyDown(e);
+        },
+        [autocompleteSuggestion, currentItems, cursor, isHighlight, props]
+    );
+
+    const onKeyPress = useCallback(
+        (e: React.KeyboardEvent<HTMLInputElement>) => {
+            if (props.onKeyPress) props.onKeyPress(e);
+
+            if (autocompleteSuggestion && inputRef.current) {
+                if (currentValue.current.length + 1 === autocompleteSuggestion.length) {
+                    setValue(currentValue.current);
+                    currentValue.current = autocompleteSuggestion;
                 }
             }
+        },
+        [autocompleteSuggestion, props]
+    );
 
-            setHighlight(false)
-        } else {
-            setHighlight(true)
-        }
-
-        if (autocompleteSuggestion && currentValue.current.length < autocompleteSuggestion?.length) {
-            setAutocompleteSuggestion(prev => (prev?.replaceAll(SPACE, '') || '') + SPACE)
-        }
-
-        props.onKeyDown && props.onKeyDown(e)
-    }, [autocompleteSuggestion, currentItems, cursor, isHighlight, props])
-
-    const onKeyPress = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
-        props.onKeyPress && props.onKeyPress(e)
-
-        if (autocompleteSuggestion && inputRef.current) {
-            if (currentValue.current.length + 1 === autocompleteSuggestion.length) {
-                setValue(currentValue.current)
-                currentValue.current = autocompleteSuggestion
-            }
-        }
-    }, [autocompleteSuggestion, props])
-
-    const onKeyUp = useCallback((e: React.KeyboardEvent<HTMLInputElement>) => {
-        setValue(currentValue.current)
-        props.onKeyUp && props.onKeyUp(e)
-    }, [props])
+    const onKeyUp = useCallback(
+        (e: React.KeyboardEvent<HTMLInputElement>) => {
+            setValue(currentValue.current);
+            if (props.onKeyUp) props.onKeyUp(e);
+        },
+        [props]
+    );
 
     const onItemClick = (id: number) => {
-        const itemValue = currentItems.find(e => e.id === id)?.text || ''
-        currentValue.current = itemValue
-        setValue(itemValue)
-        const newCurrentItems = props.items.filter(item => item.text.startsWith(itemValue))
-        setCurrentItems(newCurrentItems)
-        setCursor(id)
-        setHighlight(false)
-        setAutocompleteSuggestion(itemValue)
+        const itemValue = currentItems.find((e) => e.id === id)?.text || '';
+        currentValue.current = itemValue;
+        setValue(itemValue);
+        const newCurrentItems = props.items.filter((item) => item.text.startsWith(itemValue));
+        setCurrentItems(newCurrentItems);
+        setCursor(id);
+        setHighlight(false);
+        setAutocompleteSuggestion(itemValue);
 
         if (inputRef.current) {
             inputRef.current.setAttribute('value', itemValue);
             inputRef.current.dispatchEvent(new Event('change', { bubbles: true }));
 
             setTimeout(() => {
-                const event = new Event('change', { bubbles: true })
-                props.onChange && props.onChange({
-                    ...event,
-                    nativeEvent: event,
-                    isDefaultPrevented: () => false,
-                    isPropagationStopped: () => false,
-                    persist: () => null,
-                    target: inputRef.current,
-                    currentTarget: inputRef.current
-                } as React.ChangeEvent<HTMLInputElement>)
-            }, 0)
+                const event = new Event('change', { bubbles: true });
+                if (props.onChange) {
+                    props.onChange({
+                        ...event,
+                        nativeEvent: event,
+                        isDefaultPrevented: () => false,
+                        isPropagationStopped: () => false,
+                        persist: () => null,
+                        target: inputRef.current,
+                        currentTarget: inputRef.current,
+                    } as React.ChangeEvent<HTMLInputElement>);
+                }
+            }, 0);
         }
-        setIsOpen(false)
-    }
+        setIsOpen(false);
+    };
 
     useEffect(() => {
-        setAutocompleteSuggestion(currentItems.find(e => e.id === cursor)?.text || null)
-    }, [currentItems, cursor])
+        setAutocompleteSuggestion(currentItems.find((e) => e.id === cursor)?.text || null);
+    }, [currentItems, cursor]);
 
     useEffect(() => {
-        if (!inputRef.current) return
+        if (!inputRef.current) return;
         if (isHighlight && autocompleteSuggestion && value) {
             if (autocompleteSuggestion.includes(value)) {
-                inputRef.current.setSelectionRange(currentValue.current.length, autocompleteSuggestion.length)
+                inputRef.current.setSelectionRange(currentValue.current.length, autocompleteSuggestion.length);
             }
         }
-    }, [autocompleteSuggestion, isHighlight, value])
+    }, [autocompleteSuggestion, isHighlight, value]);
 
     return (
         <Div ref={outRef}>
-            <TextField {...props} ref={inputRef}
-                onInput={e => onInput(e)}
-                onChange={e => onChange(e)}
-                onKeyDown={e => onKeyDown(e)}
-                onKeyUp={e => onKeyUp(e)}
-                onKeyPress={e => onKeyPress(e)}
-                onFocus={e => onFocus(e)}
+            <TextField
+                {...props}
+                ref={inputRef}
+                onInput={(e) => onInput(e)}
+                onChange={(e) => onChange(e)}
+                onKeyDown={(e) => onKeyDown(e)}
+                onKeyUp={(e) => onKeyUp(e)}
+                onKeyPress={(e) => onKeyPress(e)}
+                onFocus={(e) => onFocus(e)}
+                // eslint-disable-next-line no-nested-ternary
                 value={value.length === 0 ? value : isHighlight ? autocompleteSuggestion || value : value}
             />
-            {isOpen && currentItems.length !== 0 && <OverlayDiv {...direction} ref={overlayRef} paddingHeight={40}>
-                {
-                    currentItems.map((e, i) => <Item key={e.id} id={e.id} text={e.text} onClick={() => onItemClick(e.id)} isHover={e.id === cursor} onMouseOver={() => setCursor(e.id)} />)
-                }
-
-            </OverlayDiv>}
+            {isOpen && currentItems.length !== 0 && (
+                <OverlayDiv {...direction} ref={overlayRef} paddingHeight={40}>
+                    {currentItems.map((e) => (
+                        <Item
+                            key={e.id}
+                            id={e.id}
+                            text={e.text}
+                            onClick={() => onItemClick(e.id)}
+                            isHover={e.id === cursor}
+                            onMouseOver={() => setCursor(e.id)}
+                        />
+                    ))}
+                </OverlayDiv>
+            )}
         </Div>
-    )
-})
+    );
+});

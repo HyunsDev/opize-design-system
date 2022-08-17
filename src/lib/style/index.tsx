@@ -1,2 +1,2 @@
-export * from './styledVariable'
-export * from './cv'
+export * from './styledVariable';
+export * from './cv';

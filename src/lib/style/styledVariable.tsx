@@ -1,5 +1,5 @@
-import { css } from "styled-components"
-import { cv } from "./cv"
+import { css } from 'styled-components';
+import { cv } from './cv';
 
 const text = {
     body1: css`
@@ -13,9 +13,9 @@ const text = {
         font-weight: ${cv.fontWeightRegular};
         font-size: ${cv.fontSize300};
         line-height: ${cv.lineHeight200};
-    `
-}
+    `,
+};
 
 export const sv = {
-    text
-}
+    text,
+};

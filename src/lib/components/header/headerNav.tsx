@@ -1,7 +1,7 @@
-import React, { ComponentProps } from "react"
-import { Link } from "react-router-dom"
-import styled from "styled-components"
-import { cv } from "../../style"
+import React, { ComponentProps } from 'react';
+import { Link } from 'react-router-dom';
+import styled from 'styled-components';
+import { cv } from '../../style';
 
 const Divver = styled.nav`
     display: flex;
@@ -13,51 +13,44 @@ const Divver = styled.nav`
     user-select: none;
     position: relative;
 
-    @media ( max-width: 767px ) {
+    @media (max-width: 767px) {
         padding: 0px 8px;
     }
-    
+
     & > div {
         display: flex;
         align-items: center;
     }
-`
+`;
 
 const HeaderLeft = styled.div`
     display: flex;
     align-items: center;
     flex: 1 1;
     gap: 8px;
-`
+`;
 
 const HeaderRight = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
-`
+`;
 
 const HeaderLink = styled(Link)`
     text-decoration: none;
-`
+`;
 
 const HerderLogoImg = styled.img`
     height: 32px;
     margin-left: 6px;
-`
+`;
 
-function HeaderLogo({
-    to,
-    src
-}: {
-    to: string
-    src: string
-}) {
-    
+function HeaderLogo({ to, src }: { to: string; src: string }) {
     return (
         <HeaderLink to={to}>
-            <HerderLogoImg src={src} alt='Logo' />
+            <HerderLogoImg src={src} alt="Logo" />
         </HeaderLink>
-    )
+    );
 }
 
 const HeaderButton = styled.button`
@@ -76,19 +69,10 @@ const HeaderButton = styled.button`
     &:hover {
         color: ${cv.text2};
     }
-`
+`;
 
-function HeaderNavComponent({
-    children,
-}: {
-    children: React.ReactNode,
-}) {
-
-    return (
-        <Divver>
-            {children}
-        </Divver>
-    )
+function HeaderNavComponent({ children }: { children: React.ReactNode }) {
+    return <Divver>{children}</Divver>;
 }
 
 export const HeaderNav = Object.assign(HeaderNavComponent, {
@@ -96,6 +80,6 @@ export const HeaderNav = Object.assign(HeaderNavComponent, {
     Right: HeaderRight,
     Link: HeaderLink,
     Logo: HeaderLogo,
-    Button: HeaderButton
-})
-export type HeaderNavProps = ComponentProps<typeof HeaderNav>
+    Button: HeaderButton,
+});
+export type HeaderNavProps = ComponentProps<typeof HeaderNav>;

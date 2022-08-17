@@ -1,6 +1,6 @@
-import React, { ComponentProps, useState } from "react"
-import styled from "styled-components"
-import { cv } from "../../style"
+import React, { ComponentProps, useState } from 'react';
+import styled from 'styled-components';
+import { cv } from '../../style';
 
 const ToolTipBox = styled.div`
     position: absolute;
@@ -23,21 +23,23 @@ const ToolTipBox = styled.div`
         border-width: 5px;
         pointer-events: none;
     }
-`
+`;
 
-const Divver = styled.div<{isHover: boolean}>`
+const Divver = styled.div<{ isHover: boolean }>`
     width: fit-content;
     height: fit-content;
     position: relative;
     z-index: 1000;
 
-    ${props => props.isHover && `
+    ${(props) =>
+        props.isHover &&
+        `
         ${ToolTipBox} {
             visibility: visible;
             opacity: 1;
         }
     `}
-`
+`;
 
 const ToolTipBoxTop = styled(ToolTipBox)`
     transform: translate(-50%, 0%);
@@ -50,7 +52,7 @@ const ToolTipBoxTop = styled(ToolTipBox)`
         transform: translate(-50%, 0%);
         border-color: ${cv.bg_element5} transparent transparent transparent;
     }
-`
+`;
 
 const ToolTipBoxBottom = styled(ToolTipBox)`
     transform: translate(-50%, 0%);
@@ -63,7 +65,7 @@ const ToolTipBoxBottom = styled(ToolTipBox)`
         transform: translate(-50%, 0%);
         border-color: transparent transparent ${cv.bg_element5} transparent;
     }
-`
+`;
 
 const ToolTipBoxRight = styled(ToolTipBox)`
     transform: translate(0%, 50%);
@@ -74,7 +76,7 @@ const ToolTipBoxRight = styled(ToolTipBox)`
         right: 100%;
         border-color: transparent ${cv.bg_element5} transparent transparent;
     }
-`
+`;
 
 const ToolTipBoxLeft = styled(ToolTipBox)`
     /* transform: translate(0%, 50%); */
@@ -85,46 +87,51 @@ const ToolTipBoxLeft = styled(ToolTipBox)`
         left: 100%;
         border-color: transparent transparent transparent ${cv.bg_element5};
     }
-`
+`;
 
 interface Props {
     children: React.ReactNode;
     text: React.ReactNode;
-    direction?: 'top' | 'bottom' | 'right' | 'left'
+    direction?: 'top' | 'bottom' | 'right' | 'left';
 }
 
-export function ToolTip(props: Props) {
-    const [ isHover, setIsHover ] = useState(false)
+export function ToolTip({ children, text, direction }: Props) {
+    const [isHover, setIsHover] = useState(false);
 
     let box;
-    switch (props.direction) {
+    switch (direction) {
         case 'top':
-            box = <ToolTipBoxTop>{props.text}</ToolTipBoxTop>
-            break 
+            box = <ToolTipBoxTop>{text}</ToolTipBoxTop>;
+            break;
 
         case 'bottom':
-            box = <ToolTipBoxBottom>{props.text}</ToolTipBoxBottom>
-            break 
-        
+            box = <ToolTipBoxBottom>{text}</ToolTipBoxBottom>;
+            break;
+
         case 'right':
-            box = <ToolTipBoxRight>{props.text}</ToolTipBoxRight>
-            break
-        
+            box = <ToolTipBoxRight>{text}</ToolTipBoxRight>;
+            break;
+
         case 'left':
-            box = <ToolTipBoxLeft>{props.text}</ToolTipBoxLeft>
-            break
+            box = <ToolTipBoxLeft>{text}</ToolTipBoxLeft>;
+            break;
 
         default:
-            box = <ToolTipBoxTop>{props.text}</ToolTipBoxTop>
-            break
+            box = <ToolTipBoxTop>{text}</ToolTipBoxTop>;
+            break;
     }
 
     return (
-        <Divver isHover={isHover} onMouseOver={() => setIsHover(true)} onMouseOut={() => setIsHover(false)} className="tooltip">
+        <Divver
+            isHover={isHover}
+            onMouseOver={() => setIsHover(true)}
+            onMouseOut={() => setIsHover(false)}
+            className="tooltip"
+        >
             {box}
-            {props.children}
+            {children}
         </Divver>
-    )
+    );
 }
 
-export type ToolTipProps = ComponentProps<typeof ToolTip>
+export type ToolTipProps = ComponentProps<typeof ToolTip>;
