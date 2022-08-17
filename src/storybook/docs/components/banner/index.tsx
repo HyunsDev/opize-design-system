@@ -126,6 +126,7 @@ const Text2 = styled.div`
 const Version = styled.span`
     font-size: 16px;
     color: rgba(218, 231, 211, 0.4);
+    font-weight: 400;
 `
 
 const Fox = styled.img`
@@ -139,7 +140,7 @@ const Fox = styled.img`
     animation: ${ImgFadeIn} 2s cubic-bezier(0.08, 0.37, 0, 1.02) forwards;
 `
 
-export function Banner() {
+export function Banner(props: {version: string}) {
     const circle1 = useRef<HTMLDivElement>(null);
     const circle2 = useRef<HTMLDivElement>(null);
     const box = useRef<HTMLDivElement>(null);
@@ -171,7 +172,7 @@ export function Banner() {
             }} />
             <Fox src={foxImg} alt='' draggable={'false'} />
             <Text1>Opize</Text1>
-            <Text2>Design System <Version>v0.8.0</Version></Text2>
+            <Text2>Design System <Version>{props.version}</Version></Text2>
         </Div>
     )
 }
