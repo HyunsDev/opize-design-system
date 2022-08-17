@@ -253,8 +253,6 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
         }
         
         if (e.code === 'Backspace') {
-            console.log("a", currentValue.current, autocompleteSuggestion)
-            console.log("b", window.getSelection()?.toString(), autocompleteSuggestion?.slice(currentValue.current.length, autocompleteSuggestion?.length))
             if (window.getSelection()?.toString() === autocompleteSuggestion?.slice(currentValue.current.length, autocompleteSuggestion?.length)) {
                 if (isHighlight) {
                     setValue(currentValue.current + ' ')

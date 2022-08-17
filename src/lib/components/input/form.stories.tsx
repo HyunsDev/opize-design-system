@@ -42,8 +42,6 @@ const Template = () => {
         setResult(JSON.stringify(data, null, 2))
     };
 
-    console.log(watch('autocomplete'))
-
     return (
         <form onSubmit={handleSubmit(onSubmit)}>
             <Width500>
