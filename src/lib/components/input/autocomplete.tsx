@@ -40,7 +40,7 @@ const FadeInFromBottom = keyframes`
     }
 `
 
-const OverlayDiv = styled.div<{top?: number, right?: number; bottom?: number, left?:number, paddingHeight: number}>`
+const OverlayDiv = styled.div<{ top?: number, right?: number; bottom?: number, left?: number, paddingHeight: number }>`
     position: absolute;
     min-width: 230px;
     ${props => props.top !== undefined && `top: ${props.top + props.paddingHeight}px;`};
@@ -60,7 +60,7 @@ const OverlayDiv = styled.div<{top?: number, right?: number; bottom?: number, le
     animation: ${props => props.top !== undefined ? FadeInFromTop : FadeInFromBottom} 150ms cubic-bezier(0.07, 0.75, 0.54, 0.93);
 `
 
-const OverlayItem = styled.div<{isHover: boolean}>`
+const OverlayItem = styled.div<{ isHover: boolean }>`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -85,7 +85,7 @@ const OverlayItem = styled.div<{isHover: boolean}>`
     }
 `
 
-function Item(props: {id: number, text: string, onClick: Function, isHover?: boolean, onMouseOver: Function}) {
+function Item(props: { id: number, text: string, onClick: Function, isHover?: boolean, onMouseOver: Function }) {
     return (
         <OverlayItem key={props.id} onClick={() => props.onClick()} isHover={props.isHover || false} onMouseOver={() => props.onMouseOver()}>
             {props.text}
@@ -97,16 +97,16 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
     const inputRef = useRef<HTMLInputElement>(null)
     useImperativeHandle(ref, () => inputRef.current as HTMLInputElement)
 
-    const [ currentItems, setCurrentItems ] = useState(props.items)
-    const [ value, setValue ] = useState<string>(String(props.value || ''))
+    const [currentItems, setCurrentItems] = useState(props.items)
+    const [value, setValue] = useState<string>(String(props.value || ''))
     const currentValue = useRef<string>(String(props.value || ''))
-    const [ autocompleteSuggestion, setAutocompleteSuggestion ] = useState<string|null>('')
-    const [ isHighlight, setHighlight ] = useState(false)
-    const [ isOpen, setIsOpen ] = useState(false)
-    const [ cursor, setCursor ] = useState(props.items[0].id)
-    const [ direction, setDirection ] = useState<{
+    const [autocompleteSuggestion, setAutocompleteSuggestion] = useState<string | null>('')
+    const [isHighlight, setHighlight] = useState(false)
+    const [isOpen, setIsOpen] = useState(false)
+    const [cursor, setCursor] = useState(props.items[0].id)
+    const [direction, setDirection] = useState<{
         top?: number,
-        right?: number, 
+        right?: number,
         bottom?: number,
         left?: number
     }>({})
@@ -129,12 +129,12 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
         if (!outRef.current) return
         let pos: {
             top?: number,
-            right?: number, 
+            right?: number,
             bottom?: number,
             left?: number
         } = {}
 
-        if (outRef.current.getBoundingClientRect().right + 250 > (window.innerWidth >= 1200 ? (window.innerWidth - 1200)/2 + 1200 : window.innerWidth) ) {
+        if (outRef.current.getBoundingClientRect().right + 250 > (window.innerWidth >= 1200 ? (window.innerWidth - 1200) / 2 + 1200 : window.innerWidth)) {
             pos.right = 0
         } else {
             pos.left = 0
@@ -264,21 +264,21 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
             inputRef.current?.blur()
             setIsOpen(false)
         }
-        
+
         if (e.code === 'Backspace') {
             if (window.getSelection()?.toString() === autocompleteSuggestion?.slice(currentValue.current.length, autocompleteSuggestion?.length)) {
                 if (isHighlight) {
                     setValue(currentValue.current + ' ')
                 }
             }
-            
+
             setHighlight(false)
         } else {
             setHighlight(true)
         }
 
-        if(autocompleteSuggestion && currentValue.current.length < autocompleteSuggestion?.length) {
-            setAutocompleteSuggestion(prev => (prev?.replaceAll(SPACE, '') || '') + SPACE )
+        if (autocompleteSuggestion && currentValue.current.length < autocompleteSuggestion?.length) {
+            setAutocompleteSuggestion(prev => (prev?.replaceAll(SPACE, '') || '') + SPACE)
         }
 
         props.onKeyDown && props.onKeyDown(e)
@@ -313,7 +313,7 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
         if (inputRef.current) {
             inputRef.current.setAttribute('value', itemValue);
             inputRef.current.dispatchEvent(new Event('change', { bubbles: true }));
-            
+
             setTimeout(() => {
                 const event = new Event('change', { bubbles: true })
                 props.onChange && props.onChange({
@@ -345,7 +345,7 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
 
     return (
         <Div ref={outRef}>
-            <TextField {...props} ref={inputRef} 
+            <TextField {...props} ref={inputRef}
                 onInput={e => onInput(e)}
                 onChange={e => onChange(e)}
                 onKeyDown={e => onKeyDown(e)}
@@ -354,11 +354,11 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
                 onFocus={e => onFocus(e)}
                 value={value.length === 0 ? value : isHighlight ? autocompleteSuggestion || value : value}
             />
-            { isOpen && currentItems.length !== 0 && <OverlayDiv {...direction} ref={overlayRef} paddingHeight={40}>
+            {isOpen && currentItems.length !== 0 && <OverlayDiv {...direction} ref={overlayRef} paddingHeight={40}>
                 {
                     currentItems.map((e, i) => <Item key={e.id} id={e.id} text={e.text} onClick={() => onItemClick(e.id)} isHover={e.id === cursor} onMouseOver={() => setCursor(e.id)} />)
                 }
-                
+
             </OverlayDiv>}
         </Div>
     )
