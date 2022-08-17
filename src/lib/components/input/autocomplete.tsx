@@ -248,6 +248,19 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
             }
         } else if (e.code === 'Escape') {
             setValue('')
+            currentValue.current = ''
+            setTimeout(() => {
+                const event = new Event('change', { bubbles: true })
+                props.onChange && props.onChange({
+                    ...event,
+                    nativeEvent: event,
+                    isDefaultPrevented: () => false,
+                    isPropagationStopped: () => false,
+                    persist: () => null,
+                    target: inputRef.current,
+                    currentTarget: inputRef.current
+                } as React.ChangeEvent<HTMLInputElement>)
+            }, 0)
             inputRef.current?.blur()
             setIsOpen(false)
         }
