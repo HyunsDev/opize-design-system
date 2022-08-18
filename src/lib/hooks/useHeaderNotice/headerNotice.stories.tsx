@@ -1,11 +1,8 @@
 import React from 'react';
-import styled from 'styled-components';
-import { TrashSimple } from 'phosphor-react';
 import { Story } from '@storybook/react';
 import { Button, Flex, Header } from '../../components';
 import { OpizeContextProvider } from '../../context';
 import { useHeaderNotice } from '.';
-import { cv } from '../../style';
 import Logo from '../../../assets/opize.png';
 
 export default {
