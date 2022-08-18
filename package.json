@@ -69,6 +69,7 @@
     "@babel/cli": "^7.17.6",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
+    "@storybook/addon-a11y": "^6.5.10",
     "@storybook/addon-actions": "^6.5.9",
     "@storybook/addon-essentials": "^6.5.9",
     "@storybook/addon-interactions": "^6.5.9",
