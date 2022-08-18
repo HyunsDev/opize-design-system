@@ -24,8 +24,15 @@ const FlexColumn = styled.div<{ gap?: string }>`
     ${(props) => props.gap && `gap: ${props.gap}`};
 `;
 
+const FlexRow = styled.div<{ gap?: string }>`
+    display: flex;
+    align-items: center;
+    ${(props) => props.gap && `gap: ${props.gap}`};
+`;
+
 export const Flex = Object.assign(FlexLayout, {
     Center: FlexCenter,
     Between: FlexBetween,
     Column: FlexColumn,
+    Row: FlexRow,
 });

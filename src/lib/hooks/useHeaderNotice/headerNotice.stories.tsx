@@ -1,29 +1,21 @@
 import React from 'react';
-import { Story } from '@storybook/react';
-
 import styled from 'styled-components';
-import { Header } from '..';
-
-import { ActionMenu } from '../actionMenu';
+import { TrashSimple } from 'phosphor-react';
+import { Story } from '@storybook/react';
+import { Button, Flex, Header } from '../../components';
+import { OpizeContextProvider } from '../../context';
+import { useHeaderNotice } from '.';
+import { cv } from '../../style';
 import Logo from '../../../assets/opize.png';
 
 export default {
-    title: 'Component/Header',
+    title: 'Hook/useHeaderNotice',
     argTypes: {},
 };
 
-const ProfileImg = styled.img`
-    width: 28px;
-    height: 28px;
-    border-radius: 28px;
-`;
-
-const Void = styled.div`
-    height: 2000px;
-    width: 100%;
-`;
-
 function Template() {
+    const { open, close, content, isOpen } = useHeaderNotice();
+
     return (
         <Header>
             <Header.Notice>공지</Header.Notice>
@@ -35,17 +27,6 @@ function Template() {
                 <Header.Nav.Right>
                     <Header.Nav.Button onClick={() => null}>Button2</Header.Nav.Button>
                     <Header.Nav.Button onClick={() => null}>Button</Header.Nav.Button>
-                    <ActionMenu
-                        icon={<ProfileImg src={Logo} alt="" />}
-                        actions={[
-                            [
-                                {
-                                    label: 'label',
-                                    onClick: () => null,
-                                },
-                            ],
-                        ]}
-                    />
                 </Header.Nav.Right>
             </Header.Nav>
             <Header.SubMenu
@@ -61,12 +42,25 @@ function Template() {
                     },
                 }}
             />
-            <Void />
+            <Flex.Column gap="8px" style={{ padding: '8px' }}>
+                <Button label="open HeaderNotice (open(content))" onClick={() => open('Hello, Opize! 👋')} />
+                <Button label="close HeaderNotice (open(content))" onClick={() => close()} />
+                <Flex>isOpen: {isOpen ? '⭕' : '❌'}</Flex>
+                <Flex>content: {content}</Flex>
+            </Flex.Column>
         </Header>
     );
 }
 
-export const Primary: Story = Template.bind({});
+function TemplateWrapper() {
+    return (
+        <OpizeContextProvider>
+            <Template />
+        </OpizeContextProvider>
+    );
+}
+
+export const Primary: Story = TemplateWrapper.bind({});
 Primary.parameters = {
     layout: 'fullscreen',
 };
