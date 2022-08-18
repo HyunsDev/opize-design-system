@@ -134,15 +134,25 @@ function Action({ icon, label, onClick, color = 'normal' }: ActionType) {
     );
 }
 
-export function ActionMenu({
-    actions,
-    label,
-    icon,
-}: {
+export interface ActionMenuProps {
+    /**
+     * ActionMenu의 액션
+     */
     actions: ActionType[][];
+    /**
+     * 버튼 텍스트
+     */
     label?: React.ReactNode;
+    /**
+     * 버튼 아이콘
+     */
     icon?: React.ReactNode;
-}) {
+}
+
+/**
+ * 클릭했을 때 여러 버튼이 있는 오버레이를 표시하는 버튼입니다.
+ */
+export function ActionMenu({ actions, label, icon }: ActionMenuProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [direction, setDirection] = useState<{
         top?: number;
@@ -236,5 +246,3 @@ export function ActionMenu({
         </ActionMenuDiv>
     );
 }
-
-export type ActionMenuProps = ComponentProps<typeof ActionMenu>;

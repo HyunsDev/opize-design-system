@@ -56,6 +56,9 @@ interface StatusBadgeTagProps {
     size?: 'small' | 'normal';
 }
 
+/**
+ * 상태를 나타내기 위한 뱃지입니다.
+ */
 export function StatusBadge({ color, text, size = 'normal' }: StatusBadgeTagProps) {
     return (
         <Badge color={color} size={size}>

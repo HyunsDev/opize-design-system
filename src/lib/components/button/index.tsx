@@ -59,20 +59,38 @@ const A = styled.a`
     text-decoration: none;
 `;
 
-interface _ButtonProps {
+export interface ButtonProps {
+    /**
+     * 버튼 내부에 표시되는 컴포넌트입니다.
+     */
     label?: React.ReactNode;
     variant?: 'contained' | 'outlined' | 'text';
     color?: 'gray' | 'red';
     size?: 'medium' | 'large';
     isDisabled?: boolean;
+    /**
+     * isLoading일 경우 label 대신 \<Spinner\>가 표시됩니다. width와 같이 사용하는 것을 추천합니다.
+     */
     isLoading?: boolean;
+    /**
+     * label 왼쪽에 표시되는 아이콘입니다.
+     */
     icon?: React.ReactNode | string;
     onClick?: () => void;
+    /**
+     * 클릭했을 때 이동할 링크입니다. http 포함 ? \<A\> : \<Link\> 를 사용합니다. onClick과 같이 설정한 경우 onClick은 무시됩니다.
+     */
     to?: string;
-    type?: 'submit';
+    type?: 'submit' | 'button';
+    /**
+     * 버튼의 너비입니다. isLoading을 사용하는 경우 width 유지를 위해 사용하는 것을 추천합니다.
+     */
     width?: ButtonWidth;
 }
 
+/**
+ * 버튼입니다.
+ */
 export function Button({
     label,
     variant = 'outlined',
@@ -83,9 +101,9 @@ export function Button({
     icon,
     onClick,
     to,
-    type,
+    type = 'button',
     width = 'fit-content',
-}: _ButtonProps) {
+}: ButtonProps) {
     // 아이콘
     let Icon;
     if (typeof icon === 'string') {
@@ -275,6 +293,22 @@ export function Button({
             </StyledLink>
         );
     }
+
+    if (type === 'submit') {
+        return (
+            <ButtonDiv
+                width={width}
+                isDisabled={isDisabled}
+                {...ButtonColor}
+                padding={padding}
+                type="submit"
+                onClick={() => onClick && onClick()}
+            >
+                {children}
+            </ButtonDiv>
+        );
+    }
+
     if (onClick) {
         return (
             <ButtonDiv
@@ -288,13 +322,5 @@ export function Button({
             </ButtonDiv>
         );
     }
-    if (type === 'submit') {
-        return (
-            <ButtonDiv width={width} isDisabled={isDisabled} {...ButtonColor} padding={padding} type="submit">
-                {children}
-            </ButtonDiv>
-        );
-    }
     throw new Error("<Button /> Need 'onClick' or 'to' prop");
 }
-export type ButtonProps = ComponentProps<typeof Button>;

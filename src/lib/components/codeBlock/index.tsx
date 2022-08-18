@@ -10,7 +10,21 @@ const Divver = styled.div`
     }
 `;
 
-export function CodeBlock(props: { children: string; language?: string }) {
+export interface CodeBlockProps {
+    /**
+     * 코드 본문입니다.
+     */
+    children: string;
+    /**
+     * 언어 이름입니다.
+     */
+    language?: string;
+}
+
+/**
+ * react-syntax-highlighter을 이용한 코드 블록입니다.
+ */
+export function CodeBlock(props: CodeBlockProps) {
     return (
         <Divver>
             <SyntaxHighlighter language={props.language || 'json'} style={a11yLight}>
@@ -19,5 +33,3 @@ export function CodeBlock(props: { children: string; language?: string }) {
         </Divver>
     );
 }
-
-export type CodeBlockProps = ComponentProps<typeof CodeBlock>;

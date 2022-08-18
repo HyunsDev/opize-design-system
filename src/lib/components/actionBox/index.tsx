@@ -84,17 +84,19 @@ const OverlayDiv = styled.div<{
         cubic-bezier(0.07, 0.75, 0.54, 0.93);
 `;
 
-export function ActionBox({
-    children,
-    label,
-    icon,
-    removePadding,
-}: {
+export interface ActionBoxProps {
+    /** 오버레이 박스 안 내용 */
     children: React.ReactNode;
+    /** 버튼 라벨 */
     label?: React.ReactNode;
+    /** 버튼 아이콘 */
     icon?: React.ReactNode;
+    /** 오버레이 안 padding 유무 */
     removePadding?: boolean;
-}) {
+}
+
+/* 클릭했을 때 오버레이를 표시하는 버튼입니다. */
+export function ActionBox({ children, label, icon, removePadding }: ActionBoxProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [direction, setDirection] = useState<{
         top?: number;
@@ -184,5 +186,3 @@ export function ActionBox({
         </ActionBoxDiv>
     );
 }
-
-export type ActionBoxProps = ComponentProps<typeof ActionBox>;

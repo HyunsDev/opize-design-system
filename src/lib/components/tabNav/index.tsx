@@ -59,14 +59,24 @@ const HoverBox = styled.div<FlowProps & { show: boolean }>`
 `;
 
 interface Props {
+    /**
+     * 현재 선택된 메뉴의 아이디입니다.
+     */
     selected: string;
+    /**
+     * TabNav의 메뉴입니다.
+     */
     menu: {
-        [key: string]: {
+        [id: string]: {
             text: React.ReactNode;
             onClick: () => void;
         };
     };
 }
+
+/**
+ * 탭 이동을 위한 네비게이션 바입니다.
+ */
 export function TabNav({ selected, menu }: Props) {
     const ref = useRef<HTMLDivElement>(null);
     const targets = useRef<{ [key: string]: HTMLDivElement }>({});

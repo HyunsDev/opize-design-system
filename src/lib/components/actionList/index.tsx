@@ -3,7 +3,19 @@ import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { cv } from '../../style';
 
-const ActionListDiv = styled.div<{ isSticky: boolean; stickyTop?: number }>`
+export interface ActionListDivProps {
+    /**
+     * ActionList가 position:sticky 속성을 가지는 지를 결정합니다.
+     * true인 경우 스크롤를 내렸을 때 화면 상단에 붙습니다.
+     */
+    isSticky: boolean;
+    /**
+     * isSticky가 'true'일 때 화면 상단에서 얼마나 떨어져 있을 지를 결정합니다.
+     */
+    stickyTop?: number;
+}
+
+const ActionListDiv = styled.div<ActionListDivProps>`
     display: flex;
     flex-direction: column;
     ${(props) =>
@@ -38,6 +50,9 @@ const ActionListDivider = styled.div`
     margin-bottom: 8px;
 `;
 
+/**
+ * 여러 액션 버튼이 있는 컴포넌트입니다.
+ */
 export const ActionList = Object.assign(ActionListDiv, {
     Item: ActionListItem,
     Divider: ActionListDivider,

@@ -91,10 +91,19 @@ const ToolTipBoxLeft = styled(ToolTipBox)`
 
 interface Props {
     children: React.ReactNode;
+    /**
+     * 툴팁 텍스트입니다.
+     */
     text: React.ReactNode;
+    /**
+     * 툴팁이 표시될 방향입니다.
+     */
     direction?: 'top' | 'bottom' | 'right' | 'left';
 }
 
+/**
+ * 마우스를 올렸을 때 툴팁을 표시합니다.
+ */
 export function ToolTip({ children, text, direction }: Props) {
     const [isHover, setIsHover] = useState(false);
 

@@ -35,7 +35,7 @@ const ColorLabel = styled.div`
     flex-direction: column;
     gap: 4px;
 
-    div:first-child {
+    div:first-of-type {
         color: #495057;
         font-size: 14px;
         font-weight: 600;

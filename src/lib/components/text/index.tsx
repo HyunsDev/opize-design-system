@@ -1,6 +1,9 @@
 import styled from 'styled-components';
 import { cv } from '../../style';
 
+/**
+ * 스타일링 된 \<p\>입니다.
+ */
 export const Text = styled.p<{
     font?: 'base' | 'monospace';
     weight?: 'regular' | 'semibold';

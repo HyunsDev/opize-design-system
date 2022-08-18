@@ -9,6 +9,9 @@ type AutocompleteItem = {
     id: number;
 };
 export type AutocompleteProps = TextFieldProps & {
+    /**
+     * 자동 완성 항목입니다.
+     */
     items: AutocompleteItem[];
     type?: 'text' | 'password' | 'search' | 'url' | 'email';
 };
@@ -109,6 +112,9 @@ function Item({
     );
 }
 
+/**
+ * 자동 완성을 지원하는 \<TextField\>입니다.
+ */
 export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>((props, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);
     useImperativeHandle(ref, () => inputRef.current as HTMLInputElement);

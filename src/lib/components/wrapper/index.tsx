@@ -46,6 +46,9 @@ const GlobalStyles = createGlobalStyle`
     }
 `;
 
+/**
+ * opize-design-system을 사용하기 위해 필수적으로 사용해야 하는 컴포넌트입니다.
+ */
 export function OpizeWrapper({ children }: { children: React.ReactElement }) {
     return (
         <>
