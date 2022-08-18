@@ -1,5 +1,5 @@
 import React from 'react';
-import { Story } from '@storybook/react';
+import { ComponentStory, Story } from '@storybook/react';
 
 import styled from 'styled-components';
 import { Header } from '..';
@@ -23,9 +23,9 @@ const Void = styled.div`
     width: 100%;
 `;
 
-function Template() {
+function Template(args: ComponentStory<typeof Header>) {
     return (
-        <Header>
+        <Header {...args}>
             <Header.Notice>공지</Header.Notice>
             <Header.Nav>
                 <Header.Nav.Left>
@@ -66,7 +66,7 @@ function Template() {
     );
 }
 
-export const Primary: Story = Template.bind({});
+export const Primary: Story<typeof Header> = Template.bind({});
 Primary.parameters = {
     layout: 'fullscreen',
 };
