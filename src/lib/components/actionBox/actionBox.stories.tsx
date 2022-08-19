@@ -66,4 +66,5 @@ export const Avatar = AvatarRight.bind({});
 Avatar.args = {
     icon: <ProfileImg src={profileImg} alt="" />,
     overlay: 'Hello, world!',
+    variant: 'text',
 };

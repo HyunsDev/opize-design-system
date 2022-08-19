@@ -3,7 +3,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DotsThreeVertical, Gear, X } from 'phosphor-react';
 
 import styled from 'styled-components';
-import { ActionMenu } from '..';
+import { ActionMenu, Avatar as AvatarTag } from '..';
 
 import profileImg from '../../../assets/hyuns.jpg';
 
@@ -155,12 +155,6 @@ Right.args = {
     ],
 };
 
-const ProfileImg = styled.img`
-    width: 28px;
-    height: 28px;
-    border-radius: 28px;
-`;
-
 const AvatarRight: ComponentStory<typeof ActionMenu> = (args) => (
     <RightPos>
         <ActionMenu {...args} />
@@ -168,7 +162,8 @@ const AvatarRight: ComponentStory<typeof ActionMenu> = (args) => (
 );
 export const Avatar = AvatarRight.bind({});
 Avatar.args = {
-    icon: <ProfileImg src={profileImg} alt="" />,
+    icon: <AvatarTag src={profileImg} alt="" size={28} />,
+    variant: 'text',
     actions: [
         [
             {

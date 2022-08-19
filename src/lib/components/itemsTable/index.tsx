@@ -259,7 +259,11 @@ export function ItemsTable({ data }: Props) {
                                                 weight: 'bold',
                                             }}
                                         >
-                                            <ActionMenu icon={<DotsThreeVertical />} actions={menu.button} />
+                                            <ActionMenu
+                                                icon={<DotsThreeVertical />}
+                                                actions={menu.button}
+                                                variant="text"
+                                            />
                                         </IconContext.Provider>
                                     </ItemButtons>
                                 );
