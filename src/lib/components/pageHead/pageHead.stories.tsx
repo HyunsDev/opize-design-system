@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PageHead } from '..';
 
 export default {
-    title: 'Component/PageHead',
+    title: 'Opize Component/PageHead',
     component: PageHead,
     argTypes: {},
 } as ComponentMeta<typeof PageHead>;

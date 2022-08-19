@@ -8,7 +8,7 @@ import { ActionBox } from '..';
 import profileImg from '../../../assets/hyuns.jpg';
 
 export default {
-    title: 'Component/ActionBox',
+    title: 'Opize Component/ActionBox',
     component: ActionBox,
     argTypes: {
         // backgroundColor: { control: 'color' },

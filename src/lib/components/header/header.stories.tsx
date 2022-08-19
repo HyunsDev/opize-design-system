@@ -8,7 +8,7 @@ import { ActionMenu } from '../actionMenu';
 import Logo from '../../../assets/opize.png';
 
 export default {
-    title: 'Component/Header',
+    title: 'Opize Component/Header',
     argTypes: {},
 };
 

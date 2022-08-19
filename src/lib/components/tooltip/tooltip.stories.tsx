@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { ToolTip } from '..';
 
 export default {
-    title: 'Component/ToolTip',
+    title: 'Opize Component/ToolTip',
     component: ToolTip,
     argTypes: {},
 } as ComponentMeta<typeof ToolTip>;

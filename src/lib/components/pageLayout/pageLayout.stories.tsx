@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { PageLayout } from '..';
 
 export default {
-    title: 'Component/PageLayout',
+    title: 'Opize Component/PageLayout',
     component: PageLayout,
     argTypes: {},
 } as ComponentMeta<typeof PageLayout>;

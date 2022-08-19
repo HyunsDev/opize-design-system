@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Spinner } from '..';
 
 export default {
-    title: 'Component/Spinner',
+    title: 'Opize Component/Spinner',
     component: Spinner,
     argTypes: {},
 } as ComponentMeta<typeof Spinner>;

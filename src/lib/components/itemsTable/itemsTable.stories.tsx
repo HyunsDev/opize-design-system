@@ -5,7 +5,7 @@ import { Gear, UserCircle, X } from 'phosphor-react';
 import { ItemsTable } from '..';
 
 export default {
-    title: 'Component/ItemsTable',
+    title: 'Opize Component/ItemsTable',
     component: ItemsTable,
     argTypes: {},
 } as ComponentMeta<typeof ItemsTable>;

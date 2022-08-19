@@ -8,7 +8,7 @@ import { ActionMenu } from '..';
 import profileImg from '../../../assets/hyuns.jpg';
 
 export default {
-    title: 'Component/ActionMenu',
+    title: 'Opize Component/ActionMenu',
     component: ActionMenu,
     argTypes: {
         // backgroundColor: { control: 'color' },

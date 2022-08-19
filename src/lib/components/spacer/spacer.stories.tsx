@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Spacer } from '..';
 
 export default {
-    title: 'Component/Spacer',
+    title: 'Opize Component/Spacer',
     component: Spacer,
     argTypes: {},
 } as ComponentMeta<typeof Spacer>;

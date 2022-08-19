@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { StatusBadge } from '..';
 
 export default {
-    title: 'Component/StatusBadge',
+    title: 'Opize Component/StatusBadge',
     component: StatusBadge,
     argTypes: {},
 } as ComponentMeta<typeof StatusBadge>;

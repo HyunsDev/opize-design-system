@@ -5,7 +5,7 @@ import { CaretDown, Minus, Plus } from 'phosphor-react';
 import { ButtonGroup, Button, Flex, ActionBox, ActionMenu } from '..';
 
 export default {
-    title: 'Component/ButtonGroup',
+    title: 'Opize Component/ButtonGroup',
     component: ButtonGroup,
     argTypes: {},
 } as ComponentMeta<typeof ButtonGroup>;

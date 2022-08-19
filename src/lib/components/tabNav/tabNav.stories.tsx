@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { TabNav } from '..';
 
 export default {
-    title: 'Component/TabNav',
+    title: 'Opize Component/TabNav',
     component: TabNav,
     argTypes: {},
 } as ComponentMeta<typeof TabNav>;
