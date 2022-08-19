@@ -23,3 +23,4 @@ export * from './actionBox';
 export * from './text';
 export * from './code';
 export * from './pageLayout';
+export * from './span';

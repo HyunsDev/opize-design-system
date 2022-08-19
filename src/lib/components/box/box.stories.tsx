@@ -40,9 +40,8 @@ WithFooter.args = {
     footerTemplate: {
         text: 'text',
         button: {
-            label: 'label',
+            children: 'label',
             variant: 'contained',
-            to: '/',
         },
     },
 };

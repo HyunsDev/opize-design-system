@@ -40,8 +40,8 @@ function Template() {
                 }}
             />
             <Flex.Column gap="8px" style={{ padding: '8px' }}>
-                <Button label="open HeaderNotice (open(content))" onClick={() => open('Hello, Opize! 👋')} />
-                <Button label="close HeaderNotice (open(content))" onClick={() => close()} />
+                <Button onClick={() => open('Hello, Opize! 👋')}>open HeaderNotice (open(content))</Button>
+                <Button onClick={() => close()}>close HeaderNotice (open(content))</Button>
                 <Flex>isOpen: {isOpen ? '⭕' : '❌'}</Flex>
                 <Flex>content: {content}</Flex>
             </Flex.Column>

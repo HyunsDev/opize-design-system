@@ -19,13 +19,12 @@ function Template() {
     return (
         <Divver>
             <Button
-                label="Open Dialog"
                 onClick={() => {
                     dialog({
                         title: 'title',
                         buttons: [
                             {
-                                label: 'label',
+                                children: 'label',
                                 onClick: () => null,
                                 variant: 'contained',
                             },
@@ -34,10 +33,11 @@ function Template() {
                     });
                 }}
                 variant="outlined"
-            />
+            >
+                Open Dialog
+            </Button>
             <br />
             <Button
-                label="Open Warning Dialog"
                 onClick={() => {
                     dialog({
                         title: '정말로 삭제하실 건가요?',
@@ -45,12 +45,12 @@ function Template() {
                         icon: <TrashSimple color={cv.red1} />,
                         buttons: [
                             {
-                                label: '돌아가기',
+                                children: '돌아가기',
                                 onClick: () => null,
                                 variant: 'text',
                             },
                             {
-                                label: '삭제',
+                                children: '삭제',
                                 onClick: () => null,
                                 color: 'red',
                                 variant: 'contained',
@@ -59,22 +59,23 @@ function Template() {
                     });
                 }}
                 variant="outlined"
-            />
+            >
+                Open Warning Dialog
+            </Button>
             <br />
             <Button
-                label="notAutoClose Button Dialog"
                 onClick={() => {
                     dialog({
                         title: 'notAutoClose',
                         content: 'notAutoClose 속성을 통해 자동을 닫치지 않게 할 수 있어요.',
                         buttons: [
                             {
-                                label: 'not close',
+                                children: 'not close',
                                 onClick: () => null,
                                 variant: 'text',
                             },
                             {
-                                label: 'close',
+                                children: 'close',
                                 onClick: () => null,
                                 closeModal: true,
                                 variant: 'contained',
@@ -84,7 +85,9 @@ function Template() {
                     });
                 }}
                 variant="outlined"
-            />
+            >
+                notAutoClose Button Dialog
+            </Button>
         </Divver>
     );
 }

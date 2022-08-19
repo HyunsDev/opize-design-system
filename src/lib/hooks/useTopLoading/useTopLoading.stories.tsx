@@ -38,19 +38,20 @@ function Template() {
             }}
         >
             <Button
-                label="Default Loading"
                 onClick={() => {
                     loading();
                 }}
                 variant="contained"
-            />
-            <Button label="Start Loading" onClick={() => topLoading.start()} />
-            <Button label="Progress 0" onClick={() => topLoading.setProgress(0)} />
-            <Button label="Progress 25" onClick={() => topLoading.setProgress(25)} />
-            <Button label="Progress 50" onClick={() => topLoading.setProgress(50)} />
-            <Button label="Progress 75" onClick={() => topLoading.setProgress(75)} />
-            <Button label="Progress 99" onClick={() => topLoading.setProgress(99)} />
-            <Button label="end Loading" onClick={() => topLoading.end()} />
+            >
+                Default Loading
+            </Button>
+            <Button onClick={() => topLoading.start()}>Start Loading</Button>
+            <Button onClick={() => topLoading.setProgress(0)}>Progress 0</Button>
+            <Button onClick={() => topLoading.setProgress(25)}>Progress 25</Button>
+            <Button onClick={() => topLoading.setProgress(50)}>Progress 50</Button>
+            <Button onClick={() => topLoading.setProgress(75)}>Progress 75</Button>
+            <Button onClick={() => topLoading.setProgress(99)}>Progress 99</Button>
+            <Button onClick={() => topLoading.end()}>end Loading</Button>
         </Flex>
     );
 }
