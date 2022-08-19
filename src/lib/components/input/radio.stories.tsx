@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Radio, RadioGroup } from '..';
 
 export default {
-    title: 'Component/Form/Radio',
+    title: 'HTML-Like Component/Form/Radio',
     component: Radio,
     argTypes: {
         label: {

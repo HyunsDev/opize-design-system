@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Code, Text } from '..';
 
 export default {
-    title: 'Component/Code',
+    title: 'HTML-Like Component/Code',
     component: Code,
     argTypes: {},
 } as ComponentMeta<typeof Code>;

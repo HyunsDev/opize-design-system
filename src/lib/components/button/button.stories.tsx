@@ -5,7 +5,7 @@ import { Check } from 'phosphor-react';
 import { Button } from '..';
 
 export default {
-    title: 'Component/Button',
+    title: 'HTML-Like Component/Button',
     component: Button,
     argTypes: {
         // backgroundColor: { control: 'color' },

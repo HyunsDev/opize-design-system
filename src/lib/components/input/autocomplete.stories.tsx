@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Autocomplete } from '..';
 
 export default {
-    title: 'Component/Form/Autocomplete',
+    title: 'HTML-Like Component/Form/Autocomplete',
     component: Autocomplete,
     argTypes: {
         label: {

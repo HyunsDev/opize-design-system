@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Span } from '..';
 
 export default {
-    title: 'Component/Span',
+    title: 'HTML-Like Component/Span',
     component: Span,
     argTypes: {},
 } as ComponentMeta<typeof Span>;

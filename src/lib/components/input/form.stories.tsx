@@ -6,7 +6,7 @@ import { TextField, Checkbox, TextArea, Select, Switch, Datetime, RadioGroup, Ra
 import { Button, CodeBlock } from '..';
 
 export default {
-    title: 'Component/Form/Form',
+    title: 'HTML-Like Component/Form/Form',
     argTypes: {},
 };
 

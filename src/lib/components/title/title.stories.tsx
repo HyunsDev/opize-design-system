@@ -4,7 +4,7 @@ import styled from 'styled-components';
 import { H1, H2, H3 } from '..';
 
 export default {
-    title: 'Component/Title',
+    title: 'HTML-Like Component/Title',
     argTypes: {},
 };
 

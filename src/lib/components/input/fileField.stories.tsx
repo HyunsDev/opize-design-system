@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { FileField } from '..';
 
 export default {
-    title: 'Component/Form/FileField',
+    title: 'HTML-Like Component/Form/FileField',
     component: FileField,
     argTypes: {
         label: {
