@@ -391,13 +391,13 @@ const StyledButton = styled.button<StyledButtonProps>`
     position: relative;
     font-size: 14px;
     border: 0;
-    border-radius: 4px;
     text-decoration: none;
     transition: 150ms;
     font-weight: 500;
     line-height: 20px;
     gap: 8px;
     cursor: pointer;
+    border-radius: 4px;
 
     &::after {
         content: '';

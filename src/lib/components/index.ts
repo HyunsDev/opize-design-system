@@ -24,3 +24,4 @@ export * from './text';
 export * from './code';
 export * from './pageLayout';
 export * from './span';
+export * from './buttonGroup';
