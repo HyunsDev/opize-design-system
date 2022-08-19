@@ -4,7 +4,7 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { CodeBlock } from '..';
 
 export default {
-    title: 'Component/CodeBlock',
+    title: 'Opize Component/CodeBlock',
     component: CodeBlock,
     argTypes: {
         // backgroundColor: { control: 'color' },

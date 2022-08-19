@@ -6,7 +6,7 @@ import styled from 'styled-components';
 import { TextField } from '..';
 
 export default {
-    title: 'Component/Form/TextField',
+    title: 'HTML-Like Component/Form/TextField',
     component: TextField,
     argTypes: {
         label: {

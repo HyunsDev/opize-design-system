@@ -4,6 +4,7 @@ import { IconContext } from 'phosphor-react';
 import React, { ComponentProps, useCallback, useEffect, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { cv } from '../../style';
+import { Button, ButtonProps } from '..';
 
 const ActionMenuDiv = styled.div`
     display: flex;
@@ -11,29 +12,6 @@ const ActionMenuDiv = styled.div`
     position: relative;
     width: fit-content;
     user-select: none;
-`;
-
-const ButtonDiv = styled.div<{ isOpen: boolean; onlyIcon: boolean }>`
-    padding: ${(props) => (props.onlyIcon ? '6px' : '6px 12px')};
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: 200ms;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-
-    font-size: 0.875rem;
-    line-height: 24px;
-
-    border-radius: ${(props) => (props.onlyIcon ? '99999px' : '4px')};
-    background-color: ${(props) => (props.isOpen ? cv.bg_element2 : cv.bg_element1)};
-
-    &:hover {
-        background-color: ${cv.bg_element2};
-    }
 `;
 
 const FadeInFromTop = keyframes`
@@ -134,15 +112,19 @@ function Action({ icon, label, onClick, color = 'normal' }: ActionType) {
     );
 }
 
-export function ActionMenu({
-    actions,
-    label,
-    icon,
-}: {
+export interface ActionMenuProps extends ButtonProps {
+    /**
+     * ActionMenu의 액션
+     */
     actions: ActionType[][];
-    label?: React.ReactNode;
-    icon?: React.ReactNode;
-}) {
+}
+
+/**
+ * 클릭했을 때 여러 버튼이 있는 오버레이를 표시하는 버튼입니다.
+ *
+ * \<Button\>에서 확장되었습니다.
+ */
+export function ActionMenu({ actions, children, ...props }: ActionMenuProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [direction, setDirection] = useState<{
         top?: number;
@@ -152,7 +134,7 @@ export function ActionMenu({
     }>({});
 
     const ref = useRef<HTMLDivElement>(null);
-    const buttonRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -202,18 +184,18 @@ export function ActionMenu({
 
     return (
         <ActionMenuDiv ref={ref}>
-            <ButtonDiv
+            <Button
+                {...props}
+                ref={buttonRef}
                 onClick={() => {
                     calcPos();
                     setIsOpen(!isOpen);
+                    if (props.onClick) props.onClick();
                 }}
-                isOpen={isOpen}
-                onlyIcon={!!icon && !label}
-                ref={buttonRef}
             >
-                {icon}
-                {label}
-            </ButtonDiv>
+                {children}
+            </Button>
+
             <IconContext.Provider
                 value={{
                     size: 16,
@@ -236,5 +218,3 @@ export function ActionMenu({
         </ActionMenuDiv>
     );
 }
-
-export type ActionMenuProps = ComponentProps<typeof ActionMenu>;

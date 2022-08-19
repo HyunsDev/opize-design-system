@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Switch } from '..';
 
 export default {
-    title: 'Component/Form/Switch',
+    title: 'HTML-Like Component/Form/Switch',
     component: Switch,
     argTypes: {
         label: {

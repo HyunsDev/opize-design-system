@@ -2,6 +2,7 @@ import { IconContext, IconProps } from 'phosphor-react';
 import React, { ComponentProps, useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import styled, { keyframes } from 'styled-components';
 import { cv } from '../../style';
+import { Button, ButtonProps } from '..';
 
 const ActionBoxDiv = styled.div`
     display: flex;
@@ -9,29 +10,6 @@ const ActionBoxDiv = styled.div`
     position: relative;
     width: fit-content;
     user-select: none;
-`;
-
-const ButtonDiv = styled.div<{ isOpen: boolean; onlyIcon: boolean }>`
-    padding: ${(props) => (props.onlyIcon ? '6px' : '6px 12px')};
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-    transition: 200ms;
-
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-
-    font-size: 0.875rem;
-    line-height: 24px;
-
-    border-radius: ${(props) => (props.onlyIcon ? '99999px' : '4px')};
-    background-color: ${(props) => (props.isOpen ? cv.bg_element2 : cv.bg_element1)};
-
-    &:hover {
-        background-color: ${cv.bg_element2};
-    }
 `;
 
 const FadeInFromTop = keyframes`
@@ -56,14 +34,16 @@ const FadeInFromBottom = keyframes`
     }
 `;
 
-const OverlayDiv = styled.div<{
+type OverlayDivProps = {
     top?: number;
     right?: number;
     bottom?: number;
     left?: number;
     buttonHeight: number;
     removePadding?: boolean;
-}>`
+};
+
+const OverlayDiv = styled.div<OverlayDivProps>`
     position: absolute;
     min-width: 230px;
     ${(props) => props.top !== undefined && `top: ${props.top + props.buttonHeight}px;`};
@@ -84,17 +64,19 @@ const OverlayDiv = styled.div<{
         cubic-bezier(0.07, 0.75, 0.54, 0.93);
 `;
 
-export function ActionBox({
-    children,
-    label,
-    icon,
-    removePadding,
-}: {
-    children: React.ReactNode;
-    label?: React.ReactNode;
-    icon?: React.ReactNode;
+export interface ActionBoxProps extends ButtonProps {
+    /** 오버레이 박스 안 내용 */
+    overlay: React.ReactNode;
+    /** 오버레이 안 padding 유무 */
     removePadding?: boolean;
-}) {
+}
+
+/**
+ * 클릭했을 때 오버레이를 표시하는 버튼입니다.
+ *
+ * \<Button\>에서 확장되었습니다.
+ */
+export function ActionBox({ children, removePadding, overlay, ...props }: ActionBoxProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [direction, setDirection] = useState<{
         top?: number;
@@ -104,7 +86,7 @@ export function ActionBox({
     }>({});
 
     const ref = useRef<HTMLDivElement>(null);
-    const buttonRef = useRef<HTMLDivElement>(null);
+    const buttonRef = useRef<HTMLButtonElement>(null);
     const overlayRef = useRef<HTMLDivElement>(null);
 
     useEffect(() => {
@@ -155,34 +137,32 @@ export function ActionBox({
         }),
         []
     );
+
     return (
         <ActionBoxDiv ref={ref}>
-            <ButtonDiv
+            <Button
+                {...props}
+                ref={buttonRef}
                 onClick={() => {
                     calcPos();
                     setIsOpen(!isOpen);
+                    if (props.onClick) props.onClick();
                 }}
-                isOpen={isOpen}
-                onlyIcon={!!icon && !label}
-                ref={buttonRef}
             >
-                {icon}
-                {label}
-            </ButtonDiv>
+                {children}
+            </Button>
             <IconContext.Provider value={IconStyle}>
                 {isOpen && (
                     <OverlayDiv
                         {...direction}
                         ref={overlayRef}
-                        buttonHeight={buttonRef.current?.offsetHeight || 30}
+                        buttonHeight={(buttonRef.current?.offsetHeight && buttonRef.current.offsetHeight + 2) || 32}
                         removePadding={removePadding}
                     >
-                        {children}
+                        {overlay}
                     </OverlayDiv>
                 )}
             </IconContext.Provider>
         </ActionBoxDiv>
     );
 }
-
-export type ActionBoxProps = ComponentProps<typeof ActionBox>;

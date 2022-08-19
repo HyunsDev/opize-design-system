@@ -11,7 +11,7 @@ const StyledLogo = styled.img`
 `;
 
 export default {
-    title: 'Component/Footer',
+    title: 'Opize Component/Footer',
     component: Footer,
     argTypes: {},
 } as ComponentMeta<typeof Footer>;

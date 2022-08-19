@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Flex } from '.';
 
 export default {
-    title: 'Component/Flex',
+    title: 'HTML-Like Component/Flex',
     component: Flex,
     argTypes: {
         // backgroundColor: { control: 'color' },

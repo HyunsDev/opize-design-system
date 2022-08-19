@@ -8,7 +8,7 @@ import { ActionBox } from '..';
 import profileImg from '../../../assets/hyuns.jpg';
 
 export default {
-    title: 'Component/ActionBox',
+    title: 'Opize Component/ActionBox',
     component: ActionBox,
     argTypes: {
         // backgroundColor: { control: 'color' },
@@ -19,21 +19,21 @@ const Template: ComponentStory<typeof ActionBox> = (args) => <ActionBox {...args
 
 export const Primary = Template.bind({});
 Primary.args = {
-    label: 'Label',
+    children: 'Label',
     icon: <DotsThreeVertical />,
-    children: 'Hello, world!',
+    overlay: 'Hello, world!',
 };
 
 export const OnlyLabel = Template.bind({});
 OnlyLabel.args = {
-    label: 'Label',
-    children: 'Hello, world!',
+    children: 'Label',
+    overlay: 'Hello, world!',
 };
 
 export const OnlyIcon = Template.bind({});
 OnlyIcon.args = {
     icon: <DotsThreeVertical />,
-    children: 'Hello, world!',
+    overlay: 'Hello, world!',
 };
 
 const RightPos = styled.div`
@@ -48,7 +48,7 @@ const TemplateRight: ComponentStory<typeof ActionBox> = (args) => (
 export const Right = TemplateRight.bind({});
 Right.args = {
     icon: <DotsThreeVertical />,
-    children: 'Hello, world!',
+    overlay: 'Hello, world!',
 };
 
 const ProfileImg = styled.img`
@@ -65,5 +65,6 @@ const AvatarRight: ComponentStory<typeof ActionBox> = (args) => (
 export const Avatar = AvatarRight.bind({});
 Avatar.args = {
     icon: <ProfileImg src={profileImg} alt="" />,
-    children: 'Hello, world!',
+    overlay: 'Hello, world!',
+    variant: 'text',
 };

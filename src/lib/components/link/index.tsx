@@ -42,6 +42,9 @@ const LinkLink = styled(LinkRouter)<{ color: string; $showUnderline: boolean }>`
         `}
 `;
 
+/**
+ * 자동으로 \<a\>와 \<Link\>을 선택하여, 스타일이 지정된 링크 텍스트입니다.
+ */
 export function Link({
     to,
     color,

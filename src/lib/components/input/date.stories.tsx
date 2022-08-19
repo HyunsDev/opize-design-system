@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Datetime } from '..';
 
 export default {
-    title: 'Component/Form/Datetime',
+    title: 'HTML-Like Component/Form/Datetime',
     component: Datetime,
     argTypes: {
         type: {

@@ -5,7 +5,7 @@ import { Avatar } from '..';
 import Img from '../../../assets/opize.png';
 
 export default {
-    title: 'Component/Avatar',
+    title: 'HTML-Like Component/Avatar',
     component: Avatar,
     argTypes: {
         size: {

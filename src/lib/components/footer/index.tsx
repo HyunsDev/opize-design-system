@@ -26,7 +26,17 @@ const FooterInner = styled.footer`
     }
 `;
 
-function StyledFooter({ children }: { children: React.ReactNode }) {
+export interface StyledFooterProps {
+    /**
+     * Footer에 들어가는 내용입니다. \<Footer.Navigation\>, \<Footer.Menu\> 순으로 작성합니다.
+     */
+    children: React.ReactNode;
+}
+
+/**
+ * 페이지 가장 하단에 들어가는 Footer입니다.
+ */
+function StyledFooter({ children }: StyledFooterProps) {
     return (
         <FooterOuter>
             <FooterInner>{children}</FooterInner>

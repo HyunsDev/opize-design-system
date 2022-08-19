@@ -17,7 +17,6 @@ function Template() {
     return (
         <Divver>
             <Button
-                label="Open Modal"
                 onClick={() => {
                     modal.open(
                         <>
@@ -27,7 +26,9 @@ function Template() {
                         </>
                     );
                 }}
-            />
+            >
+                Open Modal
+            </Button>
         </Divver>
     );
 }
@@ -40,7 +41,6 @@ function Template2() {
     return (
         <Divver>
             <Button
-                label="Open Modal"
                 onClick={() => {
                     modal.open(
                         <>
@@ -53,7 +53,9 @@ function Template2() {
                         }
                     );
                 }}
-            />
+            >
+                Open Modal
+            </Button>
         </Divver>
     );
 }

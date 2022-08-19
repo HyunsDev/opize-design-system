@@ -83,6 +83,9 @@ interface Props {
     ref?: any;
 }
 
+/**
+ * \<Checkbox\>를 변형하여 스위치 형태로 표시하는 컴포넌트입니다.
+ */
 export const Switch = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
     const style = {
         backgroundColor: '',

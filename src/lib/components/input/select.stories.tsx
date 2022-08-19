@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Select } from '..';
 
 export default {
-    title: 'Component/Form/Select',
+    title: 'HTML-Like Component/Form/Select',
     component: Select,
     argTypes: {
         label: {

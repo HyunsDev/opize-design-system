@@ -1,0 +1,31 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Opize Design System/Updates" />
+
+# Update History
+`opize-design-system` 의 업데이트 기록을 기록하는 곳입니다.
+
+### v0.10.0
+1. ✨ 페이지 해더에 공지를 추가해주는 `Header.Notice`를 추가했어요.
+2. ✨ `Header.Notice`를 외부에서 사용 할 수 있도록 도와주는 `usePageHeader()`를 추가했어요.
+3. 🔨 storybook에 `storybook-addon-performance`와 `@storybook/addon-a11y` 애드온을 추가했어요.
+    > 💬 아직 a11y를 통과하지 못하는 컴포넌트가 있지만, 차차 고치도록 할게요.
+4. 📝 컴포넌트 주석을 추가했어요.
+5. ✨ 텍스트를 꾸미기 위한 `<Span>`을 추가했어요.
+6. ✨ Button 내부 로직와 props을 크게 변경했어요.
+    > react-router-dom 외의 환경에서도 사용할 수 있도록 react-router-dom과의 의존성을 없애고 있어요.
+7. ✨ 여러 버튼을 묶을 수 있는 `<ButtonGroup>`를 추가했어요.
+8. ✨❗ 버튼과 관련된 컴포넌트인 `<ActionBox>`와 `<ActionMenu>`가 `<Button>` 컴포넌트를 사용하도록 변경하였어요.
+9. ✨ 컴포넌트들을 `HTML-Like Component`와 `Component`로 분류했어요.
+10. 📝 문서를 보완했어요.
+
+### v0.9.1
+1. 🚑️ eslint 설정 오류로 스토리북 빌드가 불가능한 버그를 해결했어요.
+
+### v0.9.0
+1. 📝 Introduction 페이지의 배너를 추가했어요.
+    > 💬 calendar2notion의 디자인을 바탕으로 배너를 만들어봤어요.
+2. 📝 문서를 보완했어요.
+3. ✨ `<Autocomplete>`를 추가했어요.    
+    > 💬 만드느라 힘들어 죽는줄 알았어요. (6시간 갈림)
+4. 🎨 `eslint`와 `prettier`을 적용했어요.

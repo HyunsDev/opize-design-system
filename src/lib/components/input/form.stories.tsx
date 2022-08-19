@@ -6,7 +6,7 @@ import { TextField, Checkbox, TextArea, Select, Switch, Datetime, RadioGroup, Ra
 import { Button, CodeBlock } from '..';
 
 export default {
-    title: 'Component/Form/Form',
+    title: 'HTML-Like Component/Form/Form',
     argTypes: {},
 };
 
@@ -88,7 +88,9 @@ function Template() {
                     label="autocomplete"
                 />
 
-                <Button type="submit" label="Submit" variant="contained" width="100%" />
+                <Button type="submit" variant="contained" width="100%">
+                    Submit
+                </Button>
 
                 <CodeBlock>{result}</CodeBlock>
             </Width500>

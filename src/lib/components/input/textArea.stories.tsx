@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { TextArea } from '..';
 
 export default {
-    title: 'Component/Form/TextArea',
+    title: 'HTML-Like Component/Form/TextArea',
     component: TextArea,
     argTypes: {
         label: {

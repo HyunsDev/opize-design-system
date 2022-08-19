@@ -1,15 +1,15 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Text } from '..';
+import { Span } from '..';
 
 export default {
-    title: 'HTML-Like Component/Text',
-    component: Text,
+    title: 'HTML-Like Component/Span',
+    component: Span,
     argTypes: {},
-} as ComponentMeta<typeof Text>;
+} as ComponentMeta<typeof Span>;
 
-const Template: ComponentStory<typeof Text> = (args) => <Text {...args} />;
+const Template: ComponentStory<typeof Span> = (args) => <Span {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {

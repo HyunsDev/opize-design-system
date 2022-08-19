@@ -55,16 +55,38 @@ function BoxFooter(props: { text: React.ReactNode; button: ButtonProps }) {
     );
 }
 
-export function Box(props: {
+export interface BoxProps {
+    /**
+     * 박스 안 내용입니다.
+     */
     children: React.ReactNode;
+    /**
+     * 박스의 제목입니다. 박스 내부에 표시됩니다.
+     */
     title?: React.ReactNode;
+    /**
+     * 박스 상단 별도 공간에 표시되는 컴포넌트입니다.
+     */
     header?: React.ReactNode;
+    /**
+     * footer를 단축시킨 prop입니다. footer 속성과 같이 사용할 수 없습니다.
+     */
     footerTemplate?: {
         text: React.ReactNode;
         button: ButtonProps;
     };
+    /**
+     * 박스 하단 별도 공간에 표시되는 컴포넌트입니다. footerTemplate 속성과 같이 사용할 수 없습니다.
+     */
     footer?: React.ReactNode;
-}) {
+}
+
+/**
+ * 디자인을 위한 컴포넌트입니다.
+ *
+ * 만약 레이아웃만을 위한 태그가 필요하다면 <Flex>를 사용해주세요.
+ */
+export function Box(props: BoxProps) {
     if (props.footer && props.footerTemplate) {
         throw new Error('You can ese either "footer" or "footerNode"');
     }
@@ -83,5 +105,3 @@ export function Box(props: {
         </BoxOuter>
     );
 }
-
-export type BoxProps = ComponentProps<typeof Box>;

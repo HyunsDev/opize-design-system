@@ -3,12 +3,12 @@ import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DotsThreeVertical, Gear, X } from 'phosphor-react';
 
 import styled from 'styled-components';
-import { ActionMenu } from '..';
+import { ActionMenu, Avatar as AvatarTag } from '..';
 
 import profileImg from '../../../assets/hyuns.jpg';
 
 export default {
-    title: 'Component/ActionMenu',
+    title: 'Opize Component/ActionMenu',
     component: ActionMenu,
     argTypes: {
         // backgroundColor: { control: 'color' },
@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof ActionMenu> = (args) => <ActionMenu {...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
-    label: 'Label',
+    children: 'Label',
     icon: <DotsThreeVertical />,
     actions: [
         [
@@ -52,7 +52,7 @@ Primary.args = {
 
 export const OnlyLabel = Template.bind({});
 OnlyLabel.args = {
-    label: 'Label',
+    children: 'Label',
     actions: [
         [
             {
@@ -155,12 +155,6 @@ Right.args = {
     ],
 };
 
-const ProfileImg = styled.img`
-    width: 28px;
-    height: 28px;
-    border-radius: 28px;
-`;
-
 const AvatarRight: ComponentStory<typeof ActionMenu> = (args) => (
     <RightPos>
         <ActionMenu {...args} />
@@ -168,7 +162,8 @@ const AvatarRight: ComponentStory<typeof ActionMenu> = (args) => (
 );
 export const Avatar = AvatarRight.bind({});
 Avatar.args = {
-    icon: <ProfileImg src={profileImg} alt="" />,
+    icon: <AvatarTag src={profileImg} alt="" size={28} />,
+    variant: 'text',
     actions: [
         [
             {

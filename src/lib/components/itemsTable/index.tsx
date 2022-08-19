@@ -50,7 +50,7 @@ const ItemDiv = styled.div`
         gap: 8px;
     }
 
-    &:first-child {
+    &:first-of-type {
         border-top: none;
         border-top-left-radius: 8px;
         border-top-right-radius: 8px;
@@ -219,6 +219,9 @@ function capitalize(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
+/**
+ * 여러 아이템을 표 형식으로 표시하는 컴포넌트입니다.
+ */
 export function ItemsTable({ data }: Props) {
     return (
         <ItemsDiv>
@@ -256,7 +259,11 @@ export function ItemsTable({ data }: Props) {
                                                 weight: 'bold',
                                             }}
                                         >
-                                            <ActionMenu icon={<DotsThreeVertical />} actions={menu.button} />
+                                            <ActionMenu
+                                                icon={<DotsThreeVertical />}
+                                                actions={menu.button}
+                                                variant="text"
+                                            />
                                         </IconContext.Provider>
                                     </ItemButtons>
                                 );

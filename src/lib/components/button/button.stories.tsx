@@ -5,7 +5,7 @@ import { Check } from 'phosphor-react';
 import { Button } from '..';
 
 export default {
-    title: 'Component/Button',
+    title: 'HTML-Like Component/Button',
     component: Button,
     argTypes: {
         // backgroundColor: { control: 'color' },
@@ -16,29 +16,19 @@ const Template: ComponentStory<typeof Button> = (args) => <Button {...args} />;
 
 export const Primary = Template.bind({});
 Primary.args = {
-    label: 'hello, World!',
+    children: 'hello, World!',
     onClick: () => null,
-    width: '200px',
-};
-
-export const Link = Template.bind({});
-Link.args = {
-    label: 'hello, World!',
-    to: '/',
-    width: '200px',
 };
 
 export const OnlyIcon = Template.bind({});
 OnlyIcon.args = {
     icon: <Check />,
-    width: '200px',
 };
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
     icon: <Check />,
-    label: 'hello, World!',
-    width: '200px',
+    children: 'hello, World!',
 };
 
 const LoadingTemplate: ComponentStory<typeof Button> = (args) => {
@@ -58,6 +48,5 @@ const LoadingTemplate: ComponentStory<typeof Button> = (args) => {
 export const Loading = LoadingTemplate.bind({});
 Loading.args = {
     icon: <Check />,
-    label: 'hello, World!',
-    width: '200px',
+    children: 'hello, World!',
 };

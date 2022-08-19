@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Checkbox } from '..';
 
 export default {
-    title: 'Component/Form/Checkbox',
+    title: 'HTML-Like Component/Form/Checkbox',
     component: Checkbox,
     argTypes: {
         label: {

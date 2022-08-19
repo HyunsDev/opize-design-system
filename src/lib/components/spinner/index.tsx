@@ -55,6 +55,9 @@ const Circular = styled.svg`
     }
 `;
 
+/**
+ * 주로 로딩 중임을 표시하기 위해 사용되는 회원하는 원입니다.
+ */
 export function Spinner({
     strokeWidth = 4,
     color = cv.text1,

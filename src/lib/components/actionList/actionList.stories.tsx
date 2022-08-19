@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { ActionList } from '..';
 
 export default {
-    title: 'Component/ActionList',
+    title: 'Opize Component/ActionList',
     component: ActionList,
     argTypes: {
         isSticky: {

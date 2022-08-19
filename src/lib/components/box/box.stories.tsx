@@ -5,7 +5,7 @@ import { Box } from '..';
 import { TextField } from '../input';
 
 export default {
-    title: 'Component/Box',
+    title: 'Opize Component/Box',
     component: Box,
     argTypes: {},
 } as ComponentMeta<typeof Box>;
@@ -40,9 +40,8 @@ WithFooter.args = {
     footerTemplate: {
         text: 'text',
         button: {
-            label: 'label',
+            children: 'label',
             variant: 'contained',
-            to: '/',
         },
     },
 };

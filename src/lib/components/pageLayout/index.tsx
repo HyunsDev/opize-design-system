@@ -49,6 +49,9 @@ const PageLayoutRoot = styled.div<{ width?: string; gap?: string; panPosition?: 
     }
 `;
 
+/**
+ * 일반적인 페이지 레이아웃을 위한 컴포넌트입니다.
+ */
 export const PageLayout = Object.assign(PageLayoutRoot, {
     Header,
     Content,
