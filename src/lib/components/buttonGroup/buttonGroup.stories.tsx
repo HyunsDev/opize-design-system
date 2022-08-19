@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Minus, Plus } from 'phosphor-react';
-import { ButtonGroup, Button, Flex } from '..';
+import { CaretDown, Minus, Plus } from 'phosphor-react';
+import { ButtonGroup, Button, Flex, ActionBox, ActionMenu } from '..';
 
 export default {
     title: 'Component/ButtonGroup',
@@ -20,6 +20,57 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
         <ButtonGroup {...args}>
             <Button icon={<Minus />} />
             <Button icon={<Plus />} />
+        </ButtonGroup>
+        <ButtonGroup {...args}>
+            <Button>Button 1</Button>
+            <ActionBox
+                overlay="Hello, Opize Design System!"
+                icon={<CaretDown weight="fill" size={12} />}
+                iconPosition="end"
+            >
+                Button 2
+            </ActionBox>
+            <ActionMenu
+                icon={<CaretDown weight="fill" size={12} />}
+                iconPosition="end"
+                actions={[
+                    [
+                        {
+                            label: 'label',
+                            onClick: () => null,
+                        },
+                    ],
+                    [
+                        {
+                            label: 'label',
+                            onClick: () => null,
+                        },
+                    ],
+                ]}
+            >
+                Button 3
+            </ActionMenu>
+        </ButtonGroup>
+        <ButtonGroup {...args}>
+            <Button>Button 1</Button>
+            <ActionMenu
+                icon={<CaretDown weight="fill" size={12} />}
+                iconPosition="end"
+                actions={[
+                    [
+                        {
+                            label: 'label',
+                            onClick: () => null,
+                        },
+                    ],
+                    [
+                        {
+                            label: 'label',
+                            onClick: () => null,
+                        },
+                    ],
+                ]}
+            />
         </ButtonGroup>
         <ButtonGroup {...args}>
             <Button variant="contained">Button 1</Button>

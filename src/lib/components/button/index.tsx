@@ -456,6 +456,10 @@ export interface ButtonProps extends HTMLAttributes<'button'> {
      * (!children && icon && !width) 인 경우 가로 세로 크기가 똑같은 iconOnly 버튼이 됩니다.
      */
     icon?: React.ReactNode | string;
+    /**
+     * icon이 버튼에서 표시될 위치를 정합니다.
+     */
+    iconPosition?: 'start' | 'end';
     onClick?: () => void;
     type?: 'submit' | 'button';
     /**
@@ -489,6 +493,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             color = 'gray',
             size = 'medium',
             icon,
+            iconPosition = 'start',
             onClick,
             type = 'button',
             width,
@@ -513,8 +518,9 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 }}
             >
                 {isLoading && <Spinner size={16} color="var(--local-color)" />}
-                {!isLoading && (Icon || icon)}
+                {!isLoading && iconPosition === 'start' && (Icon || icon)}
                 {!isLoading && children}
+                {!isLoading && iconPosition === 'end' && (Icon || icon)}
             </IconContext.Provider>
         );
 

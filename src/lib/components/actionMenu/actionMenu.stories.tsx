@@ -19,7 +19,7 @@ const Template: ComponentStory<typeof ActionMenu> = (args) => <ActionMenu {...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
-    label: 'Label',
+    children: 'Label',
     icon: <DotsThreeVertical />,
     actions: [
         [
@@ -52,7 +52,7 @@ Primary.args = {
 
 export const OnlyLabel = Template.bind({});
 OnlyLabel.args = {
-    label: 'Label',
+    children: 'Label',
     actions: [
         [
             {
