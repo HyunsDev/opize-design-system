@@ -95,7 +95,9 @@ export interface ActionBoxProps {
     removePadding?: boolean;
 }
 
-/* 클릭했을 때 오버레이를 표시하는 버튼입니다. */
+/**
+ * 클릭했을 때 오버레이를 표시하는 버튼입니다.
+ */
 export function ActionBox({ children, label, icon, removePadding }: ActionBoxProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [direction, setDirection] = useState<{
