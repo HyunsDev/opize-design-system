@@ -263,6 +263,7 @@ export function ItemsTable({ data }: Props) {
                                                 icon={<DotsThreeVertical />}
                                                 actions={menu.button}
                                                 variant="text"
+                                                borderRadius={999}
                                             />
                                         </IconContext.Provider>
                                     </ItemButtons>
