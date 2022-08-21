@@ -112,8 +112,10 @@ function Item({
     );
 }
 
+// TODO: issue/21
 /**
  * 자동 완성을 지원하는 \<TextField\>입니다.
+ * 현재 영어만 사용할 수 있습니다. IME를 사용하는 언어(한국어 등)은 정상적으로 작동하지 않습니다.
  */
 export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps>((props, ref) => {
     const inputRef = useRef<HTMLInputElement>(null);

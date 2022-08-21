@@ -381,6 +381,7 @@ interface StyledButtonProps {
     color: ButtonColor;
     size: ButtonSize;
     width: string;
+    borderRadius: number;
 }
 
 const StyledButton = styled.button<StyledButtonProps>`
@@ -397,7 +398,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     line-height: 20px;
     gap: 8px;
     cursor: pointer;
-    border-radius: 4px;
+    border-radius: ${(props) => props.borderRadius}px;
 
     &::after {
         content: '';
@@ -446,6 +447,10 @@ export interface ButtonProps extends HTMLAttributes<'button'> {
     color?: ButtonColor;
     disabled?: boolean;
     size?: ButtonSize;
+    /**
+     * 버튼의 border-radius 속성입니다.
+     */
+    borderRadius?: number;
     /**
      * isLoading일 경우 label 대신 \<Spinner\>가 표시됩니다. width와 같이 사용하는 것을 추천합니다.
      */
@@ -496,6 +501,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
             iconPosition = 'start',
             onClick,
             type = 'button',
+            borderRadius = 4,
             width,
             disabled = false,
             as,
@@ -535,6 +541,7 @@ export const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
                 size={size}
                 variant={variant}
                 type={type}
+                borderRadius={borderRadius}
                 as={as}
                 disabled={disabled}
                 iconOnly={!children && icon}
