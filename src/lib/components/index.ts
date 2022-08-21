@@ -25,3 +25,4 @@ export * from './code';
 export * from './pageLayout';
 export * from './span';
 export * from './buttonGroup';
+export * from './token';
