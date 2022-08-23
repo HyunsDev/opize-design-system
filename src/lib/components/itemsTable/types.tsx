@@ -21,7 +21,7 @@ export interface TextItemProps extends ItemProps {
 }
 
 export interface ComponentItemProps extends ItemProps {
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 export interface ButtonsItemProps extends ItemProps {
