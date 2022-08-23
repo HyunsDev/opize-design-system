@@ -1,5 +1,4 @@
 import React, { ComponentProps } from 'react';
-import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { cv } from '../../style';
 
@@ -26,7 +25,7 @@ const ActionListDiv = styled.div<ActionListDivProps>`
         `}
 `;
 
-const ActionListItem = styled(Link)`
+const ActionListItem = styled.a`
     display: flex;
     align-items: center;
     padding: 8px 12px;

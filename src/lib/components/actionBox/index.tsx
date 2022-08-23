@@ -143,10 +143,10 @@ export function ActionBox({ children, removePadding, overlay, ...props }: Action
             <Button
                 {...props}
                 ref={buttonRef}
-                onClick={() => {
+                onClick={(e) => {
                     calcPos();
                     setIsOpen(!isOpen);
-                    if (props.onClick) props.onClick();
+                    if (props.onClick) props.onClick(e);
                 }}
             >
                 {children}

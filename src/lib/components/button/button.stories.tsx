@@ -1,14 +1,13 @@
 import React, { useRef, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Check } from 'phosphor-react';
-
 import { Button } from '..';
 
 export default {
     title: 'HTML-Like Component/Button',
     component: Button,
     argTypes: {
-        // backgroundColor: { control: 'color' },
+        children: {},
     },
 } as ComponentMeta<typeof Button>;
 
@@ -29,6 +28,13 @@ export const WithIcon = Template.bind({});
 WithIcon.args = {
     icon: <Check />,
     children: 'hello, World!',
+};
+
+export const AsA = Template.bind({});
+AsA.args = {
+    children: 'hello, World!',
+    as: 'a',
+    href: '/',
 };
 
 const LoadingTemplate: ComponentStory<typeof Button> = (args) => {

@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { Header } from '..';
 
 import { ActionMenu } from '../actionMenu';
-import Logo from '../../../assets/opize.png';
+import LogoImg from '../../../assets/opize.png';
 
 export default {
     title: 'Opize Component/Header',
@@ -23,13 +23,17 @@ const Void = styled.div`
     width: 100%;
 `;
 
+const Logo = styled.img`
+    height: 32px;
+`;
+
 function Template(args: ComponentStory<typeof Header>) {
     return (
         <Header {...args}>
             <Header.Notice>공지</Header.Notice>
             <Header.Nav>
                 <Header.Nav.Left>
-                    <Header.Nav.Logo src={Logo} to="/" />
+                    <Logo src={LogoImg} />
                 </Header.Nav.Left>
 
                 <Header.Nav.Right>

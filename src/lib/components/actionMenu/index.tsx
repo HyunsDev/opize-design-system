@@ -94,14 +94,14 @@ const ActionDiv = styled.div<{ color: 'normal' | 'red' }>`
     }
 `;
 
-export interface ActionType {
+export interface ActionMenuActionType {
     label: React.ReactNode;
     icon?: React.ReactNode;
     onClick: () => void;
     color?: 'normal' | 'red';
 }
 
-function Action({ icon, label, onClick, color = 'normal' }: ActionType) {
+function Action({ icon, label, onClick, color = 'normal' }: ActionMenuActionType) {
     return (
         <ActionDiv onClick={() => onClick()} color={color}>
             <>
@@ -116,7 +116,7 @@ export interface ActionMenuProps extends ButtonProps {
     /**
      * ActionMenu의 액션
      */
-    actions: ActionType[][];
+    actions: ActionMenuActionType[][];
 }
 
 /**
@@ -187,10 +187,10 @@ export function ActionMenu({ actions, children, ...props }: ActionMenuProps) {
             <Button
                 {...props}
                 ref={buttonRef}
-                onClick={() => {
+                onClick={(e) => {
                     calcPos();
                     setIsOpen(!isOpen);
-                    if (props.onClick) props.onClick();
+                    if (props.onClick) props.onClick(e);
                 }}
             >
                 {children}

@@ -1,5 +1,4 @@
 import React, { ComponentProps } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { cv } from '../../style';
 
@@ -36,22 +35,9 @@ const HeaderRight = styled.div`
     gap: 8px;
 `;
 
-const HeaderLink = styled(Link)`
+const HeaderLink = styled.a`
     text-decoration: none;
 `;
-
-const HerderLogoImg = styled.img`
-    height: 32px;
-    margin-left: 6px;
-`;
-
-function HeaderLogo({ to, src }: { to: string; src: string }) {
-    return (
-        <HeaderLink to={to}>
-            <HerderLogoImg src={src} alt="Logo" />
-        </HeaderLink>
-    );
-}
 
 const HeaderButton = styled.button`
     display: flex;
@@ -79,7 +65,6 @@ export const HeaderNav = Object.assign(HeaderNavComponent, {
     Left: HeaderLeft,
     Right: HeaderRight,
     Link: HeaderLink,
-    Logo: HeaderLogo,
     Button: HeaderButton,
 });
 export type HeaderNavProps = ComponentProps<typeof HeaderNav>;

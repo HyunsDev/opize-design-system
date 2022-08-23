@@ -14,82 +14,32 @@ const Template: ComponentStory<typeof ItemsTable> = (args) => <ItemsTable {...ar
 
 export const Primary = Template.bind({});
 Primary.args = {
-    data: [
-        [
-            {
-                type: 'avatar',
-                icon: <UserCircle />,
-                name: 'name',
-                label: 'label',
-            },
-            {
-                type: 'text',
-                text: 'text',
-                subText: 'subText',
-            },
-            {
-                type: 'status',
-                status: 'good',
-                label: 'label',
-            },
-            {
-                type: 'buttons',
-                button: [
-                    [
-                        {
-                            label: 'label',
-                            icon: <Gear />,
-                            onClick: () => null,
-                        },
-                    ],
-                    [
-                        {
-                            label: 'delete',
-                            icon: <X />,
-                            onClick: () => null,
-                            color: 'red',
-                        },
-                    ],
-                ],
-            },
-        ],
-        [
-            {
-                type: 'avatar',
-                icon: <UserCircle />,
-                name: 'name',
-                label: 'label',
-            },
-            {
-                type: 'text',
-                text: 'https://design.opize.me',
-                subText: 'subText',
-            },
-            {
-                type: 'status',
-                status: 'good',
-                label: 'label',
-            },
-            {
-                type: 'buttons',
-                button: [
-                    [
-                        {
-                            label: 'label',
-                            icon: <Gear />,
-                            onClick: () => null,
-                        },
-                    ],
-                    [
-                        {
-                            label: 'delete',
-                            icon: <X />,
-                            onClick: () => null,
-                            color: 'red',
-                        },
-                    ],
-                ],
-            },
-        ],
-    ],
+    children: (
+        <>
+            <ItemsTable.Row>
+                <ItemsTable.Row.Avatar icon={<UserCircle />} name="name" label="label" />
+                <ItemsTable.Row.Text text="text" subText="text" />
+                <ItemsTable.Row.Status status="good" label="label" />
+                <ItemsTable.Row.Buttons
+                    buttons={[
+                        [
+                            {
+                                label: 'label',
+                                icon: <Gear />,
+                                onClick: () => null,
+                            },
+                        ],
+                        [
+                            {
+                                label: 'delete',
+                                icon: <X />,
+                                onClick: () => null,
+                                color: 'red',
+                            },
+                        ],
+                    ]}
+                />
+            </ItemsTable.Row>
+        </>
+    ),
 };
