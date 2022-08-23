@@ -16,10 +16,10 @@ export default {
 
 const Template: ComponentStory<typeof ActionList> = (args) => (
     <ActionList {...args}>
-        <ActionList.Item to="/">Item</ActionList.Item>
-        <ActionList.Item to="/">Item</ActionList.Item>
+        <ActionList.Item href="/">Item</ActionList.Item>
+        <ActionList.Item href="/">Item</ActionList.Item>
         <ActionList.Divider />
-        <ActionList.Item to="/">Item</ActionList.Item>
+        <ActionList.Item href="/">Item</ActionList.Item>
     </ActionList>
 );
 
@@ -37,10 +37,10 @@ const StickyDiv = styled.div`
 const StickyTemplate: ComponentStory<typeof ActionList> = (args) => (
     <StickyDiv>
         <ActionList {...args}>
-            <ActionList.Item to="/">Item</ActionList.Item>
-            <ActionList.Item to="/">Item</ActionList.Item>
+            <ActionList.Item href="/">Item</ActionList.Item>
+            <ActionList.Item href="/">Item</ActionList.Item>
             <ActionList.Divider />
-            <ActionList.Item to="/">Item</ActionList.Item>
+            <ActionList.Item href="/">Item</ActionList.Item>
         </ActionList>
     </StickyDiv>
 );
