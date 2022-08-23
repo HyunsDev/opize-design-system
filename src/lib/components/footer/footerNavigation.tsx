@@ -22,26 +22,34 @@ const StyledLink = styled(Link)`
     font-size: 14px;
 `;
 
-function TitleLink(props: ComponentProps<typeof Link>) {
-    return (
-        <div>
-            <StyledTitleLink {...props} showUnderline={false} color={cv.text1}>
-                {props.children}
-                <CaretRight size={14} color={cv.text1} style={{ marginBottom: '-2px' }} />
-            </StyledTitleLink>
-        </div>
-    );
-}
-TitleLink.displayName = 'Footer.Navigation.Item.TitleLink';
+const TitleLink = Object.assign(
+    (props: ComponentProps<typeof Link>) => {
+        return (
+            <div>
+                <StyledTitleLink {...props} showUnderline={false} color={cv.text1}>
+                    {props.children}
+                    <CaretRight size={14} color={cv.text1} style={{ marginBottom: '-2px' }} />
+                </StyledTitleLink>
+            </div>
+        );
+    },
+    {
+        displayName: 'Footer.Navigation.Item.TitleLink',
+    }
+);
 
-function ItemLink(props: ComponentProps<typeof Link>) {
-    return (
-        <div>
-            <StyledLink {...props} showUnderline={false} color={cv.text3} />
-        </div>
-    );
-}
-ItemLink.displayName = 'Footer.Navigation.Item.Link';
+const ItemLink = Object.assign(
+    (props: ComponentProps<typeof Link>) => {
+        return (
+            <div>
+                <StyledLink {...props} showUnderline={false} color={cv.text3} />
+            </div>
+        );
+    },
+    {
+        displayName: 'Footer.Navigation.Item.Link',
+    }
+);
 
 const Item = styled.div`
     display: flex;

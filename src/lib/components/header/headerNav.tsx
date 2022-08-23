@@ -61,10 +61,20 @@ const HeaderButton = styled.button`
 `;
 HeaderButton.displayName = 'Header.Nav.Button';
 
-function HeaderNavComponent({ children }: { children: React.ReactNode }) {
-    return <Divver>{children}</Divver>;
+interface HeaderNavComponentProps {
+    /**
+     * HeaderNav에 들어가는 컴포넌트입니다.
+     */
+    children?: React.ReactNode;
 }
-HeaderNavComponent.displayName = 'Header.Nav';
+const HeaderNavComponent = Object.assign(
+    ({ children }: HeaderNavComponentProps) => {
+        return <Divver>{children}</Divver>;
+    },
+    {
+        displayName: 'Header.Nav',
+    }
+);
 
 export const HeaderNav = Object.assign(HeaderNavComponent, {
     Left: HeaderLeft,

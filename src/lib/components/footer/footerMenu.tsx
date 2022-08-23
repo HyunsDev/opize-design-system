@@ -19,23 +19,27 @@ const StyledItem = styled.div`
     }
 `;
 
-function Item({ children }: { children: React.ReactNode }) {
-    const iconStyle = useMemo<IconProps>(
-        () => ({
-            weight: 'fill',
-            color: cv.text3,
-            size: 28,
-        }),
-        []
-    );
+const Item = Object.assign(
+    ({ children }: { children: React.ReactNode }) => {
+        const iconStyle = useMemo<IconProps>(
+            () => ({
+                weight: 'fill',
+                color: cv.text3,
+                size: 28,
+            }),
+            []
+        );
 
-    return (
-        <IconContext.Provider value={iconStyle}>
-            <StyledItem>{children}</StyledItem>
-        </IconContext.Provider>
-    );
-}
-Item.displayName = 'Footer.Menu.Item';
+        return (
+            <IconContext.Provider value={iconStyle}>
+                <StyledItem>{children}</StyledItem>
+            </IconContext.Provider>
+        );
+    },
+    {
+        displayName: 'Footer.Menu.Item',
+    }
+);
 
 const StyledFooterMenu = styled.div`
     display: flex;
