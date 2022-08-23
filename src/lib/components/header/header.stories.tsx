@@ -1,5 +1,5 @@
 import React from 'react';
-import { ComponentStory, Story } from '@storybook/react';
+import { ComponentStory, Story, ComponentMeta } from '@storybook/react';
 
 import styled from 'styled-components';
 import { Header } from '..';
@@ -9,8 +9,17 @@ import LogoImg from '../../../assets/opize.png';
 
 export default {
     title: 'Opize Component/Header',
+    component: Header,
+    subcomponents: {
+        'Header.Notice': Header.Notice,
+        'Header.Nav': Header.Nav,
+        'Header.Nav.Left': Header.Nav.Left,
+        'Header.Nav.Right': Header.Nav.Right,
+        'Header.Nav.Button': Header.Nav.Button,
+        'Header.SubMenu': Header.SubMenu,
+    },
     argTypes: {},
-};
+} as ComponentMeta<typeof Header>;
 
 const ProfileImg = styled.img`
     width: 28px;
@@ -19,7 +28,7 @@ const ProfileImg = styled.img`
 `;
 
 const Void = styled.div`
-    height: 2000px;
+    height: 100vh;
     width: 100%;
 `;
 
@@ -33,7 +42,7 @@ function Template(args: ComponentStory<typeof Header>) {
             <Header.Notice>공지</Header.Notice>
             <Header.Nav>
                 <Header.Nav.Left>
-                    <Logo src={LogoImg} />
+                    <Logo src={LogoImg} alt="" />
                 </Header.Nav.Left>
 
                 <Header.Nav.Right>

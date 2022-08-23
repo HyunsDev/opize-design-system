@@ -37,3 +37,5 @@ export function TextItem({ text, flex, subText }: TextItemProps) {
         </TextsDiv>
     );
 }
+
+TextItem.displayName = 'ItemsTable.Row.TextItem';

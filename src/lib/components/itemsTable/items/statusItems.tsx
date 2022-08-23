@@ -55,3 +55,5 @@ export function StatusItem({ flex, status, label }: StatusItemProps) {
         </StateDiv>
     );
 }
+
+StatusItem.displayName = 'ItemsTable.Row.Status';

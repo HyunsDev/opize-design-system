@@ -7,7 +7,13 @@ import { ItemsTable } from '..';
 export default {
     title: 'Opize Component/ItemsTable',
     component: ItemsTable,
-    argTypes: {},
+    subcomponents: {
+        'ItemsTable.Row': ItemsTable.Row,
+        'ItemsTable.Row.Avatar': ItemsTable.Row.Avatar,
+        'ItemsTable.Row.Status': ItemsTable.Row.Status,
+        'ItemsTable.Row.Component': ItemsTable.Row.Component,
+        'ItemsTable.Row.Buttons': ItemsTable.Row.Buttons,
+    },
 } as ComponentMeta<typeof ItemsTable>;
 
 const Template: ComponentStory<typeof ItemsTable> = (args) => <ItemsTable {...args} />;

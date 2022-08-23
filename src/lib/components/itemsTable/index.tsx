@@ -28,6 +28,7 @@ function ItemsTableComponent({ children }: ItemsTableProps) {
         </StyledTable>
     );
 }
+ItemsTableComponent.displayName = 'ItemsTable';
 
 const StyledRow = styled.div`
     position: relative;
@@ -59,6 +60,7 @@ const StyledRow = styled.div`
         border-bottom-right-radius: 8px;
     }
 `;
+StyledRow.displayName = 'ItemsTable.Row';
 
 const Row = Object.assign(StyledRow, Item);
 

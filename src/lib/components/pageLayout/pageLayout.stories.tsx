@@ -7,6 +7,12 @@ import { PageLayout } from '..';
 export default {
     title: 'Opize Component/PageLayout',
     component: PageLayout,
+    subcomponents: {
+        'PageLayout.Header': PageLayout.Header,
+        'PageLayout.Content': PageLayout.Content,
+        'PageLayout.Pane': PageLayout.Pane,
+        'PageLayout.Footer': PageLayout.Footer,
+    },
     argTypes: {},
 } as ComponentMeta<typeof PageLayout>;
 
