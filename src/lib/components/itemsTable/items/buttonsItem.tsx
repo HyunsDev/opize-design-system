@@ -32,3 +32,4 @@ export function ButtonsItem({ buttons }: ButtonsItemProps) {
         </ItemButtons>
     );
 }
+ButtonsItem.displayName = 'ItemsTable.Row.Buttons';

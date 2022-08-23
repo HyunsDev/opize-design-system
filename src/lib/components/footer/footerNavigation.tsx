@@ -9,6 +9,7 @@ const ItemTitle = styled.div`
     margin-bottom: 4px;
     color: ${cv.text1};
 `;
+ItemTitle.displayName = 'Footer.Navigation.Item.Title';
 
 const StyledTitleLink = styled(Link)`
     font-size: 14px;
@@ -31,6 +32,7 @@ function TitleLink(props: ComponentProps<typeof Link>) {
         </div>
     );
 }
+TitleLink.displayName = 'Footer.Navigation.Item.TitleLink';
 
 function ItemLink(props: ComponentProps<typeof Link>) {
     return (
@@ -39,6 +41,7 @@ function ItemLink(props: ComponentProps<typeof Link>) {
         </div>
     );
 }
+ItemLink.displayName = 'Footer.Navigation.Item.Link';
 
 const Item = styled.div`
     display: flex;
@@ -47,6 +50,7 @@ const Item = styled.div`
     flex: 1;
     width: 100%;
 `;
+Item.displayName = 'Footer.Navigation.Item';
 
 const StyledFooterNavigation = styled.div`
     display: flex;
@@ -65,6 +69,7 @@ const StyledFooterNavigation = styled.div`
         }
     }
 `;
+StyledFooterNavigation.displayName = 'Footer.Navigation';
 
 export const FooterNavigation = Object.assign(StyledFooterNavigation, {
     Item: Object.assign(Item, {

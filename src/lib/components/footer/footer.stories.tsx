@@ -13,6 +13,14 @@ const StyledLogo = styled.img`
 export default {
     title: 'Opize Component/Footer',
     component: Footer,
+    subcomponents: {
+        'Footer.Navigation': Footer.Navigation,
+        'Footer.Navigation.Item.Title': Footer.Navigation.Item.Title,
+        'Footer.Navigation.Item.TitleLink': Footer.Navigation.Item.TitleLink,
+        'Footer.Navigation.Item.Link': Footer.Navigation.Item.Link,
+        'Footer.Menu': Footer.Menu,
+        'Footer.Menu.Item': Footer.Menu.Item,
+    },
     argTypes: {},
 } as ComponentMeta<typeof Footer>;
 
@@ -77,7 +85,7 @@ const Template: ComponentStory<typeof Footer> = (args) => {
 
                     <Footer.Menu.Item>
                         © 2022 Opize Corp. <br />
-                        오피즈 | 박현우 | 836-10-01810
+                        오피즈 | 박현우
                     </Footer.Menu.Item>
                 </Footer.Menu>
             </Footer>

@@ -35,6 +35,7 @@ function Item({ children }: { children: React.ReactNode }) {
         </IconContext.Provider>
     );
 }
+Item.displayName = 'Footer.Menu.Item';
 
 const StyledFooterMenu = styled.div`
     display: flex;
@@ -51,6 +52,7 @@ const StyledFooterMenu = styled.div`
         }
     }
 `;
+Item.displayName = 'Footer.Menu';
 
 export const FooterMenu = Object.assign(StyledFooterMenu, {
     Item,

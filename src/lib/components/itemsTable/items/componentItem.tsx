@@ -12,3 +12,5 @@ const Components = styled.div<{ flex?: number }>`
 export function ComponentItem({ children, flex }: ComponentItemProps) {
     return <Components flex={flex}>{children}</Components>;
 }
+
+ComponentItem.displayName = 'ItemsTable.Row.Component';

@@ -28,16 +28,19 @@ const HeaderLeft = styled.div`
     flex: 1 1;
     gap: 8px;
 `;
+HeaderLeft.displayName = 'Header.Nav.Left';
 
 const HeaderRight = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
 `;
+HeaderRight.displayName = 'Header.Nav.Right';
 
 const HeaderLink = styled.a`
     text-decoration: none;
 `;
+HeaderLink.displayName = 'Header.Nav.Link';
 
 const HeaderButton = styled.button`
     display: flex;
@@ -56,10 +59,12 @@ const HeaderButton = styled.button`
         color: ${cv.text2};
     }
 `;
+HeaderButton.displayName = 'Header.Nav.Button';
 
 function HeaderNavComponent({ children }: { children: React.ReactNode }) {
     return <Divver>{children}</Divver>;
 }
+HeaderNavComponent.displayName = 'Header.Nav';
 
 export const HeaderNav = Object.assign(HeaderNavComponent, {
     Left: HeaderLeft,

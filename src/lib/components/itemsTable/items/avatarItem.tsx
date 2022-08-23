@@ -37,6 +37,9 @@ const AvatarLabel = styled.div`
     color: ${cv.text2};
 `;
 
+/**
+ * icon, name, label을 표시할 수 있는 아이템입니다.
+ */
 export function AvatarItem({ flex, icon, name, label }: AvatarItemProps) {
     return (
         <AvatarDiv flex={flex}>
@@ -48,3 +51,4 @@ export function AvatarItem({ flex, icon, name, label }: AvatarItemProps) {
         </AvatarDiv>
     );
 }
+// AvatarItem.displayName = 'ItemsTable.Row.Avatar';

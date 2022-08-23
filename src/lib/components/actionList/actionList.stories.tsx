@@ -7,6 +7,10 @@ import { ActionList } from '..';
 export default {
     title: 'Opize Component/ActionList',
     component: ActionList,
+    subcomponents: {
+        'ActionList.Item': ActionList.Item,
+        'ActionList.Divider': ActionList.Divider,
+    },
     argTypes: {
         isSticky: {
             type: 'boolean',
