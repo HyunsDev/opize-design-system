@@ -13,6 +13,7 @@ export interface HeaderProps {
     children: React.ReactNode;
 }
 const StyledHeader = styled.header``;
+StyledHeader.displayName = 'Header';
 
 /**
  * 페이지 가장 위에 들어가는 Header입니다.

@@ -9,6 +9,7 @@ const ItemTitle = styled.div`
     margin-bottom: 4px;
     color: ${cv.text1};
 `;
+ItemTitle.displayName = 'Footer.Navigation.Item.Title';
 
 const StyledTitleLink = styled(Link)`
     font-size: 14px;
@@ -21,24 +22,34 @@ const StyledLink = styled(Link)`
     font-size: 14px;
 `;
 
-function TitleLink(props: ComponentProps<typeof Link>) {
-    return (
-        <div>
-            <StyledTitleLink {...props} showUnderline={false} color={cv.text1}>
-                {props.children}
-                <CaretRight size={14} color={cv.text1} style={{ marginBottom: '-2px' }} />
-            </StyledTitleLink>
-        </div>
-    );
-}
+const TitleLink = Object.assign(
+    (props: ComponentProps<typeof Link>) => {
+        return (
+            <div>
+                <StyledTitleLink {...props} showUnderline={false} color={cv.text1}>
+                    {props.children}
+                    <CaretRight size={14} color={cv.text1} style={{ marginBottom: '-2px' }} />
+                </StyledTitleLink>
+            </div>
+        );
+    },
+    {
+        displayName: 'Footer.Navigation.Item.TitleLink',
+    }
+);
 
-function ItemLink(props: ComponentProps<typeof Link>) {
-    return (
-        <div>
-            <StyledLink {...props} showUnderline={false} color={cv.text3} />
-        </div>
-    );
-}
+const ItemLink = Object.assign(
+    (props: ComponentProps<typeof Link>) => {
+        return (
+            <div>
+                <StyledLink {...props} showUnderline={false} color={cv.text3} />
+            </div>
+        );
+    },
+    {
+        displayName: 'Footer.Navigation.Item.Link',
+    }
+);
 
 const Item = styled.div`
     display: flex;
@@ -47,6 +58,7 @@ const Item = styled.div`
     flex: 1;
     width: 100%;
 `;
+Item.displayName = 'Footer.Navigation.Item';
 
 const StyledFooterNavigation = styled.div`
     display: flex;
@@ -65,6 +77,7 @@ const StyledFooterNavigation = styled.div`
         }
     }
 `;
+StyledFooterNavigation.displayName = 'Footer.Navigation';
 
 export const FooterNavigation = Object.assign(StyledFooterNavigation, {
     Item: Object.assign(Item, {

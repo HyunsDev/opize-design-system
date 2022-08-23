@@ -40,27 +40,32 @@ const Divver = styled.div`
     }
 `;
 
-export function HeaderSubMenu(props: ComponentProps<typeof TabNav>) {
-    const [isScrolled, setScrolled] = useState(window.screenY > 64 - 8);
+export const HeaderSubMenu = Object.assign(
+    (props: ComponentProps<typeof TabNav>) => {
+        const [isScrolled, setScrolled] = useState(window.screenY > 64 - 8);
 
-    useEffect(() => {
-        const listener = () => {
-            setScrolled(window.scrollY > 64 - 10);
-        };
+        useEffect(() => {
+            const listener = () => {
+                setScrolled(window.scrollY > 64 - 10);
+            };
 
-        window.addEventListener('scroll', listener);
-        return () => {
-            window.removeEventListener('scroll', listener);
-        };
-    }, []);
+            window.addEventListener('scroll', listener);
+            return () => {
+                window.removeEventListener('scroll', listener);
+            };
+        }, []);
 
-    return (
-        <DivverOuter isScrolled={isScrolled}>
-            <Divver>
-                <TabNav {...props} />
-            </Divver>
-        </DivverOuter>
-    );
-}
+        return (
+            <DivverOuter isScrolled={isScrolled}>
+                <Divver>
+                    <TabNav {...props} />
+                </Divver>
+            </DivverOuter>
+        );
+    },
+    {
+        displayName: 'Header.SubMenu',
+    }
+);
 
 export type HeaderSubMenuProps = ComponentProps<typeof HeaderSubMenu>;

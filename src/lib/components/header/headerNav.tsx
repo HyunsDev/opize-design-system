@@ -1,9 +1,47 @@
 import React, { ComponentProps } from 'react';
-import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 import { cv } from '../../style';
 
-const Divver = styled.nav`
+const HeaderLeft = styled.div`
+    display: flex;
+    align-items: center;
+    flex: 1 1;
+    gap: 8px;
+`;
+HeaderLeft.displayName = 'Header.Nav.Left';
+
+const HeaderRight = styled.div`
+    display: flex;
+    align-items: center;
+    gap: 8px;
+`;
+HeaderRight.displayName = 'Header.Nav.Right';
+
+const HeaderLink = styled.a`
+    text-decoration: none;
+`;
+HeaderLink.displayName = 'Header.Nav.Link';
+
+const HeaderButton = styled.button`
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0px 4px;
+    background-color: ${cv.bg_element1};
+    cursor: pointer;
+    border: 0;
+    font-size: 14px;
+    font-weight: 500;
+
+    transition: 125ms;
+    color: ${cv.text3};
+    &:hover {
+        color: ${cv.text2};
+    }
+`;
+HeaderButton.displayName = 'Header.Nav.Button';
+
+const HeaderNavComponent = styled.nav`
     display: flex;
     width: 100%;
     max-width: calc(1200px + 2 * 24px);
@@ -23,63 +61,10 @@ const Divver = styled.nav`
     }
 `;
 
-const HeaderLeft = styled.div`
-    display: flex;
-    align-items: center;
-    flex: 1 1;
-    gap: 8px;
-`;
-
-const HeaderRight = styled.div`
-    display: flex;
-    align-items: center;
-    gap: 8px;
-`;
-
-const HeaderLink = styled(Link)`
-    text-decoration: none;
-`;
-
-const HerderLogoImg = styled.img`
-    height: 32px;
-    margin-left: 6px;
-`;
-
-function HeaderLogo({ to, src }: { to: string; src: string }) {
-    return (
-        <HeaderLink to={to}>
-            <HerderLogoImg src={src} alt="Logo" />
-        </HeaderLink>
-    );
-}
-
-const HeaderButton = styled.button`
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    padding: 0px 4px;
-    background-color: ${cv.bg_element1};
-    cursor: pointer;
-    border: 0;
-    font-size: 14px;
-    font-weight: 500;
-
-    transition: 125ms;
-    color: ${cv.text3};
-    &:hover {
-        color: ${cv.text2};
-    }
-`;
-
-function HeaderNavComponent({ children }: { children: React.ReactNode }) {
-    return <Divver>{children}</Divver>;
-}
-
 export const HeaderNav = Object.assign(HeaderNavComponent, {
     Left: HeaderLeft,
     Right: HeaderRight,
     Link: HeaderLink,
-    Logo: HeaderLogo,
     Button: HeaderButton,
 });
 export type HeaderNavProps = ComponentProps<typeof HeaderNav>;

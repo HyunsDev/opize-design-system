@@ -1,5 +1,4 @@
 import React, { ComponentProps } from 'react';
-import { Link } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { cv } from '../../style';
 
@@ -26,7 +25,7 @@ const ActionListDiv = styled.div<ActionListDivProps>`
         `}
 `;
 
-const ActionListItem = styled(Link)`
+const ActionListItem = styled.a`
     display: flex;
     align-items: center;
     padding: 8px 12px;
@@ -43,12 +42,14 @@ const ActionListItem = styled(Link)`
         background-color: ${(props) => (props.color === 'red' ? cv.bg_red1 : cv.bg_element2)};
     }
 `;
+ActionListItem.displayName = 'ActionList.Item';
 
 const ActionListDivider = styled.div`
     border-bottom: solid 1px ${cv.border3};
     margin-top: 8px;
     margin-bottom: 8px;
 `;
+ActionListDivider.displayName = 'ActionList.Divider';
 
 /**
  * 여러 액션 버튼이 있는 컴포넌트입니다.
@@ -57,5 +58,6 @@ export const ActionList = Object.assign(ActionListDiv, {
     Item: ActionListItem,
     Divider: ActionListDivider,
 });
+ActionList.displayName = 'ActionList';
 
 export type ActionListProps = ComponentProps<typeof ActionList>;

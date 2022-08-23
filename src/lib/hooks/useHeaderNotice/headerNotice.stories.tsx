@@ -1,14 +1,19 @@
 import React from 'react';
 import { Story } from '@storybook/react';
+import styled from 'styled-components';
 import { Button, Flex, Header } from '../../components';
 import { OpizeContextProvider } from '../../context';
 import { useHeaderNotice } from '.';
-import Logo from '../../../assets/opize.png';
+import LogoImg from '../../../assets/opize.png';
 
 export default {
     title: 'Hook/useHeaderNotice',
     argTypes: {},
 };
+
+const Logo = styled.img`
+    height: 32px;
+`;
 
 function Template() {
     const { open, close, content, isOpen } = useHeaderNotice();
@@ -18,7 +23,7 @@ function Template() {
             <Header.Notice>공지</Header.Notice>
             <Header.Nav>
                 <Header.Nav.Left>
-                    <Header.Nav.Logo src={Logo} to="/" />
+                    <Logo src={LogoImg} />
                 </Header.Nav.Left>
 
                 <Header.Nav.Right>

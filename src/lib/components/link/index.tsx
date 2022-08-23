@@ -1,8 +1,8 @@
 import { Share } from 'phosphor-react';
 import React, { ComponentProps } from 'react';
-import { Link as LinkRouter } from 'react-router-dom';
 import styled, { css } from 'styled-components';
 import { cv } from '../../style';
+import { PolymorphicComponentProps, PolymorphicRef } from '../../utils/type/polymorphicComponent';
 
 const LinkStyle = css`
     color: ${cv.blue1};
@@ -29,62 +29,40 @@ const LinkA = styled.a<{ color: string; $showUnderline: boolean }>`
         `}
 `;
 
-const LinkLink = styled(LinkRouter)<{ color: string; $showUnderline: boolean }>`
-    ${LinkStyle}
-    color: ${(props) => props.color};
-
-    ${(props) =>
-        props.$showUnderline &&
-        css`
-            &:hover {
-                border-bottom: solid 1px ${props.color};
-            }
-        `}
-`;
-
-/**
- * 자동으로 \<a\>와 \<Link\>을 선택하여, 스타일이 지정된 링크 텍스트입니다.
- */
-export function Link({
-    to,
-    color,
-    newTab,
-    hideIcon,
-    children,
-    showUnderline = true,
-}: {
-    to: string;
-    newTab?: boolean;
+type _LinkProps = {
     hideIcon?: boolean;
     children: React.ReactNode;
     color?: string;
     showUnderline?: boolean;
-}) {
-    if (!to.includes('http')) {
+};
+
+export type LinkProps<T extends React.ElementType = 'a'> = PolymorphicComponentProps<T, _LinkProps>;
+type LinkComponent = <C extends React.ElementType = 'a'>(props: LinkProps<C>) => React.ReactElement | null;
+
+export const Link: LinkComponent = React.forwardRef(
+    <T extends React.ElementType = 'a'>(
+        { to, color, newTab, hideIcon, children, showUnderline = true }: LinkProps<T>,
+        ref: PolymorphicRef<T>['ref']
+    ) => {
         return (
-            <LinkLink to={to} color={color || cv.blue1} $showUnderline={showUnderline}>
+            <LinkA
+                href={to}
+                target={newTab ? '_self' : '_blank'}
+                rel="noreferrer"
+                color={color || cv.blue1}
+                $showUnderline={showUnderline}
+                ref={ref}
+            >
                 {children}
-            </LinkLink>
+                {!hideIcon && (
+                    <Share
+                        size={16}
+                        color={color || cv.blue1}
+                        weight="bold"
+                        style={{ marginLeft: '4px', marginBottom: '-2px' }}
+                    />
+                )}
+            </LinkA>
         );
     }
-    return (
-        <LinkA
-            href={to}
-            target={newTab ? '_self' : '_blank'}
-            rel="noreferrer"
-            color={color || cv.blue1}
-            $showUnderline={showUnderline}
-        >
-            {children}
-            {!hideIcon && (
-                <Share
-                    size={16}
-                    color={color || cv.blue1}
-                    weight="bold"
-                    style={{ marginLeft: '4px', marginBottom: '-2px' }}
-                />
-            )}
-        </LinkA>
-    );
-}
-export type LinkProps = ComponentProps<typeof Link>;
+);

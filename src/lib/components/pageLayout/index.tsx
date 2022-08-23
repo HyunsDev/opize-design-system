@@ -4,18 +4,22 @@ import { cv } from '../../style';
 const Header = styled.div`
     grid-area: header;
 `;
+Header.displayName = 'PageLayout.Header';
 
 const Content = styled.div`
     grid-area: content;
 `;
+Content.displayName = 'PageLayout.Content';
 
 const Pane = styled.div`
     grid-area: pane;
 `;
+Pane.displayName = 'PageLayout.Pane';
 
 const Footer = styled.div`
     grid-area: footer;
 `;
+Footer.displayName = 'PageLayout.Footer';
 
 const PageLayoutRoot = styled.div<{ width?: string; gap?: string; panPosition?: 'start' | 'end' }>`
     display: grid;
@@ -48,6 +52,7 @@ const PageLayoutRoot = styled.div<{ width?: string; gap?: string; panPosition?: 
             'footer';
     }
 `;
+PageLayoutRoot.displayName = 'PageLayout';
 
 /**
  * 일반적인 페이지 레이아웃을 위한 컴포넌트입니다.

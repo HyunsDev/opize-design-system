@@ -63,35 +63,51 @@ const Close = styled.button`
     }
 `;
 
-export function HeaderNotice({ children }: { children?: React.ReactNode }) {
-    const [isScrolled, setScrolled] = useState(window.screenY > 64 - 8);
-    const { isOpen: isNoticeOpen, close: noticeClose, content: noticeContent, open: noticeOpen } = useHeaderNotice();
-
-    useEffect(() => {
-        const listener = () => {
-            setScrolled(window.scrollY > 64 - 10);
-        };
-
-        window.addEventListener('scroll', listener);
-        return () => {
-            window.removeEventListener('scroll', listener);
-        };
-    }, []);
-
-    useEffect(() => {
-        if (children) noticeOpen(children);
-    }, [children, noticeOpen]);
-
-    return (
-        <DivverOuter isScrolled={isScrolled} isOpen={isNoticeOpen}>
-            <Divver>
-                <Flex.Center style={{ flex: '1' }}>
-                    <Text>{noticeContent}</Text>
-                </Flex.Center>
-                <Close onClick={() => noticeClose()}>
-                    <X color="#ffffff" />
-                </Close>
-            </Divver>
-        </DivverOuter>
-    );
+export interface HeaderNoticeProps {
+    /**
+     * 공지에 들어갈 내용입니다. 채울 경우 해당 내용으로 공지가 열립니다.
+     */
+    children?: React.ReactNode;
 }
+export const HeaderNotice = Object.assign(
+    ({ children }: HeaderNoticeProps) => {
+        const [isScrolled, setScrolled] = useState(window.screenY > 64 - 8);
+        const {
+            isOpen: isNoticeOpen,
+            close: noticeClose,
+            content: noticeContent,
+            open: noticeOpen,
+        } = useHeaderNotice();
+
+        useEffect(() => {
+            const listener = () => {
+                setScrolled(window.scrollY > 64 - 10);
+            };
+
+            window.addEventListener('scroll', listener);
+            return () => {
+                window.removeEventListener('scroll', listener);
+            };
+        }, []);
+
+        useEffect(() => {
+            if (children) noticeOpen(children);
+        }, [children, noticeOpen]);
+
+        return (
+            <DivverOuter isScrolled={isScrolled} isOpen={isNoticeOpen}>
+                <Divver>
+                    <Flex.Center style={{ flex: '1' }}>
+                        <Text>{noticeContent}</Text>
+                    </Flex.Center>
+                    <Close onClick={() => noticeClose()}>
+                        <X color="#ffffff" />
+                    </Close>
+                </Divver>
+            </DivverOuter>
+        );
+    },
+    {
+        displayName: 'Header.Notice',
+    }
+);

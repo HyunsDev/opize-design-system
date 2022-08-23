@@ -36,13 +36,18 @@ export interface StyledFooterProps {
 /**
  * 페이지 가장 하단에 들어가는 Footer입니다.
  */
-function StyledFooter({ children }: StyledFooterProps) {
-    return (
-        <FooterOuter>
-            <FooterInner>{children}</FooterInner>
-        </FooterOuter>
-    );
-}
+const StyledFooter = Object.assign(
+    ({ children }: StyledFooterProps) => {
+        return (
+            <FooterOuter>
+                <FooterInner>{children}</FooterInner>
+            </FooterOuter>
+        );
+    },
+    {
+        displayName: 'Footer',
+    }
+);
 
 export const Footer = Object.assign(StyledFooter, {
     Navigation: FooterNavigation,

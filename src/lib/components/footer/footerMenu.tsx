@@ -19,22 +19,27 @@ const StyledItem = styled.div`
     }
 `;
 
-function Item({ children }: { children: React.ReactNode }) {
-    const iconStyle = useMemo<IconProps>(
-        () => ({
-            weight: 'fill',
-            color: cv.text3,
-            size: 28,
-        }),
-        []
-    );
+const Item = Object.assign(
+    ({ children }: { children: React.ReactNode }) => {
+        const iconStyle = useMemo<IconProps>(
+            () => ({
+                weight: 'fill',
+                color: cv.text3,
+                size: 28,
+            }),
+            []
+        );
 
-    return (
-        <IconContext.Provider value={iconStyle}>
-            <StyledItem>{children}</StyledItem>
-        </IconContext.Provider>
-    );
-}
+        return (
+            <IconContext.Provider value={iconStyle}>
+                <StyledItem>{children}</StyledItem>
+            </IconContext.Provider>
+        );
+    },
+    {
+        displayName: 'Footer.Menu.Item',
+    }
+);
 
 const StyledFooterMenu = styled.div`
     display: flex;
@@ -51,6 +56,7 @@ const StyledFooterMenu = styled.div`
         }
     }
 `;
+Item.displayName = 'Footer.Menu';
 
 export const FooterMenu = Object.assign(StyledFooterMenu, {
     Item,
