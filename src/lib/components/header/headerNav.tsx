@@ -2,26 +2,6 @@ import React, { ComponentProps } from 'react';
 import styled from 'styled-components';
 import { cv } from '../../style';
 
-const Divver = styled.nav`
-    display: flex;
-    width: 100%;
-    max-width: calc(1200px + 2 * 24px);
-    padding: 0px 24px;
-    margin: auto;
-    height: 64px;
-    user-select: none;
-    position: relative;
-
-    @media (max-width: 767px) {
-        padding: 0px 8px;
-    }
-
-    & > div {
-        display: flex;
-        align-items: center;
-    }
-`;
-
 const HeaderLeft = styled.div`
     display: flex;
     align-items: center;
@@ -61,20 +41,25 @@ const HeaderButton = styled.button`
 `;
 HeaderButton.displayName = 'Header.Nav.Button';
 
-interface HeaderNavComponentProps {
-    /**
-     * HeaderNav에 들어가는 컴포넌트입니다.
-     */
-    children?: React.ReactNode;
-}
-const HeaderNavComponent = Object.assign(
-    ({ children }: HeaderNavComponentProps) => {
-        return <Divver>{children}</Divver>;
-    },
-    {
-        displayName: 'Header.Nav',
+const HeaderNavComponent = styled.nav`
+    display: flex;
+    width: 100%;
+    max-width: calc(1200px + 2 * 24px);
+    padding: 0px 24px;
+    margin: auto;
+    height: 64px;
+    user-select: none;
+    position: relative;
+
+    @media (max-width: 767px) {
+        padding: 0px 8px;
     }
-);
+
+    & > div {
+        display: flex;
+        align-items: center;
+    }
+`;
 
 export const HeaderNav = Object.assign(HeaderNavComponent, {
     Left: HeaderLeft,

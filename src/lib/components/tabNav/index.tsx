@@ -58,7 +58,7 @@ const HoverBox = styled.div<FlowProps & { show: boolean }>`
     ${(props) => props.show && `background-color: ${cv.bg_element3}`};
 `;
 
-interface Props {
+export interface TabNavProps {
     /**
      * 현재 선택된 메뉴의 아이디입니다.
      */
@@ -77,7 +77,7 @@ interface Props {
 /**
  * 탭 이동을 위한 네비게이션 바입니다.
  */
-export function TabNav({ selected, menu }: Props) {
+export function TabNav({ selected, menu }: TabNavProps) {
     const ref = useRef<HTMLDivElement>(null);
     const targets = useRef<{ [key: string]: HTMLDivElement }>({});
     const hoverTimer = useRef<NodeJS.Timeout>();
@@ -136,5 +136,3 @@ export function TabNav({ selected, menu }: Props) {
         </Div>
     );
 }
-
-export type TabNavProps = ComponentProps<typeof TabNav>;

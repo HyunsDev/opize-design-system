@@ -63,7 +63,7 @@ const Close = styled.button`
     }
 `;
 
-interface HeaderNoticeProps {
+export interface HeaderNoticeProps {
     /**
      * 공지에 들어갈 내용입니다. 채울 경우 해당 내용으로 공지가 열립니다.
      */
