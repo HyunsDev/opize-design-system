@@ -18,6 +18,8 @@ const Pane = styled.div`
     max-width: 300px;
     @media (max-width: 767px) {
         max-width: 100%;
+        width: 100%;
+        min-width: 100%;
     }
 `;
 Pane.displayName = 'PageLayout.Pane';
@@ -63,6 +65,10 @@ const PageLayoutRoot = styled.div<{ width?: string; gap?: string; panPosition?: 
             'content'
             'pane'
             'footer';
+        ${Pane} {
+            margin: 0;
+        }
+        grid-template-columns: 1fr;
     }
 `;
 PageLayoutRoot.displayName = 'PageLayout';
