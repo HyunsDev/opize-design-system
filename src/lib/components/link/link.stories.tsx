@@ -20,7 +20,6 @@ Primary.args = {
 export const A = Template.bind({});
 A.args = {
     to: '/',
-    hideIcon: false,
     children: 'This is a Link',
 };
 

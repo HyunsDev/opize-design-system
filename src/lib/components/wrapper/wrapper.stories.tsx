@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { ReactFragment, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { OpizeWrapper, Button } from '..';
@@ -14,10 +14,10 @@ const Template: ComponentStory<typeof OpizeWrapper> = (args) => <OpizeWrapper {.
 export const Primary = Template.bind({});
 Primary.args = {};
 
-const Link = React.forwardRef<HTMLAnchorElement, { to?: string }>((props, ref) => {
+const Link = React.forwardRef<HTMLAnchorElement, { to?: string; children: React.ReactNode }>((props, ref) => {
     return (
         <a href={props?.to} ref={ref} {...props}>
-            Link
+            {props.children}
         </a>
     );
 });
