@@ -31,10 +31,20 @@ const StyledLink = styled.a<{ color: string; $showUnderline: boolean }>`
 `;
 
 type _LinkProps = {
+    /**
+     * 내용 옆에 링크 아이콘 표시 여부입니다.
+     */
     showIcon?: boolean;
     children: React.ReactNode;
     color?: string;
+    /**
+     * 링크 Hover시 underline 표시 여부입니다.
+     */
     showUnderline?: boolean;
+    /**
+     * 클릭했을 때 이동할 링크입니다. href 대신 사용할 수 있습니다.
+     */
+    to?: string;
 };
 
 export type LinkProps<T extends React.ElementType = 'a'> = PolymorphicComponentProps<T, _LinkProps>;
@@ -57,7 +67,7 @@ export const Link: LinkComponent = React.forwardRef(
                 {...props}
                 href={to}
                 to={to}
-                target={newTab ? '_self' : '_blank'}
+                target={newTab ? '_blank' : '_self'}
                 rel="noreferrer"
                 color={color || cv.blue1}
                 $showUnderline={showUnderline}

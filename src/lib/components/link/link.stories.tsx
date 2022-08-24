@@ -17,14 +17,22 @@ Primary.args = {
     children: 'This is a Link',
 };
 
+export const ShowIcon = Template.bind({});
+ShowIcon.args = {
+    to: '/',
+    children: 'This is a Link',
+    showIcon: true,
+};
+
 export const A = Template.bind({});
 A.args = {
+    as: 'a',
     to: '/',
     children: 'This is a Link',
 };
 
-export const OuterLink = Template.bind({});
-OuterLink.args = {
+export const newTab = Template.bind({});
+newTab.args = {
     to: 'https://design.opize.me',
     newTab: true,
     children: 'This is a Link',
