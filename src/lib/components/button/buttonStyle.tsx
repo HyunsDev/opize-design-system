@@ -6,15 +6,15 @@ type StyledCss<Props extends { [key: string]: any } = Record<string, any>> = Fla
     ThemedStyledProps<Props, any>
 >;
 
-type sizeProps = { width: string; iconOnly: boolean };
+type sizeProps = { $width: string; $iconOnly: boolean };
 export const sizeMap: Record<ButtonSize, StyledCss<sizeProps>> = {
     small: css<sizeProps>`
         height: 26px;
         padding: 0px 8px;
-        width: ${(props) => props.width};
+        width: ${(props) => props.$width};
         ${(props) =>
-            props.iconOnly &&
-            !props.width &&
+            props.$iconOnly &&
+            !props.$width &&
             css`
                 padding: 0;
                 width: 26px;
@@ -23,10 +23,10 @@ export const sizeMap: Record<ButtonSize, StyledCss<sizeProps>> = {
     medium: css<sizeProps>`
         height: 32px;
         padding: 0px 12px;
-        width: ${(props) => props.width};
+        width: ${(props) => props.$width};
         ${(props) =>
-            props.iconOnly &&
-            !props.width &&
+            props.$iconOnly &&
+            !props.$width &&
             css`
                 padding: 0;
                 width: 32px;
@@ -35,10 +35,10 @@ export const sizeMap: Record<ButtonSize, StyledCss<sizeProps>> = {
     large: css<sizeProps>`
         height: 40px;
         padding: 0px 16px;
-        width: ${(props) => props.width};
+        width: ${(props) => props.$width};
         ${(props) =>
-            props.iconOnly &&
-            !props.width &&
+            props.$iconOnly &&
+            !props.$width &&
             css`
                 padding: 0;
                 width: 40px;

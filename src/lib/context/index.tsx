@@ -4,9 +4,15 @@ import ModalContextProvider from '../hooks/useModal/modalContext';
 import TopLoadingContextProvider from '../hooks/useTopLoading/context';
 import LinkContextProvider from './linkContext';
 
-export function OpizeContextProvider({ children }: { children: React.ReactElement }) {
+export function OpizeContextProvider({
+    children,
+    initLink,
+}: {
+    children: React.ReactElement;
+    initLink?: React.ElementType<any>;
+}) {
     return (
-        <LinkContextProvider>
+        <LinkContextProvider initLink={initLink}>
             <ModalContextProvider>
                 <HeaderNoticeProvider>
                     <TopLoadingContextProvider>{children}</TopLoadingContextProvider>
