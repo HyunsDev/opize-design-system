@@ -13,6 +13,12 @@ Content.displayName = 'PageLayout.Content';
 
 const Pane = styled.div`
     grid-area: pane;
+    min-width: 300px;
+    width: 300px;
+    max-width: 300px;
+    @media (max-width: 767px) {
+        max-width: 100%;
+    }
 `;
 Pane.displayName = 'PageLayout.Pane';
 
@@ -24,24 +30,31 @@ Footer.displayName = 'PageLayout.Footer';
 const PageLayoutRoot = styled.div<{ width?: string; gap?: string; panPosition?: 'start' | 'end' }>`
     display: grid;
     width: ${(props) => props.width || cv.pageWidth};
-    gap: ${(props) => props.gap || '8px'};
+    max-width: ${(props) => props.width || cv.pageWidth};
+    row-gap: ${(props) => props.gap || '8px'};
     margin: 0 auto;
     justify-items: stretch;
     ${(props) =>
         props.panPosition === 'start'
             ? css`
-                  grid-template-areas:
+                  grid-template:
                       'header header'
                       'pane content'
                       'footer footer';
-                  grid-template-columns: 300px 1fr;
+                  ${Pane} {
+                      margin-right: ${props.gap || '8px'};
+                  }
+                  grid-template-columns: fit-content(300px) auto;
               `
             : css`
-                  grid-template-areas:
+                  grid-template:
                       'header header'
-                      'content pane '
+                      'content pane'
                       'footer footer';
-                  grid-template-columns: 1fr 300px;
+                  ${Pane} {
+                      margin-left: ${props.gap || '8px'};
+                  }
+                  grid-template-columns: auto fit-content(300px);
               `}
 
     @media ( max-width: 767px ) {
