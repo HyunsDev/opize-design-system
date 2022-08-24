@@ -14,7 +14,6 @@ export const sizeMap: Record<ButtonSize, StyledCss<sizeProps>> = {
         width: ${(props) => props.$width};
         ${(props) =>
             props.$iconOnly &&
-            !props.$width &&
             css`
                 padding: 0;
                 width: 26px;
@@ -26,7 +25,6 @@ export const sizeMap: Record<ButtonSize, StyledCss<sizeProps>> = {
         width: ${(props) => props.$width};
         ${(props) =>
             props.$iconOnly &&
-            !props.$width &&
             css`
                 padding: 0;
                 width: 32px;
@@ -38,7 +36,6 @@ export const sizeMap: Record<ButtonSize, StyledCss<sizeProps>> = {
         width: ${(props) => props.$width};
         ${(props) =>
             props.$iconOnly &&
-            !props.$width &&
             css`
                 padding: 0;
                 width: 40px;

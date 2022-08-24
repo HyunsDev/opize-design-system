@@ -106,6 +106,8 @@ export const Button: ButtonComponent = React.forwardRef(
             </IconContext.Provider>
         );
 
+        const iconOnly = !children && !!icon && width === 'fit-content';
+
         if (Link && to && !as) {
             const Element = Link || 'button';
 
@@ -121,7 +123,7 @@ export const Button: ButtonComponent = React.forwardRef(
                     type={type}
                     $borderRadius={borderRadius}
                     disabled={disabled}
-                    $iconOnly={!children && !!icon}
+                    $iconOnly={iconOnly}
                     as={Element}
                     to={to}
                 >
@@ -143,7 +145,7 @@ export const Button: ButtonComponent = React.forwardRef(
                 type={type}
                 $borderRadius={borderRadius}
                 disabled={disabled}
-                $iconOnly={!children && !!icon}
+                $iconOnly={iconOnly}
                 as={Element}
             >
                 {buttonChildren}
