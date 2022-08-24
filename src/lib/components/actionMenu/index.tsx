@@ -117,6 +117,7 @@ export interface ActionMenuProps extends ButtonProps {
      * ActionMenu의 액션
      */
     actions: ActionMenuActionType[][];
+    children?: React.ReactNode;
 }
 
 /**
