@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { cv } from '../../style';
 
@@ -29,7 +30,17 @@ const Footer = styled.div`
 `;
 Footer.displayName = 'PageLayout.Footer';
 
-const PageLayoutRoot = styled.div<{ width?: string; gap?: string; panPosition?: 'start' | 'end' }>`
+const PageLayoutOuter = styled.div<{ backgroundColor: string }>`
+    width: 100%;
+    background-color: ${(props) => props.backgroundColor};
+`;
+
+interface PageLayoutInnerProps {
+    width?: string;
+    gap?: string;
+    panPosition?: 'start' | 'end';
+}
+const PageLayoutInner = styled.div<PageLayoutInnerProps>`
     display: grid;
     width: ${(props) => props.width || cv.pageWidth};
     max-width: ${(props) => props.width || cv.pageWidth};
@@ -71,6 +82,24 @@ const PageLayoutRoot = styled.div<{ width?: string; gap?: string; panPosition?: 
         grid-template-columns: 1fr;
     }
 `;
+
+interface PageLayoutRootProps {
+    width?: string;
+    gap?: string;
+    panPosition?: 'start' | 'end';
+    backgroundColor?: string;
+    children?: React.ReactNode;
+}
+function PageLayoutRoot({ width, gap, panPosition, backgroundColor, children }: PageLayoutRootProps) {
+    return (
+        <PageLayoutOuter backgroundColor={backgroundColor || cv.bg_page2}>
+            <PageLayoutInner width={width} gap={gap} panPosition={panPosition}>
+                {children}
+            </PageLayoutInner>
+        </PageLayoutOuter>
+    );
+}
+
 PageLayoutRoot.displayName = 'PageLayout';
 
 /**
