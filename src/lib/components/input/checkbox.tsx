@@ -24,6 +24,8 @@ const Input = styled.input<InputCheckBoxProps>`
 
     width: 22px;
     height: 22px;
+    min-width: 22px;
+    min-height: 22px;
     border-radius: 4px;
     border: solid 1px ${(props) => props.borderColor};
     background: ${(props) => props.backgroundColor};

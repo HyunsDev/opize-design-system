@@ -126,6 +126,7 @@ export const Button: ButtonComponent = React.forwardRef(
                     $iconOnly={iconOnly}
                     as={Element}
                     to={to}
+                    href={to}
                 >
                     {buttonChildren}
                 </StyledButton>
