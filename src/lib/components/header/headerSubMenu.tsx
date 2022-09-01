@@ -42,7 +42,7 @@ const Divver = styled.div`
 
 export const HeaderSubMenu = Object.assign(
     (props: ComponentProps<typeof TabNav>) => {
-        const [isScrolled, setScrolled] = useState(window.screenY > 64 - 8);
+        const [isScrolled, setScrolled] = useState(false);
 
         useEffect(() => {
             const listener = () => {
