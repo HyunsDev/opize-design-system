@@ -30,9 +30,10 @@ const Footer = styled.div`
 `;
 Footer.displayName = 'PageLayout.Footer';
 
-const PageLayoutOuter = styled.div<{ backgroundColor: string }>`
+const PageLayoutOuter = styled.div<{ backgroundColor: string; marginTop: string }>`
     width: 100%;
     background-color: ${(props) => props.backgroundColor};
+    margin-top: ${(props) => props.marginTop};
 `;
 
 interface PageLayoutInnerProps {
@@ -85,14 +86,22 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
 
 interface PageLayoutRootProps {
     width?: string;
+    marginTop?: string;
     gap?: string;
     panPosition?: 'start' | 'end';
     backgroundColor?: string;
     children?: React.ReactNode;
 }
-function PageLayoutRoot({ width, gap, panPosition, backgroundColor, children }: PageLayoutRootProps) {
+function PageLayoutRoot({
+    width,
+    gap,
+    panPosition,
+    backgroundColor,
+    children,
+    marginTop = '0px',
+}: PageLayoutRootProps) {
     return (
-        <PageLayoutOuter backgroundColor={backgroundColor || cv.bg_page2}>
+        <PageLayoutOuter marginTop={marginTop} backgroundColor={backgroundColor || cv.bg_page2}>
             <PageLayoutInner width={width} gap={gap} panPosition={panPosition}>
                 {children}
             </PageLayoutInner>
