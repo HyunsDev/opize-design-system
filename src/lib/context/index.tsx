@@ -3,6 +3,7 @@ import HeaderNoticeProvider from '../hooks/useHeaderNotice/context';
 import ModalContextProvider from '../hooks/useModal/modalContext';
 import TopLoadingContextProvider from '../hooks/useTopLoading/context';
 import LinkContextProvider from './linkContext';
+import TabNavContextProvider from './tabNavContext/tabNavContext';
 
 export function OpizeContextProvider({
     children,
@@ -15,7 +16,9 @@ export function OpizeContextProvider({
         <LinkContextProvider initLink={initLink}>
             <ModalContextProvider>
                 <HeaderNoticeProvider>
-                    <TopLoadingContextProvider>{children}</TopLoadingContextProvider>
+                    <TabNavContextProvider>
+                        <TopLoadingContextProvider>{children}</TopLoadingContextProvider>
+                    </TabNavContextProvider>
                 </HeaderNoticeProvider>
             </ModalContextProvider>
         </LinkContextProvider>

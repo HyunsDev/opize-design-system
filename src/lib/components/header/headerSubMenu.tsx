@@ -58,7 +58,7 @@ export const HeaderSubMenu = Object.assign(
         return (
             <DivverOuter isScrolled={isScrolled}>
                 <Divver>
-                    <TabNav {...props} />
+                    <TabNav {...props} hasContext />
                 </Divver>
             </DivverOuter>
         );
