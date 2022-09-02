@@ -139,7 +139,7 @@ export const Button: ButtonComponent = React.forwardRef(
                 {...props}
                 ref={ref}
                 $width={width}
-                onClick={() => onClick && onClick()}
+                onClick={(e) => onClick && onClick(e)}
                 $color={color}
                 $size={size}
                 $variant={variant}
