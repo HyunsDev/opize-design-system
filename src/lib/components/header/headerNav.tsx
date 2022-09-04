@@ -38,6 +38,7 @@ const HeaderButton = styled.button`
     &:hover {
         color: ${cv.text2};
     }
+    text-decoration: none;
 `;
 HeaderButton.displayName = 'Header.Nav.Button';
 

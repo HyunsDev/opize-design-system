@@ -29,11 +29,11 @@ export interface PageHeadProps {
     /**
      * 우측에 추가되는 컴포넌트입니다. 주로 버튼을 추가합니다.
      */
-    children: React.ReactNode;
+    children?: React.ReactNode;
     /**
      * 좌측에 표시되는 제목입니다.
      */
-    title: React.ReactNode;
+    title?: React.ReactNode;
 }
 export function PageHead({ children, title }: PageHeadProps) {
     return (
