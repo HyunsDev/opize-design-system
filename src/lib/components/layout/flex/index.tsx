@@ -6,6 +6,7 @@ import React from 'react';
  */
 const FlexLayout = styled.div<{ gap?: string }>`
     display: flex;
+    ${(props) => props.gap && `gap: ${props.gap}`};
 `;
 
 /**
