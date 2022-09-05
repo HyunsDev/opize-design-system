@@ -1,3 +1,4 @@
+import React from 'react';
 import { OpizeWrapper } from '../src/lib';
 
 export const parameters = {
@@ -10,9 +11,17 @@ export const parameters = {
     },
 };
 
+const Link = React.forwardRef((props, ref) => {
+    return (
+        <a href={props?.to} ref={ref} {...props}>
+            {props.children}
+        </a>
+    );
+});
+
 export const decorators = [
     (Story) => (
-        <OpizeWrapper>
+        <OpizeWrapper initLink={Link}>
             <Story />
         </OpizeWrapper>
     ),

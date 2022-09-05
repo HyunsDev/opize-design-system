@@ -18,21 +18,14 @@ const TextDiv = styled.div`
 `;
 
 const SubTextDiv = styled.div`
-    color: ${cv.text2};
+    color: ${cv.text3};
     font-size: 14px;
 `;
 
 export function TextItem({ text, flex, subText }: TextItemProps) {
     return (
         <TextsDiv flex={flex}>
-            {text &&
-                (text.startsWith('https') ? (
-                    <TextDiv>
-                        <a href={text}>{`${text.substring(0, 50)}${text.length > 50 ? '...' : ''}`}</a>
-                    </TextDiv>
-                ) : (
-                    <TextDiv>{`${text.substring(0, 50)}${text.length > 50 ? '...' : ''}`}</TextDiv>
-                ))}
+            {text && <TextDiv>{`${text.substring(0, 50)}${text.length > 50 ? '...' : ''}`}</TextDiv>}
             {subText && <SubTextDiv>{`${subText.substring(0, 50)}${subText.length > 50 ? '...' : ''}`}</SubTextDiv>}
         </TextsDiv>
     );

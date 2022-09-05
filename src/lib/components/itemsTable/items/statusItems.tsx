@@ -22,7 +22,7 @@ const StateDiv = styled.div<{ flex?: number }>`
 `;
 
 const TypeDiv = styled.div<{ flex?: number }>`
-    color: ${cv.text2};
+    color: ${cv.text3};
     font-size: 14px;
     margin-left: 8px;
     flex: ${(props) => props.flex || 1};

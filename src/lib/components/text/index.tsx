@@ -11,6 +11,7 @@ export const Text = styled.p<{
     italic?: boolean;
     size?: string;
     lineHeight?: string;
+    color?: string;
 }>`
     font-family: ${(props) => (props.font === 'monospace' ? cv.fontFamilyMonospace : cv.fontFamily)};
     font-weight: ${(props) => (props.weight === 'semibold' ? cv.fontWeightSemiBold : cv.fontWeightRegular)};
@@ -18,4 +19,5 @@ export const Text = styled.p<{
     font-style: ${(props) => (props.italic ? 'italic' : 'normal')};
     font-size: ${(props) => props.size || cv.fontSizeNormal};
     line-height: ${(props) => props.lineHeight || cv.lineHeightNormal};
+    color: ${(props) => props.color || cv.text1};
 `;

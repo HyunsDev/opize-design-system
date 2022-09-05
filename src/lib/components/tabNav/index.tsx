@@ -1,6 +1,8 @@
 import styled from 'styled-components';
-import React, { useEffect, useRef, useState, useCallback, ComponentProps } from 'react';
+import React, { useEffect, useRef, useState, useCallback, ComponentProps, useContext } from 'react';
 import { cv } from '../../style';
+import { TabNavActionContext, TabNavValueContext } from '../../context/tabNavContext/tabNavContext';
+import { ShowIcon } from '../link/link.stories';
 
 const Div = styled.div`
     border-bottom: solid 1px ${cv.border4};
@@ -60,6 +62,10 @@ const HoverBox = styled.div<FlowProps & { show: boolean }>`
 
 export interface TabNavProps {
     /**
+     * context를 사용하여 위치 정보를 저장할 지 여부입니다. 화면 당 한 컴포넌트만 사용할 수 있습니다.
+     */
+    hasContext?: boolean;
+    /**
      * 현재 선택된 메뉴의 아이디입니다.
      */
     selected: string;
@@ -77,32 +83,46 @@ export interface TabNavProps {
 /**
  * 탭 이동을 위한 네비게이션 바입니다.
  */
-export function TabNav({ selected, menu }: TabNavProps) {
+export function TabNav({ selected, menu, hasContext }: TabNavProps) {
     const ref = useRef<HTMLDivElement>(null);
     const targets = useRef<{ [key: string]: HTMLDivElement }>({});
     const hoverTimer = useRef<NodeJS.Timeout>();
-    const [underlineStyle, setUnderlineStyle] = useState({ width: 0, left: 0 });
-    const [hoverBoxStyle, setHoverBoxStyle] = useState({ width: 0, left: 0, show: false });
+    const { lastHoverBoxStyle, lastUnderlineStyle } = useContext(TabNavValueContext);
+    const { setLastHoverBoxStyle, setLastUnderlineStyle } = useContext(TabNavActionContext);
+    const [underlineStyle, setUnderlineStyle] = useState(hasContext ? lastUnderlineStyle : { width: 0, left: 0 });
+    const [hoverBoxStyle, setHoverBoxStyle] = useState(
+        hasContext ? lastHoverBoxStyle : { width: 0, left: 0, show: false }
+    );
 
     useEffect(() => {
-        setUnderlineStyle({
+        const style = {
             width: targets.current[selected]?.offsetWidth,
             left:
                 Number(targets.current[selected]?.getBoundingClientRect().left) -
                 Number(ref.current?.getBoundingClientRect().left),
-        });
-    }, [selected]);
+        };
+        setUnderlineStyle(style);
+        setLastUnderlineStyle(style);
+    }, [selected, setLastUnderlineStyle]);
 
-    const hover = useCallback((key: string) => {
-        if (hoverTimer.current) clearTimeout(hoverTimer.current);
-        setHoverBoxStyle({
-            width: targets.current[key]?.offsetWidth,
-            left:
-                Number(targets.current[key]?.getBoundingClientRect().left) -
-                Number(ref.current?.getBoundingClientRect().left),
-            show: true,
-        });
-    }, []);
+    const hover = useCallback(
+        (key: string) => {
+            if (hoverTimer.current) clearTimeout(hoverTimer.current);
+            const style = {
+                width: targets.current[key]?.offsetWidth,
+                left:
+                    Number(targets.current[key]?.getBoundingClientRect().left) -
+                    Number(ref.current?.getBoundingClientRect().left),
+                show: true,
+            };
+            setHoverBoxStyle(style);
+            setLastHoverBoxStyle({
+                ...style,
+                show: false,
+            });
+        },
+        [setLastHoverBoxStyle]
+    );
 
     const mouseLeave = useCallback(() => {
         hoverTimer.current = setTimeout(() => {

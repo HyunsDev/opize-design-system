@@ -1,11 +1,13 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import styled from 'styled-components';
 import { IconContext } from 'phosphor-react';
-import React from 'react';
+import React, { useContext } from 'react';
 import { Spinner } from '../spinner';
 import { ButtonComponent, ButtonProps, StyledButtonProps } from './buttonType';
 import { colorMap, sizeMap } from './buttonStyle';
 import { PolymorphicRef } from '../../utils/type/polymorphicComponent';
+import { useCodeModal } from '../../hooks';
+import { LinkContext } from '../../context/linkContext';
 
 const StyledButton = styled.button<StyledButtonProps>`
     display: flex;
@@ -21,7 +23,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     line-height: 20px;
     gap: 8px;
     cursor: pointer;
-    border-radius: ${(props) => props.borderRadius}px;
+    border-radius: ${(props) => props.$borderRadius}px;
 
     &::after {
         content: '';
@@ -54,8 +56,8 @@ const StyledButton = styled.button<StyledButtonProps>`
         cursor: not-allowed;
     }
 
-    ${(props) => sizeMap[props.size]};
-    ${(props) => colorMap[props.variant][props.color]};
+    ${(props) => sizeMap[props.$size]};
+    ${(props) => colorMap[props.$variant][props.$color]};
 `;
 
 /**
@@ -77,10 +79,13 @@ export const Button: ButtonComponent = React.forwardRef(
             borderRadius = 4,
             width = 'fit-content',
             disabled = false,
+            to,
             ...props
         }: ButtonProps<T>,
         ref: PolymorphicRef<T>['ref']
     ) => {
+        const { Link } = useContext(LinkContext);
+
         // 아이콘
         let Icon;
         if (typeof icon === 'string') {
@@ -101,21 +106,47 @@ export const Button: ButtonComponent = React.forwardRef(
             </IconContext.Provider>
         );
 
-        const Element = as || 'button';
+        const iconOnly = !children && !!icon && width === 'fit-content';
 
+        if (Link && to && !as) {
+            const Element = Link || 'button';
+
+            return (
+                <StyledButton
+                    {...props}
+                    ref={ref}
+                    $width={width}
+                    onClick={() => onClick && onClick()}
+                    $color={color}
+                    $size={size}
+                    $variant={variant}
+                    type={type}
+                    $borderRadius={borderRadius}
+                    disabled={disabled}
+                    $iconOnly={iconOnly}
+                    as={Element}
+                    to={to}
+                    href={to}
+                >
+                    {buttonChildren}
+                </StyledButton>
+            );
+        }
+
+        const Element = as || 'button';
         return (
             <StyledButton
                 {...props}
                 ref={ref}
-                width={width}
-                onClick={() => onClick && onClick()}
-                color={color}
-                size={size}
-                variant={variant}
+                $width={width}
+                onClick={(e) => onClick && onClick(e)}
+                $color={color}
+                $size={size}
+                $variant={variant}
                 type={type}
-                borderRadius={borderRadius}
+                $borderRadius={borderRadius}
                 disabled={disabled}
-                iconOnly={!children && !!icon}
+                $iconOnly={iconOnly}
                 as={Element}
             >
                 {buttonChildren}

@@ -1,8 +1,8 @@
-import React, { createContext, useMemo, useState } from 'react';
+import React, { createContext, useMemo, useState, useEffect } from 'react';
 
 export interface LinkContextProps {
-    Link?: React.ComponentType<any>;
-    setLink: (Link: React.ComponentType<any>) => void;
+    Link?: React.ElementType<any>;
+    setLink: (Link: React.ElementType<any>) => void;
 }
 
 export const LinkContext = createContext<LinkContextProps>({
@@ -10,8 +10,14 @@ export const LinkContext = createContext<LinkContextProps>({
     setLink: () => null,
 });
 
-function LinkContextProvider({ children }: { children: React.ReactNode }) {
-    const [Link, setLink] = useState<React.ComponentType<any>>();
+function LinkContextProvider({ children, initLink }: { children: React.ReactNode; initLink?: React.ElementType<any> }) {
+    const [Link, setLink] = useState<React.ElementType<any>>();
+
+    useEffect(() => {
+        if (initLink) {
+            setLink(initLink);
+        }
+    }, [initLink]);
 
     const value = useMemo(
         () => ({

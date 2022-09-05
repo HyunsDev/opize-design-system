@@ -7,12 +7,12 @@ export type ButtonColor = 'gray' | 'red' | 'blue';
 export type ButtonVariant = 'default' | 'contained' | 'outlined' | 'text';
 
 export interface StyledButtonProps {
-    iconOnly: boolean;
-    variant: ButtonVariant;
-    color: ButtonColor;
-    size: ButtonSize;
-    width: string;
-    borderRadius: number;
+    $iconOnly: boolean;
+    $variant: ButtonVariant;
+    $color: ButtonColor;
+    $size: ButtonSize;
+    $width: string;
+    $borderRadius: number;
 }
 
 type _ButtonProps = {
@@ -50,6 +50,10 @@ type _ButtonProps = {
      */
     width?: ButtonWidth;
     onClick?: (e?: React.MouseEvent) => void;
+    /**
+     * 클릭했을 때 이동할 링크입니다. OpizeWrapper의 initLink를 설정했을 때만 사용할 수 있습니다. as prop이 있는 경우 무시됩니다. (Link && to && !as)
+     */
+    to?: string;
 };
 
 export type ButtonProps<T extends React.ElementType = 'button'> = PolymorphicComponentProps<T, _ButtonProps>;

@@ -12,7 +12,9 @@ export interface HeaderProps {
      */
     children: React.ReactNode;
 }
-const StyledHeader = styled.header``;
+const StyledHeader = styled.header`
+    z-index: 10;
+`;
 StyledHeader.displayName = 'Header';
 
 /**

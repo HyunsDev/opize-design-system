@@ -46,14 +46,22 @@ const GlobalStyles = createGlobalStyle`
     }
 `;
 
+interface OpizeWrapperProps {
+    children: React.ReactElement;
+    /**
+     * Link를 사용해야 하는 곳에서 사용할 링크 컴포넌트입니다. ex. \<OpizeWrapper initLink={Link}\>...
+     */
+    initLink?: React.ElementType<any>;
+}
+
 /**
  * opize-design-system을 사용하기 위해 필수적으로 사용해야 하는 컴포넌트입니다.
  */
-export function OpizeWrapper({ children }: { children: React.ReactElement }) {
+export function OpizeWrapper({ children, initLink }: OpizeWrapperProps) {
     return (
         <>
             <GlobalStyles />
-            <OpizeContextProvider>{children}</OpizeContextProvider>
+            <OpizeContextProvider initLink={initLink}>{children}</OpizeContextProvider>
         </>
     );
 }

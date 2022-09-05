@@ -48,6 +48,17 @@ const Template: ComponentStory<typeof PageLayout> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {};
 
+const SoloTemplate: ComponentStory<typeof PageLayout> = (args) => {
+    return (
+        <PageLayout {...args}>
+            <Blank height={500}>PageLayout</Blank>
+        </PageLayout>
+    );
+};
+
+export const Solo = SoloTemplate.bind({});
+Solo.args = {};
+
 export const LeftPane = Template.bind({});
 LeftPane.args = {
     panPosition: 'start',

@@ -38,6 +38,7 @@ const HeaderButton = styled.button`
     &:hover {
         color: ${cv.text2};
     }
+    text-decoration: none;
 `;
 HeaderButton.displayName = 'Header.Nav.Button';
 
@@ -50,6 +51,8 @@ const HeaderNavComponent = styled.nav`
     height: 64px;
     user-select: none;
     position: relative;
+
+    z-index: 10;
 
     @media (max-width: 767px) {
         padding: 0px 8px;

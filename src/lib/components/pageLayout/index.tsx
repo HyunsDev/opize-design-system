@@ -1,3 +1,4 @@
+import React from 'react';
 import styled, { css } from 'styled-components';
 import { cv } from '../../style';
 
@@ -13,6 +14,14 @@ Content.displayName = 'PageLayout.Content';
 
 const Pane = styled.div`
     grid-area: pane;
+    min-width: 300px;
+    width: 300px;
+    max-width: 300px;
+    @media (max-width: 767px) {
+        max-width: 100%;
+        width: 100%;
+        min-width: 100%;
+    }
 `;
 Pane.displayName = 'PageLayout.Pane';
 
@@ -21,27 +30,45 @@ const Footer = styled.div`
 `;
 Footer.displayName = 'PageLayout.Footer';
 
-const PageLayoutRoot = styled.div<{ width?: string; gap?: string; panPosition?: 'start' | 'end' }>`
+const PageLayoutOuter = styled.div<{ backgroundColor: string; marginTop: string }>`
+    width: 100%;
+    background-color: ${(props) => props.backgroundColor};
+    margin-top: ${(props) => props.marginTop};
+`;
+
+interface PageLayoutInnerProps {
+    width?: string;
+    gap?: string;
+    panPosition?: 'start' | 'end';
+}
+const PageLayoutInner = styled.div<PageLayoutInnerProps>`
     display: grid;
     width: ${(props) => props.width || cv.pageWidth};
-    gap: ${(props) => props.gap || '8px'};
+    max-width: ${(props) => props.width || cv.pageWidth};
+    row-gap: ${(props) => props.gap || '8px'};
     margin: 0 auto;
     justify-items: stretch;
     ${(props) =>
         props.panPosition === 'start'
             ? css`
-                  grid-template-areas:
+                  grid-template:
                       'header header'
                       'pane content'
                       'footer footer';
-                  grid-template-columns: 300px 1fr;
+                  ${Pane} {
+                      margin-right: ${props.gap || '8px'};
+                  }
+                  grid-template-columns: fit-content(300px) auto;
               `
             : css`
-                  grid-template-areas:
+                  grid-template:
                       'header header'
-                      'content pane '
+                      'content pane'
                       'footer footer';
-                  grid-template-columns: 1fr 300px;
+                  ${Pane} {
+                      margin-left: ${props.gap || '8px'};
+                  }
+                  grid-template-columns: auto fit-content(300px);
               `}
 
     @media ( max-width: 767px ) {
@@ -50,8 +77,38 @@ const PageLayoutRoot = styled.div<{ width?: string; gap?: string; panPosition?: 
             'content'
             'pane'
             'footer';
+        ${Pane} {
+            margin: 0;
+        }
+        grid-template-columns: 1fr;
     }
 `;
+
+interface PageLayoutRootProps {
+    width?: string;
+    marginTop?: string;
+    gap?: string;
+    panPosition?: 'start' | 'end';
+    backgroundColor?: string;
+    children?: React.ReactNode;
+}
+function PageLayoutRoot({
+    width,
+    gap,
+    panPosition,
+    backgroundColor,
+    children,
+    marginTop = '0px',
+}: PageLayoutRootProps) {
+    return (
+        <PageLayoutOuter marginTop={marginTop} backgroundColor={backgroundColor || cv.bg_page2}>
+            <PageLayoutInner width={width} gap={gap} panPosition={panPosition}>
+                {children}
+            </PageLayoutInner>
+        </PageLayoutOuter>
+    );
+}
+
 PageLayoutRoot.displayName = 'PageLayout';
 
 /**

@@ -27,7 +27,12 @@ export function ButtonsItem({ buttons }: ButtonsItemProps) {
                     weight: 'bold',
                 }}
             >
-                <ActionMenu icon={<DotsThreeVertical />} actions={buttons} variant="text" borderRadius={999} />
+                <ActionMenu
+                    icon={<DotsThreeVertical size={20} />}
+                    actions={buttons}
+                    variant="text"
+                    borderRadius={999}
+                />
             </IconContext.Provider>
         </ItemButtons>
     );

@@ -12,6 +12,7 @@ const DivverOuter = styled.div<{ isScrolled: boolean }>`
     margin-top: -4px;
     background-color: ${cv.bg_element1};
     transition: box-shadow 200ms;
+    z-index: 10;
 
     ${(props) =>
         props.isScrolled &&
@@ -42,7 +43,7 @@ const Divver = styled.div`
 
 export const HeaderSubMenu = Object.assign(
     (props: ComponentProps<typeof TabNav>) => {
-        const [isScrolled, setScrolled] = useState(window.screenY > 64 - 8);
+        const [isScrolled, setScrolled] = useState(false);
 
         useEffect(() => {
             const listener = () => {
@@ -58,7 +59,7 @@ export const HeaderSubMenu = Object.assign(
         return (
             <DivverOuter isScrolled={isScrolled}>
                 <Divver>
-                    <TabNav {...props} />
+                    <TabNav {...props} hasContext />
                 </Divver>
             </DivverOuter>
         );

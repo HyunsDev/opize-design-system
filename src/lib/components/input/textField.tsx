@@ -21,6 +21,7 @@ export type TextFieldProps = React.ComponentPropsWithoutRef<'input'> & {
     leftAddon?: React.ReactNode | ButtonAddon;
     rightAddon?: React.ReactNode | ButtonAddon;
     border?: 'all' | 'bottom' | 'none';
+    placeholder?: string;
 };
 
 const Divver = styled.div`
@@ -61,6 +62,10 @@ const Input = styled.input<{ border: 'all' | 'bottom' | 'none' }>`
                       box-shadow: 0px 3px 0px ${cv.outline};
                   `
                 : ''}
+    }
+
+    &::placeholder {
+        color: ${cv.text3};
     }
 `;
 
