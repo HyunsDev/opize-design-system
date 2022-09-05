@@ -23,7 +23,7 @@ const BoxDiv = styled.div`
 const BoxTitle = styled.h4`
     font-size: 1.25rem;
     line-height: 1.5;
-    font-weight: 600px;
+    font-weight: 500;
     letter-spacing: -0.020625rem;
 `;
 
@@ -59,7 +59,7 @@ export interface BoxProps {
     /**
      * 박스 안 내용입니다.
      */
-    children: React.ReactNode;
+    children?: React.ReactNode;
     /**
      * 박스의 제목입니다. 박스 내부에 표시됩니다.
      */

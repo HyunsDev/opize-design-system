@@ -12,6 +12,7 @@ const DivverOuter = styled.div<{ isScrolled: boolean }>`
     margin-top: -4px;
     background-color: ${cv.bg_element1};
     transition: box-shadow 200ms;
+    z-index: 10;
 
     ${(props) =>
         props.isScrolled &&

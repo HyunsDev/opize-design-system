@@ -15,6 +15,8 @@ const DivverOuter = styled.div<{ isOpen: boolean }>`
     min-height: 32px;
     align-items: center;
 
+    z-index: 10;
+
     background-color: ${cv.bg_element5};
     color: ${cv.text5};
     transition: box-shadow 200ms, margin-top 200ms cubic-bezier(0.01, 0.78, 0.51, 0.99);

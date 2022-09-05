@@ -4,7 +4,7 @@ import React from 'react';
 /**
  * display:flex인 일반적인 div 태그입니다.
  */
-const FlexLayout = styled.div`
+const FlexLayout = styled.div<{ gap?: string }>`
     display: flex;
 `;
 
@@ -21,7 +21,7 @@ const FlexCenter = styled.div<{ gap?: string }>`
 /**
  * justify-content: space-between 인 \<Flex\>입니다.
  */
-const FlexBetween = styled.div`
+const FlexBetween = styled.div<{ gap?: string }>`
     display: flex;
     align-items: center;
     justify-content: space-between;
