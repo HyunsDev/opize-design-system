@@ -34,6 +34,10 @@ const Input = styled.textarea<Props>`
     &:focus {
         outline: solid 3px ${cv.outline};
     }
+
+    &::placeholder {
+        color: ${cv.text3};
+    }
 `;
 
 const Message = styled.div`

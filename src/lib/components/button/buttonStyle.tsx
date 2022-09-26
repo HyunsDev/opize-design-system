@@ -50,7 +50,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             color: ${cv.text1};
             --local-color: ${cv.text1};
             background-color: ${cv.bg_element2};
-            border: solid 1px ${cv.border2};
+            border: solid 1px ${cv.border3};
 
             &:hover {
                 background-color: ${cv.bg_element3};

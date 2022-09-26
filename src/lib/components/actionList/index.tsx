@@ -25,7 +25,7 @@ const ActionListDiv = styled.div<ActionListDivProps>`
         `}
 `;
 
-const ActionListItem = styled.a`
+const ActionListItem = styled.a<{ selected?: boolean }>`
     display: flex;
     align-items: center;
     padding: 8px 12px;
@@ -37,6 +37,7 @@ const ActionListItem = styled.a`
     text-decoration: none;
     color: ${cv.text1};
     line-height: 24px;
+    font-weight: ${(props) => (props.selected ? cv.fontWeightSemiBold : cv.fontWeightRegular)};
     cursor: pointer;
     &:hover {
         background-color: ${(props) => (props.color === 'red' ? cv.bg_red1 : cv.bg_element2)};

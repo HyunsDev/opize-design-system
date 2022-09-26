@@ -5,7 +5,7 @@ import { Flex } from '../layout';
 
 const Outer = styled.div`
     position: relative;
-    border-bottom: solid 1px ${cv.border3};
+    border-bottom: solid 1px ${cv.border4};
     width: 100%;
     height: 128px;
     display: flex;
