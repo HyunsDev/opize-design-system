@@ -5,20 +5,16 @@ import { Label } from './label';
 
 const Divver = styled.div``;
 
-interface Props {
+export type TextAreaProps = React.ComponentPropsWithoutRef<'textarea'> & {
     type?: 'text' | 'password' | 'search' | 'url';
     value?: string;
-    // eslint-disable-next-line @typescript-eslint/ban-types
-    onChange?: Function;
     placeholder?: string;
     readonly?: boolean;
     error?: React.ReactNode;
-    required?: boolean;
-    disabled?: boolean;
     label?: React.ReactNode;
-}
+};
 
-const Input = styled.textarea<Props>`
+const Input = styled.textarea<TextAreaProps>`
     display: block;
     width: 100%;
     border-radius: 4px;
@@ -47,7 +43,7 @@ const Message = styled.div`
     margin-top: 4px;
 `;
 
-export const TextArea = React.forwardRef<HTMLTextAreaElement, Props>((props: Props, ref) => {
+export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>((props: TextAreaProps, ref) => {
     return (
         <Divver>
             {props.label && <Label required={props.required || false}>{props.label}</Label>}
@@ -56,5 +52,3 @@ export const TextArea = React.forwardRef<HTMLTextAreaElement, Props>((props: Pro
         </Divver>
     );
 });
-
-export type TextAreaProps = ComponentProps<typeof TextArea>;
