@@ -296,7 +296,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             border: solid 1px ${cv.bg_element1};
 
             &:hover {
-                background-color: ${cv.bg_element2};
+                background-color: ${cv.bg_element3};
             }
 
             &:active {
