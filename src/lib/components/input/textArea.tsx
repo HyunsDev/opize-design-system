@@ -1,4 +1,4 @@
-import React, { ComponentProps } from 'react';
+import React, { ChangeEvent, ComponentProps } from 'react';
 import styled from 'styled-components';
 import { cv } from '../../style';
 import { Label } from './label';
@@ -12,6 +12,8 @@ export type TextAreaProps = React.ComponentPropsWithoutRef<'textarea'> & {
     readonly?: boolean;
     error?: React.ReactNode;
     label?: React.ReactNode;
+    required?: boolean;
+    onChange?: (e: ChangeEvent<HTMLTextAreaElement>) => void;
 };
 
 const Input = styled.textarea<TextAreaProps>`
