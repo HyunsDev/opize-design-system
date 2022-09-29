@@ -205,7 +205,11 @@ export function ActionMenu({ actions, children, ...props }: ActionMenuProps) {
                 }}
             >
                 {isOpen && (
-                    <OverlayDiv {...direction} ref={overlayRef} buttonHeight={buttonRef.current?.offsetHeight || 30}>
+                    <OverlayDiv
+                        {...direction}
+                        ref={overlayRef}
+                        buttonHeight={(buttonRef.current?.offsetHeight && buttonRef.current.offsetHeight + 4) || 34}
+                    >
                         {actions.map((e, i) => (
                             <ActionsDiv key={i}>
                                 {e.map((action, ii) => (

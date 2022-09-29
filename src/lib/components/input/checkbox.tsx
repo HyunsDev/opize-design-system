@@ -10,49 +10,49 @@ const CheckBoxDiv = styled.div`
     gap: 8px;
 `;
 
-interface InputCheckBoxProps {
-    backgroundColor: string;
-    backgroundColorHover: string;
-    borderColor: string;
-    borderColorHover: string;
-    checked?: boolean;
-    disabled?: boolean;
-}
-
-const Input = styled.input<InputCheckBoxProps>`
+const Input = styled.input`
     appearance: none;
 
-    width: 22px;
-    height: 22px;
-    min-width: 22px;
-    min-height: 22px;
+    width: 24px;
+    height: 24px;
+    min-width: 24px;
+    min-height: 24px;
     border-radius: 4px;
-    border: solid 1px ${(props) => props.borderColor};
-    background: ${(props) => props.backgroundColor};
     display: flex;
     align-items: center;
     justify-content: center;
     transition: 200ms;
 
-    cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
+    border: solid 1px ${cv.border4};
+    background: ${cv.bg_element2};
+    cursor: pointer;
 
-    &:hover {
-        border: solid 1px ${(props) => props.borderColorHover};
+    &:disabled {
+        cursor: not-allowed;
+        background-color: ${cv.bg_element4};
+        border: solid 1px ${cv.bg_element4};
     }
 
     &:checked {
         border-color: transparent;
-        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='white' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpolyline points='19 7 10 17 5 12' /%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' stroke='white' fill='transparent' stroke-width='2' viewBox='0 0 24 24'%3E%3Cpolyline points='19 7 10 17 5 12' /%3E%3C/svg%3E");
         background-size: 100% 100%;
         background-position: 50%;
         background-repeat: no-repeat;
-        background-color: ${cv.bg_element5};
+        background-color: ${cv.blue1};
+        border: solid 1px ${cv.blue1};
+
+        &:disabled {
+            background-color: ${cv.bg_element4};
+            border: solid 1px ${cv.bg_element4};
+        }
     }
 `;
 
 const Text = styled.div<{ required: boolean }>`
     display: block;
     font-size: 14px;
+    color: ${cv.text1};
 
     ${(props) =>
         props.required &&
@@ -65,7 +65,7 @@ const Text = styled.div<{ required: boolean }>`
 
 interface Props {
     checked?: boolean;
-    onChange?: any;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
     label?: React.ReactNode;
     text?: React.ReactNode;
     disabled?: boolean;
@@ -73,33 +73,6 @@ interface Props {
 }
 
 export const Checkbox = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
-    const style = {
-        backgroundColor: '',
-        backgroundColorHover: '',
-        borderColor: '',
-        borderColorHover: '',
-    };
-
-    if (props.checked) {
-        if (props.disabled) {
-            style.backgroundColor = cv.bg_element6;
-            style.backgroundColorHover = cv.bg_element6;
-            style.borderColor = cv.bg_element6;
-            style.borderColorHover = cv.bg_element6;
-        } else {
-            style.backgroundColor = cv.bg_element5;
-            style.backgroundColorHover = cv.bg_element5;
-            style.borderColor = cv.bg_element5;
-            style.borderColorHover = cv.bg_element5;
-        }
-    } else if (props.disabled) {
-        style.borderColor = cv.border3;
-        style.borderColorHover = cv.border3;
-    } else {
-        style.borderColor = cv.border3;
-        style.borderColorHover = cv.border3;
-    }
-
     return (
         <Flex
             style={{
@@ -108,7 +81,7 @@ export const Checkbox = React.forwardRef<HTMLInputElement, Props>((props: Props,
         >
             {props.label && <Label required={props.required || false}>{props.label}</Label>}
             <CheckBoxDiv>
-                <Input type="checkbox" {...style} {...props} ref={ref} />
+                <Input type="checkbox" {...props} ref={ref} />
                 <Text required={props.required || false}>{props.text}</Text>
             </CheckBoxDiv>
         </Flex>

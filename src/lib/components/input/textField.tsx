@@ -22,16 +22,17 @@ export type TextFieldProps = React.ComponentPropsWithoutRef<'input'> & {
     rightAddon?: React.ReactNode | ButtonAddon;
     border?: 'all' | 'bottom' | 'none';
     placeholder?: string;
+    readOnly?: boolean;
 };
 
 const Divver = styled.div`
     width: 100%;
 `;
 
-const Input = styled.input<{ border: 'all' | 'bottom' | 'none' }>`
+const Input = styled.input<{ border: 'all' | 'bottom' | 'none'; readOnly: boolean }>`
     z-index: 1;
     padding: 0px 12px;
-    height: 32px;
+    height: 34px;
     display: flex;
     align-items: center;
     transition: 200ms;
@@ -41,28 +42,17 @@ const Input = styled.input<{ border: 'all' | 'bottom' | 'none' }>`
     font-size: 14px;
     outline: solid 3px rgba(0, 0, 0, 0);
     box-shadow: 0px 0px 3px transparent;
+    background-color: ${(props) => (props.readOnly ? cv.bg_element3 : cv.bg_element2)};
+    color: ${cv.text1};
 
     ${(props) =>
         props.border === 'all'
             ? css`
-                  border-radius: 2px;
+                  border-radius: 4px;
               `
             : props.border === 'bottom'
             ? css``
             : ''}
-
-    &:focus {
-        ${(props) =>
-            props.border === 'all'
-                ? css`
-                      outline: solid 3px ${cv.outline};
-                  `
-                : props.border === 'bottom'
-                ? css`
-                      box-shadow: 0px 3px 0px ${cv.outline};
-                  `
-                : ''}
-    }
 
     &::placeholder {
         color: ${cv.text3};
@@ -76,19 +66,35 @@ const Message = styled.div`
     margin-top: 4px;
 `;
 
-const Inputs = styled.div<{ border: 'all' | 'bottom' | 'none' }>`
+const Inputs = styled.div<{ border: 'all' | 'bottom' | 'none'; readOnly: boolean }>`
     display: flex;
     align-items: center;
+    transition: 150ms;
+    background-color: ${cv.bg_element2};
     height: 36px;
     ${(props) =>
         props.border === 'all'
             ? css`
                   border-radius: 4px;
-                  border: solid 1px ${cv.border3};
+                  border: solid 1px ${cv.border4};
+
+                  ${!props.readOnly &&
+                  css`
+                      &:focus-within {
+                          border: solid 1px ${cv.border2};
+                      }
+                  `}
               `
             : props.border === 'bottom'
             ? css`
-                  border-bottom: solid 1px ${cv.border3};
+                  border-bottom: solid 1px ${cv.border4};
+
+                  ${!props.readOnly &&
+                  css`
+                      &:focus-within {
+                          border-bottom: solid 1px ${cv.border2};
+                      }
+                  `}
               `
             : ''}
 `;
@@ -142,30 +148,40 @@ function Addon({ position, data }: { position: 'left' | 'right'; data: ButtonAdd
     return <></>;
 }
 
-export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>((props: TextFieldProps, ref) => {
-    return (
-        <IconContext.Provider
-            value={{
-                weight: 'bold',
-                size: 14,
-                color: cv.text5,
-            }}
-        >
-            <Divver>
-                {props.label && <Label required={props.required || false}>{props.label}</Label>}
-                <Inputs border={props.border || 'all'}>
-                    {props.leftAddon && <Addon position="left" data={props.leftAddon} />}
-                    <Input
-                        {...props}
-                        value={props.value}
-                        ref={ref}
-                        type={props.type || 'text'}
-                        border={props.border || 'all'}
-                    />
-                    {props.rightAddon && <Addon position="right" data={props.rightAddon} />}
-                </Inputs>
-                {props.error && <Message>{props.error}</Message>}
-            </Divver>
-        </IconContext.Provider>
-    );
-});
+export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
+    (
+        {
+            label,
+            required = false,
+            border = 'all',
+            leftAddon,
+            rightAddon,
+            value,
+            type = 'text',
+            readOnly = false,
+            error,
+            ...props
+        }: TextFieldProps,
+        ref
+    ) => {
+        return (
+            <IconContext.Provider
+                value={{
+                    weight: 'bold',
+                    size: 14,
+                    color: cv.text5,
+                }}
+            >
+                <Divver>
+                    {label && <Label required={required}>{label}</Label>}
+                    <Inputs border={border} readOnly={readOnly}>
+                        {leftAddon && <Addon position="left" data={leftAddon} />}
+                        <Input {...props} value={value} ref={ref} type={type} border={border} readOnly={readOnly} />
+                        {rightAddon && <Addon position="right" data={rightAddon} />}
+                    </Inputs>
+                    {error && <Message>{error}</Message>}
+                </Divver>
+            </IconContext.Provider>
+        );
+    }
+);

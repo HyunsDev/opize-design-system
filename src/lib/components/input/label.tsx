@@ -4,9 +4,9 @@ import { cv } from '../../style';
 
 export const Label = styled.label<{ required: boolean }>`
     display: block;
-    font-size: 12px;
-    color: ${cv.text3};
-    margin-bottom: 4px;
+    font-size: 14px;
+    color: ${cv.text2};
+    margin-bottom: 6px;
 
     ${(props) =>
         props.required &&

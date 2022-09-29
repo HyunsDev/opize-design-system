@@ -5,6 +5,7 @@ interface ThemeVariables {
     bg_page2: string;
 
     bg_element1: string;
+    bg_element1_1: string;
     bg_element2: string;
     bg_element3: string;
     bg_element4: string;
@@ -40,7 +41,7 @@ interface ThemeVariables {
     bg_blue1_hover: string;
 }
 
-type Theme = 'light';
+type Theme = 'light' | 'dark';
 type VariableKey = keyof ThemeVariables;
 type ThemedPalette = Record<VariableKey, string>;
 
@@ -54,6 +55,7 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
         bg_page2: '#FFFFFF',
 
         bg_element1: '#FFFFFF',
+        bg_element1_1: '#F5F6F8',
         bg_element2: '#F5F6F8',
         bg_element3: '#E9ECEF',
         bg_element4: '#DEE2E6',
@@ -65,29 +67,73 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
         border2: '#ADB5BD',
         border3: '#c9d1da', // gray4
         border4: '#e5e9ec',
-        outline: '#acd7ff', // blue3
+        outline: 'rgba(43, 153, 255, 0.4)', // blue3
 
         text1: '#212529',
         text2: '#495057',
-        text3: '#868E96', // gray5
+        text3: '#9199a1', // gray5
         text4: '#CED4DA',
         text5: '#FFFFFF',
 
         red1: 'rgba(216, 80, 74, 1)',
-        bg_red1: 'rgba(216, 80, 74, 0.1)',
-        bg_red1_hover: 'rgba(216, 80, 74, 0.15)',
+        bg_red1: 'rgba(216, 80, 74, 0.2)',
+        bg_red1_hover: 'rgba(216, 80, 74, 0.25)',
 
         yellow1: 'rgba(250, 175, 0, 1)',
-        bg_yellow1: 'rgba(250, 175, 0, 0.1)',
-        bg_yellow1_hover: 'rgba(250, 175, 0, 0.15)',
+        bg_yellow1: 'rgba(250, 175, 0, 0.2)',
+        bg_yellow1_hover: 'rgba(250, 175, 0, 0.25)',
 
         green1: 'rgba(57, 183, 93, 1)',
-        bg_green1: 'rgba(57, 183, 93, 0.1)',
-        bg_green1_hover: 'rgba(57, 183, 93, 0.15)',
+        bg_green1: 'rgba(57, 183, 93, 0.2)',
+        bg_green1_hover: 'rgba(57, 183, 93, 0.25)',
 
         blue1: 'rgba(32, 151, 246, 1)',
-        bg_blue1: 'rgba(32, 151, 246, 0.1)',
-        bg_blue1_hover: 'rgba(32, 151, 246, 0.15)',
+        bg_blue1: 'rgba(32, 151, 246, 0.2)',
+        bg_blue1_hover: 'rgba(32, 151, 246, 0.25)',
+    },
+    dark: {
+        white: '#fff',
+        black: '#000',
+
+        bg_page1: '#303236',
+        bg_page2: '#26272b',
+
+        bg_element1: '#26272b',
+        bg_element1_1: '#323438',
+        bg_element2: '#3c3e46',
+        bg_element3: '#4a4b53',
+        bg_element4: '#676a74',
+
+        bg_element5: '#ecf0f3',
+        bg_element6: '#e2e6eb',
+
+        border1: '#ecf0f3',
+        border2: '#97a0a7',
+        border3: '#43454d', // gray4
+        border4: '#323438',
+        outline: 'rgba(43, 153, 255, 0.4)', // blue3
+
+        text1: '#f2f5f8',
+        text2: '#95a0aa',
+        text3: '#6a7179', // gray5
+        text4: '#464b50',
+        text5: '#000000',
+
+        red1: 'rgba(216, 80, 74, 1)',
+        bg_red1: 'rgba(216, 80, 74, 0.2)',
+        bg_red1_hover: 'rgba(216, 80, 74, 0.25)',
+
+        yellow1: 'rgba(250, 175, 0, 1)',
+        bg_yellow1: 'rgba(250, 175, 0, 0.2)',
+        bg_yellow1_hover: 'rgba(250, 175, 0, 0.25)',
+
+        green1: 'rgba(57, 183, 93, 1)',
+        bg_green1: 'rgba(57, 183, 93, 0.2)',
+        bg_green1_hover: 'rgba(57, 183, 93, 0.25)',
+
+        blue1: 'rgba(32, 151, 246, 1)',
+        bg_blue1: 'rgba(32, 151, 246, 0.2)',
+        bg_blue1_hover: 'rgba(32, 151, 246, 0.25)',
     },
 };
 
@@ -98,6 +144,7 @@ const buildCssVariables = (variables: ThemeVariables) => {
 
 export const themes = {
     light: buildCssVariables(themeVariableSets.light),
+    dark: buildCssVariables(themeVariableSets.dark),
 };
 
 const cssVar = (name: string) => `var(--${name.replace(/_/g, '-')})`;

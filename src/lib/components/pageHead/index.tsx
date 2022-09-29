@@ -23,6 +23,7 @@ const Inner = styled.div`
 const Title = styled.h1`
     font-size: 32px;
     font-weight: 500;
+    color: ${cv.text1};
 `;
 
 export interface PageHeadProps {

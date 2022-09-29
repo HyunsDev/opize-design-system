@@ -13,12 +13,12 @@ const TextsDiv = styled.div<{ flex?: number }>`
 
 const TextDiv = styled.div`
     font-weight: 600;
-    color: ${cv.text2};
+    color: ${cv.text1};
     font-size: 14px;
 `;
 
 const SubTextDiv = styled.div`
-    color: ${cv.text3};
+    color: ${cv.text2};
     font-size: 14px;
 `;
 

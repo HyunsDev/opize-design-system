@@ -11,9 +11,6 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         font-family: "Inter", 'Noto Sans KR', -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
         -webkit-tap-highlight-color : transparent;
-        ::selection {
-            background: #74fde0;
-        }
     }
 
     :root {
@@ -29,16 +26,28 @@ const GlobalStyles = createGlobalStyle`
 
     @media (prefers-color-scheme: dark) {
         body {
-            ${themes.light}
+            ${themes.dark}
         }
     }
 
     body[data-theme='light'] {
         ${themes.light};
+
+        * {
+            ::selection {
+                background: #74fde0;
+            }
+        }
     }
 
     body[data-theme='dark'] {
-        ${themes.light};
+        ${themes.dark};
+
+        * {
+            ::selection {
+                background: #7270ff;
+            }
+        }
     }
 
     a {

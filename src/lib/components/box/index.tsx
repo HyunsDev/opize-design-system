@@ -6,6 +6,7 @@ import { Button, ButtonProps } from '../button';
 const BoxOuter = styled.div`
     border: solid 1px ${cv.border3};
     border-radius: 4px;
+    color: ${cv.text1};
 `;
 
 const BoxDiv = styled.div`

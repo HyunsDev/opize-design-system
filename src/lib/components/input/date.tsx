@@ -12,12 +12,19 @@ export type DateProps = React.ComponentPropsWithoutRef<'input'> & {
 
 const Divver = styled.div`
     position: relative;
-    border: solid 1px ${cv.border3};
+    border: solid 1px ${cv.border4};
+    background-color: ${cv.bg_element2};
     display: flex;
     align-items: center;
     border-radius: 4px;
     height: 36px;
     font-size: 0.875rem;
+
+    color: ${cv.text1};
+    transition: 150ms;
+    &:focus-within {
+        border: solid 1px ${cv.border2};
+    }
 `;
 
 const StyledInput = styled.input`
@@ -34,11 +41,10 @@ const StyledInput = styled.input`
     height: 100%;
 
     transition: 200ms;
-    outline: solid 3px rgba(0, 0, 0, 0);
+    background-color: inherit;
 
     &:focus-within {
-        border: 0;
-        outline: solid 3px ${cv.outline};
+        outline: 0;
     }
 
     &::-webkit-datetime-edit-ampm-field,
@@ -54,6 +60,7 @@ const StyledInput = styled.input`
     }
 
     &::-webkit-calendar-picker-indicator {
+        stroke: ${cv.text1};
         cursor: pointer;
     }
 `;

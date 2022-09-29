@@ -23,14 +23,16 @@ const Input = styled.textarea<TextAreaProps>`
     padding: 6px 12px;
     resize: vertical;
     height: 100px;
-    font-size: 0.875rem;
+    font-size: 14px;
 
+    background-color: ${cv.bg_element2};
+    color: ${cv.text1};
     transition: 100ms, height 0ms;
-    border: solid 1px ${cv.border3};
-    outline: solid 0px ${cv.outline};
+    border: solid 1px ${cv.border4};
 
     &:focus {
-        outline: solid 3px ${cv.outline};
+        outline: 0;
+        border: solid 1px ${cv.border2};
     }
 
     &::placeholder {

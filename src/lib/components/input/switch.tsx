@@ -1,5 +1,5 @@
 import React, { ComponentProps } from 'react';
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
 import { cv } from '../../style';
 import { Label } from './label';
 import { Flex } from '..';
@@ -8,6 +8,18 @@ const SwitchDiv = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
+`;
+
+const CircleAnimation = keyframes`
+    0% {
+        transform: scaleX(1)
+    }
+    50% {
+        transform: scaleX(1.3)
+    }
+    100% {
+        transform: scaleX(1)
+    }
 `;
 
 interface InputSwitchProps {
@@ -22,15 +34,14 @@ interface InputSwitchProps {
 const Input = styled.input<InputSwitchProps>`
     appearance: none;
 
-    width: 40px;
+    width: 44px;
     height: 24px;
     border-radius: 12px;
-    border: solid 1px ${cv.border3};
     background: ${cv.bg_element4};
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 150ms;
+    transition: 250ms;
     position: relative;
 
     cursor: ${(props) => (props.disabled ? 'not-allowed' : 'pointer')};
@@ -42,18 +53,19 @@ const Input = styled.input<InputSwitchProps>`
     ::after {
         content: '';
         position: absolute;
-        top: 1px;
-        left: 2px;
-        width: 20px;
-        height: 20px;
+        top: 3px;
+        left: 4px;
+        width: 18px;
+        height: 18px;
         border-radius: 10px;
-        background-color: ${cv.text5};
-        transition: 150ms;
+        background-color: ${cv.white};
+        transition: 250ms;
     }
 
     &:checked {
         ::after {
-            left: 16px;
+            left: 22px;
+            animation: ${CircleAnimation} 250ms cubic-bezier(0, 0, 0.16, 0.99) forwards;
         }
     }
 `;
@@ -75,7 +87,7 @@ const Text = styled.div<{ required: boolean }>`
 
 interface Props {
     checked?: boolean;
-    onChange?: any;
+    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
     label?: React.ReactNode;
     text?: React.ReactNode;
     disabled?: boolean;
@@ -102,7 +114,7 @@ export const Switch = React.forwardRef<HTMLInputElement, Props>((props: Props, r
         >
             {props.label && <Label required={props.required || false}>{props.label}</Label>}
             <SwitchDiv>
-                <Input type="checkbox" {...style} {...props} ref={ref} />
+                <Input type="checkbox" {...style} {...props} ref={ref} onChange={props.onChange} />
                 <Text required={props.required || false}>{props.text}</Text>
             </SwitchDiv>
         </Flex>

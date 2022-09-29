@@ -10,12 +10,19 @@ export type SelectProps = React.ComponentPropsWithoutRef<'select'> & { label?: s
 
 const Divver = styled.div`
     position: relative;
-    border: solid 1px ${cv.border3};
+    border: solid 1px ${cv.border4};
     display: flex;
     align-items: center;
     border-radius: 4px;
     height: 36px;
-    font-size: 0.875rem;
+    font-size: 14px;
+    background-color: ${cv.bg_element2};
+
+    color: ${cv.text1};
+    transition: 150ms;
+    &:focus-within {
+        border: solid 1px ${cv.border2};
+    }
 `;
 
 const StyledSelect = styled.select`
@@ -30,12 +37,8 @@ const StyledSelect = styled.select`
 
     padding: 0px 12px;
     height: 100%;
-
-    transition: 200ms;
-    outline: solid 3px rgba(0, 0, 0, 0);
     &:focus-within {
-        border: 0;
-        outline: solid 3px ${cv.outline};
+        outline: 0;
     }
 
     /* Firefox hacks */
@@ -75,7 +78,7 @@ const SelectA = React.forwardRef<HTMLSelectElement, SelectProps>((props: SelectP
                 <StyledSelect ref={ref} required={props.required} disabled={props.disabled} {...props}>
                     {props.children}
                 </StyledSelect>
-                <Icon size={16} color={cv.text2} />
+                <Icon size={16} color={cv.text1} />
             </Divver>
         </Flex>
     );

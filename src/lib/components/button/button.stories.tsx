@@ -55,6 +55,7 @@ export const Loading = LoadingTemplate.bind({});
 Loading.args = {
     icon: <Check />,
     children: 'hello, World!',
+    width: '200px',
 };
 
 const AllButtonTemplate: ComponentStory<typeof Button> = (args) => {
@@ -66,7 +67,7 @@ const AllButtonTemplate: ComponentStory<typeof Button> = (args) => {
                 <TextField label="Children" value={text} onChange={(e) => setText(e.target.value)} />
             </Flex.Row>
             <Flex.Row gap="8px">
-                <Text style={{ width: '100px' }}>"contained"</Text>
+                <Text style={{ width: '100px' }}>contained</Text>
                 <Button variant="contained" color="gray">
                     {text}
                 </Button>
@@ -96,7 +97,7 @@ const AllButtonTemplate: ComponentStory<typeof Button> = (args) => {
                 </Button>
             </Flex.Row>
             <Flex.Row gap="8px">
-                <Text style={{ width: '100px' }}>"default"</Text>
+                <Text style={{ width: '100px' }}>default</Text>
                 <Button variant="default" color="gray">
                     {text}
                 </Button>
@@ -126,7 +127,7 @@ const AllButtonTemplate: ComponentStory<typeof Button> = (args) => {
                 </Button>
             </Flex.Row>
             <Flex.Row gap="8px">
-                <Text style={{ width: '100px' }}>"outlined"</Text>
+                <Text style={{ width: '100px' }}>outlined</Text>
                 <Button variant="outlined" color="gray">
                     {text}
                 </Button>
@@ -156,7 +157,7 @@ const AllButtonTemplate: ComponentStory<typeof Button> = (args) => {
                 </Button>
             </Flex.Row>
             <Flex.Row gap="8px">
-                <Text style={{ width: '100px' }}>"gray"</Text>
+                <Text style={{ width: '100px' }}>gray</Text>
                 <Button variant="text" color="gray">
                     {text}
                 </Button>

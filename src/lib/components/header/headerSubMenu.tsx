@@ -1,6 +1,7 @@
-import React, { ComponentProps, useEffect, useState } from 'react';
+import React, { ComponentProps, useCallback, useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
 import { TabNav } from '..';
+import { useHeaderNotice } from '../../hooks';
 import { cv } from '../../style';
 
 const DivverOuter = styled.div<{ isScrolled: boolean }>`
@@ -44,17 +45,19 @@ const Divver = styled.div`
 export const HeaderSubMenu = Object.assign(
     (props: ComponentProps<typeof TabNav>) => {
         const [isScrolled, setScrolled] = useState(false);
+        const { isOpen } = useHeaderNotice();
+
+        const listener = useCallback(() => {
+            const height = isOpen ? 85 : 50;
+            setScrolled(window.scrollY > height);
+        }, [isOpen]);
 
         useEffect(() => {
-            const listener = () => {
-                setScrolled(window.scrollY > 64 - 10);
-            };
-
             window.addEventListener('scroll', listener);
             return () => {
                 window.removeEventListener('scroll', listener);
             };
-        }, []);
+        }, [listener]);
 
         return (
             <DivverOuter isScrolled={isScrolled}>

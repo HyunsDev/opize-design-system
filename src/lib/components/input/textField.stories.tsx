@@ -12,6 +12,9 @@ export default {
         label: {
             control: { type: 'text' },
         },
+        readOnly: {
+            control: { type: 'boolean' },
+        },
     },
 } as ComponentMeta<typeof TextField>;
 
@@ -27,7 +30,9 @@ const Template: ComponentStory<typeof TextField> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+    placeholder: 'PlaceHolder',
+};
 
 export const Addon = Template.bind({});
 Addon.args = {
