@@ -1,12 +1,14 @@
 import { useEffect } from 'react';
 import { useDarkMode } from 'storybook-dark-mode';
+import { useColorTheme } from '../../src/lib';
 
 export function ThemeSwitcher() {
     const isDarkMode = useDarkMode();
+    const { setColorTheme } = useColorTheme();
 
     useEffect(() => {
-        document.querySelector('body')!.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-    }, [isDarkMode]);
+        setColorTheme(isDarkMode ? 'dark' : 'light');
+    }, []);
 
     return '';
 }

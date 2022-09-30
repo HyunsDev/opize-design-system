@@ -1,4 +1,5 @@
 import React from 'react';
+import ColorThemeProvider from '../hooks/useColorTheme/colorThemeContext';
 import HeaderNoticeProvider from '../hooks/useHeaderNotice/context';
 import ModalContextProvider from '../hooks/useModal/modalContext';
 import TopLoadingContextProvider from '../hooks/useTopLoading/context';
@@ -13,14 +14,16 @@ export function OpizeContextProvider({
     initLink?: React.ElementType<any>;
 }) {
     return (
-        <LinkContextProvider initLink={initLink}>
-            <ModalContextProvider>
-                <HeaderNoticeProvider>
-                    <TabNavContextProvider>
-                        <TopLoadingContextProvider>{children}</TopLoadingContextProvider>
-                    </TabNavContextProvider>
-                </HeaderNoticeProvider>
-            </ModalContextProvider>
-        </LinkContextProvider>
+        <ColorThemeProvider>
+            <LinkContextProvider initLink={initLink}>
+                <ModalContextProvider>
+                    <HeaderNoticeProvider>
+                        <TabNavContextProvider>
+                            <TopLoadingContextProvider>{children}</TopLoadingContextProvider>
+                        </TabNavContextProvider>
+                    </HeaderNoticeProvider>
+                </ModalContextProvider>
+            </LinkContextProvider>
+        </ColorThemeProvider>
     );
 }

@@ -53,9 +53,11 @@ export const decorators = [
     (Story) => {
         return (
             <>
-                <ThemeSwitcher />
                 <OpizeWrapper initLink={Link}>
-                    <Story />
+                    <>
+                        <ThemeSwitcher />
+                        <Story />
+                    </>
                 </OpizeWrapper>
             </>
         );
