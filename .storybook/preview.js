@@ -23,9 +23,9 @@ export const parameters = {
         dark: {
             ...themes.dark,
             ...baseTheme,
-            appBg: '#303236',
-            appContentBg: '#26272b',
-            barBg: '#303236',
+            appBg: '#252629',
+            appContentBg: '#1a1b1d',
+            barBg: '#252629',
             inputBg: '#3c3e46',
             brandImage: 'https://media.discordapp.net/attachments/761930839893606400/1024845006483238953/unknown.png',
         },
