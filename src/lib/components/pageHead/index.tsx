@@ -10,11 +10,12 @@ const Outer = styled.div`
     height: 128px;
     display: flex;
     align-items: center;
+    justify-content: center;
 `;
 
 const Inner = styled.div`
     width: ${cv.pageWidth};
-    margin: 0 auto;
+    margin: 0px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;

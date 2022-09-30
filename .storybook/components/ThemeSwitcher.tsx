@@ -8,7 +8,7 @@ export function ThemeSwitcher() {
 
     useEffect(() => {
         setColorTheme(isDarkMode ? 'dark' : 'light');
-    }, []);
+    }, [isDarkMode]);
 
     return '';
 }

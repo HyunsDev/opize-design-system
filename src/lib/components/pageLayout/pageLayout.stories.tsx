@@ -19,7 +19,7 @@ export default {
                 type: 'text',
             },
         },
-        margin: {
+        gutter: {
             control: {
                 type: 'text',
             },
@@ -80,7 +80,7 @@ const Template: ComponentStory<typeof PageLayout> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {
     gap: '8px',
-    margin: '0px',
+    gutter: '24px',
     panPosition: 'end',
     panWidth: '300px',
     width: '1200px',

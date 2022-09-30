@@ -42,13 +42,15 @@ const PageLayoutOuter = styled.div<{ backgroundColor: string; marginTop: string 
     width: 100%;
     background-color: ${(props) => props.backgroundColor};
     margin-top: ${(props) => props.marginTop};
+    display: flex;
+    justify-content: center;
 `;
 
 interface PageLayoutInnerProps {
     width: string;
     gap: string;
     panPosition: 'start' | 'end';
-    margin: string;
+    gutter: string;
     panWidth: string;
 }
 const PageLayoutInner = styled.div<PageLayoutInnerProps>`
@@ -56,9 +58,8 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
     width: 100%;
     max-width: ${(props) => props.width};
     row-gap: ${(props) => props.gap};
-    margin: 0 auto;
     justify-items: stretch;
-    padding: ${(props) => props.margin};
+    margin: 0px ${(props) => props.gutter};
 
     --local-pan-width: ${(props) => props.panWidth};
     --local-pan-margin-left: ${(props) => (props.panPosition === 'start' ? '0px' : props.gap)};
@@ -88,6 +89,7 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
             'pane'
             'footer';
         grid-template-columns: 1fr;
+        margin: 0px 4px;
     }
 `;
 
@@ -98,13 +100,13 @@ interface PageLayoutRootProps {
     panPosition?: 'start' | 'end';
     backgroundColor?: string;
     children?: React.ReactNode;
-    margin?: string;
+    gutter?: string;
     panWidth?: string;
 }
 function PageLayoutRoot({
     width = cv.pageWidth,
     gap = '8px',
-    margin = '0px',
+    gutter = '24px',
     panPosition = 'end',
     backgroundColor,
     children,
@@ -113,7 +115,7 @@ function PageLayoutRoot({
 }: PageLayoutRootProps) {
     return (
         <PageLayoutOuter marginTop={marginTop} backgroundColor={backgroundColor || cv.bg_page2}>
-            <PageLayoutInner width={width} gap={gap} panPosition={panPosition} margin={margin} panWidth={panWidth}>
+            <PageLayoutInner width={width} gap={gap} panPosition={panPosition} gutter={gutter} panWidth={panWidth}>
                 {children}
             </PageLayoutInner>
         </PageLayoutOuter>

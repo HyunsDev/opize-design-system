@@ -46,6 +46,8 @@ const BoxFooterDiv = styled.div`
     background-color: ${cv.bg_element2};
     border-top: solid 1px ${cv.border3};
     font-size: 0.875rem;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
 `;
 function BoxFooter(props: { text: React.ReactNode; button: ButtonProps }) {
     return (
@@ -85,7 +87,7 @@ export interface BoxProps {
 /**
  * 디자인을 위한 컴포넌트입니다.
  *
- * 만약 레이아웃만을 위한 태그가 필요하다면 <Flex>를 사용해주세요.
+ * 만약 레이아웃만을 위한 태그가 필요하다면 \<Flex\>를 사용해주세요.
  */
 export function Box(props: BoxProps) {
     if (props.footer && props.footerTemplate) {

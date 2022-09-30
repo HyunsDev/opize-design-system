@@ -55,7 +55,7 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
         bg_page2: '#FFFFFF',
 
         bg_element1: '#FFFFFF',
-        bg_element1_1: '#F5F6F8',
+        bg_element1_1: '#fcfcfc',
         bg_element2: '#F5F6F8',
         bg_element3: '#E9ECEF',
         bg_element4: '#DEE2E6',
@@ -77,40 +77,40 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
 
         red1: 'rgba(216, 80, 74, 1)',
         bg_red1: 'rgba(216, 80, 74, 0.2)',
-        bg_red1_hover: 'rgba(216, 80, 74, 0.25)',
+        bg_red1_hover: 'rgba(216, 80, 74, 0.3)',
 
         yellow1: 'rgba(250, 175, 0, 1)',
         bg_yellow1: 'rgba(250, 175, 0, 0.2)',
-        bg_yellow1_hover: 'rgba(250, 175, 0, 0.25)',
+        bg_yellow1_hover: 'rgba(250, 175, 0, 0.3)',
 
         green1: 'rgba(57, 183, 93, 1)',
         bg_green1: 'rgba(57, 183, 93, 0.2)',
-        bg_green1_hover: 'rgba(57, 183, 93, 0.25)',
+        bg_green1_hover: 'rgba(57, 183, 93, 0.3)',
 
         blue1: 'rgba(32, 151, 246, 1)',
         bg_blue1: 'rgba(32, 151, 246, 0.2)',
-        bg_blue1_hover: 'rgba(32, 151, 246, 0.25)',
+        bg_blue1_hover: 'rgba(32, 151, 246, 0.3)',
     },
     dark: {
         white: '#fff',
         black: '#000',
 
-        bg_page1: '#303236',
-        bg_page2: '#26272b',
+        bg_page1: '#252629',
+        bg_page2: '#1a1b1d',
 
-        bg_element1: '#26272b',
-        bg_element1_1: '#323438',
-        bg_element2: '#3c3e46',
-        bg_element3: '#4a4b53',
-        bg_element4: '#676a74',
+        bg_element1: '#1a1b1d',
+        bg_element1_1: '#252629',
+        bg_element2: '#313238',
+        bg_element3: '#404147',
+        bg_element4: '#5a5c64',
 
         bg_element5: '#ecf0f3',
         bg_element6: '#e2e6eb',
 
         border1: '#ecf0f3',
-        border2: '#97a0a7',
-        border3: '#43454d', // gray4
-        border4: '#323438',
+        border2: '#8d959b',
+        border3: '#3a3c42', // gray4
+        border4: '#26282b',
         outline: 'rgba(43, 153, 255, 0.4)', // blue3
 
         text1: '#f2f5f8',
@@ -121,19 +121,19 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
 
         red1: 'rgba(216, 80, 74, 1)',
         bg_red1: 'rgba(216, 80, 74, 0.2)',
-        bg_red1_hover: 'rgba(216, 80, 74, 0.25)',
+        bg_red1_hover: 'rgba(216, 80, 74, 0.3)',
 
         yellow1: 'rgba(250, 175, 0, 1)',
         bg_yellow1: 'rgba(250, 175, 0, 0.2)',
-        bg_yellow1_hover: 'rgba(250, 175, 0, 0.25)',
+        bg_yellow1_hover: 'rgba(250, 175, 0, 0.3)',
 
         green1: 'rgba(57, 183, 93, 1)',
         bg_green1: 'rgba(57, 183, 93, 0.2)',
-        bg_green1_hover: 'rgba(57, 183, 93, 0.25)',
+        bg_green1_hover: 'rgba(57, 183, 93, 0.3)',
 
         blue1: 'rgba(32, 151, 246, 1)',
         bg_blue1: 'rgba(32, 151, 246, 0.2)',
-        bg_blue1_hover: 'rgba(32, 151, 246, 0.25)',
+        bg_blue1_hover: 'rgba(32, 151, 246, 0.3)',
     },
 };
 
