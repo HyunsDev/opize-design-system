@@ -13,7 +13,8 @@ export default {
 };
 
 const Divver = styled.div`
-    padding: 100px 16px;
+    padding: 16px 16px;
+    padding-bottom: 200px;
     background-color: ${cv.bg_page2};
 `;
 
@@ -53,8 +54,6 @@ function Template() {
                 >
                     색상 변경
                 </ActionMenu>
-                <br />
-                <Text color={cv.text3}>이 페이지의 색상 변경은 스토리북의 다크모드 전환과 별개로 동작합니다.</Text>
             </div>
         </Divver>
     );
