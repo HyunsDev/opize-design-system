@@ -1,4 +1,4 @@
-import React, { useMemo, createContext, useState } from 'react';
+import React, { useMemo, createContext, useState, useEffect, useCallback } from 'react';
 
 type ColorTheme = 'light' | 'dark' | 'system';
 type NowColorTheme = 'light' | 'dark';
@@ -21,39 +21,35 @@ export const ColorThemeContext = createContext<ColorThemeContextProps>({
     setColorTheme: () => null,
 });
 
-const getUserPreferColor = () =>
-    window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light';
-const initColorTheme: {
-    mode: ColorTheme;
-    theme: NowColorTheme;
-} = (() => {
-    const savedTheme = typeof window === 'undefined' ? 'light' : localStorage.getItem('theme');
-    if (savedTheme === 'dark')
-        return {
-            mode: 'dark',
-            theme: 'dark',
-        };
-    if (savedTheme === 'light')
-        return {
-            mode: 'light',
-            theme: 'light',
-        };
-
-    const isUserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
-    return {
-        mode: 'system',
-        theme: isUserDark ? 'dark' : 'light',
-    };
-})();
-
 function ColorThemeProvider({ children }: { children: React.ReactNode }) {
-    const [colorTheme, setColorTheme] = useState<ColorTheme>(initColorTheme.mode);
-    const [nowColorTheme, setNowColorTheme] = useState<NowColorTheme>(initColorTheme.theme);
+    const [colorTheme, setColorTheme] = useState<ColorTheme>('system');
+    const [nowColorTheme, setNowColorTheme] = useState<NowColorTheme>('light');
 
-    const changeColorTheme = (theme: ColorTheme) => {
+    useEffect(() => {
+        const savedTheme = typeof window === 'undefined' ? 'light' : localStorage.getItem('theme');
+        if (savedTheme === 'dark') {
+            setColorTheme('dark');
+            setNowColorTheme('dark');
+            return;
+        }
+
+        if (savedTheme === 'light') {
+            setColorTheme('light');
+            setNowColorTheme('light');
+            return;
+        }
+
+        const isUserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        setColorTheme('light');
+        setNowColorTheme(isUserDark ? 'dark' : 'light');
+    }, []);
+
+    const changeColorTheme = useCallback((theme: ColorTheme) => {
         if (theme === 'system') {
             setColorTheme('system');
-            setNowColorTheme(getUserPreferColor());
+            setNowColorTheme(
+                window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+            );
             document.querySelector('body')?.removeAttribute('data-theme');
             if (typeof window !== 'undefined') localStorage.removeItem('theme');
         } else if (theme === 'dark') {
@@ -67,7 +63,7 @@ function ColorThemeProvider({ children }: { children: React.ReactNode }) {
             document.querySelector('body')?.setAttribute('data-theme', 'light');
             if (typeof window !== 'undefined') localStorage.setItem('theme', 'light');
         }
-    };
+    }, []);
 
     const value = useMemo(
         () => ({
@@ -75,7 +71,7 @@ function ColorThemeProvider({ children }: { children: React.ReactNode }) {
             colorTheme,
             nowColorTheme,
         }),
-        [colorTheme, nowColorTheme]
+        [changeColorTheme, colorTheme, nowColorTheme]
     );
 
     return <ColorThemeContext.Provider value={value}>{children}</ColorThemeContext.Provider>;

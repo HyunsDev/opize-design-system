@@ -124,6 +124,7 @@ const AddonButtonDiv = styled.div<{ position: 'left' | 'right' }>`
     background-color: ${cv.bg_element5};
     color: #ffffff;
     cursor: pointer;
+    color: ${cv.text1};
 
     ${(props) =>
         props.position === 'left' ? `border-right: solid 1px ${cv.border3};` : `border-left: solid 1px ${cv.border3};`};

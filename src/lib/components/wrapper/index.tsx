@@ -26,12 +26,14 @@ const GlobalStyles = createGlobalStyle`
 
     @media (prefers-color-scheme: dark) {
         body {
-            ${themes.dark}
+            ${themes.dark};
+            background-color: var(--bg-page2);
         }
     }
 
     body[data-theme='light'] {
         ${themes.light};
+        background-color: var(--bg-page2);
 
         * {
             ::selection {
@@ -42,6 +44,7 @@ const GlobalStyles = createGlobalStyle`
 
     body[data-theme='dark'] {
         ${themes.dark};
+        background-color: var(--bg-page2);
 
         * {
             ::selection {
