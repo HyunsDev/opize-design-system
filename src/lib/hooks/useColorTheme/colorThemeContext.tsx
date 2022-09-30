@@ -27,7 +27,7 @@ const initColorTheme: {
     mode: ColorTheme;
     theme: NowColorTheme;
 } = (() => {
-    const savedTheme = localStorage.getItem('theme');
+    const savedTheme = typeof window === 'undefined' ? 'light' : localStorage.getItem('theme');
     if (savedTheme === 'dark')
         return {
             mode: 'dark',
@@ -55,14 +55,17 @@ function ColorThemeProvider({ children }: { children: React.ReactNode }) {
             setColorTheme('system');
             setNowColorTheme(getUserPreferColor());
             document.querySelector('body')?.removeAttribute('data-theme');
+            if (typeof window !== 'undefined') localStorage.removeItem('theme');
         } else if (theme === 'dark') {
             setColorTheme('dark');
             setNowColorTheme('dark');
             document.querySelector('body')?.setAttribute('data-theme', 'dark');
+            if (typeof window !== 'undefined') localStorage.setItem('theme', 'dark');
         } else if (theme === 'light') {
             setColorTheme('light');
             setNowColorTheme('light');
             document.querySelector('body')?.setAttribute('data-theme', 'light');
+            if (typeof window !== 'undefined') localStorage.setItem('theme', 'light');
         }
     };
 
