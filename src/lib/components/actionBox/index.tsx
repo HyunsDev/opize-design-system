@@ -62,6 +62,7 @@ const OverlayDiv = styled.div<OverlayDivProps>`
     border: solid 1px ${cv.border3};
     animation: ${(props) => (props.top !== undefined ? FadeInFromTop : FadeInFromBottom)} 150ms
         cubic-bezier(0.07, 0.75, 0.54, 0.93);
+    color: ${cv.text1};
 `;
 
 export interface ActionBoxProps extends ButtonProps {
@@ -156,7 +157,7 @@ export function ActionBox({ children, removePadding, overlay, ...props }: Action
                     <OverlayDiv
                         {...direction}
                         ref={overlayRef}
-                        buttonHeight={(buttonRef.current?.offsetHeight && buttonRef.current.offsetHeight + 2) || 32}
+                        buttonHeight={(buttonRef.current?.offsetHeight && buttonRef.current.offsetHeight + 4) || 34}
                         removePadding={removePadding}
                     >
                         {overlay}

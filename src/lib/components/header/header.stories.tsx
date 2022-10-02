@@ -49,8 +49,9 @@ function Template(args: ComponentStory<typeof Header>) {
                     <Header.Nav.Button onClick={() => null}>Button2</Header.Nav.Button>
                     <Header.Nav.Button onClick={() => null}>Button</Header.Nav.Button>
                     <ActionMenu
-                        icon={<ProfileImg src={Logo} alt="" />}
+                        icon={<ProfileImg src={LogoImg} alt="" />}
                         variant="text"
+                        borderRadius={999}
                         actions={[
                             [
                                 {

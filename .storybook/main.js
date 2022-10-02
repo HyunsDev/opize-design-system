@@ -7,6 +7,7 @@ module.exports = {
         '@storybook/preset-create-react-app',
         'storybook-addon-performance/register',
         '@storybook/addon-a11y',
+        'storybook-dark-mode',
     ],
     framework: '@storybook/react',
     core: {

@@ -1,5 +1,7 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import { useDarkMode } from 'storybook-dark-mode';
 import styled, { keyframes } from 'styled-components';
+import { OpizeWrapper } from '../../../lib';
 import { themeVariableSets } from '../../../lib/style/themeVariables';
 
 const fadeIn = keyframes`
@@ -13,7 +15,7 @@ const fadeIn = keyframes`
     }
 `;
 
-const ColorsDiv = styled.div`
+const ColorsDiv = styled.div<{ bgColor: string }>`
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -36,12 +38,13 @@ const ColorLabel = styled.div`
     gap: 4px;
 
     div:first-of-type {
-        color: #495057;
+        color: var(--text1);
         font-size: 14px;
         font-weight: 600;
     }
 
     div:last-child {
+        color: var(--text2);
         font-size: 14px;
     }
 `;
@@ -51,21 +54,31 @@ const ColorShow = styled.div<{ color: string }>`
     height: 52px;
     background-color: ${(props) => props.color};
     border-radius: 8px;
-    border: solid 1px rgba(0, 0, 0, 0.1);
+    border: solid 1px var(--border3);
 `;
 
 export function Colors() {
+    const isDarkMode = useDarkMode();
+
+    useEffect(() => {
+        document.querySelector('body')?.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+        (document.querySelector('#docs-root') as HTMLDivElement).style.background =
+            themeVariableSets[isDarkMode ? 'dark' : 'light'].bg_page2;
+    }, [isDarkMode]);
+
     return (
-        <ColorsDiv>
-            {Object.entries(themeVariableSets.light).map(([key, value], i) => (
-                <ColorDiv key={key} delay={i * 100}>
-                    <ColorLabel>
-                        <div>{key}</div>
-                        <div>{value}</div>
-                    </ColorLabel>
-                    <ColorShow color={value} />
-                </ColorDiv>
-            ))}
-        </ColorsDiv>
+        <OpizeWrapper>
+            <ColorsDiv bgColor={themeVariableSets[isDarkMode ? 'dark' : 'light'].bg_page2}>
+                {Object.entries(themeVariableSets[isDarkMode ? 'dark' : 'light']).map(([key, value], i) => (
+                    <ColorDiv key={key} delay={i * 100}>
+                        <ColorLabel>
+                            <div>{key}</div>
+                            <div>{value}</div>
+                        </ColorLabel>
+                        <ColorShow color={value} />
+                    </ColorDiv>
+                ))}
+            </ColorsDiv>
+        </OpizeWrapper>
     );
 }

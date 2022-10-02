@@ -26,7 +26,7 @@ const AvatarInfo = styled.div`
 `;
 
 const AvatarName = styled.div`
-    color: ${cv.text2};
+    color: ${cv.text1};
     font-size: 14px;
     line-height: 17px;
     font-weight: 600;
@@ -34,7 +34,7 @@ const AvatarName = styled.div`
 
 const AvatarLabel = styled.div`
     font-size: 14px;
-    color: ${cv.text3};
+    color: ${cv.text2};
 `;
 
 /**

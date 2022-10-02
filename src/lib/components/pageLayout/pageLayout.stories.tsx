@@ -13,7 +13,39 @@ export default {
         'PageLayout.Pane': PageLayout.Pane,
         'PageLayout.Footer': PageLayout.Footer,
     },
-    argTypes: {},
+    argTypes: {
+        gap: {
+            control: {
+                type: 'text',
+            },
+        },
+        gutter: {
+            control: {
+                type: 'text',
+            },
+        },
+        width: {
+            control: {
+                type: 'text',
+            },
+        },
+        panPosition: {
+            control: {
+                type: 'select',
+            },
+            options: ['start', 'end'],
+        },
+        panWidth: {
+            control: {
+                type: 'text',
+            },
+        },
+        backgroundColor: {
+            control: {
+                type: 'color',
+            },
+        },
+    },
 } as ComponentMeta<typeof PageLayout>;
 
 const Blank = styled.div<{ height: number }>`
@@ -46,7 +78,13 @@ const Template: ComponentStory<typeof PageLayout> = (args) => {
 };
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+    gap: '8px',
+    gutter: '24px',
+    panPosition: 'end',
+    panWidth: '300px',
+    width: '1200px',
+};
 
 const SoloTemplate: ComponentStory<typeof PageLayout> = (args) => {
     return (
@@ -79,3 +117,22 @@ const WithoutHeaderAndFooterTemplate: ComponentStory<typeof PageLayout> = (args)
 
 export const WithoutHeaderAndFooter = WithoutHeaderAndFooterTemplate.bind({});
 WithoutHeaderAndFooter.args = {};
+
+const WithoutPanTemplate: ComponentStory<typeof PageLayout> = (args) => {
+    return (
+        <PageLayout {...args}>
+            <PageLayout.Header>
+                <Blank height={100}>PageLayout.Header</Blank>
+            </PageLayout.Header>
+            <PageLayout.Content>
+                <Blank height={500}>PageLayout.Content</Blank>
+            </PageLayout.Content>
+            <PageLayout.Footer>
+                <Blank height={100}>PageLayout.Footer</Blank>
+            </PageLayout.Footer>
+        </PageLayout>
+    );
+};
+
+export const WithoutPan = WithoutPanTemplate.bind({});
+WithoutPan.args = {};

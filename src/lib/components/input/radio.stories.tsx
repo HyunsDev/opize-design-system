@@ -31,4 +31,6 @@ const Template: ComponentStory<typeof Radio> = (args) => (
 );
 
 export const Primary = Template.bind({});
-Primary.args = {};
+Primary.args = {
+    label: 'Label',
+};

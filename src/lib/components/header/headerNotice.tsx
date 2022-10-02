@@ -93,7 +93,7 @@ export const HeaderNotice = Object.assign(
                         <Text>{noticeContent}</Text>
                     </Flex.Center>
                     <Close onClick={() => noticeClose()}>
-                        <X color="#ffffff" />
+                        <X color={cv.text5} />
                     </Close>
                 </Divver>
             </DivverOuter>

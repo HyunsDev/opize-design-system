@@ -50,7 +50,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             color: ${cv.text1};
             --local-color: ${cv.text1};
             background-color: ${cv.bg_element2};
-            border: solid 1px ${cv.border2};
+            border: solid 1px ${cv.border3};
 
             &:hover {
                 background-color: ${cv.bg_element3};
@@ -76,7 +76,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             color: ${cv.red1};
             --local-color: ${cv.red1};
             background-color: ${cv.bg_red1};
-            border: solid 1px ${cv.red1};
+            border: solid 1px ${cv.bg_red1};
 
             &:hover {
                 background-color: ${cv.bg_red1_hover};
@@ -101,7 +101,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             color: ${cv.blue1};
             --local-color: ${cv.blue1};
             background-color: ${cv.bg_blue1};
-            border: solid 1px ${cv.blue1};
+            border: solid 1px ${cv.bg_blue1};
 
             &:hover {
                 background-color: ${cv.bg_blue1_hover};
@@ -144,7 +144,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             }
 
             &:disabled {
-                background-color: ${cv.bg_element3};
+                background-color: ${cv.bg_element4};
                 border: solid 1px ${cv.bg_element3};
                 color: ${cv.bg_element1};
                 --local-color: ${cv.bg_element1};
@@ -155,7 +155,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             }
         `,
         red: css`
-            color: ${cv.bg_element1};
+            color: ${cv.white};
             --local-color: ${cv.bg_element1};
             background-color: ${cv.red1};
             border: solid 1px ${cv.red1};
@@ -182,7 +182,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             }
         `,
         blue: css`
-            color: ${cv.bg_element1};
+            color: ${cv.white};
             --local-color: ${cv.bg_element1};
             background-color: ${cv.blue1};
             border: solid 1px ${cv.blue1};
@@ -241,10 +241,11 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             color: ${cv.red1};
             --local-color: ${cv.red1};
             background-color: ${cv.bg_red1};
-            border: solid 1px ${cv.red1};
+            border: solid 1px ${cv.bg_red1};
 
             &:hover {
-                background-color: ${cv.bg_red1_hover};
+                border: solid 1px ${cv.red1};
+                --local-border: solid 1px ${cv.red1};
             }
 
             &:active {
@@ -266,10 +267,11 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             color: ${cv.blue1};
             --local-color: ${cv.blue1};
             background-color: ${cv.bg_blue1};
-            border: solid 1px ${cv.blue1};
+            border: solid 1px ${cv.bg_blue1};
 
             &:hover {
-                background-color: ${cv.bg_blue1_hover};
+                border: solid 1px ${cv.blue1};
+                --local-border: solid 1px ${cv.blue1};
             }
 
             &:active {
@@ -296,7 +298,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             border: solid 1px ${cv.bg_element1};
 
             &:hover {
-                background-color: ${cv.bg_element2};
+                background-color: ${cv.bg_element3};
             }
 
             &:active {
@@ -305,8 +307,8 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
 
             &:disabled {
                 background-color: ${cv.bg_element1};
-                color: ${cv.text3};
-                --local-color: ${cv.text3};
+                color: ${cv.text4};
+                --local-color: ${cv.text4};
             }
 
             &:focus-visible::after {
@@ -320,7 +322,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             border: solid 1px ${cv.bg_element1};
 
             &:hover {
-                background-color: ${cv.bg_red1_hover};
+                background-color: ${cv.bg_red1};
             }
 
             &:active {
@@ -344,7 +346,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             border: solid 1px ${cv.bg_element1};
 
             &:hover {
-                background-color: ${cv.bg_blue1_hover};
+                background-color: ${cv.bg_blue1};
             }
 
             &:active {

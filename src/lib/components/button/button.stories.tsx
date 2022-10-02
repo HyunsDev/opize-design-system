@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import styled from 'styled-components';
 import { Check } from 'phosphor-react';
-import { Button } from '..';
+import { Button, Flex, Text, TextField, Divider } from '..';
 
 export default {
     title: 'HTML-Like Component/Button',
@@ -55,4 +56,191 @@ export const Loading = LoadingTemplate.bind({});
 Loading.args = {
     icon: <Check />,
     children: 'hello, World!',
+    width: '200px',
 };
+
+const Div = styled.div`
+    position: relative;
+`;
+
+const WithTooltipTemplate: ComponentStory<typeof Button> = (args) => (
+    <Div>
+        <Flex.Column gap="32px" style={{ alignItems: 'center' }}>
+            <Button {...args} />
+            <Button
+                icon={<Check />}
+                variant="text"
+                tooltip={{
+                    text: args?.tooltip?.text,
+                    direction: 'top',
+                }}
+            />
+            <Button
+                icon={<Check />}
+                variant="text"
+                tooltip={{
+                    text: args?.tooltip?.text,
+                    direction: 'right',
+                }}
+            />
+            <Button
+                icon={<Check />}
+                variant="text"
+                tooltip={{
+                    text: args?.tooltip?.text,
+                    direction: 'bottom',
+                }}
+            />
+            <Button
+                icon={<Check />}
+                variant="text"
+                tooltip={{
+                    text: args?.tooltip?.text,
+                    direction: 'left',
+                }}
+            />
+        </Flex.Column>
+    </Div>
+);
+export const WithTooltip = WithTooltipTemplate.bind({});
+WithTooltip.args = {
+    children: 'hello, World!',
+    onClick: () => null,
+    tooltip: {
+        text: 'ToolTip',
+        direction: 'right',
+    },
+};
+
+const AllButtonTemplate: ComponentStory<typeof Button> = (args) => {
+    const [text, setText] = useState('Button 버튼');
+
+    return (
+        <Flex.Column gap="8px">
+            <Flex.Row>
+                <TextField label="Children" value={text} onChange={(e) => setText(e.target.value)} />
+            </Flex.Row>
+            <Flex.Row gap="8px">
+                <Text style={{ width: '100px' }}>contained</Text>
+                <Button variant="contained" color="gray">
+                    {text}
+                </Button>
+                <Button variant="contained" color="blue">
+                    {text}
+                </Button>
+                <Button variant="contained" color="red">
+                    {text}
+                </Button>
+                <Button variant="contained" color="gray" disabled>
+                    {text}
+                </Button>
+                <Button variant="contained" color="blue" disabled>
+                    {text}
+                </Button>
+                <Button variant="contained" color="red" disabled>
+                    {text}
+                </Button>
+                <Button variant="contained" color="gray" isLoading>
+                    {text}
+                </Button>
+                <Button variant="contained" color="blue" isLoading>
+                    {text}
+                </Button>
+                <Button variant="contained" color="red" isLoading>
+                    {text}
+                </Button>
+            </Flex.Row>
+            <Flex.Row gap="8px">
+                <Text style={{ width: '100px' }}>default</Text>
+                <Button variant="default" color="gray">
+                    {text}
+                </Button>
+                <Button variant="default" color="blue">
+                    {text}
+                </Button>
+                <Button variant="default" color="red">
+                    {text}
+                </Button>
+                <Button variant="default" color="gray" disabled>
+                    {text}
+                </Button>
+                <Button variant="default" color="blue" disabled>
+                    {text}
+                </Button>
+                <Button variant="default" color="red" disabled>
+                    {text}
+                </Button>
+                <Button variant="default" color="gray" isLoading>
+                    {text}
+                </Button>
+                <Button variant="default" color="blue" isLoading>
+                    {text}
+                </Button>
+                <Button variant="default" color="red" isLoading>
+                    {text}
+                </Button>
+            </Flex.Row>
+            <Flex.Row gap="8px">
+                <Text style={{ width: '100px' }}>outlined</Text>
+                <Button variant="outlined" color="gray">
+                    {text}
+                </Button>
+                <Button variant="outlined" color="blue">
+                    {text}
+                </Button>
+                <Button variant="outlined" color="red">
+                    {text}
+                </Button>
+                <Button variant="outlined" color="gray" disabled>
+                    {text}
+                </Button>
+                <Button variant="outlined" color="blue" disabled>
+                    {text}
+                </Button>
+                <Button variant="outlined" color="red" disabled>
+                    {text}
+                </Button>
+                <Button variant="outlined" color="gray" isLoading>
+                    {text}
+                </Button>
+                <Button variant="outlined" color="blue" isLoading>
+                    {text}
+                </Button>
+                <Button variant="outlined" color="red" isLoading>
+                    {text}
+                </Button>
+            </Flex.Row>
+            <Flex.Row gap="8px">
+                <Text style={{ width: '100px' }}>gray</Text>
+                <Button variant="text" color="gray">
+                    {text}
+                </Button>
+                <Button variant="text" color="blue">
+                    {text}
+                </Button>
+                <Button variant="text" color="red">
+                    {text}
+                </Button>
+                <Button variant="text" color="gray" disabled>
+                    {text}
+                </Button>
+                <Button variant="text" color="blue" disabled>
+                    {text}
+                </Button>
+                <Button variant="text" color="red" disabled>
+                    {text}
+                </Button>
+                <Button variant="text" color="gray" isLoading>
+                    {text}
+                </Button>
+                <Button variant="text" color="blue" isLoading>
+                    {text}
+                </Button>
+                <Button variant="text" color="red" isLoading>
+                    {text}
+                </Button>
+            </Flex.Row>
+        </Flex.Column>
+    );
+};
+export const AllButton = AllButtonTemplate.bind({});

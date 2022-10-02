@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
-import { Colors } from './components/colors.tsx'
+import { Colors } from './components/colors.tsx';
+import { Moon } from "phosphor-react";
 
 <Meta title="Opize Design System/Colors" />
 
@@ -19,6 +20,20 @@ const Text = styled.p`
 ```
 > ### 💬 Comment
 > 현재 컴포넌트를 개발하면서 필요한 색상한 추가한 상태입니다. 지속적으로 다양한 색을 추가할 예정입니다.
+
+## Dark mode
+Opize Design System은 다크모드를 지원합니다. 화면 상단 달( <Moon /> ) 아이콘을 클릭해보세요.
+
+리액트 내부에서는 `useColorTheme()` 훅을 이용하여 테마를 변경할 수 있습니다. 자세한 내용는 `HOOK/useColorTheme` 문서를 참고해주세요.
+
+```tsx
+import { useColorTheme } from 'opize-design-system';
+
+function Element() {
+    const { colorTheme, nowColorTheme, setColorTheme } = useColorTheme()
+    ...
+}
+```
 
 ## Color Palette
 <Colors />

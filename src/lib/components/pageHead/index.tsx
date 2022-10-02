@@ -5,16 +5,17 @@ import { Flex } from '../layout';
 
 const Outer = styled.div`
     position: relative;
-    border-bottom: solid 1px ${cv.border3};
+    border-bottom: solid 1px ${cv.border4};
     width: 100%;
     height: 128px;
     display: flex;
     align-items: center;
+    justify-content: center;
 `;
 
 const Inner = styled.div`
     width: ${cv.pageWidth};
-    margin: 0 auto;
+    margin: 0px 24px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -23,6 +24,7 @@ const Inner = styled.div`
 const Title = styled.h1`
     font-size: 32px;
     font-weight: 500;
+    color: ${cv.text1};
 `;
 
 export interface PageHeadProps {

@@ -9,18 +9,26 @@ Header.displayName = 'PageLayout.Header';
 
 const Content = styled.div`
     grid-area: content;
+    max-width: 100%;
 `;
 Content.displayName = 'PageLayout.Content';
 
 const Pane = styled.div`
     grid-area: pane;
-    min-width: 300px;
-    width: 300px;
-    max-width: 300px;
+    min-width: var(--local-pan-width);
+    width: var(--local-pan-width);
+    max-width: var(--local-pan-width);
+
+    margin-left: var(--local-pan-margin-left);
+    margin-right: var(--local-pan-margin-right);
+
     @media (max-width: 767px) {
         max-width: 100%;
         width: 100%;
         min-width: 100%;
+
+        margin-left: 0px;
+        margin-right: 0px;
     }
 `;
 Pane.displayName = 'PageLayout.Pane';
@@ -34,20 +42,29 @@ const PageLayoutOuter = styled.div<{ backgroundColor: string; marginTop: string 
     width: 100%;
     background-color: ${(props) => props.backgroundColor};
     margin-top: ${(props) => props.marginTop};
+    display: flex;
+    justify-content: center;
 `;
 
 interface PageLayoutInnerProps {
-    width?: string;
-    gap?: string;
-    panPosition?: 'start' | 'end';
+    width: string;
+    gap: string;
+    panPosition: 'start' | 'end';
+    gutter: string;
+    panWidth: string;
 }
 const PageLayoutInner = styled.div<PageLayoutInnerProps>`
     display: grid;
-    width: ${(props) => props.width || cv.pageWidth};
-    max-width: ${(props) => props.width || cv.pageWidth};
-    row-gap: ${(props) => props.gap || '8px'};
-    margin: 0 auto;
+    width: 100%;
+    max-width: ${(props) => props.width};
+    row-gap: ${(props) => props.gap};
     justify-items: stretch;
+    margin: 0px ${(props) => props.gutter};
+
+    --local-pan-width: ${(props) => props.panWidth};
+    --local-pan-margin-left: ${(props) => (props.panPosition === 'start' ? '0px' : props.gap)};
+    --local-pan-margin-right: ${(props) => (props.panPosition === 'end' ? '0px' : props.gap)};
+
     ${(props) =>
         props.panPosition === 'start'
             ? css`
@@ -55,9 +72,6 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
                       'header header'
                       'pane content'
                       'footer footer';
-                  ${Pane} {
-                      margin-right: ${props.gap || '8px'};
-                  }
                   grid-template-columns: fit-content(300px) auto;
               `
             : css`
@@ -65,9 +79,6 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
                       'header header'
                       'content pane'
                       'footer footer';
-                  ${Pane} {
-                      margin-left: ${props.gap || '8px'};
-                  }
                   grid-template-columns: auto fit-content(300px);
               `}
 
@@ -77,10 +88,8 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
             'content'
             'pane'
             'footer';
-        ${Pane} {
-            margin: 0;
-        }
         grid-template-columns: 1fr;
+        margin: 0px 4px;
     }
 `;
 
@@ -91,18 +100,22 @@ interface PageLayoutRootProps {
     panPosition?: 'start' | 'end';
     backgroundColor?: string;
     children?: React.ReactNode;
+    gutter?: string;
+    panWidth?: string;
 }
 function PageLayoutRoot({
-    width,
-    gap,
-    panPosition,
+    width = cv.pageWidth,
+    gap = '8px',
+    gutter = '24px',
+    panPosition = 'end',
     backgroundColor,
     children,
     marginTop = '0px',
+    panWidth = '300px',
 }: PageLayoutRootProps) {
     return (
         <PageLayoutOuter marginTop={marginTop} backgroundColor={backgroundColor || cv.bg_page2}>
-            <PageLayoutInner width={width} gap={gap} panPosition={panPosition}>
+            <PageLayoutInner width={width} gap={gap} panPosition={panPosition} gutter={gutter} panWidth={panWidth}>
                 {children}
             </PageLayoutInner>
         </PageLayoutOuter>
