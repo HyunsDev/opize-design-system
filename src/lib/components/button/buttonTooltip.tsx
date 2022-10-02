@@ -1,52 +1,32 @@
-import React, { ComponentProps, useState } from 'react';
-import styled, { css } from 'styled-components';
+import React from 'react';
+import styled from 'styled-components';
 import { cv } from '../../style';
 
 const ToolTipBox = styled.div`
-    position: absolute;
-    opacity: 0;
-    visibility: hidden;
-    transition: 100ms;
-    display: hidden;
-
+    position: relative;
     background-color: ${cv.bg_element5};
     color: ${cv.text5};
     font-size: 12px;
     border-radius: 6px;
     padding: 4px 8px;
     white-space: pre;
+    user-select: none;
     pointer-events: none;
+    z-index: 99999;
 
     &::after {
         content: '';
         position: absolute;
         border-style: solid;
         border-width: 5px;
+        user-select: none;
         pointer-events: none;
     }
 `;
 
-const Divver = styled.div<{ isHover: boolean }>`
-    width: fit-content;
-    height: fit-content;
-    position: relative;
-    z-index: 1000;
-
-    ${(props) =>
-        props.isHover &&
-        css`
-            ${ToolTipBox} {
-                visibility: visible;
-                opacity: 1;
-                display: block;
-            }
-        `}
-`;
-
 const ToolTipBoxTop = styled(ToolTipBox)`
+    margin-bottom: 12px;
     transform: translate(-50%, 0%);
-    left: 50%;
-    bottom: 130%;
 
     &::after {
         top: 100%;
@@ -57,9 +37,8 @@ const ToolTipBoxTop = styled(ToolTipBox)`
 `;
 
 const ToolTipBoxBottom = styled(ToolTipBox)`
+    margin-top: 12px;
     transform: translate(-50%, 0%);
-    left: 50%;
-    top: 120%;
 
     &::after {
         bottom: 100%;
@@ -70,51 +49,47 @@ const ToolTipBoxBottom = styled(ToolTipBox)`
 `;
 
 const ToolTipBoxRight = styled(ToolTipBox)`
-    transform: translate(0%, 50%);
-    left: 110%;
+    margin-left: 12px;
+    transform: translate(0%, -50%);
 
     &::after {
-        top: 25%;
+        top: 50%;
         right: 100%;
+
+        transform: translate(0%, -50%);
         border-color: transparent ${cv.bg_element5} transparent transparent;
     }
 `;
 
 const ToolTipBoxLeft = styled(ToolTipBox)`
-    /* transform: translate(0%, 50%); */
-    right: 110%;
+    margin-right: 12px;
+    transform: translate(0%, -50%);
 
     &::after {
-        top: 35%;
+        top: 50%;
         left: 100%;
+        transform: translate(0%, -50%);
         border-color: transparent transparent transparent ${cv.bg_element5};
     }
 `;
 
 export interface ToolTipProps {
-    children: React.ReactNode;
-    /**
-     * 툴팁 텍스트입니다.
-     */
     text: React.ReactNode;
     /**
      * 툴팁이 표시될 방향입니다.
      */
-    direction?: 'top' | 'bottom' | 'right' | 'left';
+    direction: 'top' | 'bottom' | 'right' | 'left';
+    pos: string;
 }
 
-/**
- * 마우스를 올렸을 때 툴팁을 표시합니다.
- */
-export function ToolTip({ children, text, direction }: ToolTipProps) {
-    const [isHover, setIsHover] = useState(false);
+const PosBox = styled.div<{ pos: string }>`
+    position: absolute;
+    inset: ${(props) => props.pos};
+`;
 
-    let box;
+export function ButtonToolTipBox({ text, direction, pos }: ToolTipProps) {
+    let box: React.ReactNode;
     switch (direction) {
-        case 'top':
-            box = <ToolTipBoxTop>{text}</ToolTipBoxTop>;
-            break;
-
         case 'bottom':
             box = <ToolTipBoxBottom>{text}</ToolTipBoxBottom>;
             break;
@@ -127,20 +102,11 @@ export function ToolTip({ children, text, direction }: ToolTipProps) {
             box = <ToolTipBoxLeft>{text}</ToolTipBoxLeft>;
             break;
 
+        case 'top':
         default:
             box = <ToolTipBoxTop>{text}</ToolTipBoxTop>;
             break;
     }
 
-    return (
-        <Divver
-            isHover={isHover}
-            onMouseOver={() => setIsHover(true)}
-            onMouseOut={() => setIsHover(false)}
-            className="tooltip"
-        >
-            {box}
-            {children}
-        </Divver>
-    );
+    return <PosBox pos={pos}>{box}</PosBox>;
 }

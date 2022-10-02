@@ -1,13 +1,16 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import styled from 'styled-components';
 import { IconContext } from 'phosphor-react';
-import React, { useContext } from 'react';
+import React, { useContext, useImperativeHandle, useRef, useState } from 'react';
 import { Spinner } from '../spinner';
 import { ButtonComponent, ButtonProps, StyledButtonProps } from './buttonType';
 import { colorMap, sizeMap } from './buttonStyle';
 import { PolymorphicRef } from '../../utils/type/polymorphicComponent';
 import { useCodeModal } from '../../hooks';
 import { LinkContext } from '../../context/linkContext';
+import { ToolTip } from '../tooltip';
+import { ButtonToolTipBox } from './buttonTooltip';
+import { Spacer } from '../spacer';
 
 const StyledButton = styled.button<StyledButtonProps>`
     display: flex;
@@ -80,11 +83,16 @@ export const Button: ButtonComponent = React.forwardRef(
             width = 'fit-content',
             disabled = false,
             to,
+            tooltip,
             ...props
         }: ButtonProps<T>,
         ref: PolymorphicRef<T>['ref']
     ) => {
+        const inputRef = useRef<any>(null);
+        useImperativeHandle(ref, () => inputRef.current as any);
         const { Link } = useContext(LinkContext);
+
+        const [isHover, setIsHover] = useState(false);
 
         // 아이콘
         let Icon;
@@ -114,7 +122,7 @@ export const Button: ButtonComponent = React.forwardRef(
             return (
                 <StyledButton
                     {...props}
-                    ref={ref}
+                    ref={inputRef}
                     $width={width}
                     onClick={() => onClick && onClick()}
                     $color={color}
@@ -127,6 +135,14 @@ export const Button: ButtonComponent = React.forwardRef(
                     as={Element}
                     to={to}
                     href={to}
+                    onMouseOver={(e) => {
+                        setIsHover(true);
+                        if (props.onMouseOver) props.onMouseOver(e);
+                    }}
+                    onMouseOut={(e) => {
+                        setIsHover(false);
+                        if (props.onMouseOut) props.onMouseOut(e);
+                    }}
                 >
                     {buttonChildren}
                 </StyledButton>
@@ -134,10 +150,11 @@ export const Button: ButtonComponent = React.forwardRef(
         }
 
         const Element = as || 'button';
-        return (
+
+        const PreButton = (
             <StyledButton
                 {...props}
-                ref={ref}
+                ref={inputRef}
                 $width={width}
                 onClick={(e) => onClick && onClick(e)}
                 $color={color}
@@ -148,10 +165,74 @@ export const Button: ButtonComponent = React.forwardRef(
                 disabled={disabled}
                 $iconOnly={iconOnly}
                 as={Element}
+                onMouseOver={(e) => {
+                    setIsHover(true);
+                    if (props.onMouseOver) props.onMouseOver(e);
+                }}
+                onMouseOut={(e) => {
+                    setIsHover(false);
+                    if (props.onMouseOut) props.onMouseOut(e);
+                }}
             >
                 {buttonChildren}
             </StyledButton>
         );
+
+        if (tooltip) {
+            const pos: {
+                top: number;
+                right: number;
+                bottom: number;
+                left: number;
+            } = {
+                top: -1,
+                right: -1,
+                bottom: -1,
+                left: -1,
+            };
+
+            // x: inputRef.current?.getBoundingClientRect().left,
+            // y: inputRef.current?.getBoundingClientRect().top,
+
+            switch (tooltip.direction || 'top') {
+                case 'right':
+                    pos.left = (inputRef.current?.offsetLeft as number) + (inputRef.current?.offsetWidth as number);
+                    pos.top = (inputRef.current?.offsetTop as number) + (inputRef.current?.offsetHeight as number) / 2;
+                    break;
+                case 'bottom':
+                    pos.left = (inputRef.current?.offsetLeft as number) + (inputRef.current?.offsetWidth as number) / 2;
+                    pos.top = (inputRef.current?.offsetTop as number) + (inputRef.current?.offsetHeight as number);
+                    break;
+                case 'left':
+                    pos.right =
+                        document.documentElement.scrollWidth -
+                        (inputRef.current?.offsetLeft as number) -
+                        (inputRef.current?.offsetWidth as number);
+                    pos.top = (inputRef.current?.offsetTop as number) + (inputRef.current?.offsetHeight as number) / 2;
+                    break;
+                case 'top':
+                default:
+                    pos.left = (inputRef.current?.offsetLeft as number) + (inputRef.current?.offsetWidth as number) / 2;
+                    pos.bottom =
+                        document.body.offsetHeight -
+                        (inputRef.current?.offsetTop as number) -
+                        (inputRef.current?.offsetHeight as number);
+                    break;
+            }
+
+            const f = (e: number) => (e === -1 ? 'auto' : `${e}px`);
+            const inset = `${f(pos.top)} ${f(pos.right)} ${f(pos.bottom)} ${f(pos.left)}`;
+
+            return (
+                <>
+                    {PreButton}
+                    {isHover && (
+                        <ButtonToolTipBox text={tooltip.text} direction={tooltip.direction || 'top'} pos={inset} />
+                    )}
+                </>
+            );
+        }
+        return PreButton;
     }
 );
 

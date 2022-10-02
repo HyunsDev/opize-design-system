@@ -1,7 +1,8 @@
 import React, { useRef, useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
+import styled from 'styled-components';
 import { Check } from 'phosphor-react';
-import { Button, Flex, Text, TextField } from '..';
+import { Button, Flex, Text, TextField, Divider } from '..';
 
 export default {
     title: 'HTML-Like Component/Button',
@@ -56,6 +57,59 @@ Loading.args = {
     icon: <Check />,
     children: 'hello, World!',
     width: '200px',
+};
+
+const Div = styled.div`
+    position: relative;
+`;
+
+const WithTooltipTemplate: ComponentStory<typeof Button> = (args) => (
+    <Div>
+        <Flex.Column gap="32px" style={{ alignItems: 'center' }}>
+            <Button {...args} />
+            <Button
+                icon={<Check />}
+                variant="text"
+                tooltip={{
+                    text: args?.tooltip?.text,
+                    direction: 'top',
+                }}
+            />
+            <Button
+                icon={<Check />}
+                variant="text"
+                tooltip={{
+                    text: args?.tooltip?.text,
+                    direction: 'right',
+                }}
+            />
+            <Button
+                icon={<Check />}
+                variant="text"
+                tooltip={{
+                    text: args?.tooltip?.text,
+                    direction: 'bottom',
+                }}
+            />
+            <Button
+                icon={<Check />}
+                variant="text"
+                tooltip={{
+                    text: args?.tooltip?.text,
+                    direction: 'left',
+                }}
+            />
+        </Flex.Column>
+    </Div>
+);
+export const WithTooltip = WithTooltipTemplate.bind({});
+WithTooltip.args = {
+    children: 'hello, World!',
+    onClick: () => null,
+    tooltip: {
+        text: 'ToolTip',
+        direction: 'right',
+    },
 };
 
 const AllButtonTemplate: ComponentStory<typeof Button> = (args) => {

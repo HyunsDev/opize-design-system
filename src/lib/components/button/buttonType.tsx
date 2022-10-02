@@ -1,5 +1,6 @@
 import React from 'react';
 import { PolymorphicComponentProps } from '../../utils/type/polymorphicComponent';
+import { ToolTipProps } from '../tooltip';
 
 export type ButtonWidth = 'fit-content' | '100%' | string;
 export type ButtonSize = 'small' | 'medium' | 'large';
@@ -54,6 +55,10 @@ type _ButtonProps = {
      * 클릭했을 때 이동할 링크입니다. OpizeWrapper의 initLink를 설정했을 때만 사용할 수 있습니다. as prop이 있는 경우 무시됩니다. (Link && to && !as)
      */
     to?: string;
+    /**
+     * 버튼에 마우스를 올릴 때 표시할 툴팁입니다. \<ToolTip\>를 이용합니다.
+     */
+    tooltip?: Omit<ToolTipProps, 'children'>;
 };
 
 export type ButtonProps<T extends React.ElementType = 'button'> = PolymorphicComponentProps<T, _ButtonProps>;
