@@ -23,6 +23,7 @@ export type TextFieldProps = React.ComponentPropsWithoutRef<'input'> & {
     border?: 'all' | 'bottom' | 'none';
     placeholder?: string;
     readOnly?: boolean;
+    width?: string;
 };
 
 const Divver = styled.div`
@@ -161,6 +162,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
             type = 'text',
             readOnly = false,
             error,
+            width,
             ...props
         }: TextFieldProps,
         ref
@@ -173,7 +175,7 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
                     color: cv.text5,
                 }}
             >
-                <Divver>
+                <Divver style={{ width }}>
                     {label && <Label required={required}>{label}</Label>}
                     <Inputs border={border} readOnly={readOnly}>
                         {leftAddon && <Addon position="left" data={leftAddon} />}
