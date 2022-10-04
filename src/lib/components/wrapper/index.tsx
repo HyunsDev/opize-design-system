@@ -1,8 +1,9 @@
-import { createGlobalStyle } from 'styled-components';
+import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import React from 'react';
 import { themes, builtCssVariable } from '../../style';
 import { OpizeContextProvider } from '../../context';
 import '../../style/font.css';
+import { CvThemeProvider } from '../../style/cvThemeProvider';
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -73,7 +74,9 @@ export function OpizeWrapper({ children, initLink }: OpizeWrapperProps) {
     return (
         <>
             <GlobalStyles />
-            <OpizeContextProvider initLink={initLink}>{children}</OpizeContextProvider>
+            <OpizeContextProvider initLink={initLink}>
+                <CvThemeProvider>{children}</CvThemeProvider>
+            </OpizeContextProvider>
         </>
     );
 }
