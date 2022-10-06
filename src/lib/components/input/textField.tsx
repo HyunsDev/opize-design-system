@@ -55,6 +55,10 @@ const Input = styled.input<{ border: 'all' | 'bottom' | 'none'; readOnly: boolea
             ? css``
             : ''}
 
+    &:focus {
+        background-color: ${(props) => (props.readOnly ? cv.bg_element3 : cv.bg_element1)};
+    }
+
     &::placeholder {
         color: ${cv.text3};
     }

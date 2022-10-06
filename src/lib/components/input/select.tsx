@@ -22,6 +22,7 @@ const Divver = styled.div`
     transition: 150ms;
     &:focus-within {
         border: solid 1px ${cv.border2};
+        background-color: ${cv.bg_element1};
     }
 `;
 
