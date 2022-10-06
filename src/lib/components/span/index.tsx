@@ -11,11 +11,14 @@ export const Span = styled.span<{
     italic?: boolean;
     size?: string;
     lineHeight?: string;
+    color?: string;
 }>`
-    font-family: ${(props) => (props.font === 'monospace' ? cv.fontFamilyMonospace : cv.fontFamily)};
-    font-weight: ${(props) => (props.weight === 'semibold' ? cv.fontWeightSemiBold : cv.fontWeightRegular)};
-    white-space: ${(props) => props.warp || 'normal'};
-    font-style: ${(props) => (props.italic ? 'italic' : 'normal')};
-    font-size: ${(props) => props.size || cv.fontSizeNormal};
-    line-height: ${(props) => props.lineHeight || cv.lineHeightNormal};
+    ${(props) => props.font && `font-family: ${props.font === 'monospace' ? cv.fontFamilyMonospace : cv.fontFamily}`};
+    ${(props) =>
+        props.weight && `font-weight: ${props.weight === 'semibold' ? cv.fontWeightSemiBold : cv.fontWeightRegular}`};
+    ${(props) => props.warp && `white-space: ${props.warp || 'normal'}`};
+    ${(props) => props.italic && `font-style: ${props.italic ? 'italic' : 'normal'}`};
+    ${(props) => props.size && `font-size: ${props.size || cv.fontSizeNormal}`};
+    ${(props) => props.lineHeight && `line-height: ${props.lineHeight || cv.lineHeightNormal}`};
+    ${(props) => props.color && `color: ${props.color}`};
 `;
