@@ -38,12 +38,13 @@ const Footer = styled.div`
 `;
 Footer.displayName = 'PageLayout.Footer';
 
-const PageLayoutOuter = styled.div<{ backgroundColor: string; marginTop: string }>`
+const PageLayoutOuter = styled.div<{ backgroundColor: string; marginTop: string; padding: string }>`
     width: 100%;
     background-color: ${(props) => props.backgroundColor};
     margin-top: ${(props) => props.marginTop};
     display: flex;
     justify-content: center;
+    padding: ${(props) => props.padding};
 `;
 
 interface PageLayoutInnerProps {
@@ -89,7 +90,7 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
             'pane'
             'footer';
         grid-template-columns: 1fr;
-        margin: 0px 4px;
+        margin: 0px 8px;
     }
 `;
 
@@ -102,19 +103,21 @@ interface PageLayoutRootProps {
     children?: React.ReactNode;
     gutter?: string;
     panWidth?: string;
+    padding?: string;
 }
 function PageLayoutRoot({
     width = cv.pageWidth,
     gap = '8px',
     gutter = '24px',
     panPosition = 'end',
-    backgroundColor,
+    backgroundColor = cv.bg_page2,
     children,
     marginTop = '0px',
     panWidth = '300px',
+    padding = '0px',
 }: PageLayoutRootProps) {
     return (
-        <PageLayoutOuter marginTop={marginTop} backgroundColor={backgroundColor || cv.bg_page2}>
+        <PageLayoutOuter marginTop={marginTop} backgroundColor={backgroundColor} padding={padding}>
             <PageLayoutInner width={width} gap={gap} panPosition={panPosition} gutter={gutter} panWidth={panWidth}>
                 {children}
             </PageLayoutInner>

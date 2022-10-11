@@ -45,6 +45,11 @@ export default {
                 type: 'color',
             },
         },
+        padding: {
+            control: {
+                type: 'text',
+            },
+        },
     },
 } as ComponentMeta<typeof PageLayout>;
 
