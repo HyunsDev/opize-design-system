@@ -2,7 +2,6 @@ import { createGlobalStyle, ThemeProvider } from 'styled-components';
 import React from 'react';
 import { themes, builtCssVariable } from '../../style';
 import { OpizeContextProvider } from '../../context';
-import '../../style/font.css';
 import { CvThemeProvider } from '../../style/cvThemeProvider';
 
 const GlobalStyles = createGlobalStyle`

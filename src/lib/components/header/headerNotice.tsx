@@ -31,7 +31,7 @@ const DivverOuter = styled.div<{ isOpen: boolean }>`
 const Divver = styled.div`
     display: flex;
     width: 100%;
-    max-width: calc(1200px + 2 * 24px);
+    max-width: calc(1200px);
     padding: 0px 24px;
     margin: auto;
     position: relative;
