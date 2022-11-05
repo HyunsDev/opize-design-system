@@ -30,15 +30,14 @@ const DivverOuter = styled.div<{ isScrolled: boolean }>`
 
 const Divver = styled.div`
     display: flex;
-    width: 100%;
-    max-width: calc(1200px);
-    padding: 0px 24px;
+    width: 1200px;
+    margin: 0px 24px;
     margin: auto;
     position: relative;
     margin-bottom: -1px;
 
     @media (max-width: 767px) {
-        padding: 0px 8px;
+        margin: 0px 8px;
     }
 `;
 

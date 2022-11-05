@@ -26,6 +26,7 @@ const FlexBetween = styled.div<{ gap?: string }>`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    ${(props) => props.gap && `gap: ${props.gap}`};
 `;
 
 /**

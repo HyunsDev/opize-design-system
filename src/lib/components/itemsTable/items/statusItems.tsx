@@ -47,10 +47,10 @@ function capitalize(str: string) {
     return str.charAt(0).toUpperCase() + str.slice(1);
 }
 
-export function StatusItem({ flex, status, label }: StatusItemProps) {
+export function StatusItem({ flex, status, label, text }: StatusItemProps) {
     return (
         <StateDiv flex={flex}>
-            <StatusBadge color={colorMap(status.toLowerCase() as mappedColor)} text={capitalize(status)} />
+            <StatusBadge color={colorMap(status.toLowerCase() as mappedColor)} text={text || capitalize(status)} />
             {label && <TypeDiv>{label}</TypeDiv>}
         </StateDiv>
     );

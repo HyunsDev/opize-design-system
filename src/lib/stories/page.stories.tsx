@@ -64,6 +64,20 @@ function THeader() {
                                     label: 'label',
                                     onClick: () => null,
                                 },
+                                {
+                                    label: 'label',
+                                    onClick: () => null,
+                                },
+                                {
+                                    label: 'label',
+                                    onClick: () => null,
+                                },
+                            ],
+                            [
+                                {
+                                    label: 'label',
+                                    onClick: () => null,
+                                },
                             ],
                         ]}
                     />

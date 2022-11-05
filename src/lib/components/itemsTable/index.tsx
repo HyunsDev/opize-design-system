@@ -8,8 +8,8 @@ import { Item } from './items';
 
 const StyledTable = styled.div`
     margin-top: 8px;
-    border-top: solid 1px ${cv.border3};
-    border-bottom: solid 1px ${cv.border3};
+    border-top: solid 1px ${cv.border4};
+    border-bottom: solid 1px ${cv.border4};
     border-radius: 8px;
 `;
 
@@ -37,9 +37,9 @@ const StyledRow = styled.div`
     justify-content: space-between;
     padding: 16px;
     gap: 8px;
-    border-right: solid 1px ${cv.border3};
-    border-left: solid 1px ${cv.border3};
-    border-top: solid 1px ${cv.border3};
+    border-right: solid 1px ${cv.border4};
+    border-left: solid 1px ${cv.border4};
+    border-top: solid 1px ${cv.border4};
 
     @media (max-width: 767px) {
         flex-direction: column;

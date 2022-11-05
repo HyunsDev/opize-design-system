@@ -44,9 +44,8 @@ HeaderButton.displayName = 'Header.Nav.Button';
 
 const HeaderNavComponent = styled.nav`
     display: flex;
-    width: 100%;
-    max-width: calc(1200px);
-    padding: 0px 24px;
+    width: 1200px;
+    margin: 0px 24px;
     margin: auto;
     height: 64px;
     user-select: none;
@@ -55,7 +54,7 @@ const HeaderNavComponent = styled.nav`
     z-index: 11;
 
     @media (max-width: 767px) {
-        padding: 0px 8px;
+        margin: 0px 8px;
     }
 
     & > div {

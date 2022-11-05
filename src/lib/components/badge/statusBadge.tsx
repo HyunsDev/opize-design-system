@@ -38,7 +38,6 @@ const Badge = styled.div<{ color: 'red' | 'yellow' | 'green' | 'blue' | 'gray'; 
     display: flex;
     align-items: center;
     width: fit-content;
-    font-weight: ${(props) => (props.size === 'normal' ? '700' : '400')};
 
     &::before {
         content: '';

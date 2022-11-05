@@ -12,7 +12,6 @@ const TextsDiv = styled.div<{ flex?: number }>`
 `;
 
 const TextDiv = styled.div`
-    font-weight: 600;
     color: ${cv.text1};
     font-size: 14px;
 `;
