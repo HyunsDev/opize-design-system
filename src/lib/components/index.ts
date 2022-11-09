@@ -26,3 +26,5 @@ export * from './pageLayout';
 export * from './span';
 export * from './buttonGroup';
 export * from './token';
+export * from './simpleHeader';
+export * from './boxLayout';

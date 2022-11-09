@@ -4,7 +4,7 @@ import { cv } from '../../style';
 import { Button, ButtonProps } from '../button';
 
 const BoxOuter = styled.div`
-    border: solid 1px ${cv.border3};
+    border: solid 1px ${cv.border4};
     border-radius: 4px;
     color: ${cv.text1};
 `;
@@ -34,7 +34,7 @@ const BoxHeaderDiv = styled.div`
     justify-content: space-between;
     padding: 8px 24px;
     background-color: ${cv.bg_element2};
-    border-bottom: solid 1px ${cv.border3};
+    border-bottom: solid 1px ${cv.border4};
     font-size: 0.875rem;
 `;
 
@@ -42,9 +42,9 @@ const BoxFooterDiv = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 16px 24px;
+    padding: 10px 24px;
     background-color: ${cv.bg_element2};
-    border-top: solid 1px ${cv.border3};
+    border-top: solid 1px ${cv.border4};
     font-size: 0.875rem;
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;

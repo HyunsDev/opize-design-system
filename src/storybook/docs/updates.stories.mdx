@@ -13,6 +13,28 @@ import { Meta } from '@storybook/addon-docs';
 > 📝 문서, 주석 업데이트<br />
 > 업데이트 이모지는 [gitmoji](https://gitmoji.dev/)를 따르고 있어요. 자세한 내용은 링크에서 확인해주세요!
 
+### v0.15.0
+업데이트
+1. ✨ `<TextField>`에 `width` Prop을 추가했어요.
+2. ✨ styled-component의 `theme`에 `theme` 속성을 추가했어요. 이 속성은 `useColorTheme()` 훅의 `nowColorTheme`과 동일한 역할이에요
+3. ✨ form 계열 컴포넌트의 foucs 디자인이 수정되었어요.
+4. ✨ `<PageLayout>`에 `padding` 속성을 추가했어요.
+5. ✨ `<SimpleHeader>` 컴포넌트를 추가했어요.
+6. ✨ border의 색을 조금 조정했어요
+7. ✨ `<BlockLayout>`을 추가했어요. 이전까지의 `<PageLayout>`을 대체하는 컴포넌트에요.
+8. ✨ overlay 계열 컴포넌트의 디자인을 수정했어요.
+9. ✨ 그동안 제각각이던 pageWidth를 `margin을 제외한 1200px`로 통일했어요. 
+10. ✨ `<ItemsTable>`의 `AvatarItem`의 `name`과 `label`을 선택 속성으로 변경했어요. 
+10. ✨ `<ItemsTable>`의 `StatusItemProps`의 `text`속성을 추가했어요. `text` 속성을 지정하지 않으면 `status`속성의 텍스트가 사용되요.
+
+버그
+1. 🐛 `<Span>`에서 속성이 제대로 적용되지 않는 문제를 해결했어요.
+2. 🐛 `<Header>`의 최대 너비 문제를 해결했어요.
+3. 🐛 `<FlexBetween>`에서 `gap`이 적용되지 않던 문제를 해결했어요.
+
+### v0.14.1
+1. 🐛 README 버그를 처리했어요.
+
 ### v0.14.0
 v0.14.0 부터는 `opize-client`에 직접 적용하면서 불편한 점 & 버그를 수정하고 있어요. 따라서 업데이트 주기가 늦어질 수 있어요. (충분한 테스트, 사용성을 검증하면서 버전을 올릴 예정입니다!)
 

@@ -33,6 +33,7 @@ const Input = styled.textarea<TextAreaProps>`
     &:focus {
         outline: 0;
         border: solid 1px ${cv.border2};
+        background-color: ${cv.bg_element1};
     }
 
     &::placeholder {

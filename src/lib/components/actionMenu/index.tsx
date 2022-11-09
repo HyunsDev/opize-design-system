@@ -52,7 +52,7 @@ const OverlayDiv = styled.div<{ top?: number; right?: number; bottom?: number; l
     gap: 0px;
     z-index: 10;
     border-radius: 6px;
-    border: solid 1px ${cv.border3};
+    border: solid 1px ${cv.border4};
     animation: ${(props) => (props.top !== undefined ? FadeInFromTop : FadeInFromBottom)} 150ms
         cubic-bezier(0.07, 0.75, 0.54, 0.93);
 `;
@@ -64,9 +64,9 @@ const ActionsDiv = styled.div`
     width: 100%;
     padding: 0px 0px;
 
-    border-bottom: solid 1px ${cv.border3};
-    padding-bottom: 8px;
-    margin-bottom: 8px;
+    border-bottom: solid 1px ${cv.border4};
+    padding-bottom: 6px;
+    margin-bottom: 6px;
     &:last-child {
         border-bottom: none;
         margin-bottom: 0;
@@ -79,10 +79,9 @@ const ActionDiv = styled.div<{ color: 'normal' | 'red' }>`
     align-items: center;
     justify-content: space-between;
     padding: 4px 16px;
-    border-radius: 4px;
     background-color: ${cv.bg_element1};
     cursor: pointer;
-    transition: 100ms;
+    transition: 200ms;
     user-select: none;
     color: ${(props) => (props.color === 'red' ? cv.red1 : cv.text2)};
     font-size: 0.875rem;

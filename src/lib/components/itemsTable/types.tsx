@@ -6,12 +6,13 @@ interface ItemProps {
 
 export interface AvatarItemProps extends ItemProps {
     icon: React.ReactNode;
-    name: React.ReactNode;
-    label: React.ReactNode;
+    name?: React.ReactNode;
+    label?: React.ReactNode;
 }
 
 export interface StatusItemProps extends ItemProps {
     status: 'stateless' | 'error' | 'warning' | 'done' | 'good';
+    text?: React.ReactNode;
     label?: React.ReactNode;
 }
 

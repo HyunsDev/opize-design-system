@@ -29,7 +29,6 @@ const AvatarName = styled.div`
     color: ${cv.text1};
     font-size: 14px;
     line-height: 17px;
-    font-weight: 600;
 `;
 
 const AvatarLabel = styled.div`
@@ -45,8 +44,8 @@ export function AvatarItem({ flex, icon, name, label }: AvatarItemProps) {
         <AvatarDiv flex={flex}>
             {typeof icon === 'string' ? <AvatarIcon src={icon} alt="" /> : icon}
             <AvatarInfo>
-                <AvatarName>{name}</AvatarName>
-                <AvatarLabel>{label}</AvatarLabel>
+                {name && <AvatarName>{name}</AvatarName>}
+                {label && <AvatarLabel>{label}</AvatarLabel>}
             </AvatarInfo>
         </AvatarDiv>
     );
