@@ -59,7 +59,7 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 interface OpizeWrapperProps {
-    children: React.ReactElement;
+    children: React.ReactNode;
     /**
      * Link를 사용해야 하는 곳에서 사용할 링크 컴포넌트입니다. ex. \<OpizeWrapper initLink={Link}\>...
      */
