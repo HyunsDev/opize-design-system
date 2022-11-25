@@ -1,6 +1,6 @@
 {
   "name": "opize-design-system",
-  "version": "0.16.0",
+  "version": "0.16.1",
   "private": false,
   "license": "MIT",
   "description": "Opize Design System",
@@ -16,7 +16,8 @@
   "babel": {
     "presets": [
       "@babel/preset-react",
-      "@babel/preset-typescript"
+      "@babel/preset-typescript",
+      "@babel/preset-env"
     ]
   },
   "dependencies": {
@@ -43,13 +44,9 @@
     "web-vitals": "^2.1.0"
   },
   "scripts": {
-    "start": "react-scripts start",
-    "build": "react-scripts build",
-    "test": "react-scripts test",
-    "eject": "react-scripts eject",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "publish:npm": "rmdir dist /s /q && mkdir dist && babel src/lib -d dist --copy-files --extensions \".ts,.tsx\" --ignore \"src/**/*.stories.tsx\" --no-copy-ignored && tsc --p tsconfig.module.json",
+    "build": "rmdir dist /s /q && mkdir dist && babel src/lib -d dist --copy-files --extensions \".ts,.tsx\" --ignore \"src/**/*.stories.tsx\" --no-copy-ignored && tsc --p tsconfig.module.json",
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\""
   },
@@ -67,6 +64,7 @@
   },
   "devDependencies": {
     "@babel/cli": "^7.17.6",
+    "@babel/preset-env": "^7.20.2",
     "@babel/preset-react": "^7.16.7",
     "@babel/preset-typescript": "^7.16.7",
     "@storybook/addon-a11y": "^6.5.12",
