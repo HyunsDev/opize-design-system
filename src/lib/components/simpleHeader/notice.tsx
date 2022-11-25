@@ -67,14 +67,14 @@ const Close = styled.button`
     }
 `;
 
-export interface HeaderNoticeProps {
+export interface SimpleHeaderNoticeProps {
     /**
      * 공지에 들어갈 내용입니다. 채울 경우 해당 내용으로 공지가 열립니다.
      */
     children?: React.ReactNode;
 }
-export const HeaderNotice = Object.assign(
-    ({ children }: HeaderNoticeProps) => {
+export const SimpleHeaderNotice = Object.assign(
+    ({ children }: SimpleHeaderNoticeProps) => {
         const {
             isOpen: isNoticeOpen,
             close: noticeClose,
@@ -100,6 +100,6 @@ export const HeaderNotice = Object.assign(
         );
     },
     {
-        displayName: 'Header.Notice',
+        displayName: 'SimpleHeader.Notice',
     }
 );

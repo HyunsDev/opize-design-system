@@ -1,6 +1,6 @@
 import styled, { css } from 'styled-components';
-import { cv } from '../../style';
 import React from 'react';
+import { cv } from '../../style';
 
 const StyledNav = styled.div`
     display: flex;

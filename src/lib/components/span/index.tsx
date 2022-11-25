@@ -1,6 +1,6 @@
 import styled from 'styled-components';
-import { cv } from '../../style';
 import React from 'react';
+import { cv } from '../../style';
 
 /**
  * 스타일링 된 \<span\>입니다.

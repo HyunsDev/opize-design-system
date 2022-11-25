@@ -10,7 +10,7 @@ export function useCodeModal() {
     const modal = useModal();
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    return (title: string, code: any, width?: number) => {
+    return (title: string, code: any, width?: number | string) => {
         modal.open(<CodeBlock>{JSON.stringify(code, null, 2)}</CodeBlock>, {
             title,
             width,

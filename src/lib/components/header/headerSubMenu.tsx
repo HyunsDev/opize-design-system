@@ -30,8 +30,8 @@ const DivverOuter = styled.div<{ isScrolled: boolean }>`
 
 const Divver = styled.div`
     display: flex;
-    width: 1200px;
-    margin: 0px 24px;
+    width: 1248px;
+    padding: 0px 12px;
     margin: auto;
     position: relative;
     margin-bottom: -1px;
