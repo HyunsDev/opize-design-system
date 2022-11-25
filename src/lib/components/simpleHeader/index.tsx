@@ -3,6 +3,7 @@ import styled, { css } from 'styled-components';
 import { Button } from '..';
 import { cv } from '../../style';
 import { Nav } from './nav';
+import { SimpleHeaderNotice } from './notice';
 
 const StyledHeader = styled.header`
     z-index: 10;
@@ -18,8 +19,9 @@ const DivverOuter = styled.div<{ isScrolled: boolean }>`
     top: 0;
     left: 0;
     position: fixed;
-    display: flex;
+    flex-direction: column;
     justify-content: center;
+    align-items: center;
     border-bottom: solid 1px ${cv.bg_page2};
 
     ${(props) =>
@@ -32,9 +34,9 @@ const DivverOuter = styled.div<{ isScrolled: boolean }>`
 const Divver = styled.div`
     display: flex;
     width: 100%;
-    max-width: 1200px;
-    height: 52px;
+    max-width: 1248px;
     padding: 0px 24px;
+    height: 52px;
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -46,8 +48,9 @@ const Divver = styled.div`
 
 export type SimpleHeaderProps = {
     children: React.ReactNode;
+    notice?: string;
 };
-function SimpleHeaderComponent({ children }: SimpleHeaderProps) {
+function SimpleHeaderComponent({ children, notice }: SimpleHeaderProps) {
     const [isTop, setIsTop] = useState(true);
 
     useEffect(() => {
@@ -64,6 +67,7 @@ function SimpleHeaderComponent({ children }: SimpleHeaderProps) {
     return (
         <StyledHeader>
             <DivverOuter isScrolled={!isTop}>
+                <SimpleHeaderNotice>{notice}</SimpleHeaderNotice>
                 <Divver>{children}</Divver>
             </DivverOuter>
         </StyledHeader>

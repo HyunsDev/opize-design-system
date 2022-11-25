@@ -4,6 +4,42 @@ import { themes, builtCssVariable } from '../../style';
 import { OpizeContextProvider } from '../../context';
 import { CvThemeProvider } from '../../style/cvThemeProvider';
 
+const BaseGLobalStyles = createGlobalStyle`
+    * {
+        padding: 0;
+        margin: 0;
+        box-sizing: border-box;
+        -webkit-tap-highlight-color : transparent;
+    }
+
+    :root {
+        ${builtCssVariable}
+        ${themes.light}
+        scroll-padding-top: 64px;
+        text-rendering: optimizeLegibility;
+        -webkit-font-smoothing: antialiased;
+        touch-action: manipulation;
+    }
+
+    @media (prefers-color-scheme: dark) {
+        body {
+            ${themes.dark};
+        }
+    }
+
+    body[data-theme='light'] {
+        ${themes.light};
+    }
+
+    body[data-theme='dark'] {
+        ${themes.dark};
+    }
+
+    a {
+        -webkit-tap-highlight-color: rgba(0,0,0,0);
+    }
+`;
+
 const GlobalStyles = createGlobalStyle`
     * {
         padding: 0;
@@ -59,20 +95,24 @@ const GlobalStyles = createGlobalStyle`
 `;
 
 interface OpizeWrapperProps {
-    children: React.ReactElement;
+    children: React.ReactNode;
     /**
      * Link를 사용해야 하는 곳에서 사용할 링크 컴포넌트입니다. ex. \<OpizeWrapper initLink={Link}\>...
      */
     initLink?: React.ElementType<any>;
+    /**
+     * Opize Design System의 기본 스타일 (폰트, 배경색, 텍스트 선택 배경 등) 적용 유뮤입니다. 기본값은 true입니다.
+     */
+    applyDefaultStyle?: boolean;
 }
 
 /**
  * opize-design-system을 사용하기 위해 필수적으로 사용해야 하는 컴포넌트입니다.
  */
-export function OpizeWrapper({ children, initLink }: OpizeWrapperProps) {
+export function OpizeWrapper({ children, initLink, applyDefaultStyle = true }: OpizeWrapperProps) {
     return (
         <>
-            <GlobalStyles />
+            {applyDefaultStyle ? <GlobalStyles /> : <BaseGLobalStyles />}
             <OpizeContextProvider initLink={initLink}>
                 <CvThemeProvider>{children}</CvThemeProvider>
             </OpizeContextProvider>

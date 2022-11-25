@@ -3,9 +3,9 @@ import { Modal } from '../../components/modal';
 
 export interface ModalContextProps {
     isOpen: boolean;
-    open: (content: React.ReactNode, option?: { title?: string; width?: number; isPadding?: boolean }) => void;
+    open: (content: React.ReactNode, option?: { title?: string; width?: number | string; isPadding?: boolean }) => void;
     close: () => void;
-    width: number;
+    width: number | string;
     title?: string;
 }
 
@@ -19,7 +19,7 @@ export const ModalContext = createContext<ModalContextProps>({
 function ModalContextProvider({ children }: { children: React.ReactNode }) {
     const [isOpen, setOpen] = useState(false);
     const [modalContent, setModalContent] = useState<React.ReactNode>('');
-    const [width, setWidth] = useState(350);
+    const [width, setWidth] = useState<number | string>(350);
     const [title, setTitle] = useState<undefined | string>();
     const [isPadding, setPadding] = useState(true);
 
@@ -28,7 +28,7 @@ function ModalContextProvider({ children }: { children: React.ReactNode }) {
             content: React.ReactNode,
             option?: {
                 title?: string;
-                width?: number;
+                width?: number | string;
                 isPadding?: boolean;
             }
         ) => {

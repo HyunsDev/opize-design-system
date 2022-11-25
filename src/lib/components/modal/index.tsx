@@ -44,13 +44,13 @@ const ModalBoxDivver = styled.div`
     animation: ${FadeInFromBottom} 200ms cubic-bezier(0.07, 0.75, 0.54, 0.93);
 `;
 
-const ModalBox = styled.div<{ isOpen: boolean; width: number; isPadding?: boolean }>`
+const ModalBox = styled.div<{ isOpen: boolean; width: string; isPadding?: boolean }>`
     background-color: ${cv.bg_page2};
     color: ${cv.text1};
     box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.1);
     border-radius: 8px;
     pointer-events: auto;
-    width: ${(props) => props.width}px;
+    width: ${(props) => props.width};
     max-width: 80vw;
     padding: ${(props) => (props.isPadding ? 16 : 0)}px;
 
@@ -90,7 +90,7 @@ export function Modal(props: {
     setOpen: (isOpen: boolean) => void;
     isOpen: boolean;
     content: React.ReactNode;
-    width: number;
+    width: string | number;
     title?: React.ReactNode;
     close: () => void;
     isPadding?: boolean;
@@ -109,12 +109,14 @@ export function Modal(props: {
         }
     }, [props.isOpen]);
 
+    const width = typeof props.width === 'number' ? `${props.width}px` : props.width;
+
     if (isOpen) {
         return (
             <Divver>
                 <Background isOpen={props.isOpen} onClick={() => props.setOpen(false)} />
                 <ModalBoxDivver>
-                    <ModalBox isOpen={props.isOpen} width={props.width} isPadding={props.isPadding}>
+                    <ModalBox isOpen={props.isOpen} width={width} isPadding={props.isPadding}>
                         {props.title && (
                             <ModalTitleBox>
                                 <ModalTitle>{props.title}</ModalTitle>

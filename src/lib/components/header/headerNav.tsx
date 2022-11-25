@@ -44,9 +44,9 @@ HeaderButton.displayName = 'Header.Nav.Button';
 
 const HeaderNavComponent = styled.nav`
     display: flex;
-    width: 1200px;
-    margin: 0px 24px;
-    margin: auto;
+    max-width: 1248px;
+    padding: 0px 24px;
+    margin: 0px auto;
     height: 64px;
     user-select: none;
     position: relative;

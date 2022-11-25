@@ -38,13 +38,14 @@ const Footer = styled.div`
 `;
 Footer.displayName = 'PageLayout.Footer';
 
-const PageLayoutOuter = styled.div<{ backgroundColor: string; marginTop: string; padding: string }>`
+const PageLayoutOuter = styled.div<{ minHeight: string; backgroundColor: string; marginTop: string; padding: string }>`
     width: 100%;
     background-color: ${(props) => props.backgroundColor};
     margin-top: ${(props) => props.marginTop};
     display: flex;
     justify-content: center;
     padding: ${(props) => props.padding};
+    min-height: ${(props) => props.minHeight};
 `;
 
 interface PageLayoutInnerProps {
@@ -104,6 +105,7 @@ interface PageLayoutRootProps {
     gutter?: string;
     panWidth?: string;
     padding?: string;
+    minHeight?: string;
 }
 function PageLayoutRoot({
     width = cv.pageWidth,
@@ -115,9 +117,15 @@ function PageLayoutRoot({
     marginTop = '0px',
     panWidth = '300px',
     padding = '0px',
+    minHeight = 'unset',
 }: PageLayoutRootProps) {
     return (
-        <PageLayoutOuter marginTop={marginTop} backgroundColor={backgroundColor} padding={padding}>
+        <PageLayoutOuter
+            minHeight={minHeight}
+            marginTop={marginTop}
+            backgroundColor={backgroundColor}
+            padding={padding}
+        >
             <PageLayoutInner width={width} gap={gap} panPosition={panPosition} gutter={gutter} panWidth={panWidth}>
                 {children}
             </PageLayoutInner>

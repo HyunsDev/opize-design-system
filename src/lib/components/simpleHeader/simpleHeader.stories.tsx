@@ -37,4 +37,5 @@ Primary.args = {
             </Flex.Row>
         </>
     ),
+    notice: '공지',
 };
