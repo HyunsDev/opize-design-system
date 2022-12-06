@@ -6,11 +6,8 @@ import { Spinner } from '../spinner';
 import { ButtonComponent, ButtonProps, StyledButtonProps } from './buttonType';
 import { colorMap, sizeMap } from './buttonStyle';
 import { PolymorphicRef } from '../../utils/type/polymorphicComponent';
-import { useCodeModal } from '../../hooks';
 import { LinkContext } from '../../context/linkContext';
-import { ToolTip } from '../tooltip';
 import { ButtonToolTipBox } from './buttonTooltip';
-import { Spacer } from '../spacer';
 
 const StyledButton = styled.button<StyledButtonProps>`
     display: flex;

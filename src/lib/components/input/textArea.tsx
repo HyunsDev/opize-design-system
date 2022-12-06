@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ComponentProps } from 'react';
+import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { cv } from '../../style';
 import { Label } from './label';

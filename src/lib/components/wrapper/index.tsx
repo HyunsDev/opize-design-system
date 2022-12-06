@@ -1,4 +1,4 @@
-import { createGlobalStyle, ThemeProvider } from 'styled-components';
+import { createGlobalStyle } from 'styled-components';
 import React from 'react';
 import { themes, builtCssVariable } from '../../style';
 import { OpizeContextProvider } from '../../context';
@@ -109,7 +109,7 @@ interface OpizeWrapperProps {
 /**
  * opize-design-system을 사용하기 위해 필수적으로 사용해야 하는 컴포넌트입니다.
  */
-export function OpizeWrapper({ children, initLink, applyDefaultStyle = true }: OpizeWrapperProps) {
+export function OpizeWrapper({ children, initLink = 'a', applyDefaultStyle = true }: OpizeWrapperProps) {
     return (
         <>
             {applyDefaultStyle ? <GlobalStyles /> : <BaseGLobalStyles />}

@@ -1,3 +1,4 @@
+import React from 'react';
 import { css, FlattenInterpolation, ThemedStyledProps } from 'styled-components';
 import { cv } from '../../style';
 import { ButtonColor, ButtonSize, ButtonVariant } from './buttonType';

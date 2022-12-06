@@ -1,6 +1,5 @@
-import React, { ComponentProps, useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import styled, { css } from 'styled-components';
-import { Button } from '..';
 import { cv } from '../../style';
 import { Nav } from './nav';
 import { SimpleHeaderNotice } from './notice';
