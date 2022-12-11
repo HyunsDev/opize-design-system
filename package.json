@@ -6,8 +6,8 @@
   "description": "Opize Design System",
   "homepage": "https://github.com/HyunsDev/opize-design-system",
   "author": "Opize <hello@opize.me> (https://opize.me)",
-  "module": "dist/index.js",
-  "main": "dist/index.js",
+  "module": "dist/esm/index.js",
+  "main": "dist/cjs/index.js",
   "types": "dist/index.d.ts",
   "bugs": {
     "url": "https://github.com/HyunsDev/opize-design-system/issues",
@@ -30,8 +30,8 @@
     "react-hook-form": "^7.34.0",
     "react-scripts": "5.0.1",
     "storybook-addon-performance": "^0.16.1",
-    "storybook-dark-mode": "^2.0.3",
-    "styled-components": "^5.3.5",
+    "storybook-dark-mode": "^2.0.4",
+    "styled-components": "^5.3.6",
     "typescript": "^4.4.2",
     "web-vitals": "^2.1.0"
   },
@@ -39,9 +39,10 @@
     "start": "react-scripts start",
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
-    "build": "rmdir dist /s /q && mkdir dist && babel src/lib -d dist --copy-files --extensions \".ts,.tsx\" --ignore \"src/**/*.stories.tsx\" --no-copy-ignored && tsc --p tsconfig.module.json",
+    "build": "rmdir dist /s /q && mkdir dist && babel src/lib -d dist --copy-files --extensions \".ts,.tsx\" --no-copy-ignored && tsc -p tsconfig.module.json",
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
-    "lint:fix": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\""
+    "lint:fix": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\"",
+    "tsc-build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json"
   },
   "browserslist": {
     "production": [

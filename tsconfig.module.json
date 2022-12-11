@@ -4,7 +4,8 @@
         "lib": [
             "dom",
             "dom.iterable",
-            "es2021"
+            "ES5",
+            "ES2021"
         ],
         "allowJs": true,
         "skipLibCheck": true,
@@ -27,7 +28,7 @@
     ],
     "exclude": [
         "node_modules",
-        "src/lib/**/*.stories.tsx",
+        "src/**/*.stories.tsx",
         "src/storybook"
     ]
 }
