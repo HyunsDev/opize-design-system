@@ -6,8 +6,8 @@
   "description": "Opize Design System",
   "homepage": "https://github.com/HyunsDev/opize-design-system",
   "author": "Opize <hello@opize.me> (https://opize.me)",
-  "module": "dist/esm/index.js",
-  "main": "dist/cjs/index.js",
+  "module": "dist/index.js",
+  "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "bugs": {
     "url": "https://github.com/HyunsDev/opize-design-system/issues",
@@ -40,6 +40,7 @@
     "storybook": "start-storybook -p 6006 -s public",
     "build-storybook": "build-storybook -s public",
     "build": "rmdir dist /s /q && mkdir dist && babel src/lib -d dist --copy-files --extensions \".ts,.tsx\" --no-copy-ignored && tsc -p tsconfig.module.json",
+    "build:mac": "rm -r dist && mkdir dist && babel src/lib -d dist --copy-files --extensions \".ts,.tsx\" --no-copy-ignored && tsc -p tsconfig.module.json",
     "lint": "eslint \"src/**/*.{ts,tsx,js,jsx}\"",
     "lint:fix": "eslint --fix \"src/**/*.{ts,tsx,js,jsx}\"",
     "tsc-build": "tsc -p tsconfig.esm.json && tsc -p tsconfig.cjs.json"
