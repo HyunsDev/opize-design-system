@@ -38,20 +38,20 @@ const FadeInFromBottom = keyframes`
 
 const OverlayDiv = styled.div<{ top?: number; right?: number; bottom?: number; left?: number; buttonHeight: number }>`
     position: absolute;
-    min-width: 230px;
+    min-width: 200px;
     ${(props) => props.top !== undefined && `top: ${props.top + props.buttonHeight}px;`};
     ${(props) => props.right !== undefined && `right: ${props.right}px;`};
     ${(props) => props.bottom !== undefined && `bottom: ${props.bottom + props.buttonHeight}px;`};
     ${(props) => props.left !== undefined && `left: ${props.left}px;`};
     padding: 8px 0px;
-    box-shadow: 0 8px 30px rgba(0, 0, 0, 10%);
+    box-shadow: rgba(0, 0, 0, 8%) 0px 8px 16px;
     background-color: ${cv.bg_element1};
     font-size: 14px;
     display: flex;
     flex-direction: column;
     gap: 0px;
     z-index: 10;
-    border-radius: 6px;
+    border-radius: 8px;
     border: solid 1px ${cv.border4};
     animation: ${(props) => (props.top !== undefined ? FadeInFromTop : FadeInFromBottom)} 150ms
         cubic-bezier(0.07, 0.75, 0.54, 0.93);
@@ -78,14 +78,15 @@ const ActionDiv = styled.div<{ color: 'normal' | 'red' }>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 4px 16px;
+    padding: 2px 16px;
     background-color: ${cv.bg_element1};
     cursor: pointer;
-    transition: 200ms;
+    transition: 150ms;
     user-select: none;
     color: ${(props) => (props.color === 'red' ? cv.red1 : cv.text2)};
     font-size: 0.875rem;
     line-height: 24px;
+    color: ${cv.text1};
 
     &:hover {
         color: ${(props) => (props.color === 'red' ? cv.red1 : cv.text1)};

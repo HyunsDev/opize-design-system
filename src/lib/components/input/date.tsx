@@ -3,7 +3,7 @@ import styled from 'styled-components';
 import React from 'react';
 import { cv } from '../../style';
 import { Label } from './label';
-import { Flex } from '../layout';
+import { Flex } from '..';
 
 export type DateProps = React.ComponentPropsWithoutRef<'input'> & {
     label?: string;
@@ -13,7 +13,7 @@ export type DateProps = React.ComponentPropsWithoutRef<'input'> & {
 const Divver = styled.div`
     position: relative;
     border: solid 1px ${cv.border4};
-    background-color: ${cv.bg_element2};
+    background-color: ${cv.bg_element1_1};
     display: flex;
     align-items: center;
     border-radius: 4px;

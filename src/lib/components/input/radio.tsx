@@ -2,7 +2,7 @@
 import styled, { css } from 'styled-components';
 import React, { useImperativeHandle, useRef } from 'react';
 import { cv } from '../../style';
-import { Flex } from '../layout';
+import { Flex } from '..';
 import { Label } from './label';
 
 const Divver = styled.div`
@@ -31,6 +31,8 @@ const Divver = styled.div`
 
     &:has(input:checked) {
         background-color: ${cv.bg_element3};
+
+        border: solid 1px ${cv.border3};
     }
 `;
 

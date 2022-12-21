@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import React from 'react';
 import { cv } from '../../style';
-import { Flex } from '../layout';
+import { Flex } from '..';
 
 const Outer = styled.div`
     position: relative;

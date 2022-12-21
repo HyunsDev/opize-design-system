@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import styled from 'styled-components';
-import { PageLayout } from '..';
+import { PageLayout } from '../..';
 
 export default {
     title: 'Opize Component/PageLayout',

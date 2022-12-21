@@ -1,6 +1,6 @@
 import React from 'react';
 import styled, { css } from 'styled-components';
-import { cv } from '../../style';
+import { cv } from '../../../style';
 
 const Header = styled.div`
     grid-area: header;
@@ -38,10 +38,17 @@ const Footer = styled.div`
 `;
 Footer.displayName = 'PageLayout.Footer';
 
-const PageLayoutOuter = styled.div<{ minHeight: string; backgroundColor: string; marginTop: string; padding: string }>`
+const PageLayoutOuter = styled.div<{
+    minHeight: string;
+    backgroundColor: string;
+    marginTop: string;
+    padding: string;
+    marginBottom: string;
+}>`
     width: 100%;
     background-color: ${(props) => props.backgroundColor};
     margin-top: ${(props) => props.marginTop};
+    margin-bottom: ${(props) => props.marginBottom};
     display: flex;
     justify-content: center;
     padding: ${(props) => props.padding};
@@ -98,6 +105,7 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
 interface PageLayoutRootProps {
     width?: string;
     marginTop?: string;
+    marginBottom?: string;
     gap?: string;
     panPosition?: 'start' | 'end';
     backgroundColor?: string;
@@ -115,6 +123,7 @@ function PageLayoutRoot({
     backgroundColor = cv.bg_page2,
     children,
     marginTop = '0px',
+    marginBottom = '32px',
     panWidth = '300px',
     padding = '0px',
     minHeight = 'unset',
@@ -123,6 +132,7 @@ function PageLayoutRoot({
         <PageLayoutOuter
             minHeight={minHeight}
             marginTop={marginTop}
+            marginBottom={marginBottom}
             backgroundColor={backgroundColor}
             padding={padding}
         >

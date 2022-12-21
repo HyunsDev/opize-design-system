@@ -65,13 +65,13 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
 
         border1: '#343A40',
         border2: '#ADB5BD',
-        border3: '#c9d1da', // gray4
+        border3: '#c9d1da',
         border4: '#e5e9ec',
-        outline: 'rgba(43, 153, 255, 0.4)', // blue3
+        outline: 'rgba(43, 153, 255, 0.4)',
 
         text1: '#212529',
         text2: '#495057',
-        text3: '#9199a1', // gray5
+        text3: '#9199a1',
         text4: '#CED4DA',
         text5: '#FFFFFF',
 
@@ -109,13 +109,13 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
 
         border1: '#ecf0f3',
         border2: '#8d959b',
-        border3: '#3a3c42', // gray4
+        border3: '#3a3c42',
         border4: '#26282b',
-        outline: 'rgba(43, 153, 255, 0.4)', // blue3
+        outline: 'rgba(43, 153, 255, 0.4)',
 
         text1: '#f2f5f8',
         text2: '#95a0aa',
-        text3: '#6a7179', // gray5
+        text3: '#6a7179',
         text4: '#464b50',
         text5: '#000000',
 

@@ -1,4 +1,4 @@
-import React, { ChangeEvent, ComponentProps } from 'react';
+import React, { ChangeEvent } from 'react';
 import styled from 'styled-components';
 import { cv } from '../../style';
 import { Label } from './label';
@@ -25,7 +25,7 @@ const Input = styled.textarea<TextAreaProps>`
     height: 100px;
     font-size: 14px;
 
-    background-color: ${cv.bg_element2};
+    background-color: ${cv.bg_element1_1};
     color: ${cv.text1};
     transition: 100ms, height 0ms;
     border: solid 1px ${cv.border4};

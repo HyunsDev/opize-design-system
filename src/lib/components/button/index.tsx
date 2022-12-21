@@ -6,11 +6,8 @@ import { Spinner } from '../spinner';
 import { ButtonComponent, ButtonProps, StyledButtonProps } from './buttonType';
 import { colorMap, sizeMap } from './buttonStyle';
 import { PolymorphicRef } from '../../utils/type/polymorphicComponent';
-import { useCodeModal } from '../../hooks';
 import { LinkContext } from '../../context/linkContext';
-import { ToolTip } from '../tooltip';
 import { ButtonToolTipBox } from './buttonTooltip';
-import { Spacer } from '../spacer';
 
 const StyledButton = styled.button<StyledButtonProps>`
     display: flex;
@@ -135,11 +132,11 @@ export const Button: ButtonComponent = React.forwardRef(
                     as={Element}
                     to={to}
                     href={to}
-                    onMouseOver={(e) => {
+                    onMouseOver={(e: React.MouseEvent) => {
                         setIsHover(true);
                         if (props.onMouseOver) props.onMouseOver(e);
                     }}
-                    onMouseOut={(e) => {
+                    onMouseOut={(e: React.MouseEvent) => {
                         setIsHover(false);
                         if (props.onMouseOut) props.onMouseOut(e);
                     }}

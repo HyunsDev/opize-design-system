@@ -3,7 +3,7 @@ import { IconContext } from 'phosphor-react';
 import React from 'react';
 import styled, { css, FlattenInterpolation, ThemedStyledProps } from 'styled-components';
 import { cv, sv } from '../../style';
-import { Flex } from '../layout';
+import { Flex } from '..';
 
 type TokenSize = 'small' | 'medium' | 'large';
 type TokenColor = 'default' | 'gray' | 'yellow' | 'red' | 'green' | 'blue';

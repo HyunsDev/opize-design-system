@@ -1,5 +1,5 @@
 import styled from 'styled-components';
-import React, { ComponentProps } from 'react';
+import React from 'react';
 import { cv } from '../../style';
 import { Button, ButtonProps } from '../button';
 

@@ -1,5 +1,4 @@
 import React, { createContext, useCallback, useMemo, useState } from 'react';
-import { Modal } from '../../components/modal';
 
 export interface HeaderNoticeContextProps {
     open: (content: React.ReactNode) => void;

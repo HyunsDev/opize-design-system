@@ -4,7 +4,7 @@ import React from 'react';
 import { CaretDown } from 'phosphor-react';
 import { cv } from '../../style';
 import { Label } from './label';
-import { Flex } from '../layout';
+import { Flex } from '..';
 
 export type SelectProps = React.ComponentPropsWithoutRef<'select'> & { label?: string };
 
@@ -16,7 +16,7 @@ const Divver = styled.div`
     border-radius: 4px;
     height: 36px;
     font-size: 14px;
-    background-color: ${cv.bg_element2};
+    background-color: ${cv.bg_element1_1};
 
     color: ${cv.text1};
     transition: 150ms;

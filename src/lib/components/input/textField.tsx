@@ -43,7 +43,7 @@ const Input = styled.input<{ border: 'all' | 'bottom' | 'none'; readOnly: boolea
     font-size: 14px;
     outline: solid 3px rgba(0, 0, 0, 0);
     box-shadow: 0px 0px 3px transparent;
-    background-color: ${(props) => (props.readOnly ? cv.bg_element3 : cv.bg_element2)};
+    background-color: ${(props) => (props.readOnly ? cv.bg_element3 : cv.bg_element1_1)};
     color: ${cv.text1};
 
     ${(props) =>

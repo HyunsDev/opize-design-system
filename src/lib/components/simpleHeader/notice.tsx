@@ -1,9 +1,9 @@
 import { X } from 'phosphor-react';
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import styled, { css } from 'styled-components';
 import { useHeaderNotice } from '../../hooks/useHeaderNotice';
 import { cv } from '../../style';
-import { Flex } from '../layout';
+import { Flex } from '..';
 
 const DivverOuter = styled.div<{ isOpen: boolean }>`
     position: relative;
