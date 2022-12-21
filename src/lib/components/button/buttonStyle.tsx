@@ -135,13 +135,13 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             border: solid 1px ${cv.bg_element5};
 
             &:hover {
-                color: ${cv.bg_element5};
+                color: ${cv.bg_element1};
                 --local-color: ${cv.bg_element5};
-                background-color: ${cv.bg_element1};
+                background-color: ${cv.bg_element6};
             }
 
             &:active {
-                background-color: ${cv.bg_element3};
+                background-color: ${cv.bg_element5};
             }
 
             &:disabled {

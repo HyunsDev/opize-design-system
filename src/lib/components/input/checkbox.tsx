@@ -24,7 +24,7 @@ const Input = styled.input`
     transition: 200ms;
 
     border: solid 1px ${cv.border4};
-    background: ${cv.bg_element2};
+    background: ${cv.bg_element1_1};
     cursor: pointer;
 
     &:disabled {

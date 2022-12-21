@@ -132,11 +132,11 @@ export const Button: ButtonComponent = React.forwardRef(
                     as={Element}
                     to={to}
                     href={to}
-                    onMouseOver={(e) => {
+                    onMouseOver={(e: React.MouseEvent) => {
                         setIsHover(true);
                         if (props.onMouseOver) props.onMouseOver(e);
                     }}
-                    onMouseOut={(e) => {
+                    onMouseOut={(e: React.MouseEvent) => {
                         setIsHover(false);
                         if (props.onMouseOut) props.onMouseOut(e);
                     }}

@@ -2,7 +2,7 @@ import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import styled from 'styled-components';
-import { BoxLayout } from '..';
+import { BoxLayout } from '../..';
 
 export default {
     title: 'Opize Component/BoxLayout',
