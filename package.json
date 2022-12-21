@@ -1,6 +1,6 @@
 {
   "name": "opize-design-system",
-  "version": "0.16.3",
+  "version": "0.16.4",
   "private": false,
   "license": "MIT",
   "description": "Opize Design System",
@@ -27,7 +27,6 @@
     "phosphor-react": "^1.4.1",
     "react-hook-form": "^7.34.0",
     "react-scripts": "5.0.1",
-    "react-syntax-highlighter": "^15.5.0",
     "storybook-addon-performance": "^0.16.1",
     "storybook-dark-mode": "^2.0.4",
     "styled-components": "^5.3.6",
