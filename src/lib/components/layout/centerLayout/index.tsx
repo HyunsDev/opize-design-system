@@ -2,7 +2,12 @@ import React from 'react';
 import styled from 'styled-components';
 import { cv } from '../../../style';
 
-const PageLayoutOuter = styled.div<{ backgroundColor: string; marginTop: string; padding: string; minHeight: string }>`
+const CenterLayoutOuter = styled.div<{
+    backgroundColor: string;
+    marginTop: string;
+    padding: string;
+    minHeight: string;
+}>`
     width: 100%;
     background-color: ${(props) => props.backgroundColor};
     margin-top: ${(props) => props.marginTop};
@@ -12,12 +17,12 @@ const PageLayoutOuter = styled.div<{ backgroundColor: string; marginTop: string;
     min-height: ${(props) => props.minHeight};
 `;
 
-interface PageLayoutInnerProps {
+interface CenterLayoutInnerProps {
     width: string;
     gap: string;
     gutter: string;
 }
-const PageLayoutInner = styled.div<PageLayoutInnerProps>`
+const CenterLayoutInner = styled.div<CenterLayoutInnerProps>`
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -25,12 +30,17 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
     gap: ${(props) => props.gap};
     margin: 0px ${(props) => props.gutter};
 
+    align-items: center;
+    justify-content: center;
+
     @media (max-width: 767px) {
         margin: 0px 8px;
     }
 `;
 
-interface BoxLayoutProps {
+const WrapperDiv = styled.div``;
+
+interface CenterLayoutProps {
     width?: string;
     marginTop?: string;
     gap?: string;
@@ -40,7 +50,7 @@ interface BoxLayoutProps {
     padding?: string;
     minHeight?: string;
 }
-export function BoxLayout({
+export function CenterLayout({
     width = cv.pageWidth,
     gap = '8px',
     gutter = '24px',
@@ -49,19 +59,19 @@ export function BoxLayout({
     marginTop = '0px',
     padding = '0px',
     minHeight = 'unset',
-}: BoxLayoutProps) {
+}: CenterLayoutProps) {
     return (
-        <PageLayoutOuter
+        <CenterLayoutOuter
             marginTop={marginTop}
             backgroundColor={backgroundColor}
             padding={padding}
             minHeight={minHeight}
         >
-            <PageLayoutInner width={width} gap={gap} gutter={gutter}>
-                {children}
-            </PageLayoutInner>
-        </PageLayoutOuter>
+            <CenterLayoutInner width={width} gap={gap} gutter={gutter}>
+                <WrapperDiv>{children}</WrapperDiv>
+            </CenterLayoutInner>
+        </CenterLayoutOuter>
     );
 }
 
-BoxLayout.displayName = 'BoxLayout';
+CenterLayout.displayName = 'CenterLayout';

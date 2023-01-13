@@ -5,7 +5,7 @@ import styled from 'styled-components';
 import { PageLayout } from '../..';
 
 export default {
-    title: 'Opize Component/PageLayout',
+    title: 'Opize Component/Layout/PageLayout',
     component: PageLayout,
     subcomponents: {
         'PageLayout.Header': PageLayout.Header,
