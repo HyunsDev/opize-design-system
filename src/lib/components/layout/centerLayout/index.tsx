@@ -38,10 +38,6 @@ const CenterLayoutInner = styled.div<CenterLayoutInnerProps>`
     }
 `;
 
-const WrapperDiv = styled.div`
-    width: 100%;
-`;
-
 interface CenterLayoutProps {
     width?: string;
     marginTop?: string;
@@ -70,7 +66,7 @@ export function CenterLayout({
             minHeight={minHeight}
         >
             <CenterLayoutInner width={width} gap={gap} gutter={gutter}>
-                <WrapperDiv>{children}</WrapperDiv>
+                {children}
             </CenterLayoutInner>
         </CenterLayoutOuter>
     );
