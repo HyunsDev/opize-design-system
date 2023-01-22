@@ -1,4 +1,5 @@
 import React from 'react';
+import SlideBoxContextProvider from '../components/slideBox/context/slideBox.context';
 import ColorThemeProvider from '../hooks/useColorTheme/colorThemeContext';
 import HeaderNoticeProvider from '../hooks/useHeaderNotice/context';
 import ModalContextProvider from '../hooks/useModal/modalContext';
@@ -19,7 +20,9 @@ export function OpizeContextProvider({
                 <ModalContextProvider>
                     <HeaderNoticeProvider>
                         <TabNavContextProvider>
-                            <TopLoadingContextProvider>{children}</TopLoadingContextProvider>
+                            <TopLoadingContextProvider>
+                                <SlideBoxContextProvider>{children}</SlideBoxContextProvider>
+                            </TopLoadingContextProvider>
                         </TabNavContextProvider>
                     </HeaderNoticeProvider>
                 </ModalContextProvider>

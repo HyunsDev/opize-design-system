@@ -38,7 +38,9 @@ const CenterLayoutInner = styled.div<CenterLayoutInnerProps>`
     }
 `;
 
-const WrapperDiv = styled.div``;
+const WrapperDiv = styled.div`
+    width: 100%;
+`;
 
 interface CenterLayoutProps {
     width?: string;
