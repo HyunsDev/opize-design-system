@@ -1,5 +1,4 @@
-import React, { createContext, useEffect, useMemo, useState } from 'react';
-import { useSlideBox } from '../hook/useSlideBox';
+import React, { createContext, useMemo, useState } from 'react';
 
 export interface SlideBoxHeightContextProps {
     height: number;

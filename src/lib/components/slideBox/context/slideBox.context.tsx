@@ -1,4 +1,4 @@
-import React, { createContext, useCallback, useMemo, useState } from 'react';
+import React, { createContext, useMemo, useState } from 'react';
 
 export interface SlideBoxValueContextProps {
     now: number;
@@ -11,7 +11,7 @@ export const SlideBoxValueContext = createContext<SlideBoxValueContextProps>({
     now: 0,
 });
 export const SlideBoxActionContext = createContext<SlideBoxActionContextProps>({
-    move: (pos: number) => null,
+    move: () => null,
 });
 
 function SlideBoxContextProvider({ children }: { children: React.ReactNode }) {

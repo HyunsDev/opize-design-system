@@ -1,8 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import styled from 'styled-components';
-import { Button, CenterLayout, Flex, SlideBox, Spacer, Text } from '..';
-import OpizeLogo from '../../../assets/opize_logoText.png';
+import { Button, CenterLayout, Flex, SlideBox, Text } from '..';
 import { useSlideBox } from './hook/useSlideBox';
 
 export default {
@@ -15,7 +14,7 @@ const Space = styled.div`
     background-color: #f0f0f0;
 `;
 
-const Template: ComponentStory<typeof SlideBox> = (args) => {
+const Template: ComponentStory<typeof SlideBox> = () => {
     const { move, now } = useSlideBox();
 
     return (
@@ -46,7 +45,7 @@ const Template: ComponentStory<typeof SlideBox> = (args) => {
 export const Primary = Template.bind({});
 Primary.args = {};
 
-const ExampleTemplate: ComponentStory<typeof SlideBox> = (args) => {
+const ExampleTemplate: ComponentStory<typeof SlideBox> = () => {
     const { move, now } = useSlideBox();
 
     return (
