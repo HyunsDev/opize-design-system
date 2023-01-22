@@ -76,7 +76,7 @@ export const Button: ButtonComponent = React.forwardRef(
             iconPosition = 'start',
             onClick,
             type = 'button',
-            borderRadius = 4,
+            borderRadius,
             width = 'fit-content',
             disabled = false,
             to,
@@ -111,7 +111,7 @@ export const Button: ButtonComponent = React.forwardRef(
             </IconContext.Provider>
         );
 
-        const iconOnly = !children && !!icon && width === 'fit-content';
+        const iconOnly = !children && !!icon;
 
         if (Link && to && !as) {
             const Element = Link || 'button';
@@ -126,7 +126,7 @@ export const Button: ButtonComponent = React.forwardRef(
                     $size={size}
                     $variant={variant}
                     type={type}
-                    $borderRadius={borderRadius}
+                    $borderRadius={borderRadius || iconOnly ? 99999 : 4}
                     disabled={disabled}
                     $iconOnly={iconOnly}
                     as={Element}
@@ -158,7 +158,7 @@ export const Button: ButtonComponent = React.forwardRef(
                 $size={size}
                 $variant={variant}
                 type={type}
-                $borderRadius={borderRadius}
+                $borderRadius={borderRadius || iconOnly ? 99999 : 4}
                 disabled={disabled}
                 $iconOnly={iconOnly}
                 as={Element}

@@ -5,7 +5,7 @@ import { Button, ButtonProps } from '../button';
 
 const BoxOuter = styled.div`
     border: solid 1px ${cv.border4};
-    border-radius: 4px;
+    border-radius: 8px;
     color: ${cv.text1};
 `;
 
