@@ -1,7 +1,7 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import styled from 'styled-components';
-import { Button, Flex, SlideBox, Spacer, Text } from '..';
+import { Button, CenterLayout, Flex, SlideBox, Spacer, Text } from '..';
 import OpizeLogo from '../../../assets/opize_logoText.png';
 import { useSlideBox } from './hook/useSlideBox';
 
@@ -13,7 +13,6 @@ export default {
 
 const Space = styled.div`
     background-color: #f0f0f0;
-    width: 100%;
 `;
 
 const Template: ComponentStory<typeof SlideBox> = (args) => {
@@ -46,3 +45,41 @@ const Template: ComponentStory<typeof SlideBox> = (args) => {
 
 export const Primary = Template.bind({});
 Primary.args = {};
+
+const ExampleTemplate: ComponentStory<typeof SlideBox> = (args) => {
+    const { move, now } = useSlideBox();
+
+    return (
+        <>
+            <CenterLayout width="300px">
+                <SlideBox>
+                    <SlideBox.Page pos={0}>
+                        <Flex.Row gap="8px">
+                            <Text>{now}</Text>
+                            <Button onClick={() => move(now + 1)}>+1</Button>
+                        </Flex.Row>
+                        <Space style={{ height: '300px' }} />
+                    </SlideBox.Page>
+                    <SlideBox.Page pos={1}>
+                        <Flex.Row gap="8px">
+                            <Button onClick={() => move(now - 1)}>-1</Button>
+                            <Text>{now}</Text>
+                            <Button onClick={() => move(now + 1)}>+1</Button>
+                        </Flex.Row>
+                        <Space style={{ height: '300px' }} />
+                    </SlideBox.Page>
+                    <SlideBox.Page pos={2}>
+                        <Flex.Row gap="8px">
+                            <Button onClick={() => move(now - 1)}>-1</Button>
+                            <Text>{now}</Text>
+                        </Flex.Row>
+                        <Space style={{ height: '400px' }} />
+                    </SlideBox.Page>
+                </SlideBox>
+            </CenterLayout>
+        </>
+    );
+};
+
+export const Example = ExampleTemplate.bind({});
+Example.args = {};
