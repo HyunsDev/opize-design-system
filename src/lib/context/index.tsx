@@ -17,15 +17,15 @@ export function OpizeContextProvider({
     return (
         <ColorThemeProvider>
             <LinkContextProvider initLink={initLink}>
-                <ModalContextProvider>
-                    <HeaderNoticeProvider>
-                        <TabNavContextProvider>
-                            <TopLoadingContextProvider>
-                                <SlideBoxContextProvider>{children}</SlideBoxContextProvider>
-                            </TopLoadingContextProvider>
-                        </TabNavContextProvider>
-                    </HeaderNoticeProvider>
-                </ModalContextProvider>
+                <HeaderNoticeProvider>
+                    <TabNavContextProvider>
+                        <TopLoadingContextProvider>
+                            <SlideBoxContextProvider>
+                                <ModalContextProvider>{children}</ModalContextProvider>
+                            </SlideBoxContextProvider>
+                        </TopLoadingContextProvider>
+                    </TabNavContextProvider>
+                </HeaderNoticeProvider>
             </LinkContextProvider>
         </ColorThemeProvider>
     );

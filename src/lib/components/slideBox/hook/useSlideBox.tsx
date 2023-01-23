@@ -1,4 +1,4 @@
-import { useContext } from 'react';
+import React, { useContext } from 'react';
 import { SlideBoxActionContext, SlideBoxValueContext } from '../context/slideBox.context';
 
 export function useSlideBox() {
