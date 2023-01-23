@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import styled from 'styled-components';
 import { Button, CenterLayout, Flex, SlideBox, Text } from '..';
@@ -27,7 +27,7 @@ const Template: ComponentStory<typeof SlideBox> = () => {
             <SlideBox>
                 <SlideBox.Page pos={0}>
                     0
-                    <Space style={{ height: '300px' }} />
+                    <Space style={{ height: '500px' }} />
                 </SlideBox.Page>
                 <SlideBox.Page pos={1}>
                     1
@@ -47,7 +47,6 @@ Primary.args = {};
 
 const ExampleTemplate: ComponentStory<typeof SlideBox> = () => {
     const { move, now } = useSlideBox();
-
     return (
         <>
             <CenterLayout width="300px">

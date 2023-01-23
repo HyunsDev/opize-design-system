@@ -7,7 +7,7 @@ const StyledSlideBoxPage = styled.div<{ pos: 'left' | 'center' | 'right' }>`
     top: 0px;
     left: 0px;
     position: absolute;
-    transition: 500ms;
+    transition: 300ms;
     width: 100%;
 
     ${(props) => props.pos === 'left' && 'transform: translateX(calc(-100% - 30px));'}
@@ -29,6 +29,22 @@ export function SlideBoxPage({ children, pos }: { children: React.ReactNode; pos
     const ref = useRef<HTMLDivElement>(null);
     const { now } = useSlideBox();
     const { setHeight } = useContext(SlideBoxHeightContext);
+
+    useEffect(() => {
+        const ro = new ResizeObserver((e) => {
+            setHeight(e[0].contentRect.height);
+        });
+
+        if (ref.current && now === pos) {
+            ro.observe(ref.current);
+        } else {
+            ro.disconnect();
+        }
+
+        return () => {
+            ro.disconnect();
+        };
+    }, [now, pos, setHeight]);
 
     useEffect(() => {
         if (!ref.current) return;
