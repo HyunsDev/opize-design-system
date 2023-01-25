@@ -8,6 +8,7 @@ import { colorMap, sizeMap } from './buttonStyle';
 import { PolymorphicRef } from '../../utils/type/polymorphicComponent';
 import { LinkContext } from '../../context/linkContext';
 import { ButtonToolTipBox } from './buttonTooltip';
+import { cv } from '../../style';
 
 const StyledButton = styled.button<StyledButtonProps>`
     display: flex;
@@ -18,7 +19,7 @@ const StyledButton = styled.button<StyledButtonProps>`
     font-size: 14px;
     border: 0;
     text-decoration: none;
-    transition: 150ms;
+    transition: 100ms;
     font-weight: 500;
     line-height: 20px;
     gap: 8px;
@@ -73,7 +74,7 @@ export const Button: ButtonComponent = React.forwardRef(
             color = 'gray',
             size = 'medium',
             icon,
-            iconPosition = 'start',
+            iconPosition = 'end',
             onClick,
             type = 'button',
             borderRadius,

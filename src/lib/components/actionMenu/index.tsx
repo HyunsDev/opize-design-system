@@ -38,7 +38,7 @@ const FadeInFromBottom = keyframes`
 
 const OverlayDiv = styled.div<{ top?: number; right?: number; bottom?: number; left?: number; buttonHeight: number }>`
     position: absolute;
-    min-width: 200px;
+    min-width: 230px;
     ${(props) => props.top !== undefined && `top: ${props.top + props.buttonHeight}px;`};
     ${(props) => props.right !== undefined && `right: ${props.right}px;`};
     ${(props) => props.bottom !== undefined && `bottom: ${props.bottom + props.buttonHeight}px;`};
@@ -83,13 +83,12 @@ const ActionDiv = styled.div<{ color: 'normal' | 'red' }>`
     cursor: pointer;
     transition: 150ms;
     user-select: none;
-    color: ${(props) => (props.color === 'red' ? cv.red1 : cv.text2)};
+    color: ${(props) => (props.color === 'red' ? cv.red1 : cv.text1)};
+    --local-color: ${(props) => (props.color === 'red' ? cv.red1 : cv.text1)};
     font-size: 0.875rem;
     line-height: 24px;
-    color: ${cv.text1};
 
     &:hover {
-        color: ${(props) => (props.color === 'red' ? cv.red1 : cv.text1)};
         background-color: ${(props) => (props.color === 'red' ? cv.bg_red1 : cv.bg_element2)};
     }
 `;
@@ -201,7 +200,7 @@ export function ActionMenu({ actions, children, ...props }: ActionMenuProps) {
                 value={{
                     size: 16,
                     weight: 'bold',
-                    color: cv.text3,
+                    color: 'var(--local-color)',
                 }}
             >
                 {isOpen && (

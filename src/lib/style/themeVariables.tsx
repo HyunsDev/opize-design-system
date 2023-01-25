@@ -56,16 +56,16 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
 
         bg_element1: '#FFFFFF',
         bg_element1_1: '#fcfcfc',
-        bg_element2: '#F5F6F8',
-        bg_element3: '#E9ECEF',
-        bg_element4: '#DEE2E6',
+        bg_element2: '#f7f7fa',
+        bg_element3: '#eff2f4',
+        bg_element4: '#e5e8eb',
 
         bg_element5: '#212529',
         bg_element6: '#343A40',
 
         border1: '#343A40',
         border2: '#ADB5BD',
-        border3: '#c9d1da',
+        border3: '#d2d9e0',
         border4: '#e5e9ec',
         outline: 'rgba(43, 153, 255, 0.4)',
 
@@ -75,7 +75,7 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
         text4: '#CED4DA',
         text5: '#FFFFFF',
 
-        red1: 'rgba(216, 80, 74, 1)',
+        red1: '#ea473e',
         bg_red1: 'rgba(216, 80, 74, 0.2)',
         bg_red1_hover: 'rgba(216, 80, 74, 0.3)',
 
@@ -87,7 +87,7 @@ export const themeVariableSets: Record<Theme, ThemeVariables> = {
         bg_green1: 'rgba(57, 183, 93, 0.2)',
         bg_green1_hover: 'rgba(57, 183, 93, 0.3)',
 
-        blue1: 'rgba(32, 151, 246, 1)',
+        blue1: '#1999ee',
         bg_blue1: 'rgba(32, 151, 246, 0.2)',
         bg_blue1_hover: 'rgba(32, 151, 246, 0.3)',
     },

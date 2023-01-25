@@ -7,7 +7,6 @@ import { ItemsTableProps } from './types';
 import { Item } from './items';
 
 const StyledTable = styled.div`
-    margin-top: 8px;
     border-top: solid 1px ${cv.border4};
     border-bottom: solid 1px ${cv.border4};
     border-radius: 8px;

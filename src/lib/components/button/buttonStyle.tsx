@@ -136,7 +136,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
 
             &:hover {
                 color: ${cv.bg_element1};
-                --local-color: ${cv.bg_element5};
+                --local-color: ${cv.bg_element1};
                 background-color: ${cv.bg_element6};
             }
 
@@ -215,7 +215,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             color: ${cv.text1};
             --local-color: ${cv.text1};
             background-color: ${cv.bg_element1};
-            border: solid 1px ${cv.border2};
+            border: solid 1px ${cv.border3};
 
             &:hover {
                 background-color: ${cv.bg_element1};
@@ -241,7 +241,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
         red: css`
             color: ${cv.red1};
             --local-color: ${cv.red1};
-            background-color: ${cv.bg_red1};
+            background-color: ${cv.bg_element1};
             border: solid 1px ${cv.bg_red1};
 
             &:hover {
@@ -250,7 +250,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             }
 
             &:active {
-                background-color: ${cv.bg_red1_hover};
+                background-color: ${cv.bg_red1};
             }
 
             &:disabled {
@@ -267,7 +267,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
         blue: css`
             color: ${cv.blue1};
             --local-color: ${cv.blue1};
-            background-color: ${cv.bg_blue1};
+            background-color: ${cv.bg_element1};
             border: solid 1px ${cv.bg_blue1};
 
             &:hover {
@@ -276,7 +276,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             }
 
             &:active {
-                background-color: ${cv.bg_blue1_hover};
+                background-color: ${cv.bg_blue1};
             }
 
             &:disabled {
@@ -303,7 +303,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             }
 
             &:active {
-                background-color: ${cv.bg_element3};
+                background-color: ${cv.bg_element4};
             }
 
             &:disabled {
