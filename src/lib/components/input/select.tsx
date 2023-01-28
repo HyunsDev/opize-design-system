@@ -14,7 +14,7 @@ const Divver = styled.div`
     display: flex;
     align-items: center;
     border-radius: 4px;
-    height: 36px;
+    height: 34px;
     font-size: 14px;
     background-color: ${cv.bg_element1_1};
 
@@ -37,7 +37,7 @@ const StyledSelect = styled.select`
     width: 100%;
 
     padding: 0px 12px;
-    height: 100%;
+    height: 32px;
     &:focus-within {
         outline: 0;
     }

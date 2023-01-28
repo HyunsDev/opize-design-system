@@ -47,13 +47,11 @@ function Template() {
                             {
                                 children: '돌아가기',
                                 onClick: () => null,
-                                variant: 'text',
                             },
                             {
                                 children: '삭제',
                                 onClick: () => null,
                                 color: 'red',
-                                variant: 'contained',
                             },
                         ],
                     });
@@ -72,7 +70,6 @@ function Template() {
                             {
                                 children: 'not close',
                                 onClick: () => null,
-                                variant: 'text',
                             },
                             {
                                 children: 'close',

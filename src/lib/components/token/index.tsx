@@ -16,9 +16,11 @@ type StyledCss<Props extends { [key: string]: any } = Record<string, any>> = Fla
 const sizeMap: Record<TokenSize, StyledCss> = {
     small: css`
         padding: 0px 6px;
+        font-size: 12px;
     `,
     medium: css`
         padding: 2px 8px;
+        font-size: 12px;
     `,
     large: css`
         padding: 4px 12px;

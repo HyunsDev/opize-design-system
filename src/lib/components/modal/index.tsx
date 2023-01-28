@@ -23,7 +23,7 @@ const Background = styled.div<{ isOpen: boolean }>`
     left: 0;
     width: 100vw;
     height: calc(${cv.vh}*100);
-    z-index: 99998;
+    z-index: 9998;
     background-color: ${cv.black};
     transition: 200ms;
     opacity: ${(props) => (props.isOpen ? 0.2 : 0)};
@@ -35,7 +35,7 @@ const ModalBoxDivver = styled.div`
     left: 0;
     width: 100vw;
     height: calc(${cv.vh}*100);
-    z-index: 99999;
+    z-index: 9999;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -51,7 +51,7 @@ const ModalBox = styled.div<{ isOpen: boolean; width: string; isPadding?: boolea
     border-radius: 8px;
     pointer-events: auto;
     width: ${(props) => props.width};
-    max-width: 80vw;
+    max-width: calc(100vw - 16px);
     padding: ${(props) => (props.isPadding ? 16 : 0)}px;
 
     transition: 200ms;

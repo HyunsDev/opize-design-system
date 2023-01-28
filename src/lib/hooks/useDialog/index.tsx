@@ -39,10 +39,6 @@ const Buttons = styled.div`
     border-bottom-right-radius: 8px;
     font-size: 0.875rem;
     padding: 12px 16px;
-
-    & > button {
-        flex: 1;
-    }
 `;
 
 type DialogButtonType = ButtonProps & { closeModal?: boolean; onClick: () => void };
