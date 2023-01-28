@@ -33,7 +33,7 @@ const Divver = styled.div`
 const Input = styled.input<{ border: 'all' | 'bottom' | 'none'; readOnly: boolean }>`
     z-index: 1;
     padding: 0px 12px;
-    height: 34px;
+    height: 32px;
     display: flex;
     align-items: center;
     transition: 200ms;

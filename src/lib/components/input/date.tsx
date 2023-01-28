@@ -17,7 +17,7 @@ const Divver = styled.div`
     display: flex;
     align-items: center;
     border-radius: 4px;
-    height: 36px;
+    height: 34px;
     font-size: 0.875rem;
 
     color: ${cv.text1};

@@ -47,9 +47,6 @@ const GlobalStyles = createGlobalStyle`
         box-sizing: border-box;
         font-family: "Inter", 'Noto Sans KR', -apple-system,BlinkMacSystemFont,"Segoe UI","Roboto","Oxygen","Ubuntu","Cantarell","Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
         -webkit-tap-highlight-color : transparent;
-
-        color: var(--text1);
-        font-size: var(--fontSize400);
     }
 
     :root {
@@ -61,6 +58,9 @@ const GlobalStyles = createGlobalStyle`
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         touch-action: manipulation;
+
+        color: var(--text1);
+        font-size: var(--fontSize400);
     }
 
     @media (prefers-color-scheme: dark) {

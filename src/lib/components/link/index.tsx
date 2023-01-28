@@ -25,7 +25,7 @@ const StyledLink = styled.a<{ color: string; $showUnderline: boolean }>`
         props.$showUnderline &&
         css`
             &:hover {
-                border-bottom: solid 1px ${props.color};
+                text-decoration: underline;
             }
         `}
 `;
