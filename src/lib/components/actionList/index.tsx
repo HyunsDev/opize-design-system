@@ -33,7 +33,7 @@ const ActionListItem = styled.a<{ selected?: boolean }>`
     background-color: ${cv.bg_element1};
     transition: background-color 100ms;
     user-select: none;
-    font-size: 0.875rem;
+    font-size: ${cv.fontSize400};
     text-decoration: none;
     color: ${cv.text1};
     line-height: 24px;
