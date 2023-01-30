@@ -24,6 +24,7 @@ import {
     Radio,
     Autocomplete,
     H3,
+    Callout,
 } from '..';
 import LogoImg from '../../assets/opize.png';
 
@@ -143,6 +144,9 @@ const TPage = () => {
             <PageLayout.Content>
                 <Flex.Column gap="16px">
                     <H3>Head H3</H3>
+                    <Callout icon="🔥" color="red">
+                        콜 아웃
+                    </Callout>
                     <TBox />
                     <TBox />
                 </Flex.Column>
