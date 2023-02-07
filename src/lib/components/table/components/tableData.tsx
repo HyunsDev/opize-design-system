@@ -15,3 +15,4 @@ export const TableData = styled.td<{ flex?: number; width?: string; $align?: Ali
 
     border-bottom: solid 1px ${cv.border4};
 `;
+TableData.displayName = 'Table.Data';

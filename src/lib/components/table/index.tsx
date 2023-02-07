@@ -7,7 +7,10 @@ import { TableHead } from './components/tableHead';
 import { TableRow } from './components/tableRow';
 
 const THead = styled.thead``;
+THead.displayName = 'Table.THead';
+
 const TBody = styled.tbody``;
+TBody.displayName = 'Table.TBody';
 
 export const Table = Object.assign(TableComponent, {
     Row: TableRow,

@@ -9,3 +9,4 @@ export const TableRow = styled.tr`
     justify-content: space-between;
     align-items: center;
 `;
+TableRow.displayName = 'Table.Row';

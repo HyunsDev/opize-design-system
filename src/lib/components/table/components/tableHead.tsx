@@ -32,3 +32,4 @@ export const TableHead = styled.th<{ flex?: number; width?: string; $align?: Ali
         border-radius: 0px 4px 4px 0px;
     }
 `;
+TableHead.displayName = 'Table.Head';

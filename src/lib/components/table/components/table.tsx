@@ -20,3 +20,4 @@ export const TableComponent = React.forwardRef<HTMLTableElement, TableProps>(
         );
     }
 );
+TableComponent.displayName = 'Table';
