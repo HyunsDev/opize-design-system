@@ -4,20 +4,44 @@ import { cv } from '../../style';
 import { Label } from './label';
 import { Flex } from '..';
 
+type CheckboxSize = 'small' | 'medium';
+
+export type CheckboxProps = React.ComponentPropsWithoutRef<'input'> & {
+    label?: React.ReactNode;
+    text?: React.ReactNode;
+    disabled?: boolean;
+    required?: boolean;
+    checkBoxSize?: CheckboxSize;
+};
+
 const CheckBoxDiv = styled.div`
     display: flex;
     align-items: center;
     gap: 8px;
 `;
 
-const Input = styled.input`
+const Input = styled.input<{ checkBoxSize: CheckboxSize }>`
     appearance: none;
 
-    width: 24px;
-    height: 24px;
-    min-width: 24px;
-    min-height: 24px;
-    border-radius: 4px;
+    ${(props) =>
+        props.checkBoxSize === 'medium' &&
+        css`
+            width: 24px;
+            height: 24px;
+            min-width: 24px;
+            min-height: 24px;
+            border-radius: 4px;
+        `}
+    ${(props) =>
+        props.checkBoxSize === 'small' &&
+        css`
+            width: 16px;
+            height: 16px;
+            min-width: 16px;
+            min-height: 16px;
+            border-radius: 2px;
+        `}
+
     display: flex;
     align-items: center;
     justify-content: center;
@@ -63,29 +87,20 @@ const Text = styled.div<{ required: boolean }>`
         `}
 `;
 
-interface Props {
-    checked?: boolean;
-    onChange?: (e: React.ChangeEvent<HTMLInputElement>) => any;
-    label?: React.ReactNode;
-    text?: React.ReactNode;
-    disabled?: boolean;
-    required?: boolean;
-}
-
-export const Checkbox = React.forwardRef<HTMLInputElement, Props>((props: Props, ref) => {
-    return (
-        <Flex
-            style={{
-                flexDirection: 'column',
-            }}
-        >
-            {props.label && <Label required={props.required || false}>{props.label}</Label>}
-            <CheckBoxDiv>
-                <Input type="checkbox" {...props} ref={ref} />
-                <Text required={props.required || false}>{props.text}</Text>
-            </CheckBoxDiv>
-        </Flex>
-    );
-});
-
-export type CheckboxProps = ComponentProps<typeof Checkbox>;
+export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
+    ({ checkBoxSize = 'medium', ...props }: CheckboxProps, ref) => {
+        return (
+            <Flex
+                style={{
+                    flexDirection: 'column',
+                }}
+            >
+                {props.label && <Label required={props.required || false}>{props.label}</Label>}
+                <CheckBoxDiv>
+                    <Input type="checkbox" {...props} checkBoxSize={checkBoxSize} ref={ref} />
+                    <Text required={props.required || false}>{props.text}</Text>
+                </CheckBoxDiv>
+            </Flex>
+        );
+    }
+);

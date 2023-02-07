@@ -1,10 +1,10 @@
 import React from 'react';
 import styled from 'styled-components';
 import { cv } from '../../style';
-import { TableComponent } from './table';
-import { TableData } from './tableData';
-import { TableHead } from './tableHead';
-import { TableRow } from './tableRow';
+import { TableComponent } from './components/table';
+import { TableData } from './components/tableData';
+import { TableHead } from './components/tableHead';
+import { TableRow } from './components/tableRow';
 
 const THead = styled.thead``;
 const TBody = styled.tbody``;

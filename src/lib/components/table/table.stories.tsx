@@ -1,8 +1,8 @@
 import React from 'react';
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { Gear, UserCircle, X } from 'phosphor-react';
-import { Table } from '..';
+import { DotsThree, DotsThreeVertical, Gear, UserCircle, X } from 'phosphor-react';
+import { ActionMenu, Checkbox, Table } from '..';
 
 export default {
     title: 'HTML-Like Component/Table',
@@ -19,35 +19,75 @@ export default {
 const Template: ComponentStory<typeof Table> = (args) => <Table {...args} />;
 
 export const Primary = Template.bind({});
+
 Primary.args = {
     children: (
         <>
             <Table.THead>
                 <Table.Row>
-                    <Table.Head>Head 1</Table.Head>
+                    <Table.Head width="40px" $align="center">
+                        <Checkbox checkBoxSize="small" />
+                    </Table.Head>
                     <Table.Head>Head 2</Table.Head>
                     <Table.Head>Head 3</Table.Head>
-                    <Table.Head>Head 4</Table.Head>
+                    <Table.Head width="40px" $align="center">
+                        <ActionMenu
+                            actions={[
+                                [
+                                    {
+                                        label: '액션',
+                                        onClick: () => null,
+                                    },
+                                ],
+                            ]}
+                            variant="text"
+                            icon={<DotsThreeVertical />}
+                        />
+                    </Table.Head>
                 </Table.Row>
             </Table.THead>
             <Table.TBody>
                 <Table.Row>
-                    <Table.Data>Data 1</Table.Data>
+                    <Table.Data width="40px" $align="center">
+                        <Checkbox checkBoxSize="small" />
+                    </Table.Data>
                     <Table.Data>Data 2</Table.Data>
                     <Table.Data>Data 3</Table.Data>
-                    <Table.Data>Data 4</Table.Data>
+                    <Table.Data width="40px" $align="center">
+                        <ActionMenu
+                            actions={[
+                                [
+                                    {
+                                        label: '액션',
+                                        onClick: () => null,
+                                    },
+                                ],
+                            ]}
+                            variant="text"
+                            icon={<DotsThreeVertical />}
+                        />
+                    </Table.Data>
                 </Table.Row>
                 <Table.Row>
-                    <Table.Data>Data 1</Table.Data>
+                    <Table.Data width="40px" $align="center">
+                        <Checkbox checkBoxSize="small" />
+                    </Table.Data>
                     <Table.Data>Data 2</Table.Data>
                     <Table.Data>Data 3</Table.Data>
-                    <Table.Data>Data 4</Table.Data>
-                </Table.Row>
-                <Table.Row>
-                    <Table.Data>Data 1</Table.Data>
-                    <Table.Data>Data 2</Table.Data>
-                    <Table.Data>Data 3</Table.Data>
-                    <Table.Data>Data 4</Table.Data>
+                    <Table.Data width="40px" $align="center">
+                        <ActionMenu
+                            actions={[
+                                [
+                                    {
+                                        label: '액션',
+                                        onClick: () => null,
+                                    },
+                                ],
+                            ]}
+                            variant="text"
+                            icon={<DotsThreeVertical />}
+                        />
+                    </Table.Data>
                 </Table.Row>
             </Table.TBody>
         </>

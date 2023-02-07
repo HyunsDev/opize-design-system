@@ -1,19 +1,27 @@
 import React from 'react';
 import styled from 'styled-components';
-import { cv } from '../../style';
+import { cv } from '../../../style';
 
-export const TableHead = styled.th`
+type Align = 'flex-start' | 'center' | 'flex-end';
+export const TableHead = styled.th<{ flex?: number; width?: string; $align?: Align }>`
     color: ${cv.text2};
     background-color: ${cv.bg_element2};
-    padding: 0;
-    padding: 10px 10px;
+
+    flex: ${(props) => (props.width ? 'unset' : props.flex || 1)};
+    ${(props) => props.width && `width: ${props.width};`}
+    padding: 0px 10px;
+    min-height: 40px;
+
+    display: flex;
+    align-items: center;
+    justify-content: ${(props) => props.$align || 'flex-start'};
+
     font-weight: ${cv.fontWeightRegular};
     font-size: 12px;
 
     border-bottom: solid 1px ${cv.border4};
     border-top: solid 1px ${cv.border4};
-    border-left: solid 1px ${cv.bg_element2};
-    border-right: solid 1px ${cv.bg_element2};
+    border-radius: 0;
 
     &:first-child {
         border-left: solid 1px ${cv.border4};
