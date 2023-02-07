@@ -47,7 +47,7 @@ const Input = styled.input<{ checkBoxSize: CheckboxSize }>`
     justify-content: center;
     transition: 200ms;
 
-    border: solid 1px ${cv.border4};
+    border: solid 1px ${cv.border2};
     background: ${cv.bg_element1_1};
     cursor: pointer;
 

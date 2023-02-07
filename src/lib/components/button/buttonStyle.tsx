@@ -295,8 +295,8 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
         gray: css`
             color: ${cv.text1};
             --local-color: ${cv.text1};
-            background-color: ${cv.bg_element1};
-            border: solid 1px ${cv.bg_element1};
+            background-color: transparent;
+            border: solid 1px transparent;
 
             &:hover {
                 background-color: ${cv.bg_element3};
@@ -307,7 +307,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             }
 
             &:disabled {
-                background-color: ${cv.bg_element1};
+                background-color: transparent;
                 color: ${cv.text4};
                 --local-color: ${cv.text4};
             }
@@ -319,8 +319,8 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
         red: css`
             color: ${cv.red1};
             --local-color: ${cv.red1};
-            background-color: ${cv.bg_element1};
-            border: solid 1px ${cv.bg_element1};
+            background-color: transparent;
+            border: solid 1px transparent;
 
             &:hover {
                 background-color: ${cv.bg_red1};
@@ -331,7 +331,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             }
 
             &:disabled {
-                background-color: ${cv.bg_element1};
+                background-color: transparent;
                 color: ${cv.bg_red1};
                 --local-color: ${cv.bg_red1};
             }
@@ -343,8 +343,8 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
         blue: css`
             color: ${cv.blue1};
             --local-color: ${cv.blue1};
-            background-color: ${cv.bg_element1};
-            border: solid 1px ${cv.bg_element1};
+            background-color: transparent;
+            border: solid 1px transparent;
 
             &:hover {
                 background-color: ${cv.bg_blue1};
@@ -355,7 +355,7 @@ export const colorMap: Record<ButtonVariant, ButtonColorStyle> = {
             }
 
             &:disabled {
-                background-color: ${cv.bg_element1};
+                background-color: transparent;
                 color: ${cv.bg_blue1};
                 --local-color: ${cv.bg_blue1};
             }
