@@ -17,8 +17,8 @@ export interface StatusItemProps extends ItemProps {
 }
 
 export interface TextItemProps extends ItemProps {
-    text?: string;
-    subText?: string;
+    text?: React.ReactNode;
+    subText?: React.ReactNode;
 }
 
 export interface ComponentItemProps extends ItemProps {

@@ -24,8 +24,14 @@ const SubTextDiv = styled.div`
 export function TextItem({ text, flex, subText }: TextItemProps) {
     return (
         <TextsDiv flex={flex}>
-            {text && <TextDiv>{`${text.substring(0, 50)}${text.length > 50 ? '...' : ''}`}</TextDiv>}
-            {subText && <SubTextDiv>{`${subText.substring(0, 50)}${subText.length > 50 ? '...' : ''}`}</SubTextDiv>}
+            {text && typeof text === 'string' && (
+                <TextDiv>{`${text.substring(0, 50)}${text.length > 50 ? '...' : ''}`}</TextDiv>
+            )}
+            {text && typeof text !== 'string' && <TextDiv>{text}</TextDiv>}
+            {subText && typeof subText === 'string' && (
+                <SubTextDiv>{`${subText.substring(0, 50)}${subText.length > 50 ? '...' : ''}`}</SubTextDiv>
+            )}
+            {subText && typeof subText !== 'string' && <SubTextDiv>{subText}</SubTextDiv>}
         </TextsDiv>
     );
 }
