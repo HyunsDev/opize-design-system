@@ -38,7 +38,7 @@ const FadeInFromBottom = keyframes`
 
 const OverlayDiv = styled.div<{ top?: number; right?: number; bottom?: number; left?: number; buttonHeight: number }>`
     position: absolute;
-    min-width: 230px;
+    min-width: 210px;
     ${(props) => props.top !== undefined && `top: ${props.top + props.buttonHeight}px;`};
     ${(props) => props.right !== undefined && `right: ${props.right}px;`};
     ${(props) => props.bottom !== undefined && `bottom: ${props.bottom + props.buttonHeight}px;`};
@@ -78,7 +78,7 @@ const ActionDiv = styled.div<{ color: 'normal' | 'red' }>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 2px 16px;
+    padding: 4px 16px;
     background-color: ${cv.bg_element1};
     cursor: pointer;
     transition: 150ms;
@@ -89,7 +89,7 @@ const ActionDiv = styled.div<{ color: 'normal' | 'red' }>`
     line-height: 24px;
 
     &:hover {
-        background-color: ${(props) => (props.color === 'red' ? cv.bg_red1 : cv.bg_element2)};
+        background-color: ${cv.bg_element3};
     }
 `;
 
