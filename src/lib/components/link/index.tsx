@@ -87,3 +87,4 @@ export const Link: LinkComponent = React.forwardRef(
         );
     }
 );
+export const A = Link;

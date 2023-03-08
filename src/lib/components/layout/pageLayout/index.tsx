@@ -69,6 +69,7 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
     row-gap: ${(props) => props.gap};
     justify-items: stretch;
     margin: 0px ${(props) => props.gutter};
+    grid-template-rows: 0px;
 
     --local-pan-width: ${(props) => props.panWidth};
     --local-pan-margin-left: ${(props) => (props.panPosition === 'start' ? '0px' : props.gap)};
