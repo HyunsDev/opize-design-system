@@ -35,10 +35,22 @@ const Divver = styled.div`
     margin: auto;
     position: relative;
     margin-bottom: -1px;
+    z-index: 10;
 
     @media (max-width: 767px) {
         margin: 0px 8px;
     }
+`;
+
+const VoidDivver = styled.div`
+    position: relative;
+    display: flex;
+    width: 100%;
+    user-select: none;
+    margin-top: -4px;
+    background-color: transparent;
+    z-index: 9;
+    height: 37px;
 `;
 
 export const HeaderSubMenu = Object.assign(
@@ -59,11 +71,14 @@ export const HeaderSubMenu = Object.assign(
         }, [listener]);
 
         return (
-            <DivverOuter isScrolled={isScrolled}>
-                <Divver>
-                    <TabNav {...props} hasContext />
-                </Divver>
-            </DivverOuter>
+            <>
+                {isScrolled && <VoidDivver />}
+                <DivverOuter isScrolled={isScrolled}>
+                    <Divver>
+                        <TabNav {...props} hasContext />
+                    </Divver>
+                </DivverOuter>
+            </>
         );
     },
     {
