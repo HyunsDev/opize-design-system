@@ -105,23 +105,23 @@ const Text1 = styled.div`
     position: absolute;
     left: 36px;
     bottom: 110px;
-    font-size: 60px;
-    font-weight: 900;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 60px !important;
+    font-weight: 800;
     line-height: 1.2;
-    color: rgba(218, 231, 211, 1);
+    color: rgba(255, 255, 255, 0.8);
     animation: ${TextFadeIn1} 2s cubic-bezier(0.08, 0.37, 0, 1.02) forwards;
+    font-family: 'Poppins', sans-serif !important;
 `;
 
 const Text2 = styled.div`
     position: absolute;
     left: 36px;
     bottom: 36px;
-    font-size: 60px;
-    font-weight: 900;
-    font-family: 'Noto Sans KR', sans-serif;
+    font-size: 60px !important;
+    font-weight: 800;
+    font-family: 'Poppins', sans-serif !important;
     line-height: 1.2;
-    color: rgba(218, 231, 211, 1);
+    color: rgba(255, 255, 255, 0.8);
     animation: ${TextFadeIn2} 2s cubic-bezier(0.08, 0.37, 0, 1.02) forwards;
 `;
 

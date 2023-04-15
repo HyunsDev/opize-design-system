@@ -13,7 +13,7 @@ const DivverOuter = styled.div<{ isScrolled: boolean }>`
     margin-top: -4px;
     background-color: ${cv.bg_element1};
     transition: box-shadow 200ms;
-    z-index: 10;
+    z-index: 20;
 
     ${(props) =>
         props.isScrolled &&
@@ -35,7 +35,8 @@ const Divver = styled.div`
     margin: auto;
     position: relative;
     margin-bottom: -1px;
-    z-index: 10;
+    z-index: 20;
+    background-color: ${cv.bg_element1};
 
     @media (max-width: 767px) {
         margin: 0px 8px;
@@ -59,7 +60,8 @@ export const HeaderSubMenu = Object.assign(
         const { isOpen } = useHeaderNotice();
 
         const listener = useCallback(() => {
-            const height = isOpen ? 85 : 50;
+            console.log(isOpen, window.scrollY);
+            const height = isOpen ? 84 : 52;
             setScrolled(window.scrollY > height);
         }, [isOpen]);
 

@@ -8,10 +8,15 @@ module.exports = {
         'storybook-addon-performance/register',
         '@storybook/addon-a11y',
         'storybook-dark-mode',
+        '@storybook/addon-mdx-gfm',
     ],
-    framework: '@storybook/react',
-    core: {
-        builder: '@storybook/builder-webpack5',
+    framework: {
+        name: '@storybook/react-webpack5',
+        options: {},
     },
     staticDir: './public',
+    docs: {
+        autodocs: true, // see below for alternatives
+        defaultName: 'Docs', // set to change the name of generated docs entries
+    },
 };

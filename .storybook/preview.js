@@ -3,7 +3,7 @@ import { OpizeWrapper } from '../src/lib';
 import { themes } from '@storybook/theming';
 import { useDarkMode } from 'storybook-dark-mode';
 import { ThemeSwitcher } from './components/ThemeSwitcher';
-import { DocsContainer } from './DocsContainer';
+// import { DocsContainer } from './_DocsContainer';
 
 const baseTheme = {
     brandTitle: 'Opize Storybook',
@@ -27,17 +27,14 @@ export const parameters = {
             appContentBg: '#1a1b1d',
             barBg: '#252629',
             inputBg: '#3c3e46',
-            brandImage: 'https://media.discordapp.net/attachments/761930839893606400/1024845006483238953/unknown.png',
+            brandImage: 'https://s3.hyuns.dev/opize/ods-logo.png',
         },
         light: {
             ...themes.normal,
             ...baseTheme,
-            brandImage: 'https://media.discordapp.net/attachments/761930839893606400/1002916670710497332/unknown.png',
+            brandImage: 'https://s3.hyuns.dev/opize/ods-logo.png',
         },
         stylePreview: false,
-    },
-    docs: {
-        container: DocsContainer,
     },
 };
 
