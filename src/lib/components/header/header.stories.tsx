@@ -81,7 +81,4 @@ function Template(args: ComponentStory<typeof Header>) {
     );
 }
 
-export const Primary: Story<typeof Header> = Template.bind({});
-Primary.parameters = {
-    layout: 'fullscreen',
-};
+export const Primary = Template.bind({});

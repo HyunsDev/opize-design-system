@@ -60,11 +60,11 @@ const ColorShow = styled.div<{ color: string }>`
 export function Colors() {
     const isDarkMode = useDarkMode();
 
-    useEffect(() => {
-        document.querySelector('body')?.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
-        (document.querySelector('#docs-root') as HTMLDivElement).style.background =
-            themeVariableSets[isDarkMode ? 'dark' : 'light'].bg_page2;
-    }, [isDarkMode]);
+    // useEffect(() => {
+    //     document.querySelector('body')?.setAttribute('data-theme', isDarkMode ? 'dark' : 'light');
+    //     (document.querySelector('#docs-root') as HTMLDivElement).style.background =
+    //         themeVariableSets[isDarkMode ? 'dark' : 'light'].bg_page2;
+    // }, [isDarkMode]);
 
     return (
         <OpizeWrapper>
