@@ -8,6 +8,7 @@ const ToolTipBox = styled.div`
     visibility: hidden;
     transition: 100ms;
     display: hidden;
+    z-index: 1000;
 
     background-color: ${cv.bg_element5};
     color: ${cv.text5};
@@ -30,7 +31,6 @@ const Divver = styled.div<{ isHover: boolean }>`
     width: fit-content;
     height: fit-content;
     position: relative;
-    z-index: 1000;
 
     ${(props) =>
         props.isHover &&

@@ -25,6 +25,7 @@ import {
     Autocomplete,
     H3,
     Callout,
+    ToolTip,
 } from '..';
 import LogoImg from '../../assets/opize.png';
 
@@ -151,6 +152,7 @@ const TPage = () => {
                     <TBox />
                 </Flex.Column>
             </PageLayout.Content>
+            <ToolTip text="툴팁">툴팁</ToolTip>
             <PageLayout.Footer>Footer</PageLayout.Footer>
         </PageLayout>
     );
