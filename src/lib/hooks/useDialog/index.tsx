@@ -3,7 +3,6 @@ import styled from 'styled-components';
 import { IconContext, IconProps } from 'phosphor-react';
 import { Button, ButtonProps } from '../../components';
 import { ModalContext } from '../useModal/modalContext';
-import { cv } from '../../style';
 
 const Padding = styled.div`
     padding: 16px;
@@ -25,16 +24,16 @@ const Title = styled.div`
     margin-bottom: 8px;
 `;
 
-const Content = styled.div``;
+const Content = styled.div`
+    font-size: 14px;
+`;
 
 const Buttons = styled.div`
-    /* background-color: ${cv.bg_element2}; */
     margin-top: 16px;
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 8px;
-    /* border-top: solid 1px ${cv.border4}; */
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
     font-size: 0.875rem;
@@ -45,7 +44,6 @@ type DialogButtonType = ButtonProps & { closeModal?: boolean; onClick: () => voi
 
 function DialogScreen({
     content,
-    close,
     buttons,
     title,
     icon,
@@ -84,13 +82,18 @@ export function useDialog() {
 
     return ({
         title,
-        buttons,
+        buttons = [
+            {
+                children: '확인',
+                onClick: () => null,
+            },
+        ],
         content,
         notAutoClose,
         icon,
     }: {
         title: string;
-        buttons: DialogButtonType[];
+        buttons?: DialogButtonType[];
         content?: string;
         notAutoClose?: boolean;
         icon?: React.ReactNode;
