@@ -22,13 +22,6 @@ function Template() {
                 onClick={() => {
                     dialog({
                         title: 'title',
-                        buttons: [
-                            {
-                                children: 'label',
-                                onClick: () => null,
-                                variant: 'contained',
-                            },
-                        ],
                         content: 'content',
                     });
                 }}

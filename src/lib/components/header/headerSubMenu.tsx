@@ -60,7 +60,6 @@ export const HeaderSubMenu = Object.assign(
         const { isOpen } = useHeaderNotice();
 
         const listener = useCallback(() => {
-            console.log(isOpen, window.scrollY);
             const height = isOpen ? 84 : 52;
             setScrolled(window.scrollY > height);
         }, [isOpen]);

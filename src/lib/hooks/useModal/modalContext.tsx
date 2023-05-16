@@ -13,7 +13,7 @@ export const ModalContext = createContext<ModalContextProps>({
     isOpen: false,
     open: () => null,
     close: () => null,
-    width: 350,
+    width: 400,
 });
 
 function ModalContextProvider({ children }: { children: React.ReactNode }) {
@@ -34,7 +34,7 @@ function ModalContextProvider({ children }: { children: React.ReactNode }) {
         ) => {
             setOpen(true);
             setTitle(option?.title);
-            setWidth(option?.width || 300);
+            setWidth(option?.width || 350);
             setModalContent(content);
             setPadding(option?.isPadding === undefined ? true : option?.isPadding);
         },
