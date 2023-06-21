@@ -17,20 +17,10 @@ export interface StyledButtonProps {
 }
 
 type _ButtonProps = {
-    /**
-     * 버튼 내부에 표시되는 컴포넌트입니다.
-     */
     children?: React.ReactNode;
-    /**
-     * 버튼의 전체적인 스타일입니다.
-     */
     variant?: ButtonVariant;
     color?: ButtonColor;
-    disabled?: boolean;
     size?: ButtonSize;
-    /**
-     * 버튼의 border-radius 속성입니다.
-     */
     borderRadius?: number;
     /**
      * isLoading일 경우 label 대신 \<Spinner\>가 표시됩니다. width와 같이 사용하는 것을 추천합니다.

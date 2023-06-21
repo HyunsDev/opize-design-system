@@ -8,23 +8,26 @@ import { colorMap, sizeMap } from './buttonStyle';
 import { PolymorphicRef } from '../../utils/type/polymorphicComponent';
 import { LinkContext } from '../../context/linkContext';
 import { ButtonToolTipBox } from './buttonTooltip';
-import { cv } from '../../style';
 
 const StyledButton = styled.button<StyledButtonProps>`
+    position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    user-select: none;
-    position: relative;
-    font-size: 14px;
-    border: 0;
-    text-decoration: none;
-    transition: 100ms;
-    font-weight: 500;
-    line-height: 20px;
     gap: 8px;
-    cursor: pointer;
+
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    line-height: 20px;
+
+    border: 0;
     border-radius: ${(props) => props.$borderRadius}px;
+
+    transition: 100ms;
+
+    cursor: pointer;
+    user-select: none;
 
     &::after {
         content: '';
