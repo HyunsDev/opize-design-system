@@ -57,7 +57,28 @@
         ],
         "react/require-default-props": "off",
         "react/jsx-no-useless-fragment": "off",
-        "react/destructuring-assignment": "off"
+        "react/destructuring-assignment": "off",
+        "import/order": [
+            "error",
+            {
+              "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+              "pathGroups": [
+                {
+                  "pattern": "react",
+                  "group": "external",
+                  "position": "before"
+                },
+                {
+                  "pattern": "@/**",
+                  "group": "internal",
+                  "position": "after"
+                }
+              ],
+              "pathGroupsExcludedImportTypes": ["react", "react-dom"],
+              "newlines-between": "always",
+              "alphabetize": { "order": "asc" }
+            }
+          ]
     },
     "settings": {
         "import/resolver": {
