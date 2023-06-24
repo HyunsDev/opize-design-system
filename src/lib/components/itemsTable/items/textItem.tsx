@@ -1,5 +1,7 @@
 import React from 'react';
+
 import styled from 'styled-components';
+
 import { cv } from '../../../style';
 import { TextItemProps } from '../types';
 

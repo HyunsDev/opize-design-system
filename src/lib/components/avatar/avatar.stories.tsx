@@ -1,5 +1,6 @@
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 import React from 'react';
+
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 
 import { Avatar } from '..';
 import Img from '../../../assets/opize.png';

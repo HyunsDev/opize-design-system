@@ -1,10 +1,13 @@
 import React from 'react';
-import styled from 'styled-components';
+
 import { TrashSimple } from 'phosphor-react';
+import styled from 'styled-components';
+
 import { Button } from '../../components';
 import { OpizeContextProvider } from '../../context';
-import { useDialog } from '.';
 import { cv } from '../../style';
+
+import { useDialog } from '.';
 
 export default {
     title: 'Hook/useDialog',

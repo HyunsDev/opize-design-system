@@ -1,8 +1,11 @@
 import React, { ComponentProps } from 'react';
+
 import styled, { css, keyframes } from 'styled-components';
-import { cv } from '../../style';
-import { Label } from './label';
+
 import { Flex } from '..';
+import { cv } from '../../style';
+
+import { Label } from './label';
 
 const SwitchDiv = styled.div`
     display: flex;

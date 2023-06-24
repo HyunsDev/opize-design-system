@@ -1,7 +1,8 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { CaretDown, Minus, Plus } from 'phosphor-react';
+
 import { ButtonGroup, Button, Flex, ActionBox, ActionMenu } from '..';
 
 export default {

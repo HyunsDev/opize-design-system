@@ -1,10 +1,13 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable no-nested-ternary */
-import styled, { css } from 'styled-components';
-import { IconContext } from 'phosphor-react';
 import React from 'react';
+
+import { IconContext } from 'phosphor-react';
+import styled, { css } from 'styled-components';
+
 import { cv } from '../../style';
+
 import { Label } from './label';
 
 type ButtonAddon = {

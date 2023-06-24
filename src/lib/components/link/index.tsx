@@ -1,6 +1,8 @@
-import { Share } from 'phosphor-react';
 import React, { useContext } from 'react';
+
+import { Share } from 'phosphor-react';
 import styled, { css } from 'styled-components';
+
 import { LinkContext } from '../../context/linkContext';
 import { cv } from '../../style';
 import { PolymorphicComponentProps, PolymorphicRef } from '../../utils/type/polymorphicComponent';

@@ -1,11 +1,11 @@
 import React from 'react';
+
 import { ComponentStory, Story, ComponentMeta } from '@storybook/react';
-
 import styled from 'styled-components';
-import { Header } from '..';
 
-import { ActionMenu } from '../actionMenu';
+import { Header } from '..';
 import LogoImg from '../../../assets/opize.png';
+import { ActionMenu } from '../actionMenu';
 
 export default {
     title: 'Opize Component/Header',

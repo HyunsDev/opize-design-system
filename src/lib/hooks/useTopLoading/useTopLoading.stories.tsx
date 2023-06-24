@@ -1,8 +1,9 @@
 import React, { useEffect, useRef } from 'react';
 
 import { Button, Flex } from '../../components';
-import { useTopLoading } from '.';
 import { sleep } from '../../utils/sleep';
+
+import { useTopLoading } from '.';
 
 export default {
     title: 'Hook/useTopLoading',

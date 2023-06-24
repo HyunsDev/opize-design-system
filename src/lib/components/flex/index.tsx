@@ -1,5 +1,6 @@
-import styled from 'styled-components';
 import React from 'react';
+
+import styled from 'styled-components';
 
 /**
  * display:flex인 일반적인 div 태그입니다.

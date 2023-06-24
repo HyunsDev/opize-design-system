@@ -1,8 +1,9 @@
 import React, { useRef, useState } from 'react';
-import type { Meta, StoryObj } from '@storybook/react';
 
-import styled from 'styled-components';
+import type { Meta, StoryObj } from '@storybook/react';
 import { Check } from 'phosphor-react';
+import styled from 'styled-components';
+
 import { Button, Flex, Text, TextField, Divider } from '..';
 
 const meta: Meta<typeof Button> = {

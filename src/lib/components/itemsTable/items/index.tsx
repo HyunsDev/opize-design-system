@@ -1,7 +1,7 @@
 import { AvatarItem } from './avatarItem';
 import { ButtonsItem } from './buttonsItem';
-import { StatusItem } from './statusItems';
 import { ComponentItem } from './componentItem';
+import { StatusItem } from './statusItems';
 import { TextItem } from './textItem';
 
 export const Item = {

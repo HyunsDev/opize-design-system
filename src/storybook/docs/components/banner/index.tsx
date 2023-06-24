@@ -1,5 +1,7 @@
 import React, { useEffect, useRef, useState } from 'react';
+
 import styled, { keyframes } from 'styled-components';
+
 import foxImg from './opizeFox.png';
 import './style.css';
 

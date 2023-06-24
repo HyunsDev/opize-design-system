@@ -1,10 +1,12 @@
 /* eslint-disable react/no-array-index-key */
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { IconContext } from 'phosphor-react';
 import React, { ComponentProps, useCallback, useEffect, useRef, useState } from 'react';
+
+import { IconContext } from 'phosphor-react';
 import styled, { keyframes } from 'styled-components';
-import { cv } from '../../style';
+
 import { Button, ButtonProps } from '..';
+import { cv } from '../../style';
 
 const ActionMenuDiv = styled.div`
     display: flex;

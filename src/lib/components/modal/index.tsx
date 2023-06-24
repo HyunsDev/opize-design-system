@@ -1,7 +1,9 @@
 /* eslint-disable react/destructuring-assignment */
-import { X } from 'phosphor-react';
 import React, { ComponentProps, useEffect, useRef, useState } from 'react';
+
+import { X } from 'phosphor-react';
 import styled, { keyframes } from 'styled-components';
+
 import { cv } from '../../style';
 
 const Divver = styled.div``;

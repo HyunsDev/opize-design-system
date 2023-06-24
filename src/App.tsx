@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { OpizeWrapper, Button } from './lib';
 
 function App() {

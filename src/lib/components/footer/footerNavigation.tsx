@@ -1,6 +1,8 @@
-import styled from 'styled-components';
 import React, { ComponentProps } from 'react';
+
 import { CaretRight } from 'phosphor-react';
+import styled from 'styled-components';
+
 import { Link } from '..';
 import { cv } from '../../style';
 

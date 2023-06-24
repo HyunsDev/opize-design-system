@@ -1,7 +1,8 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { Fish } from 'phosphor-react';
+
 import { Token } from '..';
 
 export default {

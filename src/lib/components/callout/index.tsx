@@ -1,5 +1,7 @@
 import React from 'react';
+
 import styled, { FlattenInterpolation, ThemedStyledProps, css } from 'styled-components';
+
 import { cv } from '../../style';
 
 const CalloutIcon = styled.div`

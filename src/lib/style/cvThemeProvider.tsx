@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { ThemeProvider } from 'styled-components';
+
 import { useColorTheme } from '../hooks';
 
 export function CvThemeProvider({ children }: { children: React.ReactNode }) {

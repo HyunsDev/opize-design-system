@@ -1,11 +1,14 @@
 /* eslint-disable react/prop-types */
 /* eslint-disable react/jsx-no-constructed-context-values */
 /* eslint-disable no-nested-ternary */
-import { File, Folder, IconContext, Upload, UploadSimple } from 'phosphor-react';
 import React, { ComponentProps, useImperativeHandle, useRef } from 'react';
+
+import { File, Folder, IconContext, Upload, UploadSimple } from 'phosphor-react';
 import styled from 'styled-components';
+
 import { cv } from '../../style';
 import { Flex } from '../flex';
+
 import { Label } from './label';
 
 export type FileFieldProps = React.ComponentPropsWithoutRef<'input'> & {

@@ -1,6 +1,8 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import styled from 'styled-components';
+
 import { SimpleHeader, Spacer, Avatar, Flex, Button } from '..';
 import OpizeLogo from '../../../assets/opize_logoText.png';
 

@@ -1,9 +1,12 @@
 /* eslint-disable react/prop-types */
-import styled from 'styled-components';
 import React from 'react';
-import { cv } from '../../style';
-import { Label } from './label';
+
+import styled from 'styled-components';
+
 import { Flex } from '..';
+import { cv } from '../../style';
+
+import { Label } from './label';
 
 export type DateProps = React.ComponentPropsWithoutRef<'input'> & {
     label?: string;

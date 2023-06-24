@@ -1,7 +1,8 @@
 import React from 'react';
-import { ComponentStory, ComponentMeta } from '@storybook/react';
 
+import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DotsThree, DotsThreeVertical, Gear, UserCircle, X } from 'phosphor-react';
+
 import { ActionMenu, Checkbox, Table } from '..';
 
 export default {

@@ -1,9 +1,11 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { IconContext } from 'phosphor-react';
 import React from 'react';
+
+import { IconContext } from 'phosphor-react';
 import styled, { css, FlattenInterpolation, ThemedStyledProps } from 'styled-components';
-import { cv, sv } from '../../style';
+
 import { Flex } from '..';
+import { cv, sv } from '../../style';
 
 type TokenSize = 'small' | 'medium' | 'large';
 type TokenColor = 'default' | 'gray' | 'yellow' | 'red' | 'green' | 'blue';

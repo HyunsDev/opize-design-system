@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import styled from 'styled-components';
-import { Atom, Moon, Sun, TrashSimple } from 'phosphor-react';
+
 import { Story } from '@storybook/react';
+import { Atom, Moon, Sun, TrashSimple } from 'phosphor-react';
+import styled from 'styled-components';
+
 import { ActionMenu, Text, Code } from '../..';
 import { OpizeContextProvider } from '../../context';
 import { cv } from '../../style';
+
 import { useColorTheme } from '.';
 
 export default {

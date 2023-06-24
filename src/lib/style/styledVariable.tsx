@@ -1,4 +1,5 @@
 import { css } from 'styled-components';
+
 import { cv } from './cv';
 
 const text = {

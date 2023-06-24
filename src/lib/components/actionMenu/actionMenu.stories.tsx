@@ -1,10 +1,10 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DotsThreeVertical, Gear, X } from 'phosphor-react';
-
 import styled from 'styled-components';
-import { ActionMenu, Avatar as AvatarTag } from '..';
 
+import { ActionMenu, Avatar as AvatarTag } from '..';
 import profileImg from '../../../assets/hyuns.jpg';
 
 export default {

@@ -1,8 +1,9 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { PaperPlaneTilt } from 'phosphor-react';
-
 import styled from 'styled-components';
+
 import { TextField } from '..';
 
 export default {

@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
-import styled, { css } from 'styled-components';
 import React, { useImperativeHandle, useRef } from 'react';
-import { cv } from '../../style';
+
+import styled, { css } from 'styled-components';
+
 import { Flex } from '..';
+import { cv } from '../../style';
+
 import { Label } from './label';
 
 const Divver = styled.div`

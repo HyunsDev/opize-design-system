@@ -1,6 +1,8 @@
 import React, { useContext, useMemo } from 'react';
-import styled from 'styled-components';
+
 import { IconContext, IconProps } from 'phosphor-react';
+import styled from 'styled-components';
+
 import { Button, ButtonProps } from '../../components';
 import { ModalContext } from '../useModal/modalContext';
 

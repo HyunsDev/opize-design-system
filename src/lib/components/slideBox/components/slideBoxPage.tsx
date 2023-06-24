@@ -1,5 +1,7 @@
 import React, { useContext, useEffect, useRef } from 'react';
+
 import styled from 'styled-components';
+
 import { SlideBoxHeightContext } from '../context/slideBoxHeight.context';
 import { useSlideBox } from '../hook/useSlideBox';
 

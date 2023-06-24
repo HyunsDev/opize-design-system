@@ -1,8 +1,10 @@
-import { IconContext, IconProps } from 'phosphor-react';
 import React, { ComponentProps, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+
+import { IconContext, IconProps } from 'phosphor-react';
 import styled, { keyframes } from 'styled-components';
-import { cv } from '../../style';
+
 import { Button, ButtonProps } from '..';
+import { cv } from '../../style';
 
 const ActionBoxDiv = styled.div`
     display: flex;

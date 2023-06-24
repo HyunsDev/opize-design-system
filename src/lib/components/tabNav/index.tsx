@@ -1,7 +1,9 @@
-import styled from 'styled-components';
 import React, { useEffect, useRef, useState, useCallback, useContext } from 'react';
-import { cv } from '../../style';
+
+import styled from 'styled-components';
+
 import { TabNavActionContext, TabNavValueContext } from '../../context/tabNavContext/tabNavContext';
+import { cv } from '../../style';
 
 const Div = styled.div`
     border-bottom: solid 1px ${cv.border4};

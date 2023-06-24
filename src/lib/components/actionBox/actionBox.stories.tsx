@@ -1,10 +1,10 @@
 import React from 'react';
+
 import { ComponentStory, ComponentMeta } from '@storybook/react';
 import { DotsThreeVertical } from 'phosphor-react';
-
 import styled from 'styled-components';
-import { ActionBox } from '..';
 
+import { ActionBox } from '..';
 import profileImg from '../../../assets/hyuns.jpg';
 
 export default {

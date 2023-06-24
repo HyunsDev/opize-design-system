@@ -1,8 +1,11 @@
 /* eslint-disable react/prop-types */
 import React, { useCallback, useEffect, useImperativeHandle, useRef, useState } from 'react';
+
 import styled, { css, keyframes } from 'styled-components';
-import { TextField, TextFieldProps } from '.';
+
 import { cv } from '../../style';
+
+import { TextField, TextFieldProps } from '.';
 
 type AutocompleteItem = {
     text: string;

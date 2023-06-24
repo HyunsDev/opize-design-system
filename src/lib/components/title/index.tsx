@@ -1,5 +1,7 @@
-import styled from 'styled-components';
 import React from 'react';
+
+import styled from 'styled-components';
+
 import { cv } from '../../style';
 
 export const H1 = styled.h1`

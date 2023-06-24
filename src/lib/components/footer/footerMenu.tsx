@@ -1,6 +1,8 @@
-import styled from 'styled-components';
 import React, { useMemo } from 'react';
+
 import { IconContext, IconProps } from 'phosphor-react';
+import styled from 'styled-components';
+
 import { cv } from '../../style';
 
 const StyledItem = styled.div`

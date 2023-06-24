@@ -1,10 +1,13 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
 import React from 'react';
+
 import { IconContext } from 'phosphor-react';
 import styled from 'styled-components';
+
 import { cv } from '../../style';
-import { ItemsTableProps } from './types';
+
 import { Item } from './items';
+import { ItemsTableProps } from './types';
 
 const StyledTable = styled.div`
     border-top: solid 1px ${cv.border4};

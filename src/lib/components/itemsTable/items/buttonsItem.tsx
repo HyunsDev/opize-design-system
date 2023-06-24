@@ -1,7 +1,9 @@
 /* eslint-disable react/jsx-no-constructed-context-values */
-import { DotsThreeVertical, IconContext } from 'phosphor-react';
 import React from 'react';
+
+import { DotsThreeVertical, IconContext } from 'phosphor-react';
 import styled from 'styled-components';
+
 import { ActionMenu } from '../../actionMenu';
 import { ButtonsItemProps } from '../types';
 

@@ -1,5 +1,7 @@
-import styled, { keyframes } from 'styled-components';
 import React, { ComponentProps } from 'react';
+
+import styled, { keyframes } from 'styled-components';
+
 import { cv } from '../../style';
 
 const Loader = styled.div<{ size: number }>`

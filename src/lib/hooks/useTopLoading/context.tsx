@@ -1,4 +1,5 @@
 import React, { useState, createContext, useRef, useMemo } from 'react';
+
 import { TopLoadingBar } from '../../components/topLoadingBar';
 
 export interface TopLoadingContextProps {

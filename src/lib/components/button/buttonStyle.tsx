@@ -1,6 +1,9 @@
 import React from 'react';
+
 import { css, FlattenInterpolation, ThemedStyledProps } from 'styled-components';
+
 import { cv } from '../../style';
+
 import { ButtonColor, ButtonSize, ButtonVariant } from './buttonType';
 
 type StyledCss<Props extends { [key: string]: any } = Record<string, any>> = FlattenInterpolation<

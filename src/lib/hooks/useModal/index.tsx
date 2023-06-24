@@ -1,5 +1,7 @@
 import React, { useContext } from 'react';
+
 import { CodeBlock } from '../../components';
+
 import { ModalContext, ModalContextProps } from './modalContext';
 
 export function useModal(): ModalContextProps {
