@@ -1,35 +1,29 @@
 {
     "root": true,
     "parser": "@typescript-eslint/parser",
-    "plugins": [
-        "@typescript-eslint"
-    ],
+    "plugins": ["react", "@typescript-eslint", "import"],
     "parserOptions": {
         "project": "./tsconfig.json"
     },
     "extends": [
         "prettier",
-        "airbnb",
-        "airbnb/hooks",
+        "plugin:react/recommended",
         "plugin:@typescript-eslint/recommended",
+        "plugin:react-hooks/recommended",
         "plugin:prettier/recommended"
     ],
     "rules": {
+        "prettier/prettier": ["error", { "endOfLine": "auto" }],
         "react/jsx-filename-extension": [
             "warn",
             {
-                "extensions": [
-                    ".tsx"
-                ]
+                "extensions": [".tsx"]
             }
         ],
         "import/no-extraneous-dependencies": [
             "error",
             {
-                "devDependencies": [
-                    "**/*.stories.*",
-                    "**/.storybook/**/*.*"
-                ],
+                "devDependencies": ["**/*.stories.*", "**/.storybook/**/*.*"],
                 "peerDependencies": true
             }
         ],
@@ -37,14 +31,11 @@
         "react/function-component-definition": [
             2,
             {
-                "namedComponents": [
-                    "function-declaration",
-                    "arrow-function"
-                ],
+                "namedComponents": ["function-declaration", "arrow-function"],
                 "unnamedComponents": "arrow-function"
             }
         ],
-        "import/prefer-default-export": "off",
+        "import/no-default-export": "error",
         "import/extensions": [
             "error",
             "ignorePackages",
@@ -61,34 +52,29 @@
         "import/order": [
             "error",
             {
-              "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
-              "pathGroups": [
-                {
-                  "pattern": "react",
-                  "group": "external",
-                  "position": "before"
-                },
-                {
-                  "pattern": "@/**",
-                  "group": "internal",
-                  "position": "after"
-                }
-              ],
-              "pathGroupsExcludedImportTypes": ["react", "react-dom"],
-              "newlines-between": "always",
-              "alphabetize": { "order": "asc" }
+                "groups": ["builtin", "external", "internal", "parent", "sibling", "index"],
+                "pathGroups": [
+                    {
+                        "pattern": "react",
+                        "group": "external",
+                        "position": "before"
+                    },
+                    {
+                        "pattern": "@/**",
+                        "group": "internal",
+                        "position": "after"
+                    }
+                ],
+                "pathGroupsExcludedImportTypes": ["react", "react-dom"],
+                "newlines-between": "always",
+                "alphabetize": { "order": "asc" }
             }
-          ]
+        ]
     },
     "settings": {
         "import/resolver": {
             "node": {
-                "extensions": [
-                    ".js",
-                    ".jsx",
-                    ".ts",
-                    ".tsx"
-                ]
+                "extensions": [".js", ".jsx", ".ts", ".tsx"]
             }
         }
     }

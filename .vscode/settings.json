@@ -1,7 +1,8 @@
 {
     "editor.formatOnSave": true,
-    "cSpell.words": [
-        "subcomponents"
-    ],
-    "files.eol": "\n"
+    "files.eol": "\n",
+    "eslint.lintTask.enable": true,
+    "editor.codeActionsOnSave": {
+        "source.fixAll": true
+    }
 }
