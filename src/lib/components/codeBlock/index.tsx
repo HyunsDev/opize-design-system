@@ -2,12 +2,12 @@ import React from 'react';
 
 import styled from 'styled-components';
 
-import { useColorTheme } from '../../hooks';
-
 const Divver = styled.div`
     pre {
         border-radius: 4px;
         font-size: 12px;
+        word-break: break-all;
+        white-space: pre-wrap;
     }
 `;
 
@@ -25,8 +25,6 @@ export interface CodeBlockProps {
 const Pre = styled.pre``;
 
 export function CodeBlock(props: CodeBlockProps) {
-    // const { nowColorTheme } = useColorTheme();
-
     return (
         <Divver>
             <Pre>{props.children || ''}</Pre>
