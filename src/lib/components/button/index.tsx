@@ -4,7 +4,6 @@ import React, { useContext, useImperativeHandle, useRef, useState } from 'react'
 import { IconContext } from 'phosphor-react';
 import styled from 'styled-components';
 
-import { LinkContext } from '../../context/linkContext';
 import { PolymorphicRef } from '../../utils/type/polymorphicComponent';
 import { Spinner } from '../spinner';
 
@@ -94,7 +93,6 @@ export const Button: ButtonComponent = React.forwardRef(
     ): JSX.Element => {
         const inputRef = useRef<any>(null);
         useImperativeHandle(ref, () => inputRef.current as unknown);
-        const { Link } = useContext(LinkContext);
 
         const [isHover, setIsHover] = useState(false);
 
@@ -129,39 +127,6 @@ export const Button: ButtonComponent = React.forwardRef(
         );
 
         const iconOnly = !children && !!icon;
-
-        if (Link && to && !as) {
-            const Element = Link || 'button';
-
-            return (
-                <StyledButton
-                    {...props}
-                    ref={inputRef}
-                    $width={width}
-                    onClick={() => onClick && onClick()}
-                    $color={color}
-                    $size={size}
-                    $variant={variant}
-                    type={type}
-                    $borderRadius={borderRadius || iconOnly ? 99999 : 4}
-                    disabled={disabled}
-                    $iconOnly={iconOnly}
-                    as={Element}
-                    to={to}
-                    href={to}
-                    onMouseOver={(e: React.MouseEvent) => {
-                        setIsHover(true);
-                        if (props.onMouseOver) props.onMouseOver(e);
-                    }}
-                    onMouseOut={(e: React.MouseEvent) => {
-                        setIsHover(false);
-                        if (props.onMouseOut) props.onMouseOut(e);
-                    }}
-                >
-                    {buttonChildren}
-                </StyledButton>
-            );
-        }
 
         const Element = as || 'button';
 

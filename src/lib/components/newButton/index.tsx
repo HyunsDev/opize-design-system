@@ -1,14 +1,9 @@
-import React, { useContext, useImperativeHandle, useMemo, useRef, useState } from 'react';
+import React, { useImperativeHandle, useMemo, useRef } from 'react';
 
 import { IconContext, IconProps } from 'phosphor-react';
-import styled from 'styled-components';
 
-import { Spinner } from '..';
-import { LinkContext } from '../../context/linkContext';
 import { PolymorphicRef } from '../../utils/type/polymorphicComponent';
-import { colorMap, sizeMap } from '../button/buttonStyle';
-import { ButtonToolTipBox } from '../button/buttonTooltip';
-import { ButtonComponent, ButtonProps, StyledButtonProps } from '../button/buttonType';
+import { ButtonComponent, ButtonProps } from '../button/buttonType';
 
 const ProtoButton = <C extends React.ElementType = 'button'>(
     { as, children, ...props }: ButtonProps<C>,
