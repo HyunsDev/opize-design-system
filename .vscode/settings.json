@@ -1,8 +1,0 @@
-{
-    "editor.formatOnSave": true,
-    "files.eol": "\n",
-    "eslint.lintTask.enable": true,
-    "editor.codeActionsOnSave": {
-        "source.fixAll": true
-    }
-}
