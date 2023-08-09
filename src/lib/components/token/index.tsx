@@ -140,9 +140,19 @@ export interface TokenProps {
      */
     children?: React.ReactNode;
 }
-export function Token({ size = 'medium', color = 'default', variant = 'default', icon, children }: TokenProps) {
+export function Token({
+    size = 'medium',
+    color = 'default',
+    variant = 'default',
+    icon,
+    children,
+}: TokenProps) {
     return (
-        <StyledToken size={size} color={color} variant={variant}>
+        <StyledToken
+            size={size}
+            color={color}
+            variant={variant}
+        >
             {icon && (
                 <IconContext.Provider value={{ weight: 'bold', size: 14 }}>
                     <Icon>{icon}</Icon>

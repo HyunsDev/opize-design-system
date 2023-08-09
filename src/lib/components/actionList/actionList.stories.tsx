@@ -21,7 +21,10 @@ export default {
 
 const Template: ComponentStory<typeof ActionList> = (args) => (
     <ActionList {...args}>
-        <ActionList.Item selected href="/">
+        <ActionList.Item
+            selected
+            href="/"
+        >
             Item
         </ActionList.Item>
         <ActionList.Item href="/">Item</ActionList.Item>
@@ -44,7 +47,10 @@ const StickyDiv = styled.div`
 const StickyTemplate: ComponentStory<typeof ActionList> = (args) => (
     <StickyDiv>
         <ActionList {...args}>
-            <ActionList.Item selected href="/">
+            <ActionList.Item
+                selected
+                href="/"
+            >
                 Item
             </ActionList.Item>
             <ActionList.Item href="/">Item</ActionList.Item>

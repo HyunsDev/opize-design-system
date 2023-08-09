@@ -42,14 +42,22 @@ function Template(args: ComponentStory<typeof Header>) {
             <Header.Notice>공지</Header.Notice>
             <Header.Nav>
                 <Header.Nav.Left>
-                    <Logo src={LogoImg} alt="" />
+                    <Logo
+                        src={LogoImg}
+                        alt=""
+                    />
                 </Header.Nav.Left>
 
                 <Header.Nav.Right>
                     <Header.Nav.Button onClick={() => null}>Button2</Header.Nav.Button>
                     <Header.Nav.Button onClick={() => null}>Button</Header.Nav.Button>
                     <ActionMenu
-                        icon={<ProfileImg src={LogoImg} alt="" />}
+                        icon={
+                            <ProfileImg
+                                src={LogoImg}
+                                alt=""
+                            />
+                        }
                         variant="text"
                         borderRadius={999}
                         actions={[

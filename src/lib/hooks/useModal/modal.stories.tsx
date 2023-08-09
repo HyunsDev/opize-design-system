@@ -22,9 +22,10 @@ function Template() {
                 onClick={() => {
                     modal.open(
                         <>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maxime ipsum
-                            praesentium molestias unde velit quas, sunt nesciunt animi, alias tempora. Totam ab
-                            voluptatum facere esse accusantium aut laboriosam dignissimos?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
+                            maxime ipsum praesentium molestias unde velit quas, sunt nesciunt animi,
+                            alias tempora. Totam ab voluptatum facere esse accusantium aut
+                            laboriosam dignissimos?
                         </>
                     );
                 }}
@@ -46,9 +47,10 @@ function Template2() {
                 onClick={() => {
                     modal.open(
                         <>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit maxime ipsum
-                            praesentium molestias unde velit quas, sunt nesciunt animi, alias tempora. Totam ab
-                            voluptatum facere esse accusantium aut laboriosam dignissimos?
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reprehenderit
+                            maxime ipsum praesentium molestias unde velit quas, sunt nesciunt animi,
+                            alias tempora. Totam ab voluptatum facere esse accusantium aut
+                            laboriosam dignissimos?
                         </>,
                         {
                             title: 'title',

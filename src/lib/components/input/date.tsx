@@ -78,7 +78,11 @@ export const Datetime = React.forwardRef<HTMLInputElement, DateProps>((props: Da
         >
             {props.label && <Label required={props.required || false}>{props.label}</Label>}
             <Divver>
-                <StyledInput {...props} type={props.type} ref={ref}>
+                <StyledInput
+                    {...props}
+                    type={props.type}
+                    ref={ref}
+                >
                     {props.children}
                 </StyledInput>
             </Divver>

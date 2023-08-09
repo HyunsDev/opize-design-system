@@ -44,7 +44,14 @@ const AvatarLabel = styled.div`
 export function AvatarItem({ flex, icon, name, label }: AvatarItemProps) {
     return (
         <AvatarDiv flex={flex}>
-            {typeof icon === 'string' ? <AvatarIcon src={icon} alt="" /> : icon}
+            {typeof icon === 'string' ? (
+                <AvatarIcon
+                    src={icon}
+                    alt=""
+                />
+            ) : (
+                icon
+            )}
             <AvatarInfo>
                 {name && <AvatarName>{name}</AvatarName>}
                 {label && <AvatarLabel>{label}</AvatarLabel>}

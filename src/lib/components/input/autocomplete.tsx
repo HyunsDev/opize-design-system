@@ -47,7 +47,13 @@ const FadeInFromBottom = keyframes`
     }
 `;
 
-const OverlayDiv = styled.div<{ top?: number; right?: number; bottom?: number; left?: number; paddingHeight: number }>`
+const OverlayDiv = styled.div<{
+    top?: number;
+    right?: number;
+    bottom?: number;
+    left?: number;
+    paddingHeight: number;
+}>`
     position: absolute;
     min-width: 230px;
     ${(props) => props.top !== undefined && `top: ${props.top + props.paddingHeight}px;`};
@@ -109,7 +115,12 @@ function Item({
     onMouseOver: () => void;
 }) {
     return (
-        <OverlayItem key={id} onClick={() => onClick()} isHover={isHover || false} onMouseOver={() => onMouseOver()}>
+        <OverlayItem
+            key={id}
+            onClick={() => onClick()}
+            isHover={isHover || false}
+            onMouseOver={() => onMouseOver()}
+        >
             {text}
         </OverlayItem>
     );
@@ -189,7 +200,9 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
             setIsOpen(true);
             currentValue.current = e.target.value.replaceAll(SPACE, '');
             setValue(currentValue.current);
-            const newCurrentItems = props.items.filter((item) => item.text.startsWith(e.target.value));
+            const newCurrentItems = props.items.filter((item) =>
+                item.text.startsWith(e.target.value)
+            );
             setCurrentItems(newCurrentItems);
             if (!props.items.find((ee) => ee.id === cursor)?.text.startsWith(e.target.value)) {
                 setCursor(newCurrentItems[0]?.id || -1);
@@ -314,7 +327,10 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
             if (e.code === 'Backspace') {
                 if (
                     window.getSelection()?.toString() ===
-                    autocompleteSuggestion?.slice(currentValue.current.length, autocompleteSuggestion?.length)
+                    autocompleteSuggestion?.slice(
+                        currentValue.current.length,
+                        autocompleteSuggestion?.length
+                    )
                 ) {
                     if (isHighlight) {
                         setValue(`${currentValue.current} `);
@@ -326,7 +342,10 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
                 setHighlight(true);
             }
 
-            if (autocompleteSuggestion && currentValue.current.length < autocompleteSuggestion?.length) {
+            if (
+                autocompleteSuggestion &&
+                currentValue.current.length < autocompleteSuggestion?.length
+            ) {
                 setAutocompleteSuggestion((prev) => (prev?.replaceAll(SPACE, '') || '') + SPACE);
             }
 
@@ -397,7 +416,10 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
         if (!inputRef.current) return;
         if (isHighlight && autocompleteSuggestion && value) {
             if (autocompleteSuggestion.includes(value)) {
-                inputRef.current.setSelectionRange(currentValue.current.length, autocompleteSuggestion.length);
+                inputRef.current.setSelectionRange(
+                    currentValue.current.length,
+                    autocompleteSuggestion.length
+                );
             }
         }
     }, [autocompleteSuggestion, isHighlight, value]);
@@ -414,10 +436,20 @@ export const Autocomplete = React.forwardRef<HTMLInputElement, AutocompleteProps
                 onKeyPress={(e) => onKeyPress(e)}
                 onFocus={(e) => onFocus(e)}
                 // eslint-disable-next-line no-nested-ternary
-                value={value.length === 0 ? value : isHighlight ? autocompleteSuggestion || value : value}
+                value={
+                    value.length === 0
+                        ? value
+                        : isHighlight
+                        ? autocompleteSuggestion || value
+                        : value
+                }
             />
             {isOpen && currentItems.length !== 0 && (
-                <OverlayDiv {...direction} ref={overlayRef} paddingHeight={40}>
+                <OverlayDiv
+                    {...direction}
+                    ref={overlayRef}
+                    paddingHeight={40}
+                >
                     {currentItems.map((e) => (
                         <Item
                             key={e.id}

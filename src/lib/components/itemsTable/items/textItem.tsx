@@ -31,7 +31,9 @@ export function TextItem({ text, flex, subText }: TextItemProps) {
             )}
             {text && typeof text !== 'string' && <TextDiv>{text}</TextDiv>}
             {subText && typeof subText === 'string' && (
-                <SubTextDiv>{`${subText.substring(0, 50)}${subText.length > 50 ? '...' : ''}`}</SubTextDiv>
+                <SubTextDiv>{`${subText.substring(0, 50)}${
+                    subText.length > 50 ? '...' : ''
+                }`}</SubTextDiv>
             )}
             {subText && typeof subText !== 'string' && <SubTextDiv>{subText}</SubTextDiv>}
         </TextsDiv>

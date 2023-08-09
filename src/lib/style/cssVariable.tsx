@@ -50,7 +50,10 @@ const cssVariable: CssVariable = {
 
 const buildCssVariable = (variables: CssVariable) => {
     const keys = Object.keys(variables) as (keyof CssVariable)[];
-    return keys.reduce((acc, key) => acc.concat(`--${key.replace(/_/g, '-')}: ${variables[key]};`, '\n'), '');
+    return keys.reduce(
+        (acc, key) => acc.concat(`--${key.replace(/_/g, '-')}: ${variables[key]};`, '\n'),
+        ''
+    );
 };
 
 export const builtCssVariable = buildCssVariable(cssVariable);

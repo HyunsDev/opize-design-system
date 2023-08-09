@@ -4,7 +4,10 @@ import { Modal } from '../../components/modal';
 
 export interface ModalContextProps {
     isOpen: boolean;
-    open: (content: React.ReactNode, option?: { title?: string; width?: number | string; isPadding?: boolean }) => void;
+    open: (
+        content: React.ReactNode,
+        option?: { title?: string; width?: number | string; isPadding?: boolean }
+    ) => void;
     close: () => void;
     width: number | string;
     title?: string;

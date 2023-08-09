@@ -26,7 +26,10 @@ const StyledBarInner = styled.div<{ width: number; isShow: boolean }>`
 export function TopLoadingBar({ width, isShow }: { width: number; isShow: boolean }) {
     return (
         <StyledBar isShow={isShow}>
-            <StyledBarInner width={width} isShow={isShow} />
+            <StyledBarInner
+                width={width}
+                isShow={isShow}
+            />
         </StyledBar>
     );
 }

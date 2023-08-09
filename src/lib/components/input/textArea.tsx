@@ -51,12 +51,18 @@ const Message = styled.div`
     margin-top: 4px;
 `;
 
-export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>((props: TextAreaProps, ref) => {
-    return (
-        <Divver>
-            {props.label && <Label required={props.required || false}>{props.label}</Label>}
-            <Input ref={ref} {...props} onChange={(e) => !props.readonly && props.onChange && props.onChange(e)} />
-            {props.error && <Message>{props.error}</Message>}
-        </Divver>
-    );
-});
+export const TextArea = React.forwardRef<HTMLTextAreaElement, TextAreaProps>(
+    (props: TextAreaProps, ref) => {
+        return (
+            <Divver>
+                {props.label && <Label required={props.required || false}>{props.label}</Label>}
+                <Input
+                    ref={ref}
+                    {...props}
+                    onChange={(e) => !props.readonly && props.onChange && props.onChange(e)}
+                />
+                {props.error && <Message>{props.error}</Message>}
+            </Divver>
+        );
+    }
+);

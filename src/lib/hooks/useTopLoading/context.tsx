@@ -64,7 +64,10 @@ function TopLoadingContextProvider({ children }: { children: React.ReactNode }) 
     return (
         <TopLoadingContext.Provider value={action}>
             <TopLoadingValueContext.Provider value={value}>
-                <TopLoadingBar width={progress} isShow={isShow} />
+                <TopLoadingBar
+                    width={progress}
+                    isShow={isShow}
+                />
                 {children}
             </TopLoadingValueContext.Provider>
         </TopLoadingContext.Provider>

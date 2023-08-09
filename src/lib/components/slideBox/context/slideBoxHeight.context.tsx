@@ -21,7 +21,9 @@ function SlideBoxHeightProvider({ children }: { children: React.ReactNode }) {
         [height]
     );
 
-    return <SlideBoxHeightContext.Provider value={value}>{children}</SlideBoxHeightContext.Provider>;
+    return (
+        <SlideBoxHeightContext.Provider value={value}>{children}</SlideBoxHeightContext.Provider>
+    );
 }
 
 export default SlideBoxHeightProvider;

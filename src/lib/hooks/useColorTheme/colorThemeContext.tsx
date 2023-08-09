@@ -39,7 +39,8 @@ function ColorThemeProvider({ children }: { children: React.ReactNode }) {
             return;
         }
 
-        const isUserDark = window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
+        const isUserDark =
+            window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
         setColorTheme('light');
         setNowColorTheme(isUserDark ? 'dark' : 'light');
     }, []);
@@ -48,7 +49,9 @@ function ColorThemeProvider({ children }: { children: React.ReactNode }) {
         if (theme === 'system') {
             setColorTheme('system');
             setNowColorTheme(
-                window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light'
+                window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches
+                    ? 'dark'
+                    : 'light'
             );
             document.querySelector('body')?.removeAttribute('data-theme');
             if (typeof window !== 'undefined') localStorage.removeItem('theme');

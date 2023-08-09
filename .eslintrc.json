@@ -35,7 +35,6 @@
                 "unnamedComponents": "arrow-function"
             }
         ],
-        "import/no-default-export": "error",
         "import/extensions": [
             "error",
             "ignorePackages",

@@ -23,10 +23,26 @@ const Width500 = styled.div`
 const Template: ComponentStory<typeof Radio> = (args) => (
     <Width500>
         <RadioGroup>
-            <Radio {...args} name="a" value="select1" />
-            <Radio {...args} name="a" value="select2" />
-            <Radio {...args} name="a" value="select3" />
-            <Radio {...args} name="a" value="select4" />
+            <Radio
+                {...args}
+                name="a"
+                value="select1"
+            />
+            <Radio
+                {...args}
+                name="a"
+                value="select2"
+            />
+            <Radio
+                {...args}
+                name="a"
+                value="select3"
+            />
+            <Radio
+                {...args}
+                name="a"
+                value="select4"
+            />
         </RadioGroup>
     </Width500>
 );

@@ -139,7 +139,13 @@ function PageLayoutRoot({
             backgroundColor={backgroundColor}
             padding={padding}
         >
-            <PageLayoutInner width={width} gap={gap} panPosition={panPosition} gutter={gutter} panWidth={panWidth}>
+            <PageLayoutInner
+                width={width}
+                gap={gap}
+                panPosition={panPosition}
+                gutter={gutter}
+                panWidth={panWidth}
+            >
                 {children}
             </PageLayoutInner>
         </PageLayoutOuter>

@@ -55,7 +55,10 @@ export function SlideBoxPage({ children, pos }: { children: React.ReactNode; pos
     }, [now, pos, setHeight]);
 
     return (
-        <StyledSlideBoxPage pos={getPos(pos, now)} ref={ref}>
+        <StyledSlideBoxPage
+            pos={getPos(pos, now)}
+            ref={ref}
+        >
             {children}
         </StyledSlideBoxPage>
     );

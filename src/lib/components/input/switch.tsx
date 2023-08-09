@@ -117,7 +117,13 @@ export const Switch = React.forwardRef<HTMLInputElement, Props>((props: Props, r
         >
             {props.label && <Label required={props.required || false}>{props.label}</Label>}
             <SwitchDiv>
-                <Input type="checkbox" {...style} {...props} ref={ref} onChange={props.onChange} />
+                <Input
+                    type="checkbox"
+                    {...style}
+                    {...props}
+                    ref={ref}
+                    onChange={props.onChange}
+                />
                 <Text required={props.required || false}>{props.text}</Text>
             </SwitchDiv>
         </Flex>

@@ -162,7 +162,13 @@ const AvatarRight: ComponentStory<typeof ActionMenu> = (args) => (
 );
 export const Avatar = AvatarRight.bind({});
 Avatar.args = {
-    icon: <AvatarTag src={profileImg} alt="" size={28} />,
+    icon: (
+        <AvatarTag
+            src={profileImg}
+            alt=""
+            size={28}
+        />
+    ),
     variant: 'text',
     actions: [
         [

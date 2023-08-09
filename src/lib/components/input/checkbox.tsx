@@ -100,7 +100,12 @@ export const Checkbox = React.forwardRef<HTMLInputElement, CheckboxProps>(
             >
                 {props.label && <Label required={props.required || false}>{props.label}</Label>}
                 <CheckBoxDiv>
-                    <Input type="checkbox" {...props} checkBoxSize={checkBoxSize} ref={ref} />
+                    <Input
+                        type="checkbox"
+                        {...props}
+                        checkBoxSize={checkBoxSize}
+                        ref={ref}
+                    />
                     <Text required={props.required || false}>{props.text}</Text>
                 </CheckBoxDiv>
             </Flex>

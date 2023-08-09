@@ -28,9 +28,17 @@ const TitleLink = Object.assign(
     (props: ComponentProps<typeof Link>) => {
         return (
             <div>
-                <StyledTitleLink {...props} showUnderline={false} color={cv.text1}>
+                <StyledTitleLink
+                    {...props}
+                    showUnderline={false}
+                    color={cv.text1}
+                >
                     {props.children}
-                    <CaretRight size={14} color={cv.text1} style={{ marginBottom: '-2px' }} />
+                    <CaretRight
+                        size={14}
+                        color={cv.text1}
+                        style={{ marginBottom: '-2px' }}
+                    />
                 </StyledTitleLink>
             </div>
         );
@@ -44,7 +52,11 @@ const ItemLink = Object.assign(
     (props: ComponentProps<typeof Link>) => {
         return (
             <div>
-                <StyledLink {...props} showUnderline={false} color={cv.text3} />
+                <StyledLink
+                    {...props}
+                    showUnderline={false}
+                    color={cv.text3}
+                />
             </div>
         );
     },

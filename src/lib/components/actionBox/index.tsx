@@ -1,4 +1,4 @@
-import React, { ComponentProps, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 
 import { IconContext, IconProps } from 'phosphor-react';
 import styled, { keyframes } from 'styled-components';
@@ -159,7 +159,11 @@ export function ActionBox({ children, removePadding, overlay, ...props }: Action
                     <OverlayDiv
                         {...direction}
                         ref={overlayRef}
-                        buttonHeight={(buttonRef.current?.offsetHeight && buttonRef.current.offsetHeight + 4) || 34}
+                        buttonHeight={
+                            (buttonRef.current?.offsetHeight &&
+                                buttonRef.current.offsetHeight + 4) ||
+                            34
+                        }
                         removePadding={removePadding}
                     >
                         {overlay}

@@ -72,7 +72,10 @@ function DialogScreen({
             <Buttons>
                 {buttons.map((e, i) => (
                     // eslint-disable-next-line react/no-array-index-key
-                    <Button key={i} {...e} />
+                    <Button
+                        key={i}
+                        {...e}
+                    />
                 ))}
             </Buttons>
         </>
@@ -109,7 +112,13 @@ export function useDialog() {
         }));
 
         modal.open(
-            <DialogScreen close={modal.close} content={content} buttons={MappedButtons} title={title} icon={icon} />,
+            <DialogScreen
+                close={modal.close}
+                content={content}
+                buttons={MappedButtons}
+                title={title}
+                icon={icon}
+            />,
             {
                 isPadding: false,
             }

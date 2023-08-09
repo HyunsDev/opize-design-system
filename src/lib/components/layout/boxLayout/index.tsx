@@ -4,7 +4,12 @@ import styled from 'styled-components';
 
 import { cv } from '../../../style';
 
-const PageLayoutOuter = styled.div<{ backgroundColor: string; marginTop: string; padding: string; minHeight: string }>`
+const PageLayoutOuter = styled.div<{
+    backgroundColor: string;
+    marginTop: string;
+    padding: string;
+    minHeight: string;
+}>`
     width: 100%;
     background-color: ${(props) => props.backgroundColor};
     margin-top: ${(props) => props.marginTop};
@@ -59,7 +64,11 @@ export function BoxLayout({
             padding={padding}
             minHeight={minHeight}
         >
-            <PageLayoutInner width={width} gap={gap} gutter={gutter}>
+            <PageLayoutInner
+                width={width}
+                gap={gap}
+                gutter={gutter}
+            >
                 {children}
             </PageLayoutInner>
         </PageLayoutOuter>

@@ -29,7 +29,13 @@ export interface ButtonsItemProps extends ItemProps {
     buttons: ActionMenuActionType[][];
 }
 
-export type Type = (AvatarItemProps | StatusItemProps | TextItemProps | ButtonsItemProps | ComponentItemProps)[];
+export type Type = (
+    | AvatarItemProps
+    | StatusItemProps
+    | TextItemProps
+    | ButtonsItemProps
+    | ComponentItemProps
+)[];
 
 export interface ItemsTableProps {
     children: React.ReactNode;

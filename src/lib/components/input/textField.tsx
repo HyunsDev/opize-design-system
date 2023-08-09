@@ -116,7 +116,9 @@ const AddonTextDiv = styled.div<{ position: 'left' | 'right' }>`
     background-color: ${cv.bg_element3};
 
     ${(props) =>
-        props.position === 'left' ? `border-right: solid 1px ${cv.border3};` : `border-left: solid 1px ${cv.border3};`};
+        props.position === 'left'
+            ? `border-right: solid 1px ${cv.border3};`
+            : `border-left: solid 1px ${cv.border3};`};
     ${(props) =>
         props.position === 'left'
             ? `border-bottom-left-radius: 4px; border-top-left-radius: 4px;`
@@ -135,20 +137,31 @@ const AddonButtonDiv = styled.div<{ position: 'left' | 'right' }>`
     color: ${cv.text5};
 
     ${(props) =>
-        props.position === 'left' ? `border-right: solid 1px ${cv.border3};` : `border-left: solid 1px ${cv.border3};`};
+        props.position === 'left'
+            ? `border-right: solid 1px ${cv.border3};`
+            : `border-left: solid 1px ${cv.border3};`};
     ${(props) =>
         props.position === 'left'
             ? `border-bottom-left-radius: 4px; border-top-left-radius: 4px;`
             : 'border-bottom-right-radius: 4px; border-top-right-radius: 4px;'};
 `;
 
-function Addon({ position, data }: { position: 'left' | 'right'; data: ButtonAddon | React.ReactNode | any }) {
+function Addon({
+    position,
+    data,
+}: {
+    position: 'left' | 'right';
+    data: ButtonAddon | React.ReactNode | any;
+}) {
     if (typeof data === 'string') {
         return <AddonTextDiv position={position}>{data}</AddonTextDiv>;
     }
     if (data.type === 'button') {
         return (
-            <AddonButtonDiv position={position} onClick={() => data.onClick()}>
+            <AddonButtonDiv
+                position={position}
+                onClick={() => data.onClick()}
+            >
                 {data.icon}
                 {data.label}
             </AddonButtonDiv>
@@ -184,10 +197,30 @@ export const TextField = React.forwardRef<HTMLInputElement, TextFieldProps>(
             >
                 <Divver style={{ width }}>
                     {label && <Label required={required}>{label}</Label>}
-                    <Inputs border={border} readOnly={readOnly}>
-                        {leftAddon && <Addon position="left" data={leftAddon} />}
-                        <Input {...props} value={value} ref={ref} type={type} border={border} readOnly={readOnly} />
-                        {rightAddon && <Addon position="right" data={rightAddon} />}
+                    <Inputs
+                        border={border}
+                        readOnly={readOnly}
+                    >
+                        {leftAddon && (
+                            <Addon
+                                position="left"
+                                data={leftAddon}
+                            />
+                        )}
+                        <Input
+                            {...props}
+                            value={value}
+                            ref={ref}
+                            type={type}
+                            border={border}
+                            readOnly={readOnly}
+                        />
+                        {rightAddon && (
+                            <Addon
+                                position="right"
+                                data={rightAddon}
+                            />
+                        )}
                     </Inputs>
                     {error && <Message>{error}</Message>}
                 </Divver>

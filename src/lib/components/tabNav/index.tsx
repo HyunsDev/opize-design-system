@@ -90,7 +90,9 @@ export function TabNav({ selected, menu, hasContext }: TabNavProps) {
     const hoverTimer = useRef<NodeJS.Timeout>();
     const { lastHoverBoxStyle, lastUnderlineStyle } = useContext(TabNavValueContext);
     const { setLastHoverBoxStyle, setLastUnderlineStyle } = useContext(TabNavActionContext);
-    const [underlineStyle, setUnderlineStyle] = useState(hasContext ? lastUnderlineStyle : { width: 0, left: 0 });
+    const [underlineStyle, setUnderlineStyle] = useState(
+        hasContext ? lastUnderlineStyle : { width: 0, left: 0 }
+    );
     const [hoverBoxStyle, setHoverBoxStyle] = useState(
         hasContext ? lastHoverBoxStyle : { width: 0, left: 0, show: false }
     );
@@ -148,7 +150,10 @@ export function TabNav({ selected, menu, hasContext }: TabNavProps) {
                         onMouseOver={() => hover(e[0])}
                         onMouseLeave={mouseLeave}
                     >
-                        <Item selected={e[0] === selected} onClick={() => e[1].onClick && e[1].onClick()}>
+                        <Item
+                            selected={e[0] === selected}
+                            onClick={() => e[1].onClick && e[1].onClick()}
+                        >
                             {e[1].text}
                         </Item>
                     </ItemDivver>

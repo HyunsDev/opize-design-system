@@ -25,7 +25,11 @@ const Template: ComponentStory<typeof Autocomplete> = (args) => {
 
     return (
         <Width500>
-            <Autocomplete {...args} value={value} onChange={(e) => setValue(e.target.value)} />
+            <Autocomplete
+                {...args}
+                value={value}
+                onChange={(e) => setValue(e.target.value)}
+            />
             <p style={{ textAlign: 'right' }}>{value}</p>
         </Width500>
     );

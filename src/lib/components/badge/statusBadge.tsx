@@ -27,10 +27,14 @@ const colorMap = {
     },
 };
 
-const Badge = styled.div<{ color: 'red' | 'yellow' | 'green' | 'blue' | 'gray'; size: 'small' | 'normal' }>`
+const Badge = styled.div<{
+    color: 'red' | 'yellow' | 'green' | 'blue' | 'gray';
+    size: 'small' | 'normal';
+}>`
     position: relative;
 
-    ${(props) => props.size === 'small' && `background-color: ${colorMap[props.color].backgroundColor};`}
+    ${(props) =>
+        props.size === 'small' && `background-color: ${colorMap[props.color].backgroundColor};`}
     color: ${(props) => (props.size === 'small' ? colorMap[props.color].color : cv.text1)};
     padding: ${(props) => (props.size === 'normal' ? '4px 8px' : '0px 8px')};
     border-radius: 12px;
@@ -61,7 +65,10 @@ interface StatusBadgeTagProps {
  */
 export function StatusBadge({ color, text, size = 'normal' }: StatusBadgeTagProps) {
     return (
-        <Badge color={color} size={size}>
+        <Badge
+            color={color}
+            size={size}
+        >
             {text}
         </Badge>
     );

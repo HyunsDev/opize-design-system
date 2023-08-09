@@ -71,7 +71,10 @@ export function Spinner({
 }) {
     return (
         <Loader size={size}>
-            <Circular viewBox="25 25 50 50" color={color}>
+            <Circular
+                viewBox="25 25 50 50"
+                color={color}
+            >
                 <circle
                     className="path"
                     cx="50"

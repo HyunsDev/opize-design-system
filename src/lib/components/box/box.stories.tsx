@@ -23,7 +23,11 @@ WithTitle.args = {
     children: (
         <>
             Hello, World!
-            <TextField type="text" value="" onChange={() => null} />
+            <TextField
+                type="text"
+                value=""
+                onChange={() => null}
+            />
         </>
     ),
     title: 'Title',
@@ -34,7 +38,11 @@ WithFooter.args = {
     children: (
         <>
             Hello, World!
-            <TextField type="text" value="" onChange={() => null} />
+            <TextField
+                type="text"
+                value=""
+                onChange={() => null}
+            />
         </>
     ),
     title: 'Title',
@@ -52,7 +60,11 @@ WithHeader.args = {
     children: (
         <>
             Hello, World!
-            <TextField type="text" value="" onChange={() => null} />
+            <TextField
+                type="text"
+                value=""
+                onChange={() => null}
+            />
         </>
     ),
     header: 'Hello, world!',

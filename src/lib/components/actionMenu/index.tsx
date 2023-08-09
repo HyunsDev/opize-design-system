@@ -38,7 +38,13 @@ const FadeInFromBottom = keyframes`
     }
 `;
 
-const OverlayDiv = styled.div<{ top?: number; right?: number; bottom?: number; left?: number; buttonHeight: number }>`
+const OverlayDiv = styled.div<{
+    top?: number;
+    right?: number;
+    bottom?: number;
+    left?: number;
+    buttonHeight: number;
+}>`
     position: absolute;
     min-width: 210px;
     ${(props) => props.top !== undefined && `top: ${props.top + props.buttonHeight}px;`};
@@ -104,7 +110,10 @@ export interface ActionMenuActionType {
 
 function Action({ icon, label, onClick, color = 'normal' }: ActionMenuActionType) {
     return (
-        <ActionDiv onClick={() => onClick()} color={color}>
+        <ActionDiv
+            onClick={() => onClick()}
+            color={color}
+        >
             <>
                 {label}
                 {icon}
@@ -209,12 +218,20 @@ export function ActionMenu({ actions, children, ...props }: ActionMenuProps) {
                     <OverlayDiv
                         {...direction}
                         ref={overlayRef}
-                        buttonHeight={(buttonRef.current?.offsetHeight && buttonRef.current.offsetHeight + 4) || 34}
+                        buttonHeight={
+                            (buttonRef.current?.offsetHeight &&
+                                buttonRef.current.offsetHeight + 4) ||
+                            34
+                        }
                     >
                         {actions.map((e, i) => (
                             <ActionsDiv key={i}>
                                 {e.map((action, ii) => (
-                                    <Action key={ii} {...action} onClick={() => ActionClick(action.onClick)} />
+                                    <Action
+                                        key={ii}
+                                        {...action}
+                                        onClick={() => ActionClick(action.onClick)}
+                                    />
                                 ))}
                             </ActionsDiv>
                         ))}

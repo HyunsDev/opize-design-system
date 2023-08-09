@@ -79,22 +79,30 @@ const SelectA = React.forwardRef<HTMLSelectElement, SelectProps>((props: SelectP
         >
             {props.label && <Label required={props.required || false}>{props.label}</Label>}
             <Divver>
-                <StyledSelect ref={ref} required={props.required} disabled={props.disabled} {...props}>
+                <StyledSelect
+                    ref={ref}
+                    required={props.required}
+                    disabled={props.disabled}
+                    {...props}
+                >
                     {props.children}
                 </StyledSelect>
-                <Icon size={16} color={cv.text1} />
+                <Icon
+                    size={16}
+                    color={cv.text1}
+                />
             </Divver>
         </Flex>
     );
 });
 
-const Option: React.FC<React.PropsWithChildren<React.HTMLProps<HTMLOptionElement> & { value: string }>> = (props) => (
-    <option {...props} />
-);
+const Option: React.FC<
+    React.PropsWithChildren<React.HTMLProps<HTMLOptionElement> & { value: string }>
+> = (props) => <option {...props} />;
 
-const OptionGroup: React.FC<React.PropsWithChildren<React.HTMLProps<HTMLOptGroupElement>>> = (props) => (
-    <optgroup {...props} />
-);
+const OptionGroup: React.FC<React.PropsWithChildren<React.HTMLProps<HTMLOptGroupElement>>> = (
+    props
+) => <optgroup {...props} />;
 
 export const Select = Object.assign(SelectA, {
     Option,

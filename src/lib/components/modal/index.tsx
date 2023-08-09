@@ -116,9 +116,16 @@ export function Modal(props: {
     if (isOpen) {
         return (
             <Divver>
-                <Background isOpen={props.isOpen} onClick={() => props.setOpen(false)} />
+                <Background
+                    isOpen={props.isOpen}
+                    onClick={() => props.setOpen(false)}
+                />
                 <ModalBoxDivver>
-                    <ModalBox isOpen={props.isOpen} width={width} isPadding={props.isPadding}>
+                    <ModalBox
+                        isOpen={props.isOpen}
+                        width={width}
+                        isPadding={props.isPadding}
+                    >
                         {props.title && (
                             <ModalTitleBox>
                                 <ModalTitle>{props.title}</ModalTitle>

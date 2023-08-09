@@ -24,9 +24,19 @@ Primary.args = {
     children: (
         <>
             <ItemsTable.Row>
-                <ItemsTable.Row.Avatar icon={<UserCircle />} name="name" label="label" />
-                <ItemsTable.Row.Text text="text" subText="subText" />
-                <ItemsTable.Row.Status status="good" label="label" />
+                <ItemsTable.Row.Avatar
+                    icon={<UserCircle />}
+                    name="name"
+                    label="label"
+                />
+                <ItemsTable.Row.Text
+                    text="text"
+                    subText="subText"
+                />
+                <ItemsTable.Row.Status
+                    status="good"
+                    label="label"
+                />
                 <ItemsTable.Row.Component>Component</ItemsTable.Row.Component>
                 <ItemsTable.Row.Buttons
                     buttons={[
@@ -49,9 +59,19 @@ Primary.args = {
                 />
             </ItemsTable.Row>
             <ItemsTable.Row>
-                <ItemsTable.Row.Avatar icon={<UserCircle />} name="name" label="label" />
-                <ItemsTable.Row.Text text="text" subText="subText" />
-                <ItemsTable.Row.Status status="good" label="label" />
+                <ItemsTable.Row.Avatar
+                    icon={<UserCircle />}
+                    name="name"
+                    label="label"
+                />
+                <ItemsTable.Row.Text
+                    text="text"
+                    subText="subText"
+                />
+                <ItemsTable.Row.Status
+                    status="good"
+                    label="label"
+                />
                 <ItemsTable.Row.Component>Component</ItemsTable.Row.Component>
                 <ItemsTable.Row.Buttons
                     buttons={[

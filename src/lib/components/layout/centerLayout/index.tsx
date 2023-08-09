@@ -67,7 +67,11 @@ export function CenterLayout({
             padding={padding}
             minHeight={minHeight}
         >
-            <CenterLayoutInner width={width} gap={gap} gutter={gutter}>
+            <CenterLayoutInner
+                width={width}
+                gap={gap}
+                gutter={gutter}
+            >
                 {children}
             </CenterLayoutInner>
         </CenterLayoutOuter>

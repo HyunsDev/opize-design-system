@@ -10,7 +10,13 @@ export const LinkContext = createContext<LinkContextProps>({
     setLink: () => null,
 });
 
-function LinkContextProvider({ children, initLink }: { children: React.ReactNode; initLink?: React.ElementType<any> }) {
+function LinkContextProvider({
+    children,
+    initLink,
+}: {
+    children: React.ReactNode;
+    initLink?: React.ElementType<any>;
+}) {
     const [Link, setLink] = useState<React.ElementType<any>>();
 
     useEffect(() => {

@@ -114,7 +114,11 @@ interface OpizeWrapperProps {
 /**
  * opize-design-system을 사용하기 위해 필수적으로 사용해야 하는 컴포넌트입니다.
  */
-export function OpizeWrapper({ children, initLink = 'a', applyDefaultStyle = true }: OpizeWrapperProps) {
+export function OpizeWrapper({
+    children,
+    initLink = 'a',
+    applyDefaultStyle = true,
+}: OpizeWrapperProps) {
     return (
         <>
             {applyDefaultStyle ? <GlobalStyles /> : <BaseGLobalStyles />}

@@ -17,10 +17,18 @@ Primary.args = {
     title: 'Title',
     children: (
         <>
-            <Button variant="outlined" size="large" onClick={() => null}>
+            <Button
+                variant="outlined"
+                size="large"
+                onClick={() => null}
+            >
                 Button
             </Button>
-            <Button variant="contained" size="large" onClick={() => null}>
+            <Button
+                variant="contained"
+                size="large"
+                onClick={() => null}
+            >
                 Button
             </Button>
         </>

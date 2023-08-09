@@ -103,7 +103,12 @@ export const FileField = React.forwardRef<HTMLInputElement, FileFieldProps>(
             >
                 <Divver style={{ width }}>
                     {label && <Label required={required}>{label}</Label>}
-                    <Input type="file" {...props} ref={inputRef} value={value} />
+                    <Input
+                        type="file"
+                        {...props}
+                        ref={inputRef}
+                        value={value}
+                    />
                     <InputDivver>
                         <FakeLabel onClick={() => inputRef.current?.click()}>
                             {icon}

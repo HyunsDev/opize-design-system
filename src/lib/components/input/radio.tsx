@@ -86,15 +86,27 @@ export const Radio = React.forwardRef<HTMLInputElement, RadioProps>((props: Radi
 
     return (
         <Divver onClick={() => inputRef.current?.click()}>
-            <StyledInput {...props} type="radio" ref={inputRef}>
+            <StyledInput
+                {...props}
+                type="radio"
+                ref={inputRef}
+            >
                 {props.children}
             </StyledInput>
-            {props.label && <RadioLabel onClick={() => inputRef.current?.click()}>{props.label}</RadioLabel>}
+            {props.label && (
+                <RadioLabel onClick={() => inputRef.current?.click()}>{props.label}</RadioLabel>
+            )}
         </Divver>
     );
 });
 
-export function RadioGroup({ children, label }: { children: React.ReactNode; label?: React.ReactNode }) {
+export function RadioGroup({
+    children,
+    label,
+}: {
+    children: React.ReactNode;
+    label?: React.ReactNode;
+}) {
     return (
         <Flex.Column>
             {label && <Label required={false}>{label}</Label>}

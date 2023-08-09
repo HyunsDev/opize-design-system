@@ -181,7 +181,11 @@ export function Banner({ version }: { version: string }) {
                         right: `${-300 - (-pos.x / 2 + pos.x) / 50}px`,
                     }}
                 />
-                <Fox src={foxImg} alt="" draggable="false" />
+                <Fox
+                    src={foxImg}
+                    alt=""
+                    draggable="false"
+                />
                 <Text1>Opize</Text1>
                 <Text2>
                     Design System <Version>{version}</Version>

@@ -16,7 +16,10 @@ const StyledTable = styled.table`
 export const TableComponent = React.forwardRef<HTMLTableElement, TableProps>(
     ({ children, ...props }: TableProps, ref) => {
         return (
-            <StyledTable {...props} ref={ref}>
+            <StyledTable
+                {...props}
+                ref={ref}
+            >
                 {children}
             </StyledTable>
         );

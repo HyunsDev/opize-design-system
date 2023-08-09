@@ -26,13 +26,23 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
             <Button>Button 1</Button>
             <ActionBox
                 overlay="Hello, Opize Design System!"
-                icon={<CaretDown weight="fill" size={12} />}
+                icon={
+                    <CaretDown
+                        weight="fill"
+                        size={12}
+                    />
+                }
                 iconPosition="end"
             >
                 Button 2
             </ActionBox>
             <ActionMenu
-                icon={<CaretDown weight="fill" size={12} />}
+                icon={
+                    <CaretDown
+                        weight="fill"
+                        size={12}
+                    />
+                }
                 iconPosition="end"
                 actions={[
                     [
@@ -55,7 +65,12 @@ const Template: ComponentStory<typeof ButtonGroup> = (args) => (
         <ButtonGroup {...args}>
             <Button>Button 1</Button>
             <ActionMenu
-                icon={<CaretDown weight="fill" size={12} />}
+                icon={
+                    <CaretDown
+                        weight="fill"
+                        size={12}
+                    />
+                }
                 iconPosition="end"
                 actions={[
                     [

@@ -71,15 +71,20 @@ export function Colors() {
     return (
         <OpizeWrapper>
             <ColorsDiv bgColor={themeVariableSets[isDarkMode ? 'dark' : 'light'].bg_page2}>
-                {Object.entries(themeVariableSets[isDarkMode ? 'dark' : 'light']).map(([key, value], i) => (
-                    <ColorDiv key={key} delay={i * 100}>
-                        <ColorLabel>
-                            <div>{key}</div>
-                            <div>{value}</div>
-                        </ColorLabel>
-                        <ColorShow color={value} />
-                    </ColorDiv>
-                ))}
+                {Object.entries(themeVariableSets[isDarkMode ? 'dark' : 'light']).map(
+                    ([key, value], i) => (
+                        <ColorDiv
+                            key={key}
+                            delay={i * 100}
+                        >
+                            <ColorLabel>
+                                <div>{key}</div>
+                                <div>{value}</div>
+                            </ColorLabel>
+                            <ColorShow color={value} />
+                        </ColorDiv>
+                    )
+                )}
             </ColorsDiv>
         </OpizeWrapper>
     );

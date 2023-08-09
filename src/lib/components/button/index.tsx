@@ -1,4 +1,4 @@
-/* eslint-disable react/jsx-no-constructed-context-values */
+/* eslint-disable react/display-name */
 import React, { useContext, useImperativeHandle, useRef, useState } from 'react';
 
 import { IconContext } from 'phosphor-react';
@@ -91,9 +91,9 @@ export const Button: ButtonComponent = React.forwardRef(
             ...props
         }: ButtonProps<T>,
         ref: PolymorphicRef<T>['ref']
-    ) => {
+    ): JSX.Element => {
         const inputRef = useRef<any>(null);
-        useImperativeHandle(ref, () => inputRef.current as any);
+        useImperativeHandle(ref, () => inputRef.current as unknown);
         const { Link } = useContext(LinkContext);
 
         const [isHover, setIsHover] = useState(false);
@@ -101,7 +101,12 @@ export const Button: ButtonComponent = React.forwardRef(
         // 아이콘
         let Icon;
         if (typeof icon === 'string') {
-            Icon = <img src={icon} alt="" />;
+            Icon = (
+                <img
+                    src={icon}
+                    alt=""
+                />
+            );
         }
 
         const buttonChildren = (
@@ -111,7 +116,12 @@ export const Button: ButtonComponent = React.forwardRef(
                     weight: 'bold',
                 }}
             >
-                {isLoading && <Spinner size={16} color="var(--local-color)" />}
+                {isLoading && (
+                    <Spinner
+                        size={16}
+                        color="var(--local-color)"
+                    />
+                )}
                 {!isLoading && iconPosition === 'start' && (Icon || icon)}
                 {!isLoading && children}
                 {!isLoading && iconPosition === 'end' && (Icon || icon)}
@@ -195,28 +205,37 @@ export const Button: ButtonComponent = React.forwardRef(
                 left: -1,
             };
 
-            // x: inputRef.current?.getBoundingClientRect().left,
-            // y: inputRef.current?.getBoundingClientRect().top,
-
             switch (tooltip.direction || 'top') {
                 case 'right':
-                    pos.left = (inputRef.current?.offsetLeft as number) + (inputRef.current?.offsetWidth as number);
-                    pos.top = (inputRef.current?.offsetTop as number) + (inputRef.current?.offsetHeight as number) / 2;
+                    pos.left =
+                        (inputRef.current?.offsetLeft as number) +
+                        (inputRef.current?.offsetWidth as number);
+                    pos.top =
+                        (inputRef.current?.offsetTop as number) +
+                        (inputRef.current?.offsetHeight as number) / 2;
                     break;
                 case 'bottom':
-                    pos.left = (inputRef.current?.offsetLeft as number) + (inputRef.current?.offsetWidth as number) / 2;
-                    pos.top = (inputRef.current?.offsetTop as number) + (inputRef.current?.offsetHeight as number);
+                    pos.left =
+                        (inputRef.current?.offsetLeft as number) +
+                        (inputRef.current?.offsetWidth as number) / 2;
+                    pos.top =
+                        (inputRef.current?.offsetTop as number) +
+                        (inputRef.current?.offsetHeight as number);
                     break;
                 case 'left':
                     pos.right =
                         document.documentElement.scrollWidth -
                         (inputRef.current?.offsetLeft as number) -
                         (inputRef.current?.offsetWidth as number);
-                    pos.top = (inputRef.current?.offsetTop as number) + (inputRef.current?.offsetHeight as number) / 2;
+                    pos.top =
+                        (inputRef.current?.offsetTop as number) +
+                        (inputRef.current?.offsetHeight as number) / 2;
                     break;
                 case 'top':
                 default:
-                    pos.left = (inputRef.current?.offsetLeft as number) + (inputRef.current?.offsetWidth as number) / 2;
+                    pos.left =
+                        (inputRef.current?.offsetLeft as number) +
+                        (inputRef.current?.offsetWidth as number) / 2;
                     pos.bottom =
                         document.body.offsetHeight -
                         (inputRef.current?.offsetTop as number) -
@@ -231,7 +250,11 @@ export const Button: ButtonComponent = React.forwardRef(
                 <>
                     {PreButton}
                     {isHover && (
-                        <ButtonToolTipBox text={tooltip.text} direction={tooltip.direction || 'top'} pos={inset} />
+                        <ButtonToolTipBox
+                            text={tooltip.text}
+                            direction={tooltip.direction || 'top'}
+                            pos={inset}
+                        />
                     )}
                 </>
             );

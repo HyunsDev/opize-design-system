@@ -50,14 +50,25 @@ type _LinkProps = {
 };
 
 export type LinkProps<T extends React.ElementType = 'a'> = PolymorphicComponentProps<T, _LinkProps>;
-type LinkComponent = <C extends React.ElementType = 'a'>(props: LinkProps<C>) => React.ReactElement | null;
+type LinkComponent = <C extends React.ElementType = 'a'>(
+    props: LinkProps<C>
+) => React.ReactElement | null;
 
 /**
  * Link를 표시할 때 사용합니다. OpizeWrapper의 initLink가 없다면 <a> 태그로 작동합니다.
  */
 export const Link: LinkComponent = React.forwardRef(
     <T extends React.ElementType = 'a'>(
-        { as, to, color, newTab = false, showIcon = false, children, showUnderline = true, ...props }: LinkProps<T>,
+        {
+            as,
+            to,
+            color,
+            newTab = false,
+            showIcon = false,
+            children,
+            showUnderline = true,
+            ...props
+        }: LinkProps<T>,
         ref: PolymorphicRef<T>['ref']
     ) => {
         const { Link: LinkA } = useContext(LinkContext);

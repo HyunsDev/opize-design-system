@@ -25,7 +25,8 @@ type _ButtonProps = {
     borderRadius?: number;
     isLoading?: boolean;
     icon?: React.ReactNode | string;
-    iconPosition?: 'start' | 'end';
+    LeadingIcon?: React.ReactNode | string;
+    TrailingIcon?: React.ReactNode | string;
     iconOnly?: boolean;
     width?: ButtonWidth;
     tooltip?: Omit<ToolTipProps, 'children'>;

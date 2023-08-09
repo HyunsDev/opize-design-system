@@ -26,12 +26,18 @@ Primary.args = {
         <>
             <Table.THead>
                 <Table.Row>
-                    <Table.Head width="40px" $align="center">
+                    <Table.Head
+                        width="40px"
+                        $align="center"
+                    >
                         <Checkbox checkBoxSize="small" />
                     </Table.Head>
                     <Table.Head>Head 2</Table.Head>
                     <Table.Head>Head 3</Table.Head>
-                    <Table.Head width="40px" $align="center">
+                    <Table.Head
+                        width="40px"
+                        $align="center"
+                    >
                         <ActionMenu
                             actions={[
                                 [
@@ -49,12 +55,18 @@ Primary.args = {
             </Table.THead>
             <Table.TBody>
                 <Table.Row>
-                    <Table.Data width="40px" $align="center">
+                    <Table.Data
+                        width="40px"
+                        $align="center"
+                    >
                         <Checkbox checkBoxSize="small" />
                     </Table.Data>
                     <Table.Data>Data 2</Table.Data>
                     <Table.Data>Data 3</Table.Data>
-                    <Table.Data width="40px" $align="center">
+                    <Table.Data
+                        width="40px"
+                        $align="center"
+                    >
                         <ActionMenu
                             actions={[
                                 [
@@ -70,12 +82,18 @@ Primary.args = {
                     </Table.Data>
                 </Table.Row>
                 <Table.Row>
-                    <Table.Data width="40px" $align="center">
+                    <Table.Data
+                        width="40px"
+                        $align="center"
+                    >
                         <Checkbox checkBoxSize="small" />
                     </Table.Data>
                     <Table.Data>Data 2</Table.Data>
                     <Table.Data>Data 3</Table.Data>
-                    <Table.Data width="40px" $align="center">
+                    <Table.Data
+                        width="40px"
+                        $align="center"
+                    >
                         <ActionMenu
                             actions={[
                                 [

@@ -14,8 +14,10 @@ export const Text = styled.p<{
     lineHeight?: string;
     color?: string;
 }>`
-    font-family: ${(props) => (props.font === 'monospace' ? cv.fontFamilyMonospace : cv.fontFamily)};
-    font-weight: ${(props) => (props.weight === 'semibold' ? cv.fontWeightSemiBold : cv.fontWeightRegular)};
+    font-family: ${(props) =>
+        props.font === 'monospace' ? cv.fontFamilyMonospace : cv.fontFamily};
+    font-weight: ${(props) =>
+        props.weight === 'semibold' ? cv.fontWeightSemiBold : cv.fontWeightRegular};
     white-space: ${(props) => props.warp || 'normal'};
     font-style: ${(props) => (props.italic ? 'italic' : 'normal')};
     font-size: ${(props) => props.size || cv.fontSizeNormal};
