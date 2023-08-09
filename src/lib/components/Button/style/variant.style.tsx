@@ -1,4 +1,4 @@
-import { ButtonVariant } from '..';
+import { ButtonVariant } from '../Button.type';
 import { cv } from '../../..';
 
 export const variantStyle: {

@@ -1,10 +1,10 @@
 import { forwardRef } from 'react';
 import { PolymorphicRef } from '../../utils/Polymorphic';
-import { ButtonProps } from '.';
+import { ButtonProps } from './Button.type';
 import { useButton } from './useButton';
 import { StyledButton } from './style';
 
-const Button = forwardRef(
+export const Button = forwardRef(
     <T extends React.ElementType = 'button'>(
         props: ButtonProps<T>,
         ref: PolymorphicRef<T>['ref']
@@ -28,4 +28,3 @@ const Button = forwardRef(
 );
 
 Button.displayName = 'Button';
-export { Button };

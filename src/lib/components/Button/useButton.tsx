@@ -1,5 +1,5 @@
 import React from 'react';
-import { ButtonProps } from '.';
+import { ButtonProps } from './Button.type';
 import { useDOMRef } from '../../utils/dom';
 import { StyledButtonProps } from './style';
 import { PolymorphicRef } from '../../utils/Polymorphic';

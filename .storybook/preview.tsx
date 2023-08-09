@@ -1,7 +1,6 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
 import { OpizeWrapper } from '../src/lib';
-import { withPropsTable } from 'storybook-addon-react-docgen';
 
 const preview: Preview = {
     parameters: {
@@ -16,11 +15,9 @@ const preview: Preview = {
     decorators: [
         (Story: any) => {
             return (
-                <>
-                    <OpizeWrapper>
-                        <Story />
-                    </OpizeWrapper>
-                </>
+                <OpizeWrapper>
+                    <Story />
+                </OpizeWrapper>
             );
         },
     ],

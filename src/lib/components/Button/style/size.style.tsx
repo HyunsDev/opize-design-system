@@ -1,4 +1,4 @@
-import { ButtonSize } from '..';
+import { ButtonSize } from '../Button.type';
 
 export const sizeStyle: {
     [key in ButtonSize]: string;

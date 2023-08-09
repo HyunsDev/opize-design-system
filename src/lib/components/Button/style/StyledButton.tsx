@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { ButtonAlign, ButtonShape, ButtonSize, ButtonVariant, ButtonWidth } from '..';
+import { ButtonAlign, ButtonShape, ButtonSize, ButtonVariant, ButtonWidth } from '../Button.type';
 import { variantStyle } from './variant.style';
 import { sizeStyle } from './size.style';
 
