@@ -11,6 +11,8 @@ const config: StorybookConfig = {
             name: '@storybook/addon-storysource',
         },
         '@storybook/addon-styling',
+        '@storybook/addon-docs',
+        'storybook-addon-swc',
     ],
     framework: {
         name: '@storybook/react-vite',

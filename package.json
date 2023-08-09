@@ -22,6 +22,7 @@
         "@storybook/react": "^7.2.1",
         "@storybook/react-vite": "^7.2.1",
         "@storybook/testing-library": "^0.2.0",
+        "@swc/core": "^1.3.75",
         "@types/react": "^18.2.15",
         "@types/react-dom": "^18.2.7",
         "@typescript-eslint/eslint-plugin": "^6.0.0",
@@ -33,8 +34,10 @@
         "eslint-plugin-storybook": "^0.6.13",
         "phosphor-react": "^1.4.1",
         "react": "^18.2.0",
+        "react-docgen-typescript-plugin": "^1.0.5",
         "react-dom": "^18.2.0",
         "storybook": "^7.2.1",
+        "storybook-addon-swc": "^1.2.0",
         "typescript": "^5.0.2",
         "vite": "^4.4.5"
     },
@@ -45,6 +48,7 @@
     },
     "packageManager": "yarn@3.6.1",
     "dependencies": {
+        "storybook-addon-react-docgen": "^1.2.43",
         "styled-components": "^6.0.7"
     }
 }
