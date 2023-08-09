@@ -9,7 +9,7 @@ export function useButton<T extends React.ElementType = 'button'>(props: ButtonP
         ref,
         as,
         children,
-        width = 'auto',
+        width = 'fit-content',
         size = 'medium',
         variant = 'primary',
         iconOnly: isIconOnly = false,
@@ -27,6 +27,12 @@ export function useButton<T extends React.ElementType = 'button'>(props: ButtonP
     const domRef = useDOMRef<PolymorphicRef<T>>(ref);
 
     const isDisabled = disabled || isLoading;
+
+    const spinnerSize = {
+        small: 18,
+        medium: 20,
+        large: 24,
+    }[size];
 
     const styledProps: StyledButtonProps = {
         $width: width,
@@ -49,5 +55,9 @@ export function useButton<T extends React.ElementType = 'button'>(props: ButtonP
         children,
         styledProps,
         buttonProps,
+        isLoading,
+        spinnerSize,
+        prefix,
+        suffix,
     };
 }

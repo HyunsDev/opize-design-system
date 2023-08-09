@@ -1,12 +1,13 @@
 import React, { useRef, useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
-import { Check } from 'phosphor-react';
+import { Check, Download, Upload } from 'phosphor-react';
 import { Button } from '..';
 
 const meta: Meta<typeof Button> = {
     component: Button,
     title: 'HTML-Like Component/Button',
+    tags: ['autodocs'],
     argTypes: {
         width: {
             control: {
@@ -15,7 +16,7 @@ const meta: Meta<typeof Button> = {
         },
         size: {
             control: {
-                type: 'select',
+                type: 'radio',
             },
             options: ['small', 'medium', 'large'],
         },
@@ -27,13 +28,13 @@ const meta: Meta<typeof Button> = {
         },
         shape: {
             control: {
-                type: 'select',
+                type: 'radio',
             },
             options: ['square', 'round'],
         },
         align: {
             control: {
-                type: 'select',
+                type: 'inline-radio',
             },
             options: ['start', 'center', 'end'],
         },
@@ -65,7 +66,7 @@ const meta: Meta<typeof Button> = {
         },
     },
     args: {
-        width: 'auto',
+        width: 'fit-content',
         size: 'medium',
         variant: 'primary',
         iconOnly: false,
@@ -86,9 +87,10 @@ export const Primary: Story = {
     },
 };
 
-export const WithIcon: Story = {
+export const PrefixSuffix: Story = {
     args: {
-        icon: <Check />,
+        prefix: <Upload size={16} />,
+        suffix: <Download size={16} />,
         children: 'hello, World!',
         onClick: () => null,
     },
@@ -99,6 +101,7 @@ export const AsA: Story = {
         children: 'hello, World!',
         as: 'a',
         href: '/',
+        target: '_blank',
     },
 };
 
@@ -128,19 +131,32 @@ export const LoadingStory: Story = {
     render: LoadingTemplateComponent,
     args: {
         icon: <Check />,
-        children: 'hello, World!',
+        children: 'Click me!',
+        prefix: <Upload size={16} />,
+        suffix: <Download size={16} />,
         width: '200px',
     },
 };
 
-export const WithTooltip: Story = {
-    name: 'With Tooltip',
-    args: {
-        children: 'hello, World!',
-        onClick: () => null,
-        tooltip: {
-            text: 'ToolTip',
-            direction: 'right',
-        },
-    },
+const AllButtonTemplate = (args: any) => {
+    const variants = ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'warning'];
+
+    return (
+        <div>
+            {variants.map((variant) => (
+                <Button
+                    {...args}
+                    key={variant}
+                    variant={variant}
+                >
+                    {variant}
+                </Button>
+            ))}
+        </div>
+    );
+};
+
+export const AllButton: Story = {
+    name: 'All Button',
+    render: AllButtonTemplate,
 };

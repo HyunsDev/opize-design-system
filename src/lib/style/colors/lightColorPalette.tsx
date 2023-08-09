@@ -22,7 +22,7 @@ export const lightColorPalette: ColorPalette = {
     yellow_background: '#ffefcf',
     yellow_light: '#f7b955',
     yellow: '#f5a623',
-    yellow_dark: '#ab570a',
+    yellow_dark: '#d18a17',
     green_background: '#d1f4e0',
     green_light: '#74dfa2',
     green: '#39b75d',

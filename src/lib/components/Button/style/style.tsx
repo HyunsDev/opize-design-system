@@ -1,6 +1,5 @@
 import { StyledButtonProps } from '.';
 import { cv } from '../../..';
-import { ButtonShape, ButtonSize, ButtonVariant } from '../Button.type';
 
 export const getSizeStyle = (props: StyledButtonProps) => {
     switch (props.$size) {
@@ -12,13 +11,13 @@ export const getSizeStyle = (props: StyledButtonProps) => {
             `;
         case 'medium':
             return `
-                font-size: 16px;
+                font-size: 14px;
                 padding: 0px 16px;
                 height: 40px;
             `;
         case 'large':
             return `
-                font-size: 18px;
+                font-size: 16px;
                 padding: 0px 20px;
                 height: 48px;
             `;
@@ -37,7 +36,7 @@ export const getShapeStyle = ({ $size, $shape }: StyledButtonProps) => {
             `;
         case 'large':
             return `
-                border-radius: ${$shape === 'square' ? '14px' : '24px'};
+                border-radius: ${$shape === 'square' ? '16px' : '24px'};
             `;
     }
 };
@@ -54,6 +53,17 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
                     background-color: ${cv.default800};
                     border-color: ${cv.default800};
                 }
+
+                &:active {
+                    background-color: ${cv.default700};
+                    border-color: ${cv.default700};
+                }
+
+                &:disabled {
+                    background-color: ${cv.default400};
+                    border-color: ${cv.default400};
+                    --button-spinner-color: ${cv.background};
+                }
             `;
         case 'secondary':
             return `
@@ -64,6 +74,18 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
                 &:hover {
                     background-color: ${cv.default100};
                 }
+
+                &:active {
+                    background-color: ${cv.default200};
+                    border-color: ${cv.default200};
+                }
+
+                &:disabled {
+                    background-color: ${cv.default100};
+                    border-color: ${cv.default200};
+                    color: ${cv.default400};
+                    --button-spinner-color: ${cv.default500};
+                }
             `;
         case 'tertiary':
             return `
@@ -73,6 +95,16 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
 
                 &:hover {
                     background-color: ${cv.default100};
+                }
+
+                &:active {
+                    background-color: ${cv.default200};
+                }
+
+                &:disabled {
+                    background-color: ${cv.default100};
+                    color: ${cv.default400};
+                    --button-spinner-color: ${cv.default500};
                 }
             `;
         case 'danger':
@@ -85,6 +117,17 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
                     background-color: ${cv.red_dark};
                     border-color: ${cv.red_dark};
                 }
+
+                &:active {
+                    background-color: ${cv.red_light};
+                    border-color: ${cv.red_light};
+                }
+
+                &:disabled {
+                    background-color: ${cv.default400};
+                    border-color: ${cv.default400};
+                    --button-spinner-color: ${cv.background};
+                }
             `;
         case 'warning':
             return `
@@ -95,6 +138,12 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
                 &:hover {
                     background-color: ${cv.yellow_dark};
                     border-color: ${cv.yellow_dark};
+                }
+
+                &:disabled {
+                    background-color: ${cv.default400};
+                    border-color: ${cv.default400};
+                    --button-spinner-color: ${cv.background};
                 }
             `;
     }
