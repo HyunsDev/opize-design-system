@@ -1,30 +1,23 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import styled from 'styled-components';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { FileField } from '..';
 
-export default {
+import { Width500 } from './components/Width500';
+
+const meta: Meta<typeof FileField> = {
     title: 'HTML-Like Component/Form/FileField',
     component: FileField,
-    argTypes: {
-        label: {
-            control: { type: 'text' },
-        },
-    },
-} as ComponentMeta<typeof FileField>;
+};
+export default meta;
 
-const Width500 = styled.div`
-    width: 500px;
-    margin: 0 auto;
-`;
+type Story = StoryObj<typeof FileField>;
 
-const Template: ComponentStory<typeof FileField> = (args) => (
-    <Width500>
-        <FileField {...args} />
-    </Width500>
-);
-
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Primary: Story = {
+    render: (args) => (
+        <Width500>
+            <FileField {...args} />
+        </Width500>
+    ),
+};

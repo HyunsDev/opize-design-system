@@ -3,7 +3,6 @@ import React, { useContext } from 'react';
 import { Share } from 'phosphor-react';
 import styled, { css } from 'styled-components';
 
-import { LinkContext } from '../../context/linkContext';
 import { cv } from '../../style';
 import { PolymorphicComponentProps, PolymorphicRef } from '../../utils/type/polymorphicComponent';
 
@@ -54,9 +53,7 @@ type LinkComponent = <C extends React.ElementType = 'a'>(
     props: LinkProps<C>
 ) => React.ReactElement | null;
 
-/**
- * Link를 표시할 때 사용합니다. OpizeWrapper의 initLink가 없다면 <a> 태그로 작동합니다.
- */
+// eslint-disable-next-line react/display-name
 export const Link: LinkComponent = React.forwardRef(
     <T extends React.ElementType = 'a'>(
         {
@@ -71,9 +68,7 @@ export const Link: LinkComponent = React.forwardRef(
         }: LinkProps<T>,
         ref: PolymorphicRef<T>['ref']
     ) => {
-        const { Link: LinkA } = useContext(LinkContext);
-
-        const Element = as || LinkA || 'a';
+        const Element = as || 'a';
 
         return (
             <StyledLink
@@ -100,4 +95,5 @@ export const Link: LinkComponent = React.forwardRef(
         );
     }
 );
+
 export const A = Link;

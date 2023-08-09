@@ -5,9 +5,6 @@ module.exports = {
         '@storybook/addon-essentials',
         '@storybook/addon-interactions',
         '@storybook/preset-create-react-app',
-        'storybook-addon-performance/register',
-        '@storybook/addon-a11y',
-        'storybook-dark-mode',
         '@storybook/addon-mdx-gfm',
     ],
     framework: {

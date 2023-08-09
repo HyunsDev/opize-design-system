@@ -1,30 +1,23 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import styled from 'styled-components';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Switch } from '..';
 
-export default {
+import { Width500 } from './components/Width500';
+
+const meta: Meta<typeof Switch> = {
     title: 'HTML-Like Component/Form/Switch',
     component: Switch,
-    argTypes: {
-        label: {
-            control: { type: 'text' },
-        },
-    },
-} as ComponentMeta<typeof Switch>;
+};
+export default meta;
 
-const Width500 = styled.div`
-    width: 500px;
-    margin: 0 auto;
-`;
+type Story = StoryObj<typeof Switch>;
 
-const Template: ComponentStory<typeof Switch> = (args) => (
-    <Width500>
-        <Switch {...args} />
-    </Width500>
-);
-
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Primary: Story = {
+    render: (args) => (
+        <Width500>
+            <Switch {...args} />
+        </Width500>
+    ),
+};

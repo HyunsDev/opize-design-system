@@ -1,26 +1,25 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import styled from 'styled-components';
+import { Meta, StoryObj } from '@storybook/react';
 
-import { ToolTip } from '..';
+import { Text, ToolTip } from '..';
 
-export default {
+const meta: Meta<typeof ToolTip> = {
     title: 'Opize Component/ToolTip',
     component: ToolTip,
-    argTypes: {},
-} as ComponentMeta<typeof ToolTip>;
+};
+export default meta;
 
-const Obj = styled.div``;
+type Story = StoryObj<typeof ToolTip>;
 
-const Template: ComponentStory<typeof ToolTip> = (args) => (
-    <ToolTip {...args}>
-        <Obj>Element</Obj>
-    </ToolTip>
-);
-
-export const Primary = Template.bind({});
-Primary.args = {
-    direction: 'bottom',
-    text: 'text',
+export const Primary: Story = {
+    args: {
+        direction: 'bottom',
+        text: 'text',
+    },
+    render: (args) => (
+        <ToolTip {...args}>
+            <Text>Element</Text>
+        </ToolTip>
+    ),
 };

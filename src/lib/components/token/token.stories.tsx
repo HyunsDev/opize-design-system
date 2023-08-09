@@ -1,25 +1,27 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import { Fish } from 'phosphor-react';
 
 import { Token } from '..';
 
-export default {
+const meta: Meta<typeof Token> = {
     title: 'Opize Component/Token',
     component: Token,
-    argTypes: {},
-} as ComponentMeta<typeof Token>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof Token> = (args) => <Token {...args} />;
+type Story = StoryObj<typeof Token>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'token',
+export const Primary: Story = {
+    args: {
+        children: 'token',
+    },
 };
 
-export const WithIcon = Template.bind({});
-WithIcon.args = {
-    children: 'token',
-    icon: <Fish />,
+export const Icon: Story = {
+    args: {
+        children: 'token',
+        icon: <Fish />,
+    },
 };

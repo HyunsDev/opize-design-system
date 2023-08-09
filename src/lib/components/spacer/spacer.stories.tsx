@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { Spacer } from '..';
@@ -11,21 +11,23 @@ const BlackBox = styled.div`
     background-color: #e9ecef;
 `;
 
-export default {
+const meta: Meta<typeof Spacer> = {
     title: 'Opize Component/Spacer',
     component: Spacer,
-    argTypes: {},
-} as ComponentMeta<typeof Spacer>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof Spacer> = (args) => (
-    <>
-        <BlackBox />
-        <Spacer {...args} />
-        <BlackBox />
-    </>
-);
+type Story = StoryObj<typeof Spacer>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    height: 30,
+export const Primary: Story = {
+    args: {
+        height: 30,
+    },
+    render: (args) => (
+        <>
+            <BlackBox />
+            <Spacer {...args} />
+            <BlackBox />
+        </>
+    ),
 };

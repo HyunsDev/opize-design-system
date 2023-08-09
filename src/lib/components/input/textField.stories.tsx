@@ -1,60 +1,31 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import { PaperPlaneTilt } from 'phosphor-react';
-import styled from 'styled-components';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { TextField } from '..';
 
-export default {
+import { Width500 } from './components/Width500';
+
+const meta: Meta<typeof TextField> = {
     title: 'HTML-Like Component/Form/TextField',
     component: TextField,
     argTypes: {
-        label: {
-            control: { type: 'text' },
-        },
         readOnly: {
             control: { type: 'boolean' },
         },
     },
-} as ComponentMeta<typeof TextField>;
-
-const Width500 = styled.div`
-    width: 500px;
-    margin: 0 auto;
-`;
-
-const Template: ComponentStory<typeof TextField> = (args) => (
-    <Width500>
-        <TextField {...args} />
-    </Width500>
-);
-
-export const Primary = Template.bind({});
-Primary.args = {
-    placeholder: 'PlaceHolder',
 };
+export default meta;
 
-export const Addon = Template.bind({});
-Addon.args = {
-    leftAddon: 'https://',
-    rightAddon: '/opize',
-};
+type Story = StoryObj<typeof TextField>;
 
-export const AddonButton = Template.bind({});
-AddonButton.args = {
-    rightAddon: {
-        type: 'button',
-        onClick: () => null,
-        label: 'button',
+export const Primary: Story = {
+    args: {
+        placeholder: 'PlaceHolder',
     },
-};
-
-export const AddonIconButton = Template.bind({});
-AddonIconButton.args = {
-    rightAddon: {
-        type: 'button',
-        onClick: () => null,
-        icon: <PaperPlaneTilt />,
-    },
+    render: (args) => (
+        <Width500>
+            <TextField {...args} />
+        </Width500>
+    ),
 };

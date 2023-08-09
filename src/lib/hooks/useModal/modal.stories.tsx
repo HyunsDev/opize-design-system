@@ -1,23 +1,24 @@
 import React from 'react';
 
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { Button } from '../../components';
 
 import { useModal } from '.';
 
-export default {
+const meta: Meta = {
     title: 'Hook/useModal',
-    argTypes: {},
 };
+export default meta;
 
-const Divver = styled.div``;
+type Story = StoryObj;
 
 function Template() {
     const modal = useModal();
 
     return (
-        <Divver>
+        <div>
             <Button
                 onClick={() => {
                     modal.open(
@@ -32,17 +33,19 @@ function Template() {
             >
                 Open Modal
             </Button>
-        </Divver>
+        </div>
     );
 }
 
-export const Primary = Template.bind({});
+export const Primary: Story = {
+    render: Template,
+};
 
 function Template2() {
     const modal = useModal();
 
     return (
-        <Divver>
+        <div>
             <Button
                 onClick={() => {
                     modal.open(
@@ -60,8 +63,10 @@ function Template2() {
             >
                 Open Modal
             </Button>
-        </Divver>
+        </div>
     );
 }
 
-export const WithTitle = Template2.bind({});
+export const WithTitle: Story = {
+    render: Template2,
+};

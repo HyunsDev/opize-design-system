@@ -1,58 +1,17 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { PageLayout } from '../..';
 
-export default {
+const meta: Meta<typeof PageLayout> = {
     title: 'Opize Component/Layout/PageLayout',
     component: PageLayout,
-    subcomponents: {
-        'PageLayout.Header': PageLayout.Header,
-        'PageLayout.Content': PageLayout.Content,
-        'PageLayout.Pane': PageLayout.Pane,
-        'PageLayout.Footer': PageLayout.Footer,
-    },
-    argTypes: {
-        gap: {
-            control: {
-                type: 'text',
-            },
-        },
-        gutter: {
-            control: {
-                type: 'text',
-            },
-        },
-        width: {
-            control: {
-                type: 'text',
-            },
-        },
-        panPosition: {
-            control: {
-                type: 'select',
-            },
-            options: ['start', 'end'],
-        },
-        panWidth: {
-            control: {
-                type: 'text',
-            },
-        },
-        backgroundColor: {
-            control: {
-                type: 'color',
-            },
-        },
-        padding: {
-            control: {
-                type: 'text',
-            },
-        },
-    },
-} as ComponentMeta<typeof PageLayout>;
+};
+export default meta;
+
+type Story = StoryObj<typeof PageLayout>;
 
 const Blank = styled.div<{ height: number }>`
     background-color: #363636;
@@ -64,8 +23,15 @@ const Blank = styled.div<{ height: number }>`
     justify-content: center;
 `;
 
-const Template: ComponentStory<typeof PageLayout> = (args) => {
-    return (
+export const Primary: Story = {
+    args: {
+        gap: '8px',
+        gutter: '24px',
+        panPosition: 'end',
+        panWidth: '300px',
+        width: '1200px',
+    },
+    render: (args) => (
         <PageLayout {...args}>
             <PageLayout.Header>
                 <Blank height={100}>PageLayout.Header</Blank>
@@ -80,65 +46,5 @@ const Template: ComponentStory<typeof PageLayout> = (args) => {
                 <Blank height={100}>PageLayout.Footer</Blank>
             </PageLayout.Footer>
         </PageLayout>
-    );
+    ),
 };
-
-export const Primary = Template.bind({});
-Primary.args = {
-    gap: '8px',
-    gutter: '24px',
-    panPosition: 'end',
-    panWidth: '300px',
-    width: '1200px',
-};
-
-const SoloTemplate: ComponentStory<typeof PageLayout> = (args) => {
-    return (
-        <PageLayout {...args}>
-            <Blank height={500}>PageLayout</Blank>
-        </PageLayout>
-    );
-};
-
-export const Solo = SoloTemplate.bind({});
-Solo.args = {};
-
-export const LeftPane = Template.bind({});
-LeftPane.args = {
-    panPosition: 'start',
-};
-
-const WithoutHeaderAndFooterTemplate: ComponentStory<typeof PageLayout> = (args) => {
-    return (
-        <PageLayout {...args}>
-            <PageLayout.Content>
-                <Blank height={500}>PageLayout.Content</Blank>
-            </PageLayout.Content>
-            <PageLayout.Pane>
-                <Blank height={500}>PageLayout.Pane</Blank>
-            </PageLayout.Pane>
-        </PageLayout>
-    );
-};
-
-export const WithoutHeaderAndFooter = WithoutHeaderAndFooterTemplate.bind({});
-WithoutHeaderAndFooter.args = {};
-
-const WithoutPanTemplate: ComponentStory<typeof PageLayout> = (args) => {
-    return (
-        <PageLayout {...args}>
-            <PageLayout.Header>
-                <Blank height={100}>PageLayout.Header</Blank>
-            </PageLayout.Header>
-            <PageLayout.Content>
-                <Blank height={500}>PageLayout.Content</Blank>
-            </PageLayout.Content>
-            <PageLayout.Footer>
-                <Blank height={100}>PageLayout.Footer</Blank>
-            </PageLayout.Footer>
-        </PageLayout>
-    );
-};
-
-export const WithoutPan = WithoutPanTemplate.bind({});
-WithoutPan.args = {};

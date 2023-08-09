@@ -1,23 +1,25 @@
 import React, { useState } from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
-import { Button, CenterLayout, Flex, SlideBox, Text } from '..';
+import { Button, Flex, SlideBox, Text } from '..';
 
 import { useSlideBox } from './hook/useSlideBox';
 
-export default {
+const meta: Meta<typeof SlideBox> = {
     title: 'Opize Component/SlideBox',
     component: SlideBox,
-    argTypes: {},
-} as ComponentMeta<typeof SlideBox>;
+};
+export default meta;
+
+type Story = StoryObj<typeof SlideBox>;
 
 const Space = styled.div`
     background-color: #f0f0f0;
 `;
 
-const Template: ComponentStory<typeof SlideBox> = () => {
+const Template = (args: any) => {
     const { move, now } = useSlideBox();
 
     return (
@@ -27,7 +29,7 @@ const Template: ComponentStory<typeof SlideBox> = () => {
                 <Text>{now}</Text>
                 <Button onClick={() => move(now + 1)}>+1</Button>
             </Flex.Row>
-            <SlideBox>
+            <SlideBox {...args}>
                 <SlideBox.Page pos={0}>
                     0
                     <Space style={{ height: '500px' }} />
@@ -45,42 +47,6 @@ const Template: ComponentStory<typeof SlideBox> = () => {
     );
 };
 
-export const Primary = Template.bind({});
-Primary.args = {};
-
-const ExampleTemplate: ComponentStory<typeof SlideBox> = () => {
-    const { move, now } = useSlideBox();
-    return (
-        <>
-            <CenterLayout width="300px">
-                <SlideBox>
-                    <SlideBox.Page pos={0}>
-                        <Flex.Row gap="8px">
-                            <Text>{now}</Text>
-                            <Button onClick={() => move(now + 1)}>+1</Button>
-                        </Flex.Row>
-                        <Space style={{ height: '300px' }} />
-                    </SlideBox.Page>
-                    <SlideBox.Page pos={1}>
-                        <Flex.Row gap="8px">
-                            <Button onClick={() => move(now - 1)}>-1</Button>
-                            <Text>{now}</Text>
-                            <Button onClick={() => move(now + 1)}>+1</Button>
-                        </Flex.Row>
-                        <Space style={{ height: '300px' }} />
-                    </SlideBox.Page>
-                    <SlideBox.Page pos={2}>
-                        <Flex.Row gap="8px">
-                            <Button onClick={() => move(now - 1)}>-1</Button>
-                            <Text>{now}</Text>
-                        </Flex.Row>
-                        <Space style={{ height: '400px' }} />
-                    </SlideBox.Page>
-                </SlideBox>
-            </CenterLayout>
-        </>
-    );
+export const Primary: Story = {
+    render: Template,
 };
-
-export const Example = ExampleTemplate.bind({});
-Example.args = {};

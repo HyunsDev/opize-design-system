@@ -1,17 +1,17 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { Flex } from '.';
 
-export default {
+const meta: Meta<typeof Flex> = {
     title: 'HTML-Like Component/Flex',
     component: Flex,
-    argTypes: {
-        // backgroundColor: { control: 'color' },
-    },
-} as ComponentMeta<typeof Flex>;
+};
+export default meta;
+
+type Story = StoryObj<typeof Flex>;
 
 const Item = styled.div`
     width: 100px;
@@ -20,14 +20,12 @@ const Item = styled.div`
     border-radius: 4px;
 `;
 
-const Template: ComponentStory<typeof Flex> = (args) => (
-    <Flex {...args}>
-        <Item />
-        <Item />
-        <Item />
-    </Flex>
-);
-export const FlexRow = Template.bind({});
-FlexRow.args = {
-    style: { gap: '8px' },
+export const Primary: Story = {
+    render: (args) => (
+        <Flex {...args}>
+            <Item />
+            <Item />
+            <Item />
+        </Flex>
+    ),
 };

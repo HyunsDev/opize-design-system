@@ -1,26 +1,25 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { CodeBlock } from '..';
 
-export default {
+const meta: Meta<typeof CodeBlock> = {
     title: 'Opize Component/CodeBlock',
     component: CodeBlock,
-    argTypes: {
-        // backgroundColor: { control: 'color' },
+};
+export default meta;
+
+type Story = StoryObj<typeof CodeBlock>;
+
+export const Primary: Story = {
+    args: {
+        children: JSON.stringify(
+            {
+                key: 'value',
+            },
+            null,
+            2
+        ),
     },
-} as ComponentMeta<typeof CodeBlock>;
-
-const Template: ComponentStory<typeof CodeBlock> = (args) => <CodeBlock {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-    children: JSON.stringify(
-        {
-            key: 'value',
-        },
-        null,
-        2
-    ),
 };

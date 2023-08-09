@@ -1,40 +1,18 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Link } from '..';
 
-export default {
+const meta: Meta<typeof Link> = {
     title: 'HTML-Like Component/Link',
     component: Link,
     argTypes: {},
-} as ComponentMeta<typeof Link>;
-
-const Template: ComponentStory<typeof Link> = (args) => <Link {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-    to: '/',
-    children: 'This is a Link',
 };
+export default meta;
 
-export const ShowIcon = Template.bind({});
-ShowIcon.args = {
-    to: '/',
-    children: 'This is a Link',
-    showIcon: true,
-};
+type Story = StoryObj<typeof Link>;
 
-export const A = Template.bind({});
-A.args = {
-    as: 'a',
-    to: '/',
-    children: 'This is a Link',
-};
-
-export const newTab = Template.bind({});
-newTab.args = {
-    to: 'https://design.opize.me',
-    newTab: true,
-    children: 'This is a Link',
+export const Primary: Story = {
+    args: { to: '/', children: 'This is a Link' },
 };

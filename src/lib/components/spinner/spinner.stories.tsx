@@ -1,16 +1,15 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Spinner } from '..';
 
-export default {
+const meta: Meta<typeof Spinner> = {
     title: 'Opize Component/Spinner',
     component: Spinner,
-    argTypes: {},
-} as ComponentMeta<typeof Spinner>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof Spinner> = (args) => <Spinner {...args} />;
+type Story = StoryObj<typeof Spinner>;
 
-export const Primary = Template.bind({});
-Primary.args = {};
+export const Primary: Story = {};

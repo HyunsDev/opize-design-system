@@ -1,15 +1,17 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { CenterLayout } from '../..';
 
-export default {
+const meta: Meta<typeof CenterLayout> = {
     title: 'Opize Component/Layout/CenterLayout',
     component: CenterLayout,
-    argTypes: {},
-} as ComponentMeta<typeof CenterLayout>;
+};
+export default meta;
+
+type Story = StoryObj<typeof CenterLayout>;
 
 const Blank = styled.div<{ height: number }>`
     background-color: #363636;
@@ -21,19 +23,17 @@ const Blank = styled.div<{ height: number }>`
     justify-content: center;
 `;
 
-const Template: ComponentStory<typeof CenterLayout> = (args) => {
-    return (
+export const Primary: Story = {
+    args: {
+        gap: '8px',
+        gutter: '24px',
+        width: '1200px',
+        minHeight: '300px',
+        backgroundColor: '#f0f0f0',
+    },
+    render: (args) => (
         <CenterLayout {...args}>
             <Blank height={500}>CenterLayout</Blank>
         </CenterLayout>
-    );
-};
-
-export const Primary = Template.bind({});
-Primary.args = {
-    gap: '8px',
-    gutter: '24px',
-    width: '1200px',
-    minHeight: '300px',
-    backgroundColor: '#f0f0f0',
+    ),
 };

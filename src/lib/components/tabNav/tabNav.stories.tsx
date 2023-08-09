@@ -1,33 +1,34 @@
 import React, { useState } from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { TabNav } from '..';
 
-export default {
+const meta: Meta<typeof TabNav> = {
     title: 'Opize Component/TabNav',
     component: TabNav,
-    argTypes: {},
-} as ComponentMeta<typeof TabNav>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof TabNav> = (args) => <TabNav {...args} />;
+type Story = StoryObj<typeof TabNav>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    selected: 'Menu1',
-    menu: {
-        Menu1: {
-            text: 'Menu1',
-            onClick: () => null,
-        },
-        Menu2: {
-            text: 'Menu2',
-            onClick: () => null,
+export const Primary: Story = {
+    args: {
+        selected: 'Menu1',
+        menu: {
+            Menu1: {
+                text: 'Menu1',
+                onClick: () => null,
+            },
+            Menu2: {
+                text: 'Menu2',
+                onClick: () => null,
+            },
         },
     },
 };
 
-const ExampleTemplate: ComponentStory<typeof TabNav> = (args) => {
+const ExampleTemplate = (args: any) => {
     const [selectedMenu, setSelectedMenu] = useState('Menu1');
 
     return (
@@ -47,4 +48,7 @@ const ExampleTemplate: ComponentStory<typeof TabNav> = (args) => {
         />
     );
 };
-export const Example = ExampleTemplate.bind({});
+
+export const Example: Story = {
+    render: ExampleTemplate,
+};

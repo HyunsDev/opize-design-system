@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Story } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import LogoImg from '../../../assets/opize.png';
@@ -9,10 +9,13 @@ import { OpizeContextProvider } from '../../context';
 
 import { useHeaderNotice } from '.';
 
-export default {
+const meta: Meta = {
     title: 'Hook/useHeaderNotice',
     argTypes: {},
 };
+export default meta;
+
+type Story = StoryObj;
 
 const Logo = styled.img`
     height: 32px;
@@ -70,7 +73,9 @@ function TemplateWrapper() {
     );
 }
 
-export const Primary: Story = TemplateWrapper.bind({});
-Primary.parameters = {
-    layout: 'fullscreen',
+export const Primary: Story = {
+    render: TemplateWrapper,
+    parameters: {
+        layout: 'fullscreen',
+    },
 };

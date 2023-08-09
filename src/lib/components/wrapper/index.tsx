@@ -102,10 +102,6 @@ const GlobalStyles = createGlobalStyle`
 interface OpizeWrapperProps {
     children: React.ReactNode;
     /**
-     * Link를 사용해야 하는 곳에서 사용할 링크 컴포넌트입니다. ex. \<OpizeWrapper initLink={Link}\>...
-     */
-    initLink?: React.ElementType<any>;
-    /**
      * Opize Design System의 기본 스타일 (폰트, 배경색, 텍스트 선택 배경 등) 적용 유뮤입니다. 기본값은 true입니다.
      */
     applyDefaultStyle?: boolean;
@@ -114,15 +110,11 @@ interface OpizeWrapperProps {
 /**
  * opize-design-system을 사용하기 위해 필수적으로 사용해야 하는 컴포넌트입니다.
  */
-export function OpizeWrapper({
-    children,
-    initLink = 'a',
-    applyDefaultStyle = true,
-}: OpizeWrapperProps) {
+export function OpizeWrapper({ children, applyDefaultStyle = true }: OpizeWrapperProps) {
     return (
         <>
             {applyDefaultStyle ? <GlobalStyles /> : <BaseGLobalStyles />}
-            <OpizeContextProvider initLink={initLink}>
+            <OpizeContextProvider>
                 <CvThemeProvider>{children}</CvThemeProvider>
             </OpizeContextProvider>
         </>

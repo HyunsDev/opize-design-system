@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { Footer, Spacer, Link } from '..';
@@ -11,22 +11,21 @@ const StyledLogo = styled.img`
     max-width: 120px;
 `;
 
-export default {
+const meta: Meta<typeof Footer> = {
     title: 'Opize Component/Footer',
     component: Footer,
-    subcomponents: {
-        'Footer.Navigation': Footer.Navigation,
-        'Footer.Navigation.Item.Title': Footer.Navigation.Item.Title,
-        'Footer.Navigation.Item.TitleLink': Footer.Navigation.Item.TitleLink,
-        'Footer.Navigation.Item.Link': Footer.Navigation.Item.Link,
-        'Footer.Menu': Footer.Menu,
-        'Footer.Menu.Item': Footer.Menu.Item,
-    },
-    argTypes: {},
-} as ComponentMeta<typeof Footer>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof Footer> = (args) => {
-    return (
+type Story = StoryObj<typeof Footer>;
+
+export const primary: Story = {
+    parameters: {
+        layout: {
+            fullscreen: true,
+        },
+    },
+    render: (args) => (
         <>
             <Spacer height={100} />
             <Footer {...args}>
@@ -121,11 +120,5 @@ const Template: ComponentStory<typeof Footer> = (args) => {
                 </Footer.Menu>
             </Footer>
         </>
-    );
-};
-
-export const Primary = Template.bind({});
-Primary.args = {};
-Primary.parameters = {
-    layout: 'fullscreen',
+    ),
 };

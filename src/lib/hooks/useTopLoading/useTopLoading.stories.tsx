@@ -1,15 +1,18 @@
 import React, { useEffect, useRef } from 'react';
 
+import { Meta, StoryObj } from '@storybook/react';
+
 import { Button, Flex } from '../../components';
 import { sleep } from '../../utils/sleep';
 
 import { useTopLoading } from '.';
 
-export default {
+const meta: Meta = {
     title: 'Hook/useTopLoading',
-    argTypes: {},
-    fullscreen: true,
 };
+export default meta;
+
+type Story = StoryObj;
 
 function Template() {
     const topLoading = useTopLoading();
@@ -57,4 +60,6 @@ function Template() {
     );
 }
 
-export const Primary = Template.bind({});
+export const Primary: Story = {
+    render: Template,
+};

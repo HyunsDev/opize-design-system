@@ -4,7 +4,7 @@ import { OpizeWrapper, Button } from './lib';
 
 function App() {
     return (
-        <OpizeWrapper initLink="a">
+        <OpizeWrapper>
             <Button variant="contained">Button</Button>
         </OpizeWrapper>
     );

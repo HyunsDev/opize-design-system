@@ -1,19 +1,20 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Callout, Text } from '..';
 
-export default {
+const meta: Meta<typeof Callout> = {
     title: 'Opize Component/Callout',
     component: Callout,
-    argTypes: {},
-} as ComponentMeta<typeof Callout>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof Callout> = (args) => <Callout {...args} />;
+type Story = StoryObj<typeof Callout>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'code',
-    icon: '🎉',
+export const Primary: Story = {
+    args: {
+        children: 'code',
+        icon: '🎉',
+    },
 };

@@ -1,19 +1,21 @@
-import React, { useState } from 'react';
+import React from 'react';
 
-import { Story } from '@storybook/react';
-import { Atom, Moon, Sun, TrashSimple } from 'phosphor-react';
+import { Meta, StoryObj } from '@storybook/react';
+import { Atom, Moon, Sun } from 'phosphor-react';
 import styled from 'styled-components';
 
 import { ActionMenu, Text, Code } from '../..';
-import { OpizeContextProvider } from '../../context';
 import { cv } from '../../style';
 
 import { useColorTheme } from '.';
 
-export default {
+const meta: Meta = {
     title: 'Hook/useColorTheme',
     argTypes: {},
 };
+export default meta;
+
+type Story = StoryObj;
 
 const Divver = styled.div`
     padding: 16px 16px;
@@ -62,11 +64,9 @@ function Template() {
     );
 }
 
-function TemplateWrapper() {
-    return <Template />;
-}
-
-export const Primary: Story = TemplateWrapper.bind({});
-Primary.parameters = {
-    layout: 'fullscreen',
+export const Primary: Story = {
+    render: Template,
+    parameters: {
+        layout: 'fullscreen',
+    },
 };

@@ -1,25 +1,19 @@
 import React from 'react';
 
-import { ComponentStory, Story, ComponentMeta } from '@storybook/react';
+import { StoryObj, Meta } from '@storybook/react';
 import styled from 'styled-components';
 
 import { Header } from '..';
 import LogoImg from '../../../assets/opize.png';
 import { ActionMenu } from '../actionMenu';
 
-export default {
+const meta: Meta<typeof Header> = {
     title: 'Opize Component/Header',
     component: Header,
-    subcomponents: {
-        'Header.Notice': Header.Notice,
-        'Header.Nav': Header.Nav,
-        'Header.Nav.Left': Header.Nav.Left,
-        'Header.Nav.Right': Header.Nav.Right,
-        'Header.Nav.Button': Header.Nav.Button,
-        'Header.SubMenu': Header.SubMenu,
-    },
-    argTypes: {},
-} as ComponentMeta<typeof Header>;
+};
+export default meta;
+
+type Story = StoryObj<typeof Header>;
 
 const ProfileImg = styled.img`
     width: 28px;
@@ -36,8 +30,8 @@ const Logo = styled.img`
     height: 32px;
 `;
 
-function Template(args: ComponentStory<typeof Header>) {
-    return (
+export const Primary: Story = {
+    render: (args) => (
         <Header {...args}>
             <Header.Notice>공지</Header.Notice>
             <Header.Nav>
@@ -86,7 +80,5 @@ function Template(args: ComponentStory<typeof Header>) {
             />
             <Void />
         </Header>
-    );
-}
-
-export const Primary = Template.bind({});
+    ),
+};

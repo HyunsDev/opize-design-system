@@ -1,15 +1,17 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { BoxLayout } from '../..';
 
-export default {
+const meta: Meta<typeof BoxLayout> = {
     title: 'Opize Component/Layout/BoxLayout',
     component: BoxLayout,
-    argTypes: {},
-} as ComponentMeta<typeof BoxLayout>;
+};
+export default meta;
+
+type Story = StoryObj<typeof BoxLayout>;
 
 const Blank = styled.div<{ height: number }>`
     background-color: #363636;
@@ -21,17 +23,15 @@ const Blank = styled.div<{ height: number }>`
     justify-content: center;
 `;
 
-const Template: ComponentStory<typeof BoxLayout> = (args) => {
-    return (
+export const Primary: Story = {
+    args: {
+        gap: '8px',
+        gutter: '24px',
+        width: '1200px',
+    },
+    render: (args) => (
         <BoxLayout {...args}>
             <Blank height={500}>BoxLayout</Blank>
         </BoxLayout>
-    );
-};
-
-export const Primary = Template.bind({});
-Primary.args = {
-    gap: '8px',
-    gutter: '24px',
-    width: '1200px',
+    ),
 };

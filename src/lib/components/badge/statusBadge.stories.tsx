@@ -1,19 +1,20 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { StatusBadge } from '..';
 
-export default {
+const meta: Meta<typeof StatusBadge> = {
     title: 'Opize Component/StatusBadge',
     component: StatusBadge,
-    argTypes: {},
-} as ComponentMeta<typeof StatusBadge>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof StatusBadge> = (args) => <StatusBadge {...args} />;
+type Story = StoryObj<typeof StatusBadge>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    text: 'Text',
-    color: 'green',
+export const Primary: Story = {
+    args: {
+        text: 'Text',
+        color: 'green',
+    },
 };

@@ -1,26 +1,24 @@
 import React, { useState } from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { Autocomplete } from '..';
 
-export default {
+const meta: Meta<typeof Autocomplete> = {
     title: 'HTML-Like Component/Form/Autocomplete',
     component: Autocomplete,
-    argTypes: {
-        label: {
-            control: { type: 'text' },
-        },
-    },
-} as ComponentMeta<typeof Autocomplete>;
+};
+export default meta;
+
+type Story = StoryObj<typeof Autocomplete>;
 
 const Width500 = styled.div`
     width: 500px;
     margin: 0 auto;
 `;
 
-const Template: ComponentStory<typeof Autocomplete> = (args) => {
+const Render = (args: any) => {
     const [value, setValue] = useState('');
 
     return (
@@ -35,24 +33,26 @@ const Template: ComponentStory<typeof Autocomplete> = (args) => {
     );
 };
 
-export const Primary = Template.bind({});
-Primary.args = {
-    items: [
-        {
-            text: 'html',
-            id: 1,
-        },
-        {
-            text: 'css',
-            id: 2,
-        },
-        {
-            text: 'javascript',
-            id: 3,
-        },
-        {
-            text: 'css-in-javascript',
-            id: 4,
-        },
-    ],
+export const Primary: Story = {
+    args: {
+        items: [
+            {
+                text: 'html',
+                id: 1,
+            },
+            {
+                text: 'css',
+                id: 2,
+            },
+            {
+                text: 'javascript',
+                id: 3,
+            },
+            {
+                text: 'css-in-javascript',
+                id: 4,
+            },
+        ],
+    },
+    render: (args) => Render(args),
 };

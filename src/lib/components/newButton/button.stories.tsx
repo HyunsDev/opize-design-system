@@ -59,7 +59,7 @@ const LoadingTemplateComponent = (arg: any) => {
 };
 
 export const LoadingStory: Story = {
-    storyName: 'Loading',
+    name: 'Loading',
     render: LoadingTemplateComponent,
     args: {
         icon: <Check />,
@@ -69,7 +69,7 @@ export const LoadingStory: Story = {
 };
 
 export const WithTooltip: Story = {
-    storyName: 'With Tooltip',
+    name: 'With Tooltip',
     args: {
         children: 'hello, World!',
         onClick: () => null,

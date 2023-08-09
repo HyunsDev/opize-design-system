@@ -1,200 +1,108 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { StoryObj, Meta } from '@storybook/react';
 import { DotsThreeVertical, Gear, X } from 'phosphor-react';
-import styled from 'styled-components';
 
-import { ActionMenu, Avatar as AvatarTag } from '..';
-import profileImg from '../../../assets/hyuns.jpg';
+import { ActionMenu, Flex } from '..';
 
-export default {
+const meta: Meta<typeof ActionMenu> = {
     title: 'Opize Component/ActionMenu',
     component: ActionMenu,
-    argTypes: {
-        // backgroundColor: { control: 'color' },
+};
+export default meta;
+
+type Story = StoryObj<typeof ActionMenu>;
+
+export const Primary: Story = {
+    args: {
+        children: 'Label',
+        icon: <DotsThreeVertical />,
+        actions: [
+            [
+                {
+                    label: 'Label',
+                    icon: <Gear />,
+                    onClick: () => null,
+                },
+                {
+                    label: '라벨',
+                    icon: <Gear />,
+                    onClick: () => null,
+                },
+                {
+                    label: '라벨',
+                    icon: <Gear />,
+                    onClick: () => null,
+                },
+            ],
+            [
+                {
+                    label: '삭제',
+                    icon: <X />,
+                    onClick: () => null,
+                    color: 'red',
+                },
+            ],
+        ],
     },
-} as ComponentMeta<typeof ActionMenu>;
-
-const Template: ComponentStory<typeof ActionMenu> = (args) => <ActionMenu {...args} />;
-
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'Label',
-    icon: <DotsThreeVertical />,
-    actions: [
-        [
-            {
-                label: 'Label',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-            {
-                label: '라벨',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-            {
-                label: '라벨',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-        ],
-        [
-            {
-                label: '삭제',
-                icon: <X />,
-                onClick: () => null,
-                color: 'red',
-            },
-        ],
-    ],
 };
 
-export const OnlyLabel = Template.bind({});
-OnlyLabel.args = {
-    children: 'Label',
-    actions: [
-        [
-            {
-                label: 'Label',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-            {
-                label: '라벨',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-            {
-                label: '라벨',
-                icon: <Gear />,
-                onClick: () => null,
-            },
+export const OnlyLabel: Story = {
+    args: {
+        children: 'Label',
+        actions: [
+            [
+                {
+                    label: 'Label',
+                    icon: <Gear />,
+                    onClick: () => null,
+                },
+                {
+                    label: '라벨',
+                    icon: <Gear />,
+                    onClick: () => null,
+                },
+                {
+                    label: '라벨',
+                    icon: <Gear />,
+                    onClick: () => null,
+                },
+            ],
+            [
+                {
+                    label: '삭제',
+                    icon: <X />,
+                    onClick: () => null,
+                    color: 'red',
+                },
+            ],
         ],
-        [
-            {
-                label: '삭제',
-                icon: <X />,
-                onClick: () => null,
-                color: 'red',
-            },
-        ],
-    ],
+    },
 };
 
-export const OnlyIcon = Template.bind({});
-OnlyIcon.args = {
-    icon: <DotsThreeVertical />,
-    actions: [
-        [
-            {
-                label: 'Label',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-            {
-                label: '라벨',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-            {
-                label: '라벨',
-                icon: <Gear />,
-                onClick: () => null,
-            },
+export const RightPosition: Story = {
+    args: {
+        children: 'Label',
+        icon: <DotsThreeVertical />,
+        actions: [
+            [
+                {
+                    label: 'Label',
+                    icon: <Gear />,
+                    onClick: () => null,
+                },
+                {
+                    label: '라벨',
+                    icon: <Gear />,
+                    onClick: () => null,
+                },
+            ],
         ],
-        [
-            {
-                label: '삭제',
-                icon: <X />,
-                onClick: () => null,
-                color: 'red',
-            },
-        ],
-    ],
-};
-
-const RightPos = styled.div`
-    float: right;
-`;
-
-const TemplateRight: ComponentStory<typeof ActionMenu> = (args) => (
-    <RightPos>
-        <ActionMenu {...args} />
-    </RightPos>
-);
-export const Right = TemplateRight.bind({});
-Right.args = {
-    icon: <DotsThreeVertical />,
-    actions: [
-        [
-            {
-                label: 'Label',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-            {
-                label: '라벨',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-            {
-                label: '라벨',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-        ],
-        [
-            {
-                label: '삭제',
-                icon: <X />,
-                onClick: () => null,
-                color: 'red',
-            },
-        ],
-    ],
-};
-
-const AvatarRight: ComponentStory<typeof ActionMenu> = (args) => (
-    <RightPos>
-        <ActionMenu {...args} />
-    </RightPos>
-);
-export const Avatar = AvatarRight.bind({});
-Avatar.args = {
-    icon: (
-        <AvatarTag
-            src={profileImg}
-            alt=""
-            size={28}
-        />
+    },
+    render: (args) => (
+        <Flex.Between>
+            <div />
+            <ActionMenu {...args} />
+        </Flex.Between>
     ),
-    variant: 'text',
-    actions: [
-        [
-            {
-                label: 'Label',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-            {
-                label: '라벨',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-            {
-                label: '라벨',
-                icon: <Gear />,
-                onClick: () => null,
-            },
-        ],
-        [
-            {
-                label: '삭제',
-                icon: <X />,
-                onClick: () => null,
-                color: 'red',
-            },
-        ],
-    ],
 };

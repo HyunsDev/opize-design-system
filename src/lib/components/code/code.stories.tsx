@@ -1,22 +1,24 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Code, Text } from '..';
 
-export default {
+const meta: Meta<typeof Code> = {
     title: 'HTML-Like Component/Code',
     component: Code,
-    argTypes: {},
-} as ComponentMeta<typeof Code>;
+};
+export default meta;
 
-const Template: ComponentStory<typeof Code> = (args) => (
-    <Text>
-        This is <Code {...args} /> Component
-    </Text>
-);
+type Story = StoryObj<typeof Code>;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    children: 'code',
+export const Primary: Story = {
+    args: {
+        children: 'code',
+    },
+    render: (args) => (
+        <Text>
+            This is <Code {...args} /> Component
+        </Text>
+    ),
 };

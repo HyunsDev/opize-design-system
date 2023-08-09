@@ -1,11 +1,12 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
-import styled from 'styled-components';
+import { Meta, StoryObj } from '@storybook/react';
 
 import { Datetime } from '..';
 
-export default {
+import { Width500 } from './components/Width500';
+
+const meta: Meta<typeof Datetime> = {
     title: 'HTML-Like Component/Form/Datetime',
     component: Datetime,
     argTypes: {
@@ -13,46 +14,19 @@ export default {
             options: ['date', 'datetime-local', 'month', 'time', 'week'],
             control: { type: 'select' },
         },
-        label: {
-            control: { type: 'text' },
-        },
     },
-} as ComponentMeta<typeof Datetime>;
-
-const Width500 = styled.div`
-    width: 500px;
-    margin: 0 auto;
-`;
-
-const Template: ComponentStory<typeof Datetime> = (args) => (
-    <Width500>
-        <Datetime {...args} />
-    </Width500>
-);
-
-export const Primary = Template.bind({});
-Primary.storyName = 'date';
-Primary.args = {
-    type: 'date',
 };
+export default meta;
 
-export const DateTime = Template.bind({});
-DateTime.args = {
-    type: 'datetime-local',
-};
-DateTime.storyName = 'datetime';
+type Story = StoryObj<typeof Datetime>;
 
-export const Month = Template.bind({});
-Month.args = {
-    type: 'month',
-};
-
-export const Time = Template.bind({});
-Time.args = {
-    type: 'time',
-};
-
-export const Week = Template.bind({});
-Week.args = {
-    type: 'week',
+export const Primary: Story = {
+    args: {
+        type: 'date',
+    },
+    render: (args) => (
+        <Width500>
+            <Datetime {...args} />
+        </Width500>
+    ),
 };

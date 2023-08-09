@@ -1,24 +1,24 @@
 import React from 'react';
 
+import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
-import { H1, H2, H3 } from '..';
+import { Flex, H1, H2, H3 } from '..';
 
-export default {
+const meta: Meta<typeof H1> = {
     title: 'HTML-Like Component/Title',
     argTypes: {},
 };
+export default meta;
 
-const Titles = styled.div``;
+type Story = StoryObj<typeof H1>;
 
-function Template() {
-    return (
-        <Titles>
+export const Primary: Story = {
+    render: (args) => (
+        <Flex.Column gap="8px">
             <H1>H1</H1>
             <H2>H2</H2>
             <H3>H3</H3>
-        </Titles>
-    );
-}
-
-export const Primary = Template.bind({});
+        </Flex.Column>
+    ),
+};

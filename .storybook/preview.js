@@ -19,28 +19,15 @@ export const parameters = {
             date: /Date$/,
         },
     },
-    darkMode: {
-        dark: {
-            ...themes.dark,
-            ...baseTheme,
-            appBg: '#252629',
-            appContentBg: '#1a1b1d',
-            barBg: '#252629',
-            inputBg: '#3c3e46',
-            brandImage: 'https://s3.hyuns.dev/opize/ods-logo.png',
-        },
-        light: {
-            ...themes.normal,
-            ...baseTheme,
-            brandImage: 'https://s3.hyuns.dev/opize/ods-logo.png',
-        },
-        stylePreview: false,
-    },
 };
 
 const Link = React.forwardRef((props, ref) => {
     return (
-        <a href={props?.to} ref={ref} {...props}>
+        <a
+            href={props?.to}
+            ref={ref}
+            {...props}
+        >
             {props.children}
         </a>
     );

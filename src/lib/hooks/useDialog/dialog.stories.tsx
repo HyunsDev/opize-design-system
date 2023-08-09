@@ -1,5 +1,6 @@
 import React from 'react';
 
+import { Meta, StoryObj } from '@storybook/react';
 import { TrashSimple } from 'phosphor-react';
 import styled from 'styled-components';
 
@@ -9,18 +10,18 @@ import { cv } from '../../style';
 
 import { useDialog } from '.';
 
-export default {
+const meta: Meta = {
     title: 'Hook/useDialog',
-    argTypes: {},
 };
+export default meta;
 
-const Divver = styled.div``;
+type Story = StoryObj;
 
 function Template() {
     const dialog = useDialog();
 
     return (
-        <Divver>
+        <div>
             <Button
                 onClick={() => {
                     dialog({
@@ -81,7 +82,7 @@ function Template() {
             >
                 notAutoClose Button Dialog
             </Button>
-        </Divver>
+        </div>
     );
 }
 
@@ -93,4 +94,6 @@ function TemplateWrapper() {
     );
 }
 
-export const Primary = TemplateWrapper.bind({});
+export const Primary: Story = {
+    render: () => <TemplateWrapper />,
+};

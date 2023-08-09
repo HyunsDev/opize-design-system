@@ -1,11 +1,11 @@
 import React from 'react';
 
-import { ComponentStory, ComponentMeta } from '@storybook/react';
+import { ComponentStory, ComponentMeta, Meta, StoryObj } from '@storybook/react';
 
 import { Avatar } from '..';
 import Img from '../../../assets/opize.png';
 
-export default {
+const meta: Meta<typeof Avatar> = {
     title: 'HTML-Like Component/Avatar',
     component: Avatar,
     argTypes: {
@@ -18,11 +18,14 @@ export default {
             },
         },
     },
-} as ComponentMeta<typeof Avatar>;
+};
 
-const Template: ComponentStory<typeof Avatar> = (args) => <Avatar {...args} />;
+export default meta;
 
-export const Primary = Template.bind({});
-Primary.args = {
-    src: Img,
+type Story = StoryObj<typeof Avatar>;
+
+export const Primary: Story = {
+    args: {
+        src: Img,
+    },
 };
