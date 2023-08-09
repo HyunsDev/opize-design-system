@@ -118,11 +118,6 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
                     border-color: ${cv.red_dark};
                 }
 
-                &:active {
-                    background-color: ${cv.red_light};
-                    border-color: ${cv.red_light};
-                }
-
                 &:disabled {
                     background-color: ${cv.default400};
                     border-color: ${cv.default400};

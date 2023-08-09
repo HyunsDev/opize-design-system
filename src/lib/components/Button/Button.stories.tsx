@@ -2,7 +2,7 @@ import React, { useRef, useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { Check, Download, Upload } from 'phosphor-react';
-import { Button } from '..';
+import { Button, Flex } from '..';
 
 const meta: Meta<typeof Button> = {
     component: Button,
@@ -139,20 +139,53 @@ export const LoadingStory: Story = {
 };
 
 const AllButtonTemplate = (args: any) => {
-    const variants = ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'warning'];
+    const variants = ['primary', 'secondary', 'tertiary', 'danger', 'warning'];
+    const sizes = ['small', 'medium', 'large'];
 
     return (
-        <div>
+        <Flex
+            direction="row"
+            align="start"
+            gap="20px"
+        >
             {variants.map((variant) => (
-                <Button
-                    {...args}
-                    key={variant}
-                    variant={variant}
+                <Flex
+                    direction="column"
+                    align="start"
+                    justify="start"
+                    gap="32px"
                 >
-                    {variant}
-                </Button>
+                    {sizes.map((size) => (
+                        <Flex
+                            direction="column"
+                            align="start"
+                            gap="8px"
+                        >
+                            <Button
+                                {...args}
+                                variant={variant}
+                                children={`${variant}`}
+                                size={size}
+                            />
+                            <Button
+                                {...args}
+                                variant={variant}
+                                children={`${variant}`}
+                                size={size}
+                                disabled
+                            />
+                            <Button
+                                {...args}
+                                variant={variant}
+                                children={`${variant}`}
+                                size={size}
+                                isLoading
+                            />
+                        </Flex>
+                    ))}
+                </Flex>
             ))}
-        </div>
+        </Flex>
     );
 };
 
