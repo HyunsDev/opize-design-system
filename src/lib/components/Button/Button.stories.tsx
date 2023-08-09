@@ -7,6 +7,73 @@ import { Button } from '..';
 const meta: Meta<typeof Button> = {
     component: Button,
     title: 'HTML-Like Component/Button',
+    argTypes: {
+        width: {
+            control: {
+                type: 'text',
+            },
+        },
+        size: {
+            control: {
+                type: 'select',
+            },
+            options: ['small', 'medium', 'large'],
+        },
+        variant: {
+            control: {
+                type: 'select',
+            },
+            options: ['primary', 'secondary', 'tertiary', 'danger', 'warning', 'warning'],
+        },
+        shape: {
+            control: {
+                type: 'select',
+            },
+            options: ['square', 'round'],
+        },
+        align: {
+            control: {
+                type: 'select',
+            },
+            options: ['start', 'center', 'end'],
+        },
+        disabled: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        isLoading: {
+            control: {
+                type: 'boolean',
+            },
+        },
+        prefix: {
+            control: {
+                type: {
+                    name: 'React.ReactNode',
+                    required: false,
+                },
+            },
+        },
+        suffix: {
+            control: {
+                type: {
+                    name: 'React.ReactNode',
+                    required: false,
+                },
+            },
+        },
+    },
+    args: {
+        width: 'auto',
+        size: 'medium',
+        variant: 'primary',
+        iconOnly: false,
+        shape: 'square',
+        align: 'center',
+        disabled: false,
+        isLoading: false,
+    },
 };
 
 export default meta;

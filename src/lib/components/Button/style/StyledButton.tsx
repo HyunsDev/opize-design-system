@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
 import { ButtonAlign, ButtonShape, ButtonSize, ButtonVariant, ButtonWidth } from '../Button.type';
-import { variantStyle } from './variant.style';
-import { sizeStyle } from './size.style';
+import { getShapeStyle, getSizeStyle, getVariantStyle } from './style';
 
 export interface StyledButtonProps {
     $width: ButtonWidth;
@@ -9,12 +8,24 @@ export interface StyledButtonProps {
     $variant: ButtonVariant;
     $shape: ButtonShape;
     $align: ButtonAlign;
-    $disabled: boolean;
+    $iconOnly: boolean;
 }
 
 export const StyledButton = styled.button<StyledButtonProps>`
+    display: flex;
+    align-items: center;
+
     width: ${({ $width }) => $width};
 
-    ${({ $variant }) => variantStyle[$variant]};
-    ${({ $size }) => sizeStyle[$size]};
+    cursor: pointer;
+
+    user-select: none;
+    text-decoration: none;
+
+    transition: 150ms ease;
+    transition-property: background-color, color, border-color, box-shadow;
+
+    ${(props) => getVariantStyle(props)};
+    ${(props) => getSizeStyle(props)};
+    ${(props) => getShapeStyle(props)};
 `;

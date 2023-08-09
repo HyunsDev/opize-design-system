@@ -7,9 +7,7 @@ const config: StorybookConfig = {
         '@storybook/addon-essentials',
         '@storybook/addon-onboarding',
         '@storybook/addon-interactions',
-        {
-            name: '@storybook/addon-storysource',
-        },
+        '@storybook/addon-storysource',
         '@storybook/addon-styling',
         '@storybook/addon-docs',
         'storybook-addon-swc',

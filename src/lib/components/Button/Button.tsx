@@ -4,7 +4,7 @@ import { ButtonProps } from './Button.type';
 import { useButton } from './useButton';
 import { StyledButton } from './style';
 
-export const Button = forwardRef(
+const Button = forwardRef(
     <T extends React.ElementType = 'button'>(
         props: ButtonProps<T>,
         ref: PolymorphicRef<T>['ref']
@@ -28,3 +28,5 @@ export const Button = forwardRef(
 );
 
 Button.displayName = 'Button';
+
+export { Button };

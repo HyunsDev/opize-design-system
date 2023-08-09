@@ -4,7 +4,7 @@ import { PolymorphicProps } from '../../utils/Polymorphic';
 export type ButtonWidth = 'auto' | '100%' | string;
 export type ButtonSize = 'small' | 'medium' | 'large';
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'danger' | 'warning' | 'warning';
-export type ButtonShape = 'square' | 'circle' | 'round';
+export type ButtonShape = 'square' | 'round';
 export type ButtonAlign = 'start' | 'center' | 'end';
 
 export type OriginalButtonProps = {
