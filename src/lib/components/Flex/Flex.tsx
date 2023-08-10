@@ -5,6 +5,7 @@ export type FlexProps = {
     direction?: 'row' | 'column';
     align?: 'center' | 'start' | 'end' | 'stretch' | 'baseline';
     justify?: 'center' | 'start' | 'end' | 'space-between' | 'space-around' | 'space-evenly';
+    wrap?: 'wrap' | 'nowrap' | 'wrap-reverse';
     width?: string;
 };
 
@@ -15,6 +16,7 @@ const FlexLayout = styled.div<FlexProps>`
     ${(props) => props.align && `align-items: ${props.align}`};
     ${(props) => props.justify && `justify-content: ${props.justify}`};
     ${(props) => props.width && `width: ${props.width}`};
+    ${(props) => props.wrap && `flex-wrap: ${props.wrap}`};
 `;
 
 export type SubFlexProps = {
