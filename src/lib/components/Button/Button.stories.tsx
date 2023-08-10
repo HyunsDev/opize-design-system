@@ -1,4 +1,4 @@
-import React, { useRef, useState } from 'react';
+import { useRef, useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
 import { Check, Download, Upload } from 'phosphor-react';
