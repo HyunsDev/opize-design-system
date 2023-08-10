@@ -18,18 +18,8 @@ const meta: Meta<typeof ColorDot> = {
         },
         color: {
             control: {
-                type: 'select',
+                type: 'text',
             },
-            options: [
-                'default',
-                'background',
-                'foreground',
-                'red',
-                'yellow',
-                'green',
-                'blue',
-                'violet',
-            ],
             description:
                 '원 색상을 지정합니다. 원하는 색을 입력하거나 Theme 색상 중 하나를 선택할 수 있습니다.',
         },

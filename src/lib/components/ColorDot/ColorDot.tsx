@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { cv } from '../..';
 
-export type Color =
+export type ColorDotColor =
     | 'default'
     | 'background'
     | 'foreground'
@@ -13,12 +13,12 @@ export type Color =
     | string;
 
 export type ColorDotProps = {
-    color?: Color;
+    color?: ColorDotColor;
     size?: string;
 };
 
 const colorMap: {
-    [key in Color]: string;
+    [key in ColorDotColor]: string;
 } = {
     default: cv.default400,
     background: cv.background,
