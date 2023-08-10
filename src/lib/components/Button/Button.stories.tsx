@@ -8,6 +8,9 @@ const meta: Meta<typeof Button> = {
     component: Button,
     title: 'HTML-Like Component/Button',
     tags: ['autodocs'],
+    parameters: {
+        layout: 'centered',
+    },
     argTypes: {
         width: {
             control: {

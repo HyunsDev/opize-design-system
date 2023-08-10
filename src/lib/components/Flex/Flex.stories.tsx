@@ -8,6 +8,9 @@ import { Flex } from '..';
 const meta: Meta<typeof Flex> = {
     title: 'HTML-Like Component/Flex',
     component: Flex,
+    parameters: {
+        layout: 'centered',
+    },
     argTypes: {
         gap: {
             control: {
