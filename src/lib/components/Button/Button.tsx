@@ -1,15 +1,15 @@
 import { forwardRef } from 'react';
 import { PolymorphicRef } from '../../utils/Polymorphic';
-import { ButtonProps } from './Button.type';
+import { ButtonComponent, ButtonProps } from './Button.type';
 import { useButton } from './useButton';
 import { StyledButton } from './style';
 import { Spinner } from '..';
 
-const Button = forwardRef(
+export const Button: ButtonComponent = forwardRef(
     <T extends React.ElementType = 'button'>(
         props: ButtonProps<T>,
         ref: PolymorphicRef<T>['ref']
-    ): JSX.Element => {
+    ): React.ReactNode => {
         const {
             domRef,
             as,
@@ -38,15 +38,13 @@ const Button = forwardRef(
                         color={'var(--button-spinner-color)'}
                     />
                 ) : (
-                    prefix
+                    prefix && <span className="button-prefix">{prefix}</span>
                 )}
                 <span className="button-child">{children}</span>
-                {suffix}
+                {suffix && <span className="button-suffix">{suffix}</span>}
             </StyledButton>
         );
     }
 );
 
 Button.displayName = 'Button';
-
-export { Button };

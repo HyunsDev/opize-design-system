@@ -1,5 +1,5 @@
 import React from 'react';
-import { PolymorphicProps } from '../../utils/Polymorphic';
+import { PolymorphicComponent, PolymorphicProps } from '../../utils/Polymorphic';
 
 export type ButtonWidth = 'auto' | '100%' | 'fit-content' | string;
 export type ButtonSize = 'small' | 'medium' | 'large';
@@ -8,7 +8,7 @@ export type ButtonShape = 'square' | 'round';
 export type ButtonAlign = 'start' | 'center' | 'end';
 
 export type OriginalButtonProps = {
-    width?: ButtonWidth;
+    width?: string;
     size?: ButtonSize;
     variant?: ButtonVariant;
     iconOnly?: boolean;
@@ -27,6 +27,4 @@ export type ButtonProps<T extends React.ElementType = 'button'> = PolymorphicPro
     OriginalButtonProps
 >;
 
-export type ButtonComponent = <T extends React.ElementType = 'button'>(
-    props: ButtonProps<T>
-) => React.ReactElement | null;
+export type ButtonComponent = PolymorphicComponent<'button', OriginalButtonProps>;

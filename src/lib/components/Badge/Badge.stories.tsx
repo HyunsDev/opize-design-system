@@ -9,6 +9,37 @@ const meta: Meta<typeof Badge> = {
     parameters: {
         layout: 'centered',
     },
+    argTypes: {
+        size: {
+            control: {
+                type: 'inline-radio',
+            },
+            options: ['small', 'medium', 'large'],
+        },
+        color: {
+            control: {
+                type: 'select',
+            },
+            options: ['default', 'red', 'blue', 'green', 'yellow', 'violet'],
+        },
+        variant: {
+            control: {
+                type: 'inline-radio',
+            },
+            options: ['primary', 'secondary'],
+        },
+        dot: {
+            control: {
+                type: 'boolean',
+            },
+        },
+    },
+    args: {
+        size: 'medium',
+        color: 'default',
+        variant: 'primary',
+        dot: false,
+    },
 };
 
 export default meta;

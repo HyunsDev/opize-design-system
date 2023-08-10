@@ -28,7 +28,7 @@ export const getShapeStyle = ({ $size, $shape }: StyledButtonProps) => {
     switch ($size) {
         case 'small':
             return `
-                border-radius: ${$shape === 'square' ? '8px' : '16px'}};
+                border-radius: ${$shape === 'square' ? '8px' : '16px'};
             `;
         case 'medium':
             return `

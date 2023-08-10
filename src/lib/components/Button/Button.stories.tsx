@@ -158,34 +158,29 @@ const AllButtonTemplate = (args: any) => {
                     justify="start"
                     gap="32px"
                 >
-                    {sizes.map((size) => (
-                        <Flex
-                            direction="column"
-                            align="start"
-                            gap="8px"
-                        >
-                            <Button
-                                {...args}
-                                variant={variant}
-                                children={`${variant}`}
-                                size={size}
-                            />
-                            <Button
-                                {...args}
-                                variant={variant}
-                                children={`${variant}`}
-                                size={size}
-                                disabled
-                            />
-                            <Button
-                                {...args}
-                                variant={variant}
-                                children={`${variant}`}
-                                size={size}
-                                isLoading
-                            />
-                        </Flex>
-                    ))}
+                    <Flex
+                        direction="column"
+                        align="start"
+                        gap="8px"
+                    >
+                        <Button
+                            {...args}
+                            variant={variant}
+                            children={`${variant}`}
+                        />
+                        <Button
+                            {...args}
+                            variant={variant}
+                            children={`${variant}`}
+                            disabled
+                        />
+                        <Button
+                            {...args}
+                            variant={variant}
+                            children={`${variant}`}
+                            isLoading
+                        />
+                    </Flex>
                 </Flex>
             ))}
         </Flex>

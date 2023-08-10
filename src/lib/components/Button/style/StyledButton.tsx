@@ -42,10 +42,21 @@ export const StyledButton = styled.button<StyledButtonProps>`
     ${(props) => getShapeStyle(props)};
 
     & > .button-child {
-        flex: 1;
+        overflow: hidden;
+        white-space: nowrap;
+        text-overflow: ellipsis;
+
+        display: block;
+        text-align: ${({ $align }) =>
+            $align === 'center' ? 'center' : $align === 'start' ? 'left' : 'right'};
+        margin: 0 auto;
+        width: 100%;
+    }
+
+    & > .button-prefix,
+    & > .button-suffix {
         display: flex;
         align-items: center;
-        justify-content: ${({ $align }) => ($align === 'center' ? 'center' : `flex-${$align}`)};
-        margin: 0 auto;
+        justify-content: center;
     }
 `;

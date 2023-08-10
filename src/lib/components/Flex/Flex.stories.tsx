@@ -9,6 +9,7 @@ const meta: Meta<typeof Flex> = {
     parameters: {
         layout: 'centered',
     },
+    tags: ['autodocs'],
     argTypes: {
         gap: {
             control: {
