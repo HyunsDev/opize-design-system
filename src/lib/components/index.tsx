@@ -9,3 +9,4 @@ export * from './ItemsTable';
 export * from './A';
 export * from './Spacer';
 export * from './TabNav';
+export * from './Popover';
