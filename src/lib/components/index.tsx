@@ -10,3 +10,4 @@ export * from './A';
 export * from './Spacer';
 export * from './TabNav';
 export * from './Popover';
+export * from './Divider';
