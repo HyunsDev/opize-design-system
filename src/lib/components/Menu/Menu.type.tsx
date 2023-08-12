@@ -12,6 +12,7 @@ export type MenuOptionProps = {
     disabled?: boolean;
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
+    autoClose?: boolean;
 } & Omit<React.ComponentPropsWithRef<'button'>, 'prefix' | 'suffix'>;
 
 export interface MenuOptionDividerProps extends DividerProps {}

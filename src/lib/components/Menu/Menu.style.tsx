@@ -77,7 +77,7 @@ export const StyledOption = styled.button<StyledButtonProps>`
 
     font-size: 14px;
     padding: 6px 12px;
-    height: 32px;
+    height: 36px;
 
     cursor: pointer;
     user-select: none;
