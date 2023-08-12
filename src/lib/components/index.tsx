@@ -15,3 +15,5 @@ export * from './Menu';
 export * from './ButtonGroup';
 export * from './Code';
 export * from './Text';
+export * from './Span';
+export * from './Tooltip';
