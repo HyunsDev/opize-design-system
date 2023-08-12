@@ -14,3 +14,4 @@ export * from './Divider';
 export * from './Menu';
 export * from './ButtonGroup';
 export * from './Code';
+export * from './Text';

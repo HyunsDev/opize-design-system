@@ -3,7 +3,9 @@ import styled from 'styled-components';
 import { cv } from '../../style';
 
 export interface CodeProps extends React.ComponentProps<'code'> {
+    size?: string;
     color?: 'default' | 'blue' | 'green' | 'yellow' | 'red' | 'violet';
+    borderRadius?: string;
 }
 
 const getColorStyle = (color: CodeProps['color']) => {
@@ -43,10 +45,10 @@ const getColorStyle = (color: CodeProps['color']) => {
 
 export const Code: (props: CodeProps) => React.ReactNode = styled.code<CodeProps>`
     padding: 2px 6px;
-    border-radius: 6px;
+    border-radius: ${(props) => props.borderRadius || '6px'};
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New,
         monospace;
     font-weight: 400;
-    font-size: smaller;
+    ${(props) => props.size && `font-size: ${props.size};`};
     ${(props) => getColorStyle(props.color)};
 `;
