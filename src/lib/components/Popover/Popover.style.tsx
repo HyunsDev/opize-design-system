@@ -16,6 +16,8 @@ export interface StyledPopoverProps {
 }
 
 export const StyledPopoverContent = styled.div<StyledPopoverProps>`
+    display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
+
     position: absolute;
     z-index: 100;
 

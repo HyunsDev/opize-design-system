@@ -2,6 +2,29 @@ import { StyledButtonProps } from '.';
 import { cv } from '../../..';
 
 export const getSizeStyle = (props: StyledButtonProps) => {
+    if (props.$iconOnly) {
+        switch (props.$size) {
+            case 'small':
+                return `
+                    font-size: 14px;
+                    width: 32px;
+                    height: 32px;
+                `;
+            case 'medium':
+                return `
+                    font-size: 14px;
+                    width: 40px;
+                    height: 40px;
+                `;
+            case 'large':
+                return `
+                    font-size: 16px;
+                    width: 48px;
+                    height: 48px;
+                `;
+        }
+    }
+
     switch (props.$size) {
         case 'small':
             return `

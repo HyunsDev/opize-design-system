@@ -5,9 +5,8 @@ import { usePopoverContext } from './Popover.context';
 
 export const PopoverContent = forwardRef<HTMLDivElement, PopoverContentProps>((props, ref) => {
     const { children, ...otherProps } = props;
-    const { contentProps, isOpen } = usePopoverContext();
+    const { contentProps } = usePopoverContext();
 
-    if (!isOpen) return null;
     return (
         <StyledPopoverContent
             ref={ref}

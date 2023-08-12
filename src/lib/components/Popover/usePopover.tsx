@@ -38,7 +38,7 @@ export function usePopover(props: UsePopoverProps) {
                 ? 'left'
                 : 'right';
 
-        const y = ref.getBoundingClientRect().bottom + 250 > window.innerHeight ? 'bottom' : 'top';
+        const y = ref.getBoundingClientRect().bottom + 200 > window.innerHeight ? 'top' : 'bottom';
 
         setPopoverDirection({ x, y });
     }, []);
