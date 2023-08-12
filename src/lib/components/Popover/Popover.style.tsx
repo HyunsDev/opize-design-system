@@ -27,7 +27,7 @@ export const StyledPopoverContent = styled.div<StyledPopoverProps>`
     border: 1px solid ${cv.default200};
     box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
     padding: 8px;
-    border-radius: 8px;
+    border-radius: 12px;
 
     @keyframes FadeInKeyframes {
         0% {

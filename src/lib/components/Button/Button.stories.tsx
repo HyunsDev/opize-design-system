@@ -143,7 +143,6 @@ export const LoadingStory: Story = {
 
 const AllButtonTemplate = (args: any) => {
     const variants = ['primary', 'secondary', 'tertiary', 'danger', 'warning'];
-    const sizes = ['small', 'medium', 'large'];
 
     return (
         <Flex
