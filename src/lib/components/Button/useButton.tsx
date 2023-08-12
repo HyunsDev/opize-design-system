@@ -19,7 +19,6 @@ export function useButton<T extends React.ElementType = 'button'>(props: ButtonP
         isLoading = false,
         prefix,
         suffix,
-        type = 'button',
         ...restProps
     } = props;
 
@@ -45,7 +44,6 @@ export function useButton<T extends React.ElementType = 'button'>(props: ButtonP
 
     const buttonProps = {
         disabled: isDisabled,
-        type,
         ...restProps,
     };
 

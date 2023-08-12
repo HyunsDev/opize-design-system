@@ -12,3 +12,4 @@ export * from './TabNav';
 export * from './Popover';
 export * from './Divider';
 export * from './Menu';
+export * from './ButtonGroup';

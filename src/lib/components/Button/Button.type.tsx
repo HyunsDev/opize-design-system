@@ -1,5 +1,4 @@
 import React from 'react';
-import { PolymorphicComponent, PolymorphicProps } from '../../utils/Polymorphic';
 
 export type ButtonWidth = 'auto' | '100%' | 'fit-content' | string;
 export type ButtonSize = 'small' | 'medium' | 'large';
@@ -22,9 +21,16 @@ export type OriginalButtonProps = {
     suffix?: React.ReactNode;
 };
 
-export type ButtonProps<T extends React.ElementType = 'button'> = PolymorphicProps<
-    T,
-    OriginalButtonProps
->;
+export type ButtonProps<T extends React.ElementType = 'button'> = {
+    as?: T;
+    ref?: React.ComponentPropsWithRef<T>['ref'];
+} & Omit<React.ComponentPropsWithoutRef<T>, 'prefix' | 'suffix'> &
+    OriginalButtonProps;
 
-export type ButtonComponent = PolymorphicComponent<'button', OriginalButtonProps>;
+export type ButtonComponent<T extends React.ElementType = 'button'> = (<
+    TT extends React.ElementType = T
+>(
+    props: ButtonProps<TT>
+) => React.ReactNode) & {
+    displayName?: string;
+};
