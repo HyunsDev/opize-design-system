@@ -13,3 +13,4 @@ export * from './Popover';
 export * from './Divider';
 export * from './Menu';
 export * from './ButtonGroup';
+export * from './Code';
