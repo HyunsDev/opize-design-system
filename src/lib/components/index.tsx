@@ -17,3 +17,4 @@ export * from './Code';
 export * from './Text';
 export * from './Span';
 export * from './Tooltip';
+export * from './Table';
