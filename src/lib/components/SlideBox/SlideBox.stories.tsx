@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Button, ButtonGroup, Flex, SlideBox, Spacer, Text } from '..';
+import { Button, ButtonGroup, Flex, SlideBox, Spacer } from '..';
 import { useState } from 'react';
 import { cv } from '../..';
 
