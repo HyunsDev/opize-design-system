@@ -20,3 +20,4 @@ export * from './Tooltip';
 export * from './Table';
 export * from './Avatar';
 export * from './Note';
+export * from './Title';
