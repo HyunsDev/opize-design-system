@@ -61,17 +61,22 @@ export const Primary: Story = {
                 </Menu>
             </ButtonGroup>
             <ButtonGroup {...args}>
-                <Button>Button 1</Button>
+                <Button
+                    variant="secondary"
+                    size="small"
+                >
+                    Button 1
+                </Button>
                 <Menu>
                     <Menu.Trigger
-                        suffix={
-                            <CaretDown
-                                weight="fill"
-                                size={12}
-                            />
-                        }
+                        iconOnly
+                        variant="secondary"
+                        size="small"
                     >
-                        Menu
+                        <CaretDown
+                            weight="fill"
+                            size={12}
+                        />
                     </Menu.Trigger>
                     <Menu.Content>
                         <Menu.Option onClick={() => alert('Option 1')}>Option 1</Menu.Option>
