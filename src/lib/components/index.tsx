@@ -21,3 +21,4 @@ export * from './Table';
 export * from './Avatar';
 export * from './Note';
 export * from './Title';
+export * from './SlideBox';
