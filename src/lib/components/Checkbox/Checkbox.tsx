@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import { useDOMRef } from '../../../utils/dom';
+import { useDOMRef } from '../../utils/dom';
 import {
     StyledCheckbox,
     StyledCheckboxContainer,

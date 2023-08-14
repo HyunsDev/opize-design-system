@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { cv } from '../../..';
+import { cv } from '../..';
 
 export interface StyledTextAreaOuterContainerProps {
     $width?: string;

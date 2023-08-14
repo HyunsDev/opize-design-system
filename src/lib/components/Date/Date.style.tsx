@@ -1,22 +1,22 @@
 import { styled } from 'styled-components';
-import { cv } from '../../..';
+import { cv } from '../..';
 
-export interface StyledInputOuterContainerProps {
+export interface StyledDateOuterContainerProps {
     $width: string;
 }
-export const StyledInputOuterContainer = styled.div<StyledInputOuterContainerProps>`
+export const StyledDateOuterContainer = styled.div<StyledDateOuterContainerProps>`
     display: flex;
     flex-direction: column;
     width: ${(props) => props.$width};
     gap: 6px;
 `;
 
-export const StyledInputLabel = styled.div`
+export const StyledDateLabel = styled.div`
     color: ${cv.default600};
     font-size: 12px;
 `;
 
-const getSizeStyle = ({ $size }: StyledInputContainerProps) => {
+const getSizeStyle = ({ $size }: StyledDateContainerProps) => {
     switch ($size) {
         case 'small':
             return `
@@ -38,15 +38,15 @@ const getSizeStyle = ({ $size }: StyledInputContainerProps) => {
             `;
     }
 };
-
-export interface StyledInputContainerProps {
+export interface StyledDateContainerProps {
     $size: 'small' | 'medium' | 'large';
     $disabled: boolean;
     $readOnly: boolean;
     $width: string;
     $isError: boolean;
 }
-export const StyledInputContainer = styled.div<StyledInputContainerProps>`
+
+export const StyledDateContainer = styled.div<StyledDateContainerProps>`
     display: flex;
     align-items: center;
     transition: 200ms;
@@ -68,12 +68,11 @@ export const StyledInputContainer = styled.div<StyledInputContainerProps>`
     }
 `;
 
-export interface StyledInputProps {
+export interface StyledDateProps {
     $size: 'small' | 'medium' | 'large';
-    $width?: string;
 }
 
-const getInputSizeStyle = ({ $size }: StyledInputProps) => {
+const getDateSizeStyle = ({ $size }: StyledDateProps) => {
     switch ($size) {
         case 'small':
             return `
@@ -90,7 +89,8 @@ const getInputSizeStyle = ({ $size }: StyledInputProps) => {
     }
 };
 
-export const StyledInput = styled.input<StyledInputProps>`
+export const StyledDate = styled.input<StyledDateProps>`
+    cursor: auto;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -101,7 +101,7 @@ export const StyledInput = styled.input<StyledInputProps>`
     background-color: transparent;
     transition: 200ms;
 
-    ${(props) => getInputSizeStyle(props)};
+    ${(props) => getDateSizeStyle(props)};
 
     &::placeholder {
         color: ${cv.default400};
@@ -121,27 +121,25 @@ export const StyledInput = styled.input<StyledInputProps>`
             color: ${cv.default400};
         }
     }
-`;
 
-export const StyledSpinner = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding-left: 12px;
-`;
+    &:focus-within {
+        outline: none;
+    }
 
-export const StyledPrefix = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding-left: 12px;
-`;
+    &::-webkit-datetime-edit-ampm-field,
+    &::-webkit-datetime-edit-day-field,
+    &::-webkit-datetime-edit-hour-field,
+    &::-webkit-datetime-edit-millisecond-field,
+    &::-webkit-datetime-edit-minute-field,
+    &::-webkit-datetime-edit-month-field,
+    &::-webkit-datetime-edit-second-field,
+    &::-webkit-datetime-edit-week-field,
+    &::-webkit-datetime-edit-year-field {
+        cursor: text;
+    }
 
-export const StyledSuffix = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding-right: 12px;
+    &::-webkit-calendar-picker-indicator {
+        stroke: ${cv.foreground};
+        cursor: pointer;
+    }
 `;

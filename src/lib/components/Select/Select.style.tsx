@@ -1,22 +1,23 @@
 import { styled } from 'styled-components';
-import { cv } from '../../..';
+import { cv } from '../..';
 
-export interface StyledDateOuterContainerProps {
-    $width: string;
+export interface StyledSelectOuterContainerProps {
+    $width?: string;
 }
-export const StyledDateOuterContainer = styled.div<StyledDateOuterContainerProps>`
+
+export const StyledSelectOuterContainer = styled.div<StyledSelectOuterContainerProps>`
     display: flex;
     flex-direction: column;
-    width: ${(props) => props.$width};
+    width: ${(props) => props.$width || '100%'};
     gap: 6px;
 `;
 
-export const StyledDateLabel = styled.div`
+export const StyledSelectLabel = styled.div`
     color: ${cv.default600};
     font-size: 12px;
 `;
 
-const getSizeStyle = ({ $size }: StyledDateContainerProps) => {
+const getSizeStyle = ({ $size }: StyledSelectContainerProps) => {
     switch ($size) {
         case 'small':
             return `
@@ -38,28 +39,27 @@ const getSizeStyle = ({ $size }: StyledDateContainerProps) => {
             `;
     }
 };
-export interface StyledDateContainerProps {
+
+export interface StyledSelectContainerProps {
     $size: 'small' | 'medium' | 'large';
     $disabled: boolean;
-    $readOnly: boolean;
     $width: string;
     $isError: boolean;
 }
 
-export const StyledDateContainer = styled.div<StyledDateContainerProps>`
+export const StyledSelectContainer = styled.div<StyledSelectContainerProps>`
     display: flex;
     align-items: center;
     transition: 200ms;
     border: solid 1px ${(props) => (props.$isError ? cv.red : cv.default200)};
-    background-color: ${(props) =>
-        props.$disabled || props.$readOnly ? cv.default100 : cv.background};
+    background-color: ${(props) => (props.$disabled ? cv.default100 : cv.background)};
     width: ${(props) => props.$width || '100%'};
 
     ${(props) => getSizeStyle(props)};
 
     &:focus-within {
         ${(props) =>
-            props.$disabled || props.$readOnly
+            props.$disabled
                 ? ''
                 : `
             border: solid 1px ${cv.default400};
@@ -68,11 +68,12 @@ export const StyledDateContainer = styled.div<StyledDateContainerProps>`
     }
 `;
 
-export interface StyledDateProps {
+export interface StyledSelectProps {
     $size: 'small' | 'medium' | 'large';
+    $width: string;
 }
 
-const getDateSizeStyle = ({ $size }: StyledDateProps) => {
+const getSelectSizeStyle = ({ $size }: StyledSelectProps) => {
     switch ($size) {
         case 'small':
             return `
@@ -89,8 +90,8 @@ const getDateSizeStyle = ({ $size }: StyledDateProps) => {
     }
 };
 
-export const StyledDate = styled.input<StyledDateProps>`
-    cursor: auto;
+export const StyledSelect = styled.select<StyledSelectProps>`
+    appearance: none;
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -100,12 +101,9 @@ export const StyledDate = styled.input<StyledDateProps>`
     outline: none;
     background-color: transparent;
     transition: 200ms;
+    cursor: pointer;
 
-    ${(props) => getDateSizeStyle(props)};
-
-    &::placeholder {
-        color: ${cv.default400};
-    }
+    ${(props) => getSelectSizeStyle(props)};
 
     &:disabled {
         color: ${cv.default600};
@@ -121,25 +119,20 @@ export const StyledDate = styled.input<StyledDateProps>`
             color: ${cv.default400};
         }
     }
+`;
 
-    &:focus-within {
-        outline: none;
-    }
+export const StyledPrefix = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-left: 12px;
+`;
 
-    &::-webkit-datetime-edit-ampm-field,
-    &::-webkit-datetime-edit-day-field,
-    &::-webkit-datetime-edit-hour-field,
-    &::-webkit-datetime-edit-millisecond-field,
-    &::-webkit-datetime-edit-minute-field,
-    &::-webkit-datetime-edit-month-field,
-    &::-webkit-datetime-edit-second-field,
-    &::-webkit-datetime-edit-week-field,
-    &::-webkit-datetime-edit-year-field {
-        cursor: text;
-    }
-
-    &::-webkit-calendar-picker-indicator {
-        stroke: ${cv.foreground};
-        cursor: pointer;
-    }
+export const StyledSuffix = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100%;
+    padding-right: 12px;
 `;

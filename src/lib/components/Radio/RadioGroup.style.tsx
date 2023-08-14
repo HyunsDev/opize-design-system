@@ -1,19 +1,19 @@
 import { styled } from 'styled-components';
-import { cv } from '../../..';
+import { cv } from '../..';
 
-export type StyledCheckboxGroupProps = {
+export type StyledRadioGroupProps = {
     $width: string;
     $gap: string;
 };
 
-export const StyledCheckboxGroup = styled.div<StyledCheckboxGroupProps>`
+export const StyledRadioGroup = styled.div<StyledRadioGroupProps>`
     display: flex;
     flex-direction: column;
     width: ${(props) => props.$width};
     gap: ${(props) => props.$gap};
 `;
 
-export const StyledCheckboxGroupLabel = styled.div`
+export const StyledRadioGroupLabel = styled.div`
     color: ${cv.default600};
     font-size: 12px;
 `;

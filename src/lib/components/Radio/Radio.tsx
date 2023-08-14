@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { StyledRadio, StyledRadioContainer, StyledRadioLabel } from './Radio.style';
 import { useRadioContext } from './Radio.context';
-import { useDOMRef } from '../../../utils/dom';
+import { useDOMRef } from '../../utils/dom';
 
 export type RadioProps = React.ComponentPropsWithRef<'input'> & {
     children?: React.ReactNode;

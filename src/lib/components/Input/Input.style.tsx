@@ -1,23 +1,22 @@
 import { styled } from 'styled-components';
-import { cv } from '../../..';
+import { cv } from '../..';
 
-export interface StyledSelectOuterContainerProps {
-    $width?: string;
+export interface StyledInputOuterContainerProps {
+    $width: string;
 }
-
-export const StyledSelectOuterContainer = styled.div<StyledSelectOuterContainerProps>`
+export const StyledInputOuterContainer = styled.div<StyledInputOuterContainerProps>`
     display: flex;
     flex-direction: column;
-    width: ${(props) => props.$width || '100%'};
+    width: ${(props) => props.$width};
     gap: 6px;
 `;
 
-export const StyledSelectLabel = styled.div`
+export const StyledInputLabel = styled.div`
     color: ${cv.default600};
     font-size: 12px;
 `;
 
-const getSizeStyle = ({ $size }: StyledSelectContainerProps) => {
+const getSizeStyle = ({ $size }: StyledInputContainerProps) => {
     switch ($size) {
         case 'small':
             return `
@@ -40,26 +39,27 @@ const getSizeStyle = ({ $size }: StyledSelectContainerProps) => {
     }
 };
 
-export interface StyledSelectContainerProps {
+export interface StyledInputContainerProps {
     $size: 'small' | 'medium' | 'large';
     $disabled: boolean;
+    $readOnly: boolean;
     $width: string;
     $isError: boolean;
 }
-
-export const StyledSelectContainer = styled.div<StyledSelectContainerProps>`
+export const StyledInputContainer = styled.div<StyledInputContainerProps>`
     display: flex;
     align-items: center;
     transition: 200ms;
     border: solid 1px ${(props) => (props.$isError ? cv.red : cv.default200)};
-    background-color: ${(props) => (props.$disabled ? cv.default100 : cv.background)};
+    background-color: ${(props) =>
+        props.$disabled || props.$readOnly ? cv.default100 : cv.background};
     width: ${(props) => props.$width || '100%'};
 
     ${(props) => getSizeStyle(props)};
 
     &:focus-within {
         ${(props) =>
-            props.$disabled
+            props.$disabled || props.$readOnly
                 ? ''
                 : `
             border: solid 1px ${cv.default400};
@@ -68,12 +68,12 @@ export const StyledSelectContainer = styled.div<StyledSelectContainerProps>`
     }
 `;
 
-export interface StyledSelectProps {
+export interface StyledInputProps {
     $size: 'small' | 'medium' | 'large';
-    $width: string;
+    $width?: string;
 }
 
-const getSelectSizeStyle = ({ $size }: StyledSelectProps) => {
+const getInputSizeStyle = ({ $size }: StyledInputProps) => {
     switch ($size) {
         case 'small':
             return `
@@ -90,8 +90,7 @@ const getSelectSizeStyle = ({ $size }: StyledSelectProps) => {
     }
 };
 
-export const StyledSelect = styled.select<StyledSelectProps>`
-    appearance: none;
+export const StyledInput = styled.input<StyledInputProps>`
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -101,9 +100,12 @@ export const StyledSelect = styled.select<StyledSelectProps>`
     outline: none;
     background-color: transparent;
     transition: 200ms;
-    cursor: pointer;
 
-    ${(props) => getSelectSizeStyle(props)};
+    ${(props) => getInputSizeStyle(props)};
+
+    &::placeholder {
+        color: ${cv.default400};
+    }
 
     &:disabled {
         color: ${cv.default600};
@@ -119,6 +121,13 @@ export const StyledSelect = styled.select<StyledSelectProps>`
             color: ${cv.default400};
         }
     }
+`;
+
+export const StyledSpinner = styled.div`
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-left: 12px;
 `;
 
 export const StyledPrefix = styled.div`

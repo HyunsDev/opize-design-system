@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Checkbox, CheckboxGroup } from '../..';
+import { Checkbox, CheckboxGroup } from '..';
 
 const meta: Meta<typeof CheckboxGroup> = {
     title: 'Opize Component/CheckboxGroup',
