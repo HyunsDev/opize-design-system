@@ -32,7 +32,6 @@ export const StyledError = styled.div<StyledErrorProps>`
     gap: 6px;
     color: ${cv.red};
 
-    padding: 12px 12px;
     ${(props) => getSizeStyle(props)};
 `;
 
@@ -61,6 +60,8 @@ export const ErrorLabel = styled.div<StyledErrorProps>`
     align-items: flex-start;
     height: 100%;
     font-weight: bold;
+
+    ${(props) => getLabelSizeStyle(props)};
 `;
 
 export const ErrorContent = styled.div`

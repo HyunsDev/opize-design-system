@@ -1,4 +1,4 @@
-import { styled } from 'styled-components';
+import { css, styled } from 'styled-components';
 import { ButtonAlign, ButtonShape, ButtonSize, ButtonVariant, ButtonWidth } from '../Button.type';
 import { getShapeStyle, getSizeStyle, getVariantStyle } from './style';
 
@@ -42,15 +42,36 @@ export const StyledButton = styled.button<StyledButtonProps>`
     ${(props) => getShapeStyle(props)};
 
     & > .button-child {
-        overflow: hidden;
-        white-space: nowrap;
-        text-overflow: ellipsis;
+        ${(props) =>
+            !props.$iconOnly &&
+            css`
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
 
-        display: block;
-        text-align: ${({ $align }) =>
-            $align === 'center' ? 'center' : $align === 'start' ? 'left' : 'right'};
-        margin: 0 auto;
-        width: 100%;
+                display: block;
+                text-align: ${props.$align === 'center'
+                    ? 'center'
+                    : props.$align === 'start'
+                    ? 'left'
+                    : 'right'};
+                margin: 0 auto;
+                width: 100%;
+                height: fit-content;
+            `}
+
+        ${(props) =>
+            props.$iconOnly &&
+            css`
+                overflow: hidden;
+                white-space: nowrap;
+                text-overflow: ellipsis;
+
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                width: 100%;
+            `}
     }
 
     & > .button-prefix,
