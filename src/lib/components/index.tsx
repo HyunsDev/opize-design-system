@@ -23,3 +23,4 @@ export * from './Note';
 export * from './Title';
 export * from './SlideBox';
 export * from './Error';
+export * from './Inputs';
