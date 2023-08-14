@@ -3,7 +3,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import { H1 } from '..';
 
 const meta: Meta<typeof H1> = {
-    title: 'Opize Component/Title/H1',
+    title: 'HTML-Like Component/Title/H1',
     component: H1,
     parameters: {
         layout: 'centered',
