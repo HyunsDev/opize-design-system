@@ -22,3 +22,4 @@ export * from './Avatar';
 export * from './Note';
 export * from './Title';
 export * from './SlideBox';
+export * from './Error';
