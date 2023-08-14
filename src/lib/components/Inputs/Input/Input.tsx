@@ -28,7 +28,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     } = props;
 
     return (
-        <StyledInputOuterContainer>
+        <StyledInputOuterContainer $width={width}>
             {label && <StyledInputLabel>{label}</StyledInputLabel>}
             <StyledInputContainer
                 $size={size}

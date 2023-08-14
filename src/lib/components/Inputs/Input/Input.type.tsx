@@ -1,4 +1,4 @@
-export type InputProps = Omit<React.ComponentPropsWithRef<'input'>, 'prefix'> & {
+export type InputProps = Omit<React.ComponentPropsWithRef<'input'>, 'prefix' | 'size'> & {
     label?: React.ReactNode;
     type?: 'text' | 'password' | 'url' | 'email' | 'number' | 'tel';
     error?: React.ReactNode;
