@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Flex, Select } from '../..';
-import { ArrowCircleUp, CaretCircleDown } from 'phosphor-react';
+import { Select } from '../..';
+import { CaretCircleDown } from 'phosphor-react';
 
 const meta: Meta<typeof Select> = {
     title: 'HTML-Like Component/Select',
