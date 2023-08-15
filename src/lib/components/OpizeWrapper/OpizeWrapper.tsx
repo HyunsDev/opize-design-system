@@ -1,5 +1,7 @@
 import { createGlobalStyle } from 'styled-components';
 import { colorCSSVariables } from '../../style/colors/colorPalette';
+import { ModalContextProvider } from '../../hooks/useModal/Modal.context';
+import { TopLoadingContextProvider } from '../../hooks/useTopLoading/TopLoading.context';
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -65,7 +67,9 @@ export function OpizeWrapper({ children }: OpizeWrapperProps) {
     return (
         <>
             <GlobalStyles />
-            {children}
+            <TopLoadingContextProvider>
+                <ModalContextProvider>{children}</ModalContextProvider>
+            </TopLoadingContextProvider>
         </>
     );
 }

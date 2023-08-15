@@ -30,3 +30,5 @@ export * from './Radio';
 export * from './Date';
 export * from './Checkbox';
 export * from './Switch';
+export * from './Modal';
+export * from './Header';
