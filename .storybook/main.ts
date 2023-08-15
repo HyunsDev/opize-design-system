@@ -11,6 +11,7 @@ const config: StorybookConfig = {
         '@storybook/addon-styling',
         '@storybook/addon-docs',
         'storybook-addon-swc',
+        'storybook-dark-mode',
     ],
     framework: {
         name: '@storybook/react-vite',

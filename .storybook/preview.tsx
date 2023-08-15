@@ -1,6 +1,8 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
 import { OpizeWrapper } from '../src';
+import { themes } from '@storybook/theming';
+import { ThemeSwitcher } from './components/ThemeSwitcher';
 
 const preview: Preview = {
     parameters: {
@@ -11,11 +13,16 @@ const preview: Preview = {
                 date: /Date$/,
             },
         },
+        darkMode: {
+            dark: { ...themes.dark },
+            light: { ...themes.normal },
+        },
     },
     decorators: [
         (Story: any) => {
             return (
                 <OpizeWrapper>
+                    <ThemeSwitcher />
                     <Story />
                 </OpizeWrapper>
             );
