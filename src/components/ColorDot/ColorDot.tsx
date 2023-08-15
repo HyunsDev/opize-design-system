@@ -42,15 +42,17 @@ const StyledColorDot = styled.div<StyledColorDotProps>`
     min-width: ${(props) => props.$size};
     min-height: ${(props) => props.$size};
     border-radius: ${(props) => props.$size || '12px'};
-    background-color: ${({ color }) => colorMap?.[color || 'default'] || color};
+    background-color: ${({ $color }) => $color};
 `;
 
 export const ColorDot = forwardRef<HTMLDivElement, ColorDotProps>((props, ref) => {
     const { color = 'default', size = '12px', ...rest } = props;
+
+    const _color = colorMap?.[color] || color;
     return (
         <StyledColorDot
             ref={ref}
-            $color={color}
+            $color={_color}
             $size={size}
             {...rest}
         />
