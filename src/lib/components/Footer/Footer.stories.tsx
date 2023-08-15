@@ -3,11 +3,6 @@ import styled from 'styled-components';
 
 import { Footer, Spacer, A, Avatar } from '..';
 
-const StyledLogo = styled.img`
-    width: 100%;
-    max-width: 120px;
-`;
-
 const meta: Meta<typeof Footer> = {
     title: 'Opize Component/Footer',
     component: Footer,

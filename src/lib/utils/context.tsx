@@ -1,9 +1,5 @@
 import React from 'react';
 
-/**
- * Code from https://github.com/nextui-org/nextui/blob/main/packages/utilities/react-utils/src/context.ts
- */
-
 export interface CreateContextOptions {
     strict?: boolean;
     errorMessage?: string;
