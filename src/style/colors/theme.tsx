@@ -2,7 +2,7 @@ import { isBrowser } from '../../utils/dom';
 import { Theme } from './color.type';
 
 export const theme: Theme = (() => {
-    if (isBrowser) return 'light';
+    if (!isBrowser) return 'light';
 
     const bodyTheme = document.querySelector('body')?.getAttribute('data-theme');
     if (!bodyTheme) {

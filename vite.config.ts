@@ -35,6 +35,7 @@ export default defineConfig({
                     'react-dom': 'ReactDOM',
                     'styled-components': 'styled',
                 },
+                banner: '"use client";',
             },
         },
     },
