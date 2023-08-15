@@ -7,14 +7,14 @@ export interface ComponentItemProps {
     children?: React.ReactNode;
 }
 
-const Components = styled.div<{ flex?: number }>`
-    flex: ${(props) => props.flex || 3};
+const Components = styled.div<{ $flex?: number }>`
+    flex: ${(props) => props.$flex || 3};
     display: flex;
     width: 100%;
 `;
 
 export function ComponentItem({ children, flex }: ComponentItemProps) {
-    return <Components flex={flex}>{children}</Components>;
+    return <Components $flex={flex}>{children}</Components>;
 }
 
 ComponentItem.displayName = 'ItemsTable.Row.Component';

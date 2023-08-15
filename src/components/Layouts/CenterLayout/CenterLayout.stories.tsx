@@ -37,7 +37,7 @@ export default meta;
 
 type Story = StoryObj<typeof CenterLayout>;
 
-const Blank = styled.div<{ height: number }>`
+const Blank = styled.div<{ $height: number }>`
     background-color: #363636;
     width: 100px;
     color: #ffffff;
@@ -56,7 +56,7 @@ export const Primary: Story = {
     },
     render: (args) => (
         <CenterLayout {...args}>
-            <Blank height={500}>CenterLayout</Blank>
+            <Blank $height={500}>CenterLayout</Blank>
         </CenterLayout>
     ),
 };

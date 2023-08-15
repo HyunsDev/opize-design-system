@@ -10,8 +10,14 @@ export interface TextItemProps {
     subText?: React.ReactNode;
 }
 
-const TextsDiv = styled.div<TextItemProps>`
-    flex: ${(props) => props.flex || 3};
+interface StyledTextItemProps {
+    $flex?: number;
+    $text?: React.ReactNode;
+    $subText?: React.ReactNode;
+}
+
+const TextsDiv = styled.div<StyledTextItemProps>`
+    flex: ${(props) => props.$flex || 3};
     display: flex;
     flex-direction: column;
     gap: 2px;
@@ -30,7 +36,7 @@ const SubTextDiv = styled.div`
 
 export function TextItem({ text, flex, subText }: TextItemProps) {
     return (
-        <TextsDiv flex={flex}>
+        <TextsDiv $flex={flex}>
             {text && typeof text === 'string' && (
                 <TextDiv>{`${text.substring(0, 50)}${text.length > 50 ? '...' : ''}`}</TextDiv>
             )}

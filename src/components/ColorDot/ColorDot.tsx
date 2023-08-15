@@ -1,5 +1,6 @@
 import { styled } from 'styled-components';
 import { cv } from '../..';
+import { forwardRef } from 'react';
 
 export type ColorDotColor =
     | 'default'
@@ -12,7 +13,7 @@ export type ColorDotColor =
     | 'violet'
     | string;
 
-export type ColorDotProps = {
+export type ColorDotProps = React.ComponentPropsWithRef<'div'> & {
     color?: ColorDotColor;
     size?: string;
 };
@@ -30,11 +31,28 @@ const colorMap: {
     violet: cv.violet,
 };
 
-export const ColorDot = styled.div<ColorDotProps>`
-    width: ${(props) => props.size || '12px'};
-    height: ${(props) => props.size || '12px'};
-    min-width: ${(props) => props.size || '12px'};
-    min-height: ${(props) => props.size || '12px'};
-    border-radius: ${(props) => props.size || '12px'};
+interface StyledColorDotProps {
+    $color: ColorDotColor;
+    $size: string;
+}
+
+const StyledColorDot = styled.div<StyledColorDotProps>`
+    width: ${(props) => props.$size};
+    height: ${(props) => props.$size};
+    min-width: ${(props) => props.$size};
+    min-height: ${(props) => props.$size};
+    border-radius: ${(props) => props.$size || '12px'};
     background-color: ${({ color }) => colorMap?.[color || 'default'] || color};
 `;
+
+export const ColorDot = forwardRef<HTMLDivElement, ColorDotProps>((props, ref) => {
+    const { color = 'default', size = '12px', ...rest } = props;
+    return (
+        <StyledColorDot
+            ref={ref}
+            $color={color}
+            $size={size}
+            {...rest}
+        />
+    );
+});

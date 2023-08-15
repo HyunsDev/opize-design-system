@@ -54,11 +54,11 @@ export default meta;
 
 type Story = StoryObj<typeof PageLayout>;
 
-const Blank = styled.div<{ height: number }>`
+const Blank = styled.div<{ $height: number }>`
     background-color: #363636;
     width: 100%;
     color: #ffffff;
-    height: ${(props) => props.height}px;
+    height: ${(props) => props.$height}px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -69,10 +69,10 @@ export const Primary: Story = {
     render: (args) => (
         <PageLayout {...args}>
             <PageLayout.Pane>
-                <Blank height={500}>PageLayout.Pane</Blank>
+                <Blank $height={500}>PageLayout.Pane</Blank>
             </PageLayout.Pane>
             <PageLayout.Content>
-                <Blank height={500}>PageLayout.Content</Blank>
+                <Blank $height={500}>PageLayout.Content</Blank>
             </PageLayout.Content>
         </PageLayout>
     ),

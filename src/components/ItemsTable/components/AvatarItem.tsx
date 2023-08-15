@@ -8,11 +8,11 @@ export interface AvatarItemProps {
     label?: React.ReactNode;
 }
 
-export const AvatarDiv = styled.div<{ flex?: number }>`
+export const AvatarDiv = styled.div<{ $flex: number }>`
     display: flex;
     align-items: center;
     gap: 8px;
-    flex: ${(props) => props.flex || 1};
+    flex: ${(props) => props.$flex};
     width: 100%;
 `;
 
@@ -40,9 +40,9 @@ const AvatarLabel = styled.div`
     color: ${cv.default700};
 `;
 
-export function AvatarItem({ flex, icon, name, label }: AvatarItemProps) {
+export function AvatarItem({ flex = 1, icon, name, label }: AvatarItemProps) {
     return (
-        <AvatarDiv flex={flex}>
+        <AvatarDiv $flex={flex}>
             {typeof icon === 'string' ? (
                 <AvatarIcon
                     src={icon}

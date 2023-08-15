@@ -16,15 +16,15 @@ const CenterLayoutOuter = styled.div<{
 `;
 
 interface CenterLayoutInnerProps {
-    width: string;
-    gutter: string;
+    $width: string;
+    $gutter: string;
 }
 const CenterLayoutInner = styled.div<CenterLayoutInnerProps>`
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: ${(props) => props.width};
-    margin: 0px ${(props) => props.gutter};
+    max-width: ${(props) => props.$width};
+    margin: 0px ${(props) => props.$gutter};
 
     align-items: center;
     justify-content: center;
@@ -54,8 +54,8 @@ export function CenterLayout({
             $minHeight={minHeight}
         >
             <CenterLayoutInner
-                width={width}
-                gutter={gutter}
+                $width={width}
+                $gutter={gutter}
             >
                 {children}
             </CenterLayoutInner>

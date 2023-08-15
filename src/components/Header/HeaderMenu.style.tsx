@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { cv } from '../..';
 
 export interface StyledHeaderMenuProps {
-    isScrolling: boolean;
+    $isScrolling: boolean;
 }
 export const StyledHeaderMenuContainer = styled.div<StyledHeaderMenuProps>`
     position: relative;
@@ -17,7 +17,7 @@ export const StyledHeaderMenuContainer = styled.div<StyledHeaderMenuProps>`
     background-color: ${cv.background};
 
     ${(props: StyledHeaderMenuProps) =>
-        props.isScrolling &&
+        props.$isScrolling &&
         `
             position: fixed;
             top: 0;

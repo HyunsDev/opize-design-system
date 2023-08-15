@@ -13,11 +13,11 @@ export function Tooltip({ children, content, direction = 'top' }: TooltipProps) 
 
     return (
         <TooltipContainer
-            isHover={isHover}
+            $isHover={isHover}
             onMouseOver={() => setIsHover(true)}
             onMouseOut={() => setIsHover(false)}
         >
-            <StyledTooltip direction={direction}>{content}</StyledTooltip>
+            <StyledTooltip $direction={direction}>{content}</StyledTooltip>
             {children}
         </TooltipContainer>
     );

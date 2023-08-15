@@ -32,7 +32,7 @@ const getDirectionStyle = (direction: TooltipProps['direction']) => {
     }
 };
 
-export const StyledTooltip = styled.div<{ direction: TooltipProps['direction'] }>`
+export const StyledTooltip = styled.div<{ $direction: TooltipProps['direction'] }>`
     position: absolute;
     opacity: 0;
     visibility: hidden;
@@ -52,7 +52,7 @@ export const StyledTooltip = styled.div<{ direction: TooltipProps['direction'] }
     white-space: pre;
     pointer-events: none;
 
-    ${(props) => getDirectionStyle(props.direction || 'top')};
+    ${(props) => getDirectionStyle(props.$direction || 'top')};
 
     &::after {
         content: '';
@@ -63,13 +63,13 @@ export const StyledTooltip = styled.div<{ direction: TooltipProps['direction'] }
     }
 `;
 
-export const TooltipContainer = styled.div<{ isHover: boolean }>`
+export const TooltipContainer = styled.div<{ $isHover: boolean }>`
     width: fit-content;
     height: fit-content;
     position: relative;
 
     ${(props) =>
-        props.isHover &&
+        props.$isHover &&
         css`
             ${StyledTooltip} {
                 visibility: visible;

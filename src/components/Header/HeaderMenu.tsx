@@ -18,7 +18,7 @@ export const HeaderMenu = ({ selected, tabs, setSelected }: HeaderMenuProps) => 
     }, []);
 
     return (
-        <StyledHeaderMenuContainer isScrolling={isScrolling}>
+        <StyledHeaderMenuContainer $isScrolling={isScrolling}>
             <StyledHeaderMenu>
                 <TabNav
                     selected={selected}

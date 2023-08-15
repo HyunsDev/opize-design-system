@@ -1,6 +1,7 @@
 import styled from 'styled-components';
 
 import { cv } from '../../style';
+import React from 'react';
 
 export interface CodeProps extends React.ComponentProps<'code'> {
     size?: string;
@@ -43,12 +44,32 @@ const getColorStyle = (color: CodeProps['color']) => {
     }
 };
 
-export const Code: (props: CodeProps) => React.ReactNode = styled.code<CodeProps>`
+interface StyledCodeProps {
+    $color: CodeProps['color'];
+    $size?: CodeProps['size'];
+    $borderRadius: CodeProps['borderRadius'];
+}
+
+const StyledCode = styled.code<StyledCodeProps>`
     padding: 2px 6px;
-    border-radius: ${(props) => props.borderRadius || '6px'};
+    border-radius: ${(props) => props.$borderRadius};
     font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, Liberation Mono, Courier New,
         monospace;
     font-weight: 400;
-    ${(props) => props.size && `font-size: ${props.size};`};
-    ${(props) => getColorStyle(props.color)};
+    ${(props) => props.$size && `font-size: ${props.$size};`};
+    ${(props) => getColorStyle(props.$color)};
 `;
+
+export const Code = React.forwardRef<HTMLDivElement, CodeProps>((props, ref) => {
+    const { children, ...rest } = props;
+    return (
+        <StyledCode
+            ref={ref}
+            $borderRadius="6px"
+            $color="default"
+            {...rest}
+        >
+            {children}
+        </StyledCode>
+    );
+});

@@ -16,14 +16,14 @@ const PageLayoutOuter = styled.div<{
 `;
 
 const PageLayoutInner = styled.div<{
-    width: string;
-    gutter: string;
+    $width: string;
+    $gutter: string;
 }>`
     display: flex;
     flex-direction: column;
     width: 100%;
-    max-width: ${(props) => props.width};
-    margin: 0px ${(props) => props.gutter};
+    max-width: ${(props) => props.$width};
+    margin: 0px ${(props) => props.$gutter};
 
     @media (max-width: 767px) {
         margin: 0px 8px;
@@ -50,8 +50,8 @@ export function BoxLayout({
             $minHeight={minHeight}
         >
             <PageLayoutInner
-                width={width}
-                gutter={gutter}
+                $width={width}
+                $gutter={gutter}
             >
                 {children}
             </PageLayoutInner>

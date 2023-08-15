@@ -17,8 +17,15 @@ export function TabNav(props: TabNavProps) {
 
     return (
         <StyledTabNav ref={ref}>
-            <Underline {...underlineStyle} />
-            <HoverBox {...hoverBoxStyle} />
+            <Underline
+                $left={underlineStyle.left}
+                $width={underlineStyle.width}
+            />
+            <HoverBox
+                $left={hoverBoxStyle.left}
+                $show={hoverBoxStyle.show}
+                $width={hoverBoxStyle.width}
+            />
             {tabs.map((tab) => {
                 return (
                     <ItemDiv
@@ -30,8 +37,8 @@ export function TabNav(props: TabNavProps) {
                         onMouseLeave={() => blurTab()}
                     >
                         <Item
-                            selected={tab.value === selected}
-                            disabled={!!tab.disabled}
+                            $selected={tab.value === selected}
+                            $disabled={!!tab.disabled}
                             onClick={() => clickTab(tab.value)}
                         >
                             {tab.title}

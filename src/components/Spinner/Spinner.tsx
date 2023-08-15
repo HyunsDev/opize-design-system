@@ -2,10 +2,10 @@ import styled, { keyframes } from 'styled-components';
 
 import { cv } from '../../style';
 
-const Loader = styled.div<{ size: number }>`
+const Loader = styled.div<{ $size: number }>`
     position: relative;
     margin: 0 auto;
-    width: ${(props) => props.size}px;
+    width: ${(props) => props.$size}px;
     &:before {
         content: '';
         display: block;
@@ -63,7 +63,7 @@ export type SpinnerProps = {
 
 export function Spinner({ weight = 4, color = cv.foreground, size = 32 }: SpinnerProps) {
     return (
-        <Loader size={size}>
+        <Loader $size={size}>
             <Circular
                 viewBox="25 25 50 50"
                 color={color}
