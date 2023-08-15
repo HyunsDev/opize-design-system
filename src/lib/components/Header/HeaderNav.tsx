@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { cv } from '../..';
 
-export const HeaderNavContainer = styled.nav`
+export const StyledHeaderNav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -15,7 +15,7 @@ export const HeaderNavContainer = styled.nav`
         padding: 0 8px;
     }
 `;
-HeaderNavContainer.displayName = 'Header.Nav';
+StyledHeaderNav.displayName = 'Header.Nav';
 
 export const HeaderNavLeft = styled.div`
     display: flex;
@@ -47,7 +47,7 @@ export const HeaderNavA = styled.a`
 `;
 HeaderNavA.displayName = 'Header.Nav.A';
 
-export const HeaderNav = Object.assign(HeaderNavContainer, {
+export const HeaderNav = Object.assign(StyledHeaderNav, {
     Left: HeaderNavLeft,
     Right: HeaderNavRight,
     A: HeaderNavA,
