@@ -5,6 +5,7 @@ import { CodeBlock } from '..';
 const meta: Meta<typeof CodeBlock> = {
     title: 'Opize Component/CodeBlock',
     component: CodeBlock,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

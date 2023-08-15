@@ -5,6 +5,7 @@ import { Code } from '..';
 const meta: Meta<typeof Code> = {
     title: 'HTML-Like Component/Code',
     component: Code,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

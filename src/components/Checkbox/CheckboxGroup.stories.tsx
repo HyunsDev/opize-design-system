@@ -5,6 +5,7 @@ import { Checkbox, CheckboxGroup } from '..';
 const meta: Meta<typeof CheckboxGroup> = {
     title: 'Opize Component/CheckboxGroup',
     component: CheckboxGroup,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

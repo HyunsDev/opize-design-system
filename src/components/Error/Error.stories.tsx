@@ -5,6 +5,7 @@ import { Error } from '..';
 const meta: Meta<typeof Error> = {
     title: 'Opize Component/Error',
     component: Error,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

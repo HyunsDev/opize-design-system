@@ -6,6 +6,7 @@ import { ButtonGroup, Button, Flex, Popover, Menu } from '..';
 const meta: Meta<typeof ButtonGroup> = {
     title: 'Opize Component/ButtonGroup',
     component: ButtonGroup,
+    tags: ['autodocs'],
 };
 export default meta;
 

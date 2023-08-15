@@ -6,6 +6,7 @@ import { ChatCenteredDots } from 'phosphor-react';
 const meta: Meta<typeof Tooltip> = {
     title: 'Opize Component/Tooltip',
     component: Tooltip,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

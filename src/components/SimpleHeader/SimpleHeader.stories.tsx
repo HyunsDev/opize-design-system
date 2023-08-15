@@ -4,6 +4,7 @@ import { Avatar, SimpleHeader, Spacer } from '..';
 const meta: Meta<typeof SimpleHeader> = {
     title: 'Opize Component/SimpleHeader',
     component: SimpleHeader,
+    tags: ['autodocs'],
     parameters: {
         layout: 'fullscreen',
     },

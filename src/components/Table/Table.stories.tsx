@@ -6,6 +6,7 @@ import { DotsThreeVertical } from 'phosphor-react';
 const meta: Meta<typeof Table> = {
     title: 'HTML-Like Component/Table',
     component: Table,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

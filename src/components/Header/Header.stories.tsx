@@ -4,6 +4,7 @@ import { Avatar, Header, Spacer } from '..';
 const meta: Meta<typeof Header> = {
     title: 'Opize Component/Header',
     component: Header,
+    tags: ['autodocs'],
     parameters: {
         layout: 'fullscreen',
     },

@@ -6,6 +6,7 @@ import { cv } from '../..';
 const meta: Meta<typeof Span> = {
     title: 'HTML-Like Component/Span',
     component: Span,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

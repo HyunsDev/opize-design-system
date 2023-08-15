@@ -5,6 +5,7 @@ import { PageHead, Button } from '..';
 const meta: Meta<typeof PageHead> = {
     title: 'Opize Component/PageHead',
     component: PageHead,
+    tags: ['autodocs'],
     parameters: {
         layout: 'fullscreen',
     },

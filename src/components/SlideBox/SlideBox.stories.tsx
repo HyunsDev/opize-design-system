@@ -7,6 +7,7 @@ import { cv } from '../..';
 const meta: Meta<typeof SlideBox> = {
     title: 'Opize Component/SlideBox',
     component: SlideBox,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

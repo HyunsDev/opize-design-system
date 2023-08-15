@@ -5,6 +5,10 @@ import { Footer, Spacer, A, Avatar } from '..';
 const meta: Meta<typeof Footer> = {
     title: 'Opize Component/Footer',
     component: Footer,
+    tags: ['autodocs'],
+    parameters: {
+        layout: 'fullscreen',
+    },
 };
 export default meta;
 

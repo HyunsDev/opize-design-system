@@ -5,6 +5,7 @@ import { H3 } from '..';
 const meta: Meta<typeof H3> = {
     title: 'HTML-Like Component/Title/H3',
     component: H3,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

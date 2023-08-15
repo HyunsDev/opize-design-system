@@ -5,6 +5,7 @@ import { Date } from '../..';
 const meta: Meta<typeof Date> = {
     title: 'HTML-Like Component/Date',
     component: Date,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

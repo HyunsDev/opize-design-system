@@ -6,6 +6,7 @@ import { CaretCircleDown } from 'phosphor-react';
 const meta: Meta<typeof Select> = {
     title: 'HTML-Like Component/Select',
     component: Select,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

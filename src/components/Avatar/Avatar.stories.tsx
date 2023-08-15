@@ -4,6 +4,7 @@ import { Avatar } from '..';
 const meta: Meta<typeof Avatar> = {
     title: 'Opize Component/Avatar',
     component: Avatar,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

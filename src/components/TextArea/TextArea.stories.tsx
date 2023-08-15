@@ -5,6 +5,7 @@ import { TextArea } from '../..';
 const meta: Meta<typeof TextArea> = {
     title: 'HTML-Like Component/TextArea',
     component: TextArea,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

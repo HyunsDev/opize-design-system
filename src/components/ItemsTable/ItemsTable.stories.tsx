@@ -6,6 +6,7 @@ import { ItemsTable } from '..';
 const meta: Meta<typeof ItemsTable> = {
     title: 'Opize Component/ItemsTable',
     component: ItemsTable,
+    tags: ['autodocs'],
 };
 export default meta;
 

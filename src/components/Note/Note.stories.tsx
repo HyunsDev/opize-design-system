@@ -5,6 +5,7 @@ import { Button, Note } from '..';
 const meta: Meta<typeof Note> = {
     title: 'Opize Component/Note',
     component: Note,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

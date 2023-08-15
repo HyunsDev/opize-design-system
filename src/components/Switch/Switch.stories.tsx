@@ -5,6 +5,7 @@ import { Switch } from '../..';
 const meta: Meta<typeof Switch> = {
     title: 'HTML-Like Component/Switch',
     component: Switch,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

@@ -5,6 +5,7 @@ import { Text } from '..';
 const meta: Meta<typeof Text> = {
     title: 'HTML-Like Component/Text',
     component: Text,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

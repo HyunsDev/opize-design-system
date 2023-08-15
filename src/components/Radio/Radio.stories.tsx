@@ -5,6 +5,7 @@ import { RadioGroup, Radio } from '../..';
 const meta: Meta<typeof RadioGroup> = {
     title: 'HTML-Like Component/Radio',
     component: RadioGroup,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

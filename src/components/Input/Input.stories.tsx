@@ -6,6 +6,7 @@ import { ArrowCircleUp } from 'phosphor-react';
 const meta: Meta<typeof Input> = {
     title: 'HTML-Like Component/Input',
     component: Input,
+    tags: ['autodocs'],
     parameters: {
         layout: 'centered',
     },

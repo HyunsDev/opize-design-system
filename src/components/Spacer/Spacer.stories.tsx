@@ -12,6 +12,7 @@ const BlackBox = styled.div`
 const meta: Meta<typeof Spacer> = {
     title: 'Opize Component/Spacer',
     component: Spacer,
+    tags: ['autodocs'],
 };
 export default meta;
 
