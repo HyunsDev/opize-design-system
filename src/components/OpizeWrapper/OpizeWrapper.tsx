@@ -2,6 +2,7 @@ import { createGlobalStyle } from 'styled-components';
 import { colorCSSVariables } from '../../style/colors/colorPalette';
 import { ModalContextProvider } from '../../hooks/useModal/Modal.context';
 import { TopLoadingContextProvider } from '../../hooks/useTopLoading/TopLoading.context';
+import { ColorThemeProvider } from '../../hooks/useColorTheme/ColorTheme.context';
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -34,7 +35,8 @@ const GlobalStyles = createGlobalStyle`
 
     body[data-theme='light'] {
         ${colorCSSVariables.light};
-        background-color: var(--bg-page2);
+        background-color: var(--background);
+        color: var(--foreground);
 
         * {
             ::selection {
@@ -45,7 +47,8 @@ const GlobalStyles = createGlobalStyle`
 
     body[data-theme='dark'] {
         ${colorCSSVariables.dark};
-        background-color: var(--bg-page2);
+        background-color: var(--background);
+        color: var(--foreground);
 
         * {
             ::selection {
@@ -67,9 +70,11 @@ export function OpizeWrapper({ children }: OpizeWrapperProps) {
     return (
         <>
             <GlobalStyles />
-            <TopLoadingContextProvider>
-                <ModalContextProvider>{children}</ModalContextProvider>
-            </TopLoadingContextProvider>
+            <ColorThemeProvider>
+                <TopLoadingContextProvider>
+                    <ModalContextProvider>{children}</ModalContextProvider>
+                </TopLoadingContextProvider>
+            </ColorThemeProvider>
         </>
     );
 }
