@@ -4,21 +4,21 @@ import { Button } from '..';
 import { usePopoverContext } from './Popover.context';
 
 export const PopoverTrigger = forwardRef<HTMLButtonElement, PopoverTriggerProps>((props, ref) => {
-    const { children, ...otherProps } = props;
+    const { children, onClick, ...otherProps } = props;
     const { isOpen, openPopover, closePopover, triggerProps } = usePopoverContext();
 
-    const onClick = useCallback(
+    const clickHandler = useCallback(
         (event: React.MouseEvent<HTMLButtonElement>) => {
             isOpen ? closePopover() : openPopover();
-            if (props.onClick) props.onClick(event);
+            if (onClick) onClick(event);
         },
-        [isOpen]
+        [isOpen, closePopover, openPopover, onClick]
     );
 
     return (
         <Button
             ref={ref}
-            onClick={onClick}
+            onClick={clickHandler}
             {...otherProps}
             {...triggerProps}
         >

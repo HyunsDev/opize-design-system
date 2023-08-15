@@ -40,13 +40,13 @@ export const Primary: Story = {
     args: {},
 };
 
-export const label: Story = {
+export const Label: Story = {
     args: {
         label: 'Date Label',
     },
 };
 
-export const error: Story = {
+export const Error: Story = {
     args: {
         error: 'Error Description',
     },

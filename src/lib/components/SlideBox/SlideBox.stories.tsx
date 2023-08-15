@@ -1,6 +1,6 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Button, ButtonGroup, Flex, SlideBox, Spacer } from '..';
+import { Button, ButtonGroup, Flex, SlideBox, SlideBoxProps, Spacer } from '..';
 import { useState } from 'react';
 import { cv } from '../..';
 
@@ -15,7 +15,7 @@ export default meta;
 
 type Story = StoryObj<typeof SlideBox>;
 
-const Template = (args: any) => {
+const Template = (args: SlideBoxProps) => {
     const [now, setNow] = useState(0);
 
     return (
@@ -24,9 +24,9 @@ const Template = (args: any) => {
             width="300px"
         >
             <SlideBox
+                {...args}
                 now={now}
                 setNow={setNow}
-                {...args}
             >
                 <SlideBox.Page index={0}>
                     <Spacer

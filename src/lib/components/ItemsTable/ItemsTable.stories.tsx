@@ -1,7 +1,5 @@
-import React from 'react';
-
 import { Meta, StoryObj } from '@storybook/react';
-import { Gear, UserCircle, X } from 'phosphor-react';
+import { UserCircle } from 'phosphor-react';
 
 import { ItemsTable } from '..';
 

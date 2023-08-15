@@ -9,7 +9,6 @@ import { Error } from '../..';
 
 export const TextArea = forwardRef<HTMLTextAreaElement, TextAreaProps>((props, ref) => {
     const {
-        type = 'text',
         label,
         error,
         disabled = false,

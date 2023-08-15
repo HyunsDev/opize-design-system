@@ -39,7 +39,7 @@ export function ModalContainer({ isOpen, setIsOpen, children, isPadding, width }
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, [setIsOpen]);
 
     useEffect(() => {
         if (isOpen) {

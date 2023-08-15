@@ -63,14 +63,14 @@ export const WithSuffix: Story = {
     },
 };
 
-export const label: Story = {
+export const Label: Story = {
     args: {
         placeholder: 'Select',
         label: 'Select Label',
     },
 };
 
-export const error: Story = {
+export const Error: Story = {
     args: {
         placeholder: 'Select',
         error: 'Error Description',

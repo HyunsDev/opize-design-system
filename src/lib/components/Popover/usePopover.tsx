@@ -41,7 +41,7 @@ export function usePopover(props: UsePopoverProps) {
         const y = ref.getBoundingClientRect().bottom + 200 > window.innerHeight ? 'top' : 'bottom';
 
         setPopoverDirection({ x, y });
-    }, []);
+    }, [domRef]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -53,7 +53,7 @@ export function usePopover(props: UsePopoverProps) {
         return () => {
             document.removeEventListener('mousedown', handleClickOutside);
         };
-    }, []);
+    }, [domRef]);
 
     const triggerProps = {};
     const contentProps = {

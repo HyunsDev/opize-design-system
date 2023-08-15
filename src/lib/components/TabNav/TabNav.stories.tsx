@@ -2,7 +2,7 @@ import { useState } from 'react';
 
 import { Meta, StoryObj } from '@storybook/react';
 
-import { TabNav } from '..';
+import { TabNav, TabNavProps } from '..';
 
 const meta: Meta<typeof TabNav> = {
     title: 'Opize Component/TabNav',
@@ -55,7 +55,7 @@ export const Primary: Story = {
     },
 };
 
-const ExampleTemplate = (args: any) => {
+const ExampleTemplate = (args: TabNavProps) => {
     const [selectedMenu, setSelectedMenu] = useState('Menu1');
 
     return (

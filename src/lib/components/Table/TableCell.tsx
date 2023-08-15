@@ -1,5 +1,4 @@
 import { forwardRef } from 'react';
-import { useTableContext } from './Table.context';
 import { StyledTableCell } from './Table.style';
 
 export interface TableCellProps {
@@ -8,7 +7,6 @@ export interface TableCellProps {
 }
 export const TableCell = forwardRef<HTMLTableCellElement, TableCellProps>((props, ref) => {
     const { children, align = 'left', ...otherProps } = props;
-    const {} = useTableContext();
 
     return (
         <StyledTableCell

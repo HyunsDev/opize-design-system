@@ -1,5 +1,4 @@
 import { Meta, StoryObj } from '@storybook/react';
-import styled from 'styled-components';
 
 import { Footer, Spacer, A, Avatar } from '..';
 
@@ -11,7 +10,7 @@ export default meta;
 
 type Story = StoryObj<typeof Footer>;
 
-export const primary: Story = {
+export const Primary: Story = {
     parameters: {
         layout: {
             fullscreen: true,

@@ -22,7 +22,7 @@ export const Note = React.forwardRef<HTMLDivElement, NoteProps>((props, ref) => 
 
     const styleProps = {
         $variant: props.variant,
-        $fill: props.fill,
+        $fill: fill,
     };
 
     const labelComponent = label || defaultLabel[variant];

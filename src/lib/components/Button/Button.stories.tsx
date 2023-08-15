@@ -187,6 +187,5 @@ const AllButtonTemplate = (args: any) => {
 };
 
 export const AllButton: Story = {
-    name: 'All Button',
     render: AllButtonTemplate,
 };

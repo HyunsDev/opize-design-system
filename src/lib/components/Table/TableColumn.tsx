@@ -1,5 +1,4 @@
 import { forwardRef } from 'react';
-import { useTableContext } from './Table.context';
 import { StyledTableColumn } from './Table.style';
 
 export interface TableColumnProps {
@@ -9,7 +8,6 @@ export interface TableColumnProps {
 
 export const TableColumn = forwardRef<HTMLTableCellElement, TableColumnProps>((props, ref) => {
     const { children, align = 'left', ...otherProps } = props;
-    const {} = useTableContext();
 
     return (
         <StyledTableColumn

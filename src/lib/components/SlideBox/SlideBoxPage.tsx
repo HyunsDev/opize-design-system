@@ -18,7 +18,7 @@ export const SlideBoxPage = forwardRef<HTMLDivElement, SlideBoxPageProps>((props
             ro.disconnect();
         }
         return () => ro.disconnect();
-    }, [now, index]);
+    }, [now, index, domRef, setHeight]);
 
     const position = now === index ? 'center' : now > index ? 'left' : 'right';
 

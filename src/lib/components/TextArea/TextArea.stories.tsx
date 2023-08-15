@@ -9,12 +9,6 @@ const meta: Meta<typeof TextArea> = {
         layout: 'centered',
     },
     argTypes: {
-        type: {
-            control: {
-                type: 'select',
-            },
-            options: ['text', 'password', 'email', 'number', 'tel', 'url'],
-        },
         width: {
             control: {
                 type: 'text',
@@ -32,7 +26,6 @@ const meta: Meta<typeof TextArea> = {
         },
     },
     args: {
-        type: 'text',
         disabled: false,
         readOnly: false,
         width: '100%',
@@ -51,7 +44,7 @@ export const Primary: Story = {
     },
 };
 
-export const label: Story = {
+export const Label: Story = {
     args: {
         placeholder: 'Input',
         label: 'Input Label',
@@ -60,7 +53,7 @@ export const label: Story = {
     },
 };
 
-export const error: Story = {
+export const Error: Story = {
     args: {
         placeholder: 'Input',
         error: 'Error Description',

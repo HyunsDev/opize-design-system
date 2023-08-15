@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
 import { TableProps } from './Table.type';
 import { StyledTable } from './Table.style';
-import { TableProvider } from './Table.context';
 import { useTable } from './useTable';
 import { TableHead } from './TableHead';
 import { TableBody } from './TableBody';
@@ -10,12 +9,15 @@ import { TableRow } from './TableRow';
 import { TableCell } from './TableCell';
 
 const TableContainer = forwardRef<HTMLTableElement, TableProps>((props, ref) => {
-    const context = useTable({ ...props, ref });
+    const { children, domRef, ...otherProps } = useTable({ ...props, ref });
 
     return (
-        <TableProvider value={context}>
-            <StyledTable ref={context.domRef}>{context.children}</StyledTable>
-        </TableProvider>
+        <StyledTable
+            ref={domRef}
+            {...otherProps}
+        >
+            {children}
+        </StyledTable>
     );
 });
 

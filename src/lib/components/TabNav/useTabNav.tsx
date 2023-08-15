@@ -28,20 +28,23 @@ export function useTabNav(props: TabNavProps) {
         setUnderlineStyle(style);
     }, [selected]);
 
-    const hoverTab = useCallback((value: string) => {
-        if (hoverTimer.current) clearTimeout(hoverTimer.current);
-        const tab = tabs?.find((tab) => tab.value === value);
-        if (!tab || tab.disabled) return;
+    const hoverTab = useCallback(
+        (value: string) => {
+            if (hoverTimer.current) clearTimeout(hoverTimer.current);
+            const tab = tabs?.find((tab) => tab.value === value);
+            if (!tab || tab.disabled) return;
 
-        const style = {
-            width: targets.current[value]?.offsetWidth,
-            left:
-                Number(targets.current[value]?.getBoundingClientRect().left) -
-                Number(ref.current?.getBoundingClientRect().left),
-            show: true,
-        };
-        setHoverBoxStyle(style);
-    }, []);
+            const style = {
+                width: targets.current[value]?.offsetWidth,
+                left:
+                    Number(targets.current[value]?.getBoundingClientRect().left) -
+                    Number(ref.current?.getBoundingClientRect().left),
+                show: true,
+            };
+            setHoverBoxStyle(style);
+        },
+        [tabs]
+    );
 
     const blurTab = useCallback(() => {
         hoverTimer.current = setTimeout(() => {
@@ -59,7 +62,7 @@ export function useTabNav(props: TabNavProps) {
             if (!tab?.onClick && setSelected) setSelected(value);
             if (tab?.onClick) tab.onClick();
         },
-        [setSelected]
+        [setSelected, tabs]
     );
 
     return {

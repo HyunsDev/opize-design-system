@@ -2,6 +2,7 @@ import { Meta, StoryObj } from '@storybook/react';
 import styled from 'styled-components';
 
 import { Flex } from '..';
+import { ComponentProps } from 'react';
 
 const meta: Meta<typeof Flex> = {
     title: 'HTML-Like Component/Flex',
@@ -53,7 +54,7 @@ const Item = styled.div`
 `;
 
 export const Primary: Story = {
-    render: (args: any) => (
+    render: (args: ComponentProps<typeof Flex>) => (
         <Flex {...args}>
             <Item />
             <Item />
