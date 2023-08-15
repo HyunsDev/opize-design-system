@@ -1,6 +1,6 @@
 import React from 'react';
 import type { Preview } from '@storybook/react';
-import { OpizeWrapper } from '../src/lib';
+import { OpizeWrapper } from '../src';
 
 const preview: Preview = {
     parameters: {
