@@ -4333,6 +4333,15 @@ __metadata:
   languageName: node
   linkType: hard
 
+"@types/react-syntax-highlighter@npm:^15.5.7":
+  version: 15.5.7
+  resolution: "@types/react-syntax-highlighter@npm:15.5.7"
+  dependencies:
+    "@types/react": "*"
+  checksum: 1918d01baaa9bf485093fb04167d0dc87131be708bd68d32d3f614c0e7dba05de765fc62df139fa1972836b13e27983a2d89552eda5b5a38691a4ec300949648
+  languageName: node
+  linkType: hard
+
 "@types/react@npm:*, @types/react@npm:>=16, @types/react@npm:^18.2.15":
   version: 18.2.19
   resolution: "@types/react@npm:18.2.19"
@@ -9012,6 +9021,7 @@ __metadata:
     "@swc/core": ^1.3.75
     "@types/react": ^18.2.15
     "@types/react-dom": ^18.2.7
+    "@types/react-syntax-highlighter": ^15.5.7
     "@typescript-eslint/eslint-plugin": ^6.0.0
     "@typescript-eslint/parser": ^6.0.0
     "@vitejs/plugin-react-swc": ^3.3.2
@@ -9023,6 +9033,7 @@ __metadata:
     react: ^18.2.0
     react-docgen-typescript-plugin: ^1.0.5
     react-dom: ^18.2.0
+    react-syntax-highlighter: ^15.5.0
     storybook: ^7.2.1
     storybook-addon-react-docgen: ^1.2.43
     storybook-addon-swc: ^1.2.0
