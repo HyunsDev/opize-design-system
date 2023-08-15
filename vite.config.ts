@@ -36,7 +36,9 @@ export default defineConfig({
                     'styled-components': 'styled',
                 },
                 banner: '"use client";',
+                interop: 'compat',
             },
         },
+        ssr: false,
     },
 });

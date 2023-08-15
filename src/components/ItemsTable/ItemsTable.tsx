@@ -1,5 +1,5 @@
 import { IconContext } from 'phosphor-react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { cv } from '../../style';
 import { AvatarItem, ComponentItem, TextItem } from './components';

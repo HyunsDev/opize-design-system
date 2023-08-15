@@ -1,5 +1,5 @@
 import { forwardRef } from 'react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 export type FlexProps = React.ComponentPropsWithRef<'div'> & {
     gap?: string;

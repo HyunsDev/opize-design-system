@@ -1,8 +1,8 @@
-import styled, { keyframes } from 'styled-components';
+import { styled } from 'styled-components';
 
 import { cv } from '../../style';
 
-const Loader = styled.div<{ $size: number }>`
+const StyledLoader = styled.div<{ $size: number }>`
     position: relative;
     margin: 0 auto;
     width: ${(props) => props.$size}px;
@@ -13,29 +13,29 @@ const Loader = styled.div<{ $size: number }>`
     }
 `;
 
-const dash = keyframes`
-    0% {
-        stroke-dasharray: 1, 200;
-        stroke-dashoffset: 0;
+const StyledCircular = styled.svg`
+    @keyframes dash {
+        0% {
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+        }
+        50% {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: -35px;
+        }
+        100% {
+            stroke-dasharray: 89, 200;
+            stroke-dashoffset: -124px;
+        }
     }
-    50% {
-        stroke-dasharray: 89, 200;
-        stroke-dashoffset: -35px;
-    }
-    100% {
-        stroke-dasharray: 89, 200;
-        stroke-dashoffset: -124px;
-    }
-`;
 
-const rotate = keyframes`
-    100% {
-        transform: rotate(360deg);
+    @keyframes rotate {
+        100% {
+            transform: rotate(360deg);
+        }
     }
-`;
 
-const Circular = styled.svg`
-    animation: ${rotate} 2s linear infinite;
+    animation: rotate 2s linear infinite;
     height: 100%;
     transform-origin: center center;
     width: 100%;
@@ -49,7 +49,7 @@ const Circular = styled.svg`
     .path {
         stroke-dasharray: 1, 200;
         stroke-dashoffset: 0;
-        animation: ${dash} 1.5s ease-in-out infinite;
+        animation: dash 1.5s ease-in-out infinite;
         stroke: ${(props) => props.color || cv.foreground};
         stroke-linecap: round;
     }
@@ -63,8 +63,8 @@ export type SpinnerProps = {
 
 export function Spinner({ weight = 4, color = cv.foreground, size = 32 }: SpinnerProps) {
     return (
-        <Loader $size={size}>
-            <Circular
+        <StyledLoader $size={size}>
+            <StyledCircular
                 viewBox="25 25 50 50"
                 color={color}
             >
@@ -77,7 +77,7 @@ export function Spinner({ weight = 4, color = cv.foreground, size = 32 }: Spinne
                     strokeWidth={weight}
                     strokeMiterlimit="10"
                 />
-            </Circular>
-        </Loader>
+            </StyledCircular>
+        </StyledLoader>
     );
 }

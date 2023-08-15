@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import styled from 'styled-components';
+import { styled } from 'styled-components';
 
 import { PageLayout } from '../..';
 
