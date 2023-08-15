@@ -6,6 +6,9 @@ import { cv } from '../..';
 const meta: Meta<typeof Spinner> = {
     title: 'Opize Component/Spinner',
     component: Spinner,
+    parameters: {
+        layout: 'centered',
+    },
     tags: ['autodocs'],
     argTypes: {
         size: {

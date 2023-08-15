@@ -5,6 +5,5 @@ export type SelectProps = Omit<React.ComponentPropsWithRef<'select'>, 'size'> & 
     disabled?: boolean;
     width?: string;
     placeholder?: string;
-    prefix?: React.ReactNode;
     suffix?: React.ReactNode;
 };

@@ -100,6 +100,7 @@ export const StyledInput = styled.input<StyledInputProps>`
     outline: none;
     background-color: transparent;
     transition: 200ms;
+    color: ${cv.foreground};
 
     ${(props) => getInputSizeStyle(props)};
 

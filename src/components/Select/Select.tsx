@@ -1,7 +1,6 @@
 import { forwardRef } from 'react';
 import { SelectProps } from './Select.type';
 import {
-    StyledPrefix,
     StyledSelect,
     StyledSelectContainer,
     StyledSelectOuterContainer,
@@ -19,7 +18,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, ref) =>
         disabled = false,
         width = '100%',
         placeholder,
-        prefix,
         suffix = <CaretDown />,
         ...rest
     } = props;
@@ -33,7 +31,6 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, ref) =>
                 $size={size}
                 $width={width}
             >
-                {prefix && <StyledPrefix>{prefix}</StyledPrefix>}
                 <StyledSelect
                     ref={ref}
                     disabled={disabled}
@@ -42,7 +39,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, ref) =>
                     $width={width}
                     {...rest}
                 />
-                {suffix && <StyledSuffix>{suffix}</StyledSuffix>}
+                {suffix && <StyledSuffix $size={size}>{suffix}</StyledSuffix>}
             </StyledSelectContainer>
             {error && <Error size={size}>{error}</Error>}
         </StyledSelectOuterContainer>

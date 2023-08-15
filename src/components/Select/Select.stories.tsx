@@ -50,13 +50,6 @@ export const Primary: Story = {
     },
 };
 
-export const WithPrefix: Story = {
-    args: {
-        placeholder: 'Select',
-        prefix: 'https://',
-    },
-};
-
 export const WithSuffix: Story = {
     args: {
         placeholder: 'Select',

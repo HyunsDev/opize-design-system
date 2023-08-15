@@ -40,6 +40,7 @@ export const StyledTextArea = styled.textarea<StyledTextAreaProps>`
     border-radius: 12px;
     border: solid 1px ${(props) => (props.$isError ? cv.red : cv.default200)};
     background-color: ${cv.background};
+    color: ${cv.foreground};
 
     &:focus {
         border: solid 1px ${cv.default400};

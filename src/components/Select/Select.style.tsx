@@ -48,6 +48,7 @@ export interface StyledSelectContainerProps {
 }
 
 export const StyledSelectContainer = styled.div<StyledSelectContainerProps>`
+    position: relative;
     display: flex;
     align-items: center;
     transition: 200ms;
@@ -78,14 +79,17 @@ const getSelectSizeStyle = ({ $size }: StyledSelectProps) => {
         case 'small':
             return `
                 padding: 0px 8px;
+                padding-right: 28px;
             `;
         case 'medium':
             return `
                 padding: 0px 12px;
+                padding-right: 32px;
             `;
         case 'large':
             return `
                 padding: 0px 16px;
+                padding-right: 36px;
             `;
     }
 };
@@ -121,18 +125,35 @@ export const StyledSelect = styled.select<StyledSelectProps>`
     }
 `;
 
-export const StyledPrefix = styled.div`
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    height: 100%;
-    padding-left: 12px;
-`;
+interface StyledSelectSuffixProps {
+    $size: 'small' | 'medium' | 'large';
+}
 
-export const StyledSuffix = styled.div`
+const getSelectSuffixSizeStyle = ({ $size }: StyledSelectSuffixProps) => {
+    switch ($size) {
+        case 'small':
+            return `
+                right: 8px;
+            `;
+        case 'medium':
+            return `
+                right: 10px;
+            `;
+        case 'large':
+            return `
+                right: 12px;
+            `;
+    }
+};
+
+export const StyledSuffix = styled.div<StyledSelectSuffixProps>`
+    position: absolute;
     display: flex;
     align-items: center;
     justify-content: center;
     height: 100%;
-    padding-right: 12px;
+    user-select: none;
+    pointer-events: none;
+    transition: 200ms;
+    ${(props) => getSelectSuffixSizeStyle(props)};
 `;

@@ -32,7 +32,7 @@ const StyledSpacer = styled.div<StyledSpacerProps>`
 export const Spacer = forwardRef<HTMLDivElement, SpacerProps>((props, ref) => {
     const {
         children,
-        width = '100px',
+        width = '100%',
         height = '100px',
         backgroundColor = 'transparent',
         color = cv.foreground,
