@@ -2,6 +2,8 @@
     "name": "opize-design-system",
     "version": "1.0.0",
     "license": "MIT",
+    "description": "Opize Design System",
+    "author": "Opize <hello@opize.me> (https://opize.me)",
     "type": "module",
     "types": "./dist/index.d.ts",
     "main": "./dist/index.cjs.js",
@@ -50,12 +52,13 @@
         "react-docgen-typescript-plugin": "^1.0.5",
         "react-dom": "^18.2.0",
         "storybook": "^7.2.1",
+        "storybook-addon-react-docgen": "^1.2.43",
         "storybook-addon-swc": "^1.2.0",
+        "styled-components": "^6.0.7",
         "typescript": "^5.0.2",
         "vite": "^4.4.5",
         "vite-plugin-dts": "^3.5.2",
-        "vite-tsconfig-paths": "^4.2.0",
-        "styled-components": "^6.0.7"
+        "vite-tsconfig-paths": "^4.2.0"
     },
     "peerDependencies": {
         "phosphor-react": "^1.4.1",
@@ -65,7 +68,6 @@
     },
     "packageManager": "yarn@3.6.1",
     "dependencies": {
-        "react-syntax-highlighter": "^15.5.0",
-        "storybook-addon-react-docgen": "^1.2.43"
+        "react-syntax-highlighter": "^15.5.0"
     }
 }
