@@ -27,15 +27,15 @@ const Pane = styled.div<{
 Pane.displayName = 'PageLayout.Pane';
 
 const PageLayoutOuter = styled.div<{
-    minHeight: string;
-    backgroundColor: string;
+    $minHeight: string;
+    $backgroundColor: string;
 }>`
     flex: 1;
     width: 100%;
-    background-color: ${(props) => props.backgroundColor};
+    background-color: ${(props) => props.$backgroundColor};
     display: flex;
     justify-content: center;
-    min-height: ${(props) => props.minHeight};
+    min-height: ${(props) => props.$minHeight};
 `;
 
 interface PageLayoutInnerProps {
@@ -78,8 +78,8 @@ function PageLayoutRoot({
 }: PageLayoutRootProps) {
     return (
         <PageLayoutOuter
-            minHeight={minHeight}
-            backgroundColor={backgroundColor}
+            $minHeight={minHeight}
+            $backgroundColor={backgroundColor}
         >
             <PageLayoutInner
                 width={width}

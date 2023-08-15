@@ -5,14 +5,14 @@ import styled from 'styled-components';
 import { cv } from '../../../style';
 
 const PageLayoutOuter = styled.div<{
-    backgroundColor: string;
-    minHeight: string;
+    $backgroundColor: string;
+    $minHeight: string;
 }>`
     width: 100%;
-    background-color: ${(props) => props.backgroundColor};
+    background-color: ${(props) => props.$backgroundColor};
     display: flex;
     justify-content: center;
-    min-height: ${(props) => props.minHeight};
+    min-height: ${(props) => props.$minHeight};
 `;
 
 const PageLayoutInner = styled.div<{
@@ -46,8 +46,8 @@ export function BoxLayout({
 }: BoxLayoutProps) {
     return (
         <PageLayoutOuter
-            backgroundColor={backgroundColor}
-            minHeight={minHeight}
+            $backgroundColor={backgroundColor}
+            $minHeight={minHeight}
         >
             <PageLayoutInner
                 width={width}

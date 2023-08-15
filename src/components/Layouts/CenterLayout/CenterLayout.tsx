@@ -5,14 +5,14 @@ import styled from 'styled-components';
 import { cv } from '../../../style';
 
 const CenterLayoutOuter = styled.div<{
-    backgroundColor: string;
-    minHeight: string;
+    $backgroundColor: string;
+    $minHeight: string;
 }>`
     width: 100%;
-    background-color: ${(props) => props.backgroundColor};
+    background-color: ${(props) => props.$backgroundColor};
     display: flex;
     justify-content: center;
-    min-height: ${(props) => props.minHeight};
+    min-height: ${(props) => props.$minHeight};
 `;
 
 interface CenterLayoutInnerProps {
@@ -50,8 +50,8 @@ export function CenterLayout({
 }: CenterLayoutProps) {
     return (
         <CenterLayoutOuter
-            backgroundColor={backgroundColor}
-            minHeight={minHeight}
+            $backgroundColor={backgroundColor}
+            $minHeight={minHeight}
         >
             <CenterLayoutInner
                 width={width}
