@@ -33,3 +33,4 @@ export * from './Switch';
 export * from './Modal';
 export * from './Header';
 export * from './SimpleHeader';
+export * from './Footer';
