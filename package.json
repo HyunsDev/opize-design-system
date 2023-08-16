@@ -70,5 +70,7 @@
     "dependencies": {
         "react-syntax-highlighter": "^15.5.0"
     },
-    "packageManager": "yarn@3.6.1"
+    "resolutions": {
+        "jackspeak": "2.1.1"
+    }
 }
