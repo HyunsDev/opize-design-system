@@ -11,7 +11,7 @@ module.exports = {
         'plugin:storybook/recommended',
         'plugin:import/recommended',
     ],
-    ignorePatterns: ['dist', '.eslintrc.cjs'],
+    ignorePatterns: ['dist', '.eslintrc.cjs', 'storybook-static', 'node_modules'],
     parser: '@typescript-eslint/parser',
     plugins: ['react-refresh'],
     rules: {

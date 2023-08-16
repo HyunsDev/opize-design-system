@@ -45,6 +45,7 @@ const StyledFooterNav = styled.div`
     }
 `;
 
+export { FooterNavItem, FooterNavTitle, FooterNavA };
 export const FooterNav = Object.assign(StyledFooterNav, {
     Item: FooterNavItem,
     Title: FooterNavTitle,

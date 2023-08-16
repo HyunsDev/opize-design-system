@@ -34,6 +34,7 @@ const StyledFooterMenu = styled.div`
 `;
 StyledFooterMenu.displayName = 'Footer.Menu';
 
+export { FooterMenuItem };
 export const FooterMenu = Object.assign(StyledFooterMenu, {
     Item: FooterMenuItem,
 });

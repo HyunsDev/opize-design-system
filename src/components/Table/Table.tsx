@@ -21,6 +21,7 @@ const TableContainer = forwardRef<HTMLTableElement, TableProps>((props, ref) => 
     );
 });
 
+export { TableHead, TableBody, TableColumn, TableRow, TableCell };
 export const Table = Object.assign(TableContainer, {
     Head: TableHead,
     Body: TableBody,

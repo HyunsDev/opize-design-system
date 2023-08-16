@@ -1,10 +1,5 @@
 import React from 'react';
-import {
-    StyledModalContainer,
-    StyledModalContent,
-    StyledModalFooter,
-    StyledModalHeader,
-} from './Modal.style';
+import { StyledModalContainer, ModalContent, ModalFooter, ModalHeader } from './Modal.style';
 
 export type ModalProps = React.ComponentPropsWithRef<'div'> & {
     width?: string;
@@ -26,8 +21,9 @@ const ModalContainer = React.forwardRef<HTMLDivElement, ModalProps>((props, ref)
 
 ModalContainer.displayName = 'Modal';
 
+export { ModalHeader, ModalContent, ModalFooter };
 export const Modal = Object.assign(ModalContainer, {
-    Header: StyledModalHeader,
-    Content: StyledModalContent,
-    Footer: StyledModalFooter,
+    Header: ModalHeader,
+    Content: ModalContent,
+    Footer: ModalFooter,
 });

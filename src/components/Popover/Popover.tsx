@@ -22,6 +22,7 @@ const PopoverContainer = forwardRef<HTMLDivElement, PopoverProps>((props, ref) =
     );
 });
 
+export { PopoverTrigger, PopoverContent };
 export const Popover = Object.assign(PopoverContainer, {
     Trigger: PopoverTrigger,
     Content: PopoverContent,
