@@ -21,5 +21,11 @@ const config: StorybookConfig = {
         autodocs: 'tag',
     },
     typescript: {},
+    staticDirs: ['./public'],
+    managerHead: (head) => `
+        ${head}
+        <link rel='favicon' href='favicon.ico' />
+        <link rel='icon' href='favicon.ico' />
+        `,
 };
 export default config;
