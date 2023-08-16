@@ -10,19 +10,22 @@ export const StyledModalContainer = styled.div<StyledModalContainer>`
     width: ${(props) => props.$width};
 `;
 
-export const StyledModalHeader = styled.header`
+export const ModalHeader = styled.header`
     display: flex;
     align-items: center;
     justify-content: space-between;
     font-size: 20px;
     font-weight: bold;
 `;
+ModalHeader.displayName = 'Modal.Header';
 
-export const StyledModalContent = styled.div``;
+export const ModalContent = styled.div``;
+ModalContent.displayName = 'Modal.Content';
 
-export const StyledModalFooter = styled.footer`
+export const ModalFooter = styled.footer`
     display: flex;
     align-items: center;
     justify-content: flex-end;
     gap: 8px;
 `;
+ModalFooter.displayName = 'Modal.Footer';

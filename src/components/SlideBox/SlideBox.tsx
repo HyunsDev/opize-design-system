@@ -26,6 +26,7 @@ const SlideBoxContainer = forwardRef<HTMLDivElement, SlideBoxProps>((props, ref)
 
 SlideBoxContainer.displayName = 'SlideBox';
 
+export { SlideBoxPage };
 export const SlideBox = Object.assign(SlideBoxContainer, {
     Page: SlideBoxPage,
 });

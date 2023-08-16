@@ -21,7 +21,7 @@ export const TopLoadingContext = createContext<TopLoadingContextProps>({
 export function TopLoadingContextProvider({ children }: { children: React.ReactNode }) {
     const [isLoading, setIsLoading] = useState(false);
     const [progress, setProgress] = useState(0);
-    const timer = React.useRef<NodeJS.Timer>();
+    const timer = React.useRef<NodeJS.Timeout>();
 
     const start = useCallback(() => {
         setIsLoading(true);

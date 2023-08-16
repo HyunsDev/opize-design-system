@@ -71,6 +71,12 @@ const Row = Object.assign(StyledRow, {
     Component: ComponentItem,
 });
 
+export {
+    StyledRow as ItemsTableRow,
+    AvatarItem as ItemsTableAvatarItem,
+    TextItem as ItemsTableTextItem,
+    ComponentItem as ItemsTableComponentItem,
+};
 export const ItemsTable = Object.assign(ItemsTableComponent, {
     Row,
 });

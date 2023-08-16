@@ -95,6 +95,7 @@ function PageLayoutRoot({
 
 PageLayoutRoot.displayName = 'PageLayout';
 
+export { Content as PageLayoutContent, Pane as PageLayoutPane };
 export const PageLayout = Object.assign(PageLayoutRoot, {
     Content,
     Pane,

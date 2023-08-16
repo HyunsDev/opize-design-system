@@ -30,6 +30,7 @@ const SimpleHeaderComponent = ({ children }: SimpleHeaderProps) => {
 };
 SimpleHeaderComponent.displayName = 'SimpleHeader';
 
+export { SimpleHeaderLeft, SimpleHeaderRight, SimpleHeaderA };
 export const SimpleHeader = Object.assign(SimpleHeaderComponent, {
     Left: SimpleHeaderLeft,
     Right: SimpleHeaderRight,

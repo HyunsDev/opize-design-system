@@ -1,7 +1,7 @@
 import { styled } from 'styled-components';
 import { cv } from '../..';
 
-export const StyledHeaderNav = styled.nav`
+const StyledHeaderNav = styled.nav`
     display: flex;
     align-items: center;
     justify-content: space-between;
@@ -17,7 +17,7 @@ export const StyledHeaderNav = styled.nav`
 `;
 StyledHeaderNav.displayName = 'Header.Nav';
 
-export const HeaderNavLeft = styled.div`
+const HeaderNavLeft = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-start;
@@ -26,7 +26,7 @@ export const HeaderNavLeft = styled.div`
 `;
 HeaderNavLeft.displayName = 'Header.Nav.Left';
 
-export const HeaderNavRight = styled.div`
+const HeaderNavRight = styled.div`
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -35,7 +35,7 @@ export const HeaderNavRight = styled.div`
 `;
 HeaderNavRight.displayName = 'Header.Nav.Right';
 
-export const HeaderNavA = styled.a`
+const HeaderNavA = styled.a`
     text-decoration: none;
     color: ${cv.default400};
     cursor: pointer;
@@ -47,6 +47,7 @@ export const HeaderNavA = styled.a`
 `;
 HeaderNavA.displayName = 'Header.Nav.A';
 
+export { HeaderNavLeft, HeaderNavRight, HeaderNavA };
 export const HeaderNav = Object.assign(StyledHeaderNav, {
     Left: HeaderNavLeft,
     Right: HeaderNavRight,

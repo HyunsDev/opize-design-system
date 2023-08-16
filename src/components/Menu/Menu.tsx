@@ -16,6 +16,9 @@ const MenuContainer = forwardRef<HTMLDivElement, MenuProps>((props, ref) => {
     );
 });
 
+const MenuTrigger = Popover.Trigger;
+const MenuContent = Popover.Content;
+export { MenuTrigger, MenuContent, MenuOption };
 export const Menu = Object.assign(MenuContainer, {
     Trigger: Popover.Trigger,
     Content: Popover.Content,

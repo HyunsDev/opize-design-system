@@ -147,6 +147,7 @@ const FlexRow = forwardRef<HTMLDivElement, SubFlexProps>(
     }
 );
 
+export { FlexCenter, FlexBetween, FlexColumn, FlexRow };
 export const Flex = Object.assign(FlexLayout, {
     Center: FlexCenter,
     Between: FlexBetween,
