@@ -1,0 +1,39 @@
+import { Meta } from '@storybook/addon-docs';
+
+<Meta title="Docs/librarys" />
+
+# librarys
+
+Opize Design System 함께 사용하여 시너지를 낼 수 있는 라이브러리입니다.
+
+## Relevant library
+
+Opize Design System와 함께 필수로 사용해야 하는 라이브러리입니다. 아래 라이브러리는 `peer-dependency`로 `opize-design-system` 사용 시 반드시 함께 설치해야 합니다.
+
+### [styled-components](https://www.npmjs.com/package/styled-components)
+
+`opize-design-system`은 `styled-components`를 사용하였습니다. 일부 컴포넌트에서 `styled-components`를 사용할 수 있습니다.
+
+### [phosphor-react](https://www.npmjs.com/package/phosphor-react)
+
+`opize-design-system`은 `phosphor-react`을 사용하였습니다.
+
+`ODS` 내부의 아이콘은 대부분 `phosphor-react`의 아이콘을 사용하였으며, `phosphor-react`의 `IconContext`가 적용되어 있는 컴포넌트도 존재합니다.
+
+## Recommended library
+
+Opize Design System에서 개발 단계에서 사용을 고려한 라이브러리입니다. 아래 라이브러리와의 호환성을 보장합니다.
+
+### [react-router-dom](https://www.npmjs.com/package/react-router-dom)
+
+`opize-design-system`은 `react-router-dom`을 사용하였습니다.
+
+### [react-hook-form](https://www.npmjs.com/package/react-hook-form)
+
+`opize-design-system`은 `react-hook-form`을 사용하지는 않았으나 해당 라이브러리 사용을 전제로 개발되었습니다.
+
+`ODS`의 모든 input은 비제어 컴포넌트이므로 `react-hook-form`에서 사용할 때 `<Controller />` 없이 사용할 수 있습니다.
+
+### [next.js](https://nextjs.org/)
+
+`next.js`에서 사용할 수 있습니다. 'use client'; 접미사가 추가되어 있으며, 호환성을 보장해요.
