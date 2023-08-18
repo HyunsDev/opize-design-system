@@ -17,13 +17,13 @@ interface StyledDividerProps {
 
 const StyledDivider = styled.div<StyledDividerProps>`
     position: relative;
-    border-bottom: solid 1px ${(props) => props.color};
+    border-bottom: solid 1px ${(props) => props.$color};
     ${(props) => props.$margin && `margin: ${props.$margin} 0px;`}
     ${(props) => props.$width && `width: ${props.$width};`}
 `;
 
 export const Divider = forwardRef<HTMLDivElement, DividerProps>((props, ref) => {
-    const { color = cv.default300, margin, width, ...rest } = props;
+    const { color = cv.default200, margin, width, ...rest } = props;
     return (
         <StyledDivider
             ref={ref}
