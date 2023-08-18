@@ -36,3 +36,4 @@ export * from './SimpleHeader';
 export * from './Footer';
 export * from './PageHead';
 export * from './CodeBlock';
+export * from './KBD';

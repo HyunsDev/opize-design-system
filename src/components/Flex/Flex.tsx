@@ -53,16 +53,16 @@ export type SubFlexProps = React.ComponentPropsWithRef<'div'> & {
 };
 
 interface StyledSubFlexProps {
-    gap?: string;
-    width?: string;
+    $gap?: string;
+    $width?: string;
 }
 
 const StyledFlexCenter = styled.div<StyledSubFlexProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-    ${(props) => props.gap && `gap: ${props.gap}`};
-    ${(props) => props.width && `width: ${props.width}`};
+    ${(props) => props.$gap && `gap: ${props.$gap}`};
+    ${(props) => props.$width && `width: ${props.$width}`};
 `;
 
 const FlexCenter = forwardRef<HTMLDivElement, SubFlexProps>(
@@ -70,8 +70,8 @@ const FlexCenter = forwardRef<HTMLDivElement, SubFlexProps>(
         return (
             <StyledFlexCenter
                 ref={ref}
-                gap={gap}
-                width={width}
+                $gap={gap}
+                $width={width}
                 {...props}
             >
                 {children}
@@ -84,8 +84,8 @@ const StyledFlexBetween = styled.div<StyledSubFlexProps>`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    ${(props) => props.gap && `gap: ${props.gap}`};
-    ${(props) => props.width && `width: ${props.width}`};
+    ${(props) => props.$gap && `gap: ${props.$gap}`};
+    ${(props) => props.$width && `width: ${props.$width}`};
 `;
 
 const FlexBetween = forwardRef<HTMLDivElement, SubFlexProps>(
@@ -93,8 +93,8 @@ const FlexBetween = forwardRef<HTMLDivElement, SubFlexProps>(
         return (
             <StyledFlexBetween
                 ref={ref}
-                gap={gap}
-                width={width}
+                $gap={gap}
+                $width={width}
                 {...props}
             >
                 {children}
@@ -106,8 +106,8 @@ const FlexBetween = forwardRef<HTMLDivElement, SubFlexProps>(
 const StyledFlexColumn = styled.div<StyledSubFlexProps>`
     display: flex;
     flex-direction: column;
-    ${(props) => props.gap && `gap: ${props.gap}`};
-    ${(props) => props.width && `width: ${props.width}`};
+    ${(props) => props.$gap && `gap: ${props.$gap}`};
+    ${(props) => props.$width && `width: ${props.$width}`};
 `;
 
 const FlexColumn = forwardRef<HTMLDivElement, SubFlexProps>(
@@ -115,8 +115,8 @@ const FlexColumn = forwardRef<HTMLDivElement, SubFlexProps>(
         return (
             <StyledFlexColumn
                 ref={ref}
-                gap={gap}
-                width={width}
+                $gap={gap}
+                $width={width}
                 {...props}
             >
                 {children}
@@ -128,8 +128,8 @@ const FlexColumn = forwardRef<HTMLDivElement, SubFlexProps>(
 const StyledFlexRow = styled.div<StyledSubFlexProps>`
     display: flex;
     align-items: center;
-    ${(props) => props.gap && `gap: ${props.gap}`};
-    ${(props) => props.width && `width: ${props.width}`};
+    ${(props) => props.$gap && `gap: ${props.$gap}`};
+    ${(props) => props.$width && `width: ${props.$width}`};
 `;
 
 const FlexRow = forwardRef<HTMLDivElement, SubFlexProps>(
@@ -137,8 +137,8 @@ const FlexRow = forwardRef<HTMLDivElement, SubFlexProps>(
         return (
             <StyledFlexRow
                 ref={ref}
-                gap={gap}
-                width={width}
+                $gap={gap}
+                $width={width}
                 {...props}
             >
                 {children}
