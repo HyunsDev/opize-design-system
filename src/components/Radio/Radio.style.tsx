@@ -23,7 +23,7 @@ export const StyledRadio = styled.input`
     width: 16px;
     height: 16px;
     border-radius: 8px;
-    border: 2px solid ${cv.default400};
+    border: 2px solid ${cv.default200};
     outline: none;
     transition: 150ms;
     background-color: ${cv.background};

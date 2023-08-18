@@ -59,7 +59,7 @@ export const getShapeStyle = ({ $size, $shape }: StyledButtonProps) => {
             `;
         case 'large':
             return `
-                border-radius: ${$shape === 'square' ? '16px' : '24px'};
+                border-radius: ${$shape === 'square' ? '14px' : '24px'};
             `;
     }
 };
