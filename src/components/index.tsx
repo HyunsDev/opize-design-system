@@ -37,3 +37,5 @@ export * from './Footer';
 export * from './PageHead';
 export * from './CodeBlock';
 export * from './KBD';
+export * from './Skeleton';
+export * from './Box';
