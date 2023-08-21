@@ -13,6 +13,7 @@ export const MenuOption = forwardRef<HTMLButtonElement, MenuOptionProps>((props,
         prefix,
         suffix,
         autoClose = true,
+        // eslint-disable-next-line @typescript-eslint/no-unused-vars
         ref: _,
         onClick,
         ...otherProps

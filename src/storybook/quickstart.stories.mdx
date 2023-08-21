@@ -22,9 +22,7 @@ import { Meta } from '@storybook/addon-docs';
 
 ## Setup
 
-Opize Design System은 내부적으로 Context를 사용합니다.
-
-따라서 Opize Design System을 사용하기 위해서는 `<OpizeWrapper>` 컴포넌트를 추가해야 합니다.
+Opize Design System은 내부적으로 Context를 사용합니다. 이에 따라 라이브러리를 사용하기 위해서는 `<OpizeWrapper>` 컴포넌트를 추가해야 합니다.
 
 ```jsx
 import React from 'react';
@@ -41,8 +39,29 @@ ReactDOM.render(
 );
 ```
 
+### In NextJS
+
+    -   `Page Router` (pages 폴더가 있는 경우)를 사용하는 경우 `_app.tsx` 파일에 `<OpizeWrapper>` 를 추가해주세요.
+    -   `App Router` (app 폴더가 있는 경우)를 사용하는 경우 app 폴더 바로 아래의 `layout.tsx` 파일에 `<OpizeWrapper>` 를 추가해주세요.
+
 ## Usage
 
 ```jsx
-import { Button, TextField } from 'opize-design-system';
+import { Button } from 'opize-design-system';
+```
+
+### In NextJS
+
+NextJS의 App Router에서는 점으로 연결된 컴포넌트를 사용할 수 없어요. 이 경우 .을 제외하고 사용해주세요.
+
+```tsx
+// 일반적인 React
+import { Flex } from 'opize-design-system';
+
+<Flex.Column>...</Flex.Column>;
+
+// NextJS (App Router)
+import { FlexColumn } from 'opize-design-system';
+
+<FlexColumn>...</FlexColumn>;
 ```

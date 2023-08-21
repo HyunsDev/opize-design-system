@@ -39,3 +39,4 @@ export * from './CodeBlock';
 export * from './KBD';
 export * from './Skeleton';
 export * from './Box';
+export * from './PaneList';

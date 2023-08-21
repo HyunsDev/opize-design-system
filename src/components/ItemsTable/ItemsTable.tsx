@@ -1,8 +1,7 @@
-import { IconContext } from 'phosphor-react';
 import { styled } from 'styled-components';
 
 import { cv } from '../../style';
-import { AvatarItem, ComponentItem, TextItem } from './components';
+import { AvatarItem, ComponentItem, TextItem, MenuItem } from './components';
 
 export type ItemsTableProps = {
     children: React.ReactNode;
@@ -15,19 +14,7 @@ const StyledTable = styled.div`
 `;
 
 function ItemsTableComponent({ children }: ItemsTableProps) {
-    return (
-        <StyledTable>
-            <IconContext.Provider
-                value={{
-                    size: 36,
-                    weight: 'regular',
-                    color: cv.foreground,
-                }}
-            >
-                {children}
-            </IconContext.Provider>
-        </StyledTable>
-    );
+    return <StyledTable>{children}</StyledTable>;
 }
 ItemsTableComponent.displayName = 'ItemsTable';
 
@@ -36,7 +23,7 @@ const StyledRow = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 14px 16px;
+    padding: 16px;
     gap: 8px;
     border-right: solid 1px ${cv.default200};
     border-left: solid 1px ${cv.default200};
@@ -69,6 +56,7 @@ const Row = Object.assign(StyledRow, {
     Avatar: AvatarItem,
     Text: TextItem,
     Component: ComponentItem,
+    Menu: MenuItem,
 });
 
 export {
@@ -76,6 +64,7 @@ export {
     AvatarItem as ItemsTableAvatarItem,
     TextItem as ItemsTableTextItem,
     ComponentItem as ItemsTableComponentItem,
+    MenuItem as ItemsTableMenuItem,
 };
 export const ItemsTable = Object.assign(ItemsTableComponent, {
     Row,

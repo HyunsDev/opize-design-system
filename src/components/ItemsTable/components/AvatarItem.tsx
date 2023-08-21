@@ -3,17 +3,19 @@ import { cv } from '../../..';
 
 export interface AvatarItemProps {
     flex?: number;
+    width?: string;
+
     icon: React.ReactNode;
     name?: React.ReactNode;
     label?: React.ReactNode;
 }
 
-export const AvatarDiv = styled.div<{ $flex: number }>`
+export const AvatarDiv = styled.div<{ $flex?: number; $width?: string }>`
     display: flex;
     align-items: center;
     gap: 8px;
-    flex: ${(props) => props.$flex};
-    width: 100%;
+    ${(props) => props.$flex && !props.$width && `flex: ${props.$flex};`}
+    ${(props) => props.$width && `width: ${props.$width};`}
 `;
 
 const AvatarIcon = styled.img`
@@ -40,9 +42,12 @@ const AvatarLabel = styled.div`
     color: ${cv.default700};
 `;
 
-export function AvatarItem({ flex = 1, icon, name, label }: AvatarItemProps) {
+export function AvatarItem({ flex = 1, width, icon, name, label }: AvatarItemProps) {
     return (
-        <AvatarDiv $flex={flex}>
+        <AvatarDiv
+            $flex={flex}
+            $width={width}
+        >
             {typeof icon === 'string' ? (
                 <AvatarIcon
                     src={icon}

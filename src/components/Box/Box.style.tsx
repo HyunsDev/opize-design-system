@@ -25,19 +25,20 @@ export const StyledBoxHeader = styled.div`
     border-bottom: solid 1px ${cv.default200};
     border-top-left-radius: 8px;
     border-top-right-radius: 8px;
-    padding: 8px 16px;
+    padding: 8px 20px;
 `;
 
 export const StyledBoxTitle = styled.div`
-    font-size: 20px;
-    font-weight: 600;
+    font-size: 18px;
+    margin-bottom: 8px;
 `;
 
 export const StyledBoxContent = styled.div`
     display: flex;
     flex-direction: column;
     gap: 8px;
-    padding: 16px 16px;
+    font-size: 14px;
+    padding: 16px 20px;
 `;
 
 export const StyledBoxFooter = styled.div`
@@ -48,5 +49,5 @@ export const StyledBoxFooter = styled.div`
     border-top: solid 1px ${cv.default200};
     border-bottom-left-radius: 8px;
     border-bottom-right-radius: 8px;
-    padding: 8px 16px;
+    padding: 8px 20px;
 `;

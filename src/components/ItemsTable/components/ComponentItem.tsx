@@ -1,20 +1,22 @@
 import React from 'react';
 
-import { styled } from 'styled-components';
+import { ItemContainer } from './Item.style';
 
 export interface ComponentItemProps {
+    width?: string;
     flex?: number;
     children?: React.ReactNode;
 }
 
-const Components = styled.div<{ $flex?: number }>`
-    flex: ${(props) => props.$flex || 3};
-    display: flex;
-    width: 100%;
-`;
-
-export function ComponentItem({ children, flex }: ComponentItemProps) {
-    return <Components $flex={flex}>{children}</Components>;
+export function ComponentItem({ children, flex = 1, width }: ComponentItemProps) {
+    return (
+        <ItemContainer
+            $flex={flex}
+            $width={width}
+        >
+            {children}
+        </ItemContainer>
+    );
 }
 
 ComponentItem.displayName = 'ItemsTable.Row.Component';

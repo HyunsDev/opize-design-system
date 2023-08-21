@@ -23,7 +23,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, ref) =>
     } = props;
 
     return (
-        <StyledSelectOuterContainer>
+        <StyledSelectOuterContainer $width={width}>
             {label && <StyledInputLabel>{label}</StyledInputLabel>}
             <StyledSelectContainer
                 $disabled={disabled}

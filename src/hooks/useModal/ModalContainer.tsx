@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState } from 'react';
+import { useCallback, useEffect, useRef, useState } from 'react';
 import {
     StyledModalContainer,
     StyledModalContainerWrapper,
@@ -22,12 +22,21 @@ export function ModalContainer({ isOpen, setIsOpen, children, isPadding, width }
         setIsShow(true);
     };
 
-    const closeModal = () => {
+    const closeModal = useCallback(() => {
         clearTimeout(timer.current);
         timer.current = setTimeout(() => {
+            setIsOpen(false);
             setIsShow(false);
         }, 300);
-    };
+    }, [setIsOpen]);
+
+    useEffect(() => {
+        if (isOpen) {
+            openModal();
+        } else {
+            closeModal();
+        }
+    }, [closeModal, isOpen]);
 
     useEffect(() => {
         const handleClickOutside = (event: MouseEvent) => {
@@ -40,14 +49,6 @@ export function ModalContainer({ isOpen, setIsOpen, children, isPadding, width }
             document.removeEventListener('mousedown', handleClickOutside);
         };
     }, [setIsOpen]);
-
-    useEffect(() => {
-        if (isOpen) {
-            openModal();
-        } else {
-            closeModal();
-        }
-    }, [isOpen]);
 
     if (isShow) {
         return (
