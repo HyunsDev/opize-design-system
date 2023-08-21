@@ -22,19 +22,19 @@ const getSizeStyle = ({ $size }: StyledDateContainerProps) => {
             return `
                 font-size: 14px;
                 height: 32px;
-                border-radius: 8px;
+                border-radius: 6px;
             `;
         case 'medium':
             return `
                 font-size: 14px;
                 height: 40px;
-                border-radius: 12px;
+                border-radius: 8px;
             `;
         case 'large':
             return `
                 font-size: 16px;
                 height: 48px;
-                border-radius: 16px;
+                border-radius: 10px;
             `;
     }
 };

@@ -1,8 +1,8 @@
 import React from 'react';
 import { ButtonProps } from './Button.type';
 import { useDOMRef } from '../../utils/dom';
-import { StyledButtonProps } from './style';
 import { PolymorphicRef } from '../../utils/Polymorphic';
+import { StyledButtonProps } from './Button.style';
 
 export function useButton<T extends React.ElementType = 'button'>(props: ButtonProps<T>) {
     const {
@@ -11,7 +11,7 @@ export function useButton<T extends React.ElementType = 'button'>(props: ButtonP
         children,
         width = 'fit-content',
         size = 'medium',
-        variant = 'primary',
+        variant = 'secondary',
         iconOnly: isIconOnly = false,
         shape = 'square',
         align = 'center',
