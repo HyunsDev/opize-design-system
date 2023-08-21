@@ -18,6 +18,8 @@ const CenterLayoutOuter = styled.div<{
 interface CenterLayoutInnerProps {
     $width: string;
     $gutter: string;
+    $paddingTop: string;
+    $paddingBottom: string;
 }
 const CenterLayoutInner = styled.div<CenterLayoutInnerProps>`
     display: flex;
@@ -25,6 +27,8 @@ const CenterLayoutInner = styled.div<CenterLayoutInnerProps>`
     width: 100%;
     max-width: ${(props) => props.$width};
     margin: 0px ${(props) => props.$gutter};
+    padding-top: ${(props) => props.$paddingTop};
+    padding-bottom: ${(props) => props.$paddingBottom};
 
     align-items: center;
     justify-content: center;
@@ -40,6 +44,8 @@ interface CenterLayoutProps {
     children?: React.ReactNode;
     gutter?: string;
     minHeight?: string;
+    paddingTop?: string;
+    paddingBottom?: string;
 }
 export function CenterLayout({
     width = '1200px',
@@ -47,6 +53,8 @@ export function CenterLayout({
     backgroundColor = cv.background,
     children,
     minHeight = 'unset',
+    paddingTop = '0px',
+    paddingBottom = '0px',
 }: CenterLayoutProps) {
     return (
         <CenterLayoutOuter
@@ -56,6 +64,8 @@ export function CenterLayout({
             <CenterLayoutInner
                 $width={width}
                 $gutter={gutter}
+                $paddingTop={paddingTop}
+                $paddingBottom={paddingBottom}
             >
                 {children}
             </CenterLayoutInner>

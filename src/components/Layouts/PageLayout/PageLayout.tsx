@@ -39,22 +39,27 @@ const PageLayoutOuter = styled.div<{
 `;
 
 interface PageLayoutInnerProps {
-    width: string;
-    gap: string;
-    gutter: string;
-    panePosition: string;
+    $width: string;
+    $gap: string;
+    $gutter: string;
+    $panePosition: string;
+    $paddingTop: string;
+    $paddingBottom: string;
 }
 const PageLayoutInner = styled.div<PageLayoutInnerProps>`
     display: flex;
     width: 100%;
-    max-width: ${(props) => props.width};
+    max-width: ${(props) => props.$width};
     justify-items: stretch;
-    margin: 0px ${(props) => props.gutter};
-    gap: ${(props) => props.gap};
+    margin: 0px ${(props) => props.$gutter};
+    gap: ${(props) => props.$gap};
+    padding-top: ${(props) => props.$paddingTop};
+    padding-bottom: ${(props) => props.$paddingBottom};
 
     @media (max-width: 767px) {
         margin: 0px 8px;
-        flex-direction: ${(props) => (props.panePosition === 'left' ? 'column-reverse' : 'column')};
+        flex-direction: ${(props) =>
+            props.$panePosition === 'left' ? 'column-reverse' : 'column'};
     }
 `;
 
@@ -66,6 +71,8 @@ interface PageLayoutRootProps {
     gutter?: string;
     minHeight?: string;
     panePosition?: 'left' | 'right';
+    paddingTop?: string;
+    paddingBottom?: string;
 }
 function PageLayoutRoot({
     width = '1200px',
@@ -75,6 +82,8 @@ function PageLayoutRoot({
     children,
     minHeight = 'unset',
     panePosition = 'left',
+    paddingTop = '24px',
+    paddingBottom = '24px',
 }: PageLayoutRootProps) {
     return (
         <PageLayoutOuter
@@ -82,10 +91,12 @@ function PageLayoutRoot({
             $backgroundColor={backgroundColor}
         >
             <PageLayoutInner
-                width={width}
-                gap={gap}
-                gutter={gutter}
-                panePosition={panePosition}
+                $width={width}
+                $gap={gap}
+                $gutter={gutter}
+                $panePosition={panePosition}
+                $paddingTop={paddingTop}
+                $paddingBottom={paddingBottom}
             >
                 {children}
             </PageLayoutInner>

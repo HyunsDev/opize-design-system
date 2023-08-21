@@ -5,7 +5,7 @@ export const H1 = styled.h1`
 `;
 
 export const H2 = styled.h2`
-    font-size: 30px;
+    font-size: 24px;
 `;
 
 export const H3 = styled.h3`

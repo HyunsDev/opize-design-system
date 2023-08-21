@@ -18,12 +18,16 @@ const PageLayoutOuter = styled.div<{
 const PageLayoutInner = styled.div<{
     $width: string;
     $gutter: string;
+    $paddingTop: string;
+    $paddingBottom: string;
 }>`
     display: flex;
     flex-direction: column;
     width: 100%;
     max-width: ${(props) => props.$width};
     margin: 0px ${(props) => props.$gutter};
+    padding-top: ${(props) => props.$paddingTop};
+    padding-bottom: ${(props) => props.$paddingBottom};
 
     @media (max-width: 767px) {
         margin: 0px 8px;
@@ -36,6 +40,8 @@ interface BoxLayoutProps {
     children?: React.ReactNode;
     gutter?: string;
     minHeight?: string;
+    paddingTop?: string;
+    paddingBottom?: string;
 }
 export function BoxLayout({
     width = '1200px',
@@ -43,6 +49,8 @@ export function BoxLayout({
     backgroundColor = cv.background,
     children,
     minHeight = 'unset',
+    paddingTop = '24px',
+    paddingBottom = '24px',
 }: BoxLayoutProps) {
     return (
         <PageLayoutOuter
@@ -52,6 +60,8 @@ export function BoxLayout({
             <PageLayoutInner
                 $width={width}
                 $gutter={gutter}
+                $paddingTop={paddingTop}
+                $paddingBottom={paddingBottom}
             >
                 {children}
             </PageLayoutInner>

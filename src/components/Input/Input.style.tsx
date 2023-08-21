@@ -9,6 +9,7 @@ export const StyledInputOuterContainer = styled.div<StyledInputOuterContainerPro
     flex-direction: column;
     width: ${(props) => props.$width};
     gap: 6px;
+    transition: 200ms;
 `;
 
 export const StyledInputLabel = styled.div`

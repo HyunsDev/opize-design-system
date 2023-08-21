@@ -18,14 +18,17 @@ export const HeaderMenu = ({ selected, tabs, setSelected }: HeaderMenuProps) => 
     }, []);
 
     return (
-        <StyledHeaderMenuContainer $isScrolling={isScrolling}>
-            <StyledHeaderMenu>
-                <TabNav
-                    selected={selected}
-                    tabs={tabs}
-                    setSelected={setSelected}
-                />
-            </StyledHeaderMenu>
-        </StyledHeaderMenuContainer>
+        <>
+            {isScrolling && <div style={{ height: '32px' }} />}
+            <StyledHeaderMenuContainer $isScrolling={isScrolling}>
+                <StyledHeaderMenu>
+                    <TabNav
+                        selected={selected}
+                        tabs={tabs}
+                        setSelected={setSelected}
+                    />
+                </StyledHeaderMenu>
+            </StyledHeaderMenuContainer>
+        </>
     );
 };
