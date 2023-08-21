@@ -3,25 +3,22 @@ import React from 'react';
 import { styled } from 'styled-components';
 
 import { cv } from '../../../style';
+import { ItemContainerProps } from './Item.style';
 
 export interface TextItemProps {
     flex?: number;
+    width?: string;
     text?: React.ReactNode;
     subText?: React.ReactNode;
 }
 
-interface StyledTextItemProps {
-    $flex?: number;
-    $text?: React.ReactNode;
-    $subText?: React.ReactNode;
-}
-
-const TextsDiv = styled.div<StyledTextItemProps>`
-    flex: ${(props) => props.$flex || 3};
+const TextItemContainer = styled.div<ItemContainerProps>`
     display: flex;
+    ${(props) => props.$flex && !props.$width && `flex: ${props.$flex};`}
+    ${(props) => props.$width && `width: ${props.$width};`}
+
     flex-direction: column;
     gap: 2px;
-    width: 100%;
 `;
 
 const TextDiv = styled.div`
@@ -34,9 +31,12 @@ const SubTextDiv = styled.div`
     font-size: 14px;
 `;
 
-export function TextItem({ text, flex, subText }: TextItemProps) {
+export function TextItem({ text, flex = 1, subText, width }: TextItemProps) {
     return (
-        <TextsDiv $flex={flex}>
+        <TextItemContainer
+            $flex={flex}
+            $width={width}
+        >
             {text && typeof text === 'string' && (
                 <TextDiv>{`${text.substring(0, 50)}${text.length > 50 ? '...' : ''}`}</TextDiv>
             )}
@@ -47,7 +47,7 @@ export function TextItem({ text, flex, subText }: TextItemProps) {
                 }`}</SubTextDiv>
             )}
             {subText && typeof subText !== 'string' && <SubTextDiv>{subText}</SubTextDiv>}
-        </TextsDiv>
+        </TextItemContainer>
     );
 }
 

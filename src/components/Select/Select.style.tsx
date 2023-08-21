@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { cv } from '../..';
 
 export interface StyledSelectOuterContainerProps {
-    $width?: string;
+    $width: string;
 }
 
 export const StyledSelectOuterContainer = styled.div<StyledSelectOuterContainerProps>`

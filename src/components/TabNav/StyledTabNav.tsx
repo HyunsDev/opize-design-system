@@ -8,6 +8,7 @@ export const StyledTabNav = styled.div`
     position: relative;
     gap: 0px;
     width: 100%;
+    font-size: 14px;
 `;
 
 interface FlowProps {
@@ -50,7 +51,6 @@ export const Item = styled.div<{ $selected: boolean; $disabled: boolean }>`
     user-select: none;
     transition: 200ms;
     font-weight: 400;
-    font-size: 0.875rem;
     color: ${(props) =>
         props.$selected ? cv.foreground : props.$disabled ? cv.default400 : cv.default700};
     &:hover {

@@ -38,7 +38,7 @@ export function useCodeModal() {
     ) => {
         modal.open(
             <CodeModalComponent
-                code={options?.stringify ? JSON.stringify(code, null, 4) : code}
+                code={options?.stringify ? JSON.stringify(code, null, 4) : String(code)}
                 title={options?.title}
                 language={options?.language}
             />

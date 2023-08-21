@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 import { UserCircle } from 'phosphor-react';
 
-import { ItemsTable } from '..';
+import { ItemsTable, Menu } from '..';
 
 const meta: Meta<typeof ItemsTable> = {
     title: 'Opize Component/ItemsTable',
@@ -18,7 +18,7 @@ export const Primary: Story = {
             <>
                 <ItemsTable.Row>
                     <ItemsTable.Row.Avatar
-                        icon={<UserCircle />}
+                        icon={<UserCircle size={32} />}
                         name="name"
                         label="label"
                     />
@@ -27,10 +27,13 @@ export const Primary: Story = {
                         subText="subText"
                     />
                     <ItemsTable.Row.Component>Component</ItemsTable.Row.Component>
+                    <ItemsTable.Row.Menu>
+                        <Menu.Option>Option</Menu.Option>
+                    </ItemsTable.Row.Menu>
                 </ItemsTable.Row>
                 <ItemsTable.Row>
                     <ItemsTable.Row.Avatar
-                        icon={<UserCircle />}
+                        icon={<UserCircle size={32} />}
                         name="name"
                         label="label"
                     />
@@ -39,6 +42,9 @@ export const Primary: Story = {
                         subText="subText"
                     />
                     <ItemsTable.Row.Component>Component</ItemsTable.Row.Component>
+                    <ItemsTable.Row.Menu>
+                        <Menu.Option>Option</Menu.Option>
+                    </ItemsTable.Row.Menu>
                 </ItemsTable.Row>
             </>
         ),

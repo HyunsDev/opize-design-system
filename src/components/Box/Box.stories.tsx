@@ -9,7 +9,7 @@ const meta: Meta<typeof Box> = {
         layout: 'centered',
     },
     render: (args) => (
-        <Flex width="300px">
+        <Flex width="500px">
             <Box {...args} />
         </Flex>
     ),

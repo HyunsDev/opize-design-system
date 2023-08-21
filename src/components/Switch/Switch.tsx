@@ -16,7 +16,7 @@ export type SwitchProps = React.ComponentPropsWithRef<'input'> & {
 };
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>((props, ref) => {
-    const { children, label, error, disabled = false, width = '100%', ...rest } = props;
+    const { children, label, error, disabled = false, width = 'fit-content', ...rest } = props;
 
     return (
         <StyledSwitchOuterContainer $width={width}>
