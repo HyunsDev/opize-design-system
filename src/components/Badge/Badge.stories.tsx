@@ -22,7 +22,7 @@ export const Primary: Story = {
 
 const dots: boolean[] = [true, false];
 const colors: BadgeColor[] = ['default', 'red', 'blue', 'green', 'yellow', 'violet'];
-const variants: BadgeVariant[] = ['primary', 'secondary'];
+const variants: BadgeVariant[] = ['primary', 'secondary', 'tertiary'];
 
 export const AllBadges: Story = {
     render: (args) => (

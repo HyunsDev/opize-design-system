@@ -9,6 +9,8 @@ const Content = styled.div`
     display: flex;
     flex-direction: column;
     width: 100%;
+    overflow-x: auto;
+    box-sizing: border-box;
 `;
 Content.displayName = 'PageLayout.Content';
 
@@ -17,6 +19,7 @@ const Pane = styled.div<{
 }>`
     width: 100%;
     max-width: ${(props) => props.width || '250px'};
+    min-width: ${(props) => props.width || '250px'};
 
     @media (max-width: 767px) {
         max-width: 100%;
@@ -51,13 +54,15 @@ const PageLayoutInner = styled.div<PageLayoutInnerProps>`
     width: 100%;
     max-width: ${(props) => props.$width};
     justify-items: stretch;
-    margin: 0px ${(props) => props.$gutter};
     gap: ${(props) => props.$gap};
+    padding-left: ${(props) => props.$gutter};
+    padding-right: ${(props) => props.$gutter};
     padding-top: ${(props) => props.$paddingTop};
     padding-bottom: ${(props) => props.$paddingBottom};
 
     @media (max-width: 767px) {
-        margin: 0px 8px;
+        padding-left: 0px;
+        padding-right: 0px;
         flex-direction: ${(props) =>
             props.$panePosition === 'left' ? 'column-reverse' : 'column'};
     }

@@ -4,7 +4,7 @@ import { styled } from 'styled-components';
 
 import { cv } from '../../../style';
 
-const PageLayoutOuter = styled.div<{
+const BoxLayoutOuter = styled.div<{
     $backgroundColor: string;
     $minHeight: string;
 }>`
@@ -15,7 +15,7 @@ const PageLayoutOuter = styled.div<{
     min-height: ${(props) => props.$minHeight};
 `;
 
-const PageLayoutInner = styled.div<{
+const BoxLayoutInner = styled.div<{
     $width: string;
     $gutter: string;
     $paddingTop: string;
@@ -23,6 +23,7 @@ const PageLayoutInner = styled.div<{
 }>`
     display: flex;
     flex-direction: column;
+    overflow-x: auto;
     width: 100%;
     max-width: ${(props) => props.$width};
     margin: 0px ${(props) => props.$gutter};
@@ -53,19 +54,19 @@ export function BoxLayout({
     paddingBottom = '24px',
 }: BoxLayoutProps) {
     return (
-        <PageLayoutOuter
+        <BoxLayoutOuter
             $backgroundColor={backgroundColor}
             $minHeight={minHeight}
         >
-            <PageLayoutInner
+            <BoxLayoutInner
                 $width={width}
                 $gutter={gutter}
                 $paddingTop={paddingTop}
                 $paddingBottom={paddingBottom}
             >
                 {children}
-            </PageLayoutInner>
-        </PageLayoutOuter>
+            </BoxLayoutInner>
+        </BoxLayoutOuter>
     );
 }
 

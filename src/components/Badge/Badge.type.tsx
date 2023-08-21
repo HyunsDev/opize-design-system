@@ -1,5 +1,5 @@
 export type BadgeColor = 'default' | 'red' | 'blue' | 'green' | 'yellow' | 'violet';
-export type BadgeVariant = 'primary' | 'secondary';
+export type BadgeVariant = 'primary' | 'secondary' | 'tertiary';
 export type BadgeSize = 'small' | 'medium' | 'large';
 export type BadgeProps = {
     children?: React.ReactNode;
