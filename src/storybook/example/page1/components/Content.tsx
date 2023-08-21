@@ -4,6 +4,7 @@ import {
     Avatar,
     Box,
     Button,
+    CodeBlock,
     Flex,
     H2,
     ItemsTable,
@@ -13,7 +14,7 @@ import {
     Table,
     Text,
 } from '../../../..';
-import OpizeLogo from '../assets/opize-logo.png';
+import OpizeLogo from '../../assets/opize-logo.png';
 
 export const PageContent = () => {
     return (
@@ -102,6 +103,7 @@ export const PageContent = () => {
                             </Table.Body>
                         </Table>
                     </Flex.Column>
+                    <CodeBlock>{'a'.repeat(200)}</CodeBlock>
                 </Flex.Column>
             </PageLayout.Content>
         </PageLayout>

@@ -15,6 +15,7 @@ export const StyledBadge = styled.div<StyleBadgeProps>`
     border-radius: 10000px;
     width: fit-content;
     white-space: nowrap;
+    border: 1px solid;
 
     ${(props) => getSizeStyle(props)};
     ${(props) => getColorStyle(props)}

@@ -1,4 +1,5 @@
 import { ColorDot } from '..';
+import { cv } from '../..';
 import { BadgeProps } from './Badge.type';
 import { StyledBadge } from './style';
 
@@ -18,7 +19,15 @@ const DotColorMap = {
         violet: 'background',
     },
     secondary: {
-        default: 'foreground',
+        default: cv.default600,
+        red: 'red',
+        blue: 'blue',
+        green: 'green',
+        yellow: 'yellow',
+        violet: 'violet',
+    },
+    tertiary: {
+        default: cv.default600,
         red: 'red',
         blue: 'blue',
         green: 'green',
