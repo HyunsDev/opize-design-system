@@ -26,11 +26,3 @@ export type ButtonProps<T extends React.ElementType = 'button'> = {
     ref?: React.ComponentPropsWithRef<T>['ref'];
 } & Omit<React.ComponentPropsWithoutRef<T>, 'prefix' | 'suffix'> &
     OriginalButtonProps;
-
-export type ButtonComponent<T extends React.ElementType = 'button'> = (<
-    TT extends React.ElementType = T
->(
-    props: ButtonProps<TT>
-) => React.ReactElement) & {
-    displayName?: string;
-};

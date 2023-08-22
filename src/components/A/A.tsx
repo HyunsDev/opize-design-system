@@ -3,11 +3,11 @@ import React from 'react';
 import { Share } from 'phosphor-react';
 
 import { PolymorphicRef } from '../../utils/Polymorphic';
-import { AComponent, AProps } from './A.type';
+import { AProps } from './A.type';
 import { useA } from './useA';
 import { StyledA } from './StyledA';
 
-export const A: AComponent = React.forwardRef(
+export const A = React.forwardRef(
     <T extends React.ElementType = 'a'>(
         props: AProps<T>,
         ref: PolymorphicRef<T>['ref']
