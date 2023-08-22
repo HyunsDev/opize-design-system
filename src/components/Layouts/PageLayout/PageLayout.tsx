@@ -52,7 +52,7 @@ interface PageLayoutInnerProps {
 const PageLayoutInner = styled.div<PageLayoutInnerProps>`
     display: flex;
     width: 100%;
-    max-width: ${(props) => props.$width};
+    max-width: ${(props) => `calc(${props.$width} + ${props.$gutter} + ${props.$gutter})`};
     justify-items: stretch;
     gap: ${(props) => props.$gap};
     padding-left: ${(props) => props.$gutter};
