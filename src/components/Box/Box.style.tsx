@@ -38,7 +38,7 @@ export const StyledBoxContent = styled.div`
     flex-direction: column;
     gap: 8px;
     font-size: 14px;
-    padding: 16px 20px;
+    padding: 24px 20px;
 `;
 
 export const StyledBoxFooter = styled.div`
