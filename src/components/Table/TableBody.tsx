@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { StyledTableBody } from './Table.style';
 
-export interface TableBodyProps {
+export interface TableBodyProps extends React.HTMLProps<HTMLTableSectionElement> {
     children: React.ReactNode;
 }
 

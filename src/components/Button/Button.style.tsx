@@ -1,7 +1,6 @@
 import { css, styled } from 'styled-components';
 import { ButtonAlign, ButtonShape, ButtonSize, ButtonVariant, ButtonWidth } from './Button.type';
-
-import { cv } from '../../..';
+import { cv } from '../..';
 
 export interface StyledButtonProps {
     $width: ButtonWidth;
