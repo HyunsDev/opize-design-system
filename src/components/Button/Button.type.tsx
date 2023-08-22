@@ -31,6 +31,6 @@ export type ButtonComponent<T extends React.ElementType = 'button'> = (<
     TT extends React.ElementType = T
 >(
     props: ButtonProps<TT>
-) => React.ReactNode) & {
+) => React.ReactElement) & {
     displayName?: string;
 };
