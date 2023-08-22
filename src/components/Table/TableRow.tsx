@@ -1,6 +1,6 @@
 import { forwardRef } from 'react';
 import { StyledTableRow } from './Table.style';
-export interface TableRowProps {
+export interface TableRowProps extends React.HTMLProps<HTMLTableRowElement> {
     children?: React.ReactNode;
 }
 

@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { StyledTableHead } from './Table.style';
 
-export interface TableHeadProps {
+export interface TableHeadProps extends React.HTMLProps<HTMLTableSectionElement> {
     children: React.ReactNode;
 }
 

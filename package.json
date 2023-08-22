@@ -1,6 +1,6 @@
 {
     "name": "opize-design-system",
-    "version": "1.4.3",
+    "version": "1.4.4",
     "license": "MIT",
     "description": "Opize Design System",
     "author": "Opize <hello@opize.me> (https://opize.me)",
@@ -21,7 +21,7 @@
         "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
         "preview": "vite preview",
         "storybook": "storybook dev -p 6006 --ci",
-        "build-storybook": "storybook build"
+        "build-storybook": "storybook build -o storybook-static"
     },
     "devDependencies": {
         "@storybook/addon-essentials": "^7.2.1",

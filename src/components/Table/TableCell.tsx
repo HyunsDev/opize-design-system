@@ -1,7 +1,7 @@
 import { forwardRef } from 'react';
 import { StyledTableCell } from './Table.style';
 
-export interface TableCellProps {
+export interface TableCellProps extends React.HTMLProps<HTMLTableCellElement> {
     children: React.ReactNode;
     align?: 'left' | 'center' | 'right';
 }

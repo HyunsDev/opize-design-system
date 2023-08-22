@@ -1,5 +1,5 @@
+import { TableProps } from '.';
 import { useDOMRef } from '../../utils/dom';
-import { TableProps } from './Table.type';
 
 export interface UseTableProps extends TableProps {
     ref: React.Ref<HTMLTableElement>;
