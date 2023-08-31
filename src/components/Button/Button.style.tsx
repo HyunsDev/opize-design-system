@@ -16,21 +16,27 @@ export const getSizeStyle = (props: StyledButtonProps) => {
         switch (props.$size) {
             case 'small':
                 return `
-                    font-size: 14px;
-                    width: 32px;
-                    height: 32px;
+                    font-size: ${cv.formFontSizeSmall};
+                    width: ${cv.formHeightSmall};
+                    height: ${cv.formHeightSmall};
+                `;
+            case 'regular':
+                return `
+                    font-size: ${cv.formFontSizeRegular};
+                    width: ${cv.formHeightRegular};
+                    height: ${cv.formHeightRegular};
                 `;
             case 'medium':
                 return `
-                    font-size: 14px;
-                    width: 40px;
-                    height: 40px;
+                    font-size: ${cv.formFontSizeMedium};
+                    width: ${cv.formHeightMedium};
+                    height: ${cv.formHeightMedium};
                 `;
             case 'large':
                 return `
-                    font-size: 16px;
-                    width: 48px;
-                    height: 48px;
+                    font-size: ${cv.formFontSizeLarge};
+                    width: ${cv.formHeightLarge};
+                    height:${cv.formHeightLarge};
                 `;
         }
     }
@@ -38,38 +44,54 @@ export const getSizeStyle = (props: StyledButtonProps) => {
     switch (props.$size) {
         case 'small':
             return `
-                font-size: 14px;
+                font-size: ${cv.formFontSizeSmall};
                 padding: 0px 12px;
-                height: 32px;
+                height: ${cv.formHeightSmall};
+            `;
+        case 'regular':
+            return `
+                font-size: ${cv.formFontSizeRegular};
+                padding: 0px 12px;
+                height: ${cv.formHeightRegular};
             `;
         case 'medium':
             return `
-                font-size: 14px;
+                font-size: ${cv.formFontSizeMedium};
                 padding: 0px 16px;
-                height: 40px;
+                height: ${cv.formHeightMedium};
             `;
         case 'large':
             return `
-                font-size: 16px;
+                font-size: ${cv.formFontSizeLarge};
                 padding: 0px 20px;
-                height: 48px;
+                height: ${cv.formHeightLarge};
             `;
     }
 };
 
 export const getShapeStyle = ({ $size, $shape }: StyledButtonProps) => {
+    if ($shape === 'round') {
+        return `
+            border-radius: 99999px;
+        `;
+    }
+
     switch ($size) {
         case 'small':
             return `
-                border-radius: ${$shape === 'square' ? '6px' : '16px'};
+                border-radius: ${cv.formBorderRadiusSmall};
+            `;
+        case 'regular':
+            return `
+                border-radius: ${cv.formBorderRadiusRegular};
             `;
         case 'medium':
             return `
-                border-radius: ${$shape === 'square' ? '8px' : '20px'};
+                border-radius: ${cv.formBorderRadiusMedium};
             `;
         case 'large':
             return `
-                border-radius: ${$shape === 'square' ? '10px' : '24px'};
+                border-radius: ${cv.formBorderRadiusLarge};
             `;
     }
 };
@@ -93,8 +115,8 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
                 }
 
                 &:disabled {
-                    background-color: ${cv.default400};
-                    border-color: ${cv.default400};
+                    background-color: ${cv.default300};
+                    border-color: ${cv.default300};
                     --button-spinner-color: ${cv.background};
                 }
             `;
@@ -114,7 +136,7 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
                 }
 
                 &:disabled {
-                    background-color: ${cv.default100};
+                    background-color: ${cv.background};
                     border-color: ${cv.default200};
                     color: ${cv.default400};
                     --button-spinner-color: ${cv.default500};
@@ -135,7 +157,7 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
                 }
 
                 &:disabled {
-                    background-color: ${cv.default100};
+                    background-color: ${cv.background};
                     color: ${cv.default400};
                     --button-spinner-color: ${cv.default500};
                 }
@@ -152,8 +174,8 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
                 }
 
                 &:disabled {
-                    background-color: ${cv.default400};
-                    border-color: ${cv.default400};
+                    background-color: ${cv.default300};
+                    border-color: ${cv.default300};
                     --button-spinner-color: ${cv.background};
                 }
             `;
@@ -169,8 +191,8 @@ export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
                 }
 
                 &:disabled {
-                    background-color: ${cv.default400};
-                    border-color: ${cv.default400};
+                    background-color: ${cv.default300};
+                    border-color: ${cv.default300};
                     --button-spinner-color: ${cv.background};
                 }
             `;

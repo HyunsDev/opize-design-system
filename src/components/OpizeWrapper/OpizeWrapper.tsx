@@ -3,6 +3,7 @@ import { colorCSSVariables } from '../../style/colors/colorPalette';
 import { ModalContextProvider } from '../../hooks/useModal/Modal.context';
 import { TopLoadingContextProvider } from '../../hooks/useTopLoading/TopLoading.context';
 import { ColorThemeProvider } from '../../hooks/useColorTheme/ColorTheme.context';
+import { styleConstantVariable } from '../../style/constant/constants';
 
 const GlobalStyles = createGlobalStyle`
     * {
@@ -24,6 +25,8 @@ const GlobalStyles = createGlobalStyle`
 
         color: var(--text1);
         font-size: var(--fontSize400);
+
+        ${styleConstantVariable};
     }
 
     @media (prefers-color-scheme: dark) {

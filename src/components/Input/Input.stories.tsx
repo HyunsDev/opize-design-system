@@ -21,7 +21,7 @@ const meta: Meta<typeof Input> = {
             control: {
                 type: 'inline-radio',
             },
-            options: ['small', 'medium', 'large'],
+            options: ['small', 'regular', 'medium', 'large'],
         },
         width: {
             control: {

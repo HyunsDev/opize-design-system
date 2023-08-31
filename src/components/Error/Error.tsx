@@ -4,7 +4,7 @@ import { ErrorContent, ErrorLabel, StyledError } from './Error.style';
 
 export interface ErrorProps extends React.ComponentPropsWithRef<'div'> {
     label?: React.ReactNode;
-    size?: 'small' | 'medium' | 'large';
+    size?: 'small' | 'regular' | 'medium' | 'large';
 }
 
 export const Error = React.forwardRef<HTMLDivElement, ErrorProps>((props, ref) => {

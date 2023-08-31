@@ -31,7 +31,7 @@ export const HoverBox = styled.div<FlowProps & { $show: boolean }>`
     transition: 200ms, transform 150ms ease;
     height: 32px;
     user-select: none;
-    border-radius: 4px;
+    border-radius: 5px;
     transform: translateX(${(props) => props.$left}px);
     width: ${(props) => props.$width}px;
     margin-bottom: 4px;
@@ -47,7 +47,7 @@ export const ItemDiv = styled.div`
 export const Item = styled.div<{ $selected: boolean; $disabled: boolean }>`
     padding: 6px 12px;
     cursor: ${(props) => (props.$disabled ? 'not-allowed' : 'pointer')};
-    border-radius: 4px;
+    border-radius: 5px;
     user-select: none;
     transition: 200ms;
     font-weight: 400;

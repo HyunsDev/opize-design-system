@@ -10,7 +10,7 @@ export const StyledBoxContainer = styled.div<StyledBoxContainerProps>`
     background-color: ${cv.background};
     width: ${(props) => props.$width};
     border: solid 1px ${(props) => (props.$variant === 'primary' ? cv.default200 : cv.red)};
-    border-radius: 8px;
+    border-radius: 5px;
     color: ${cv.foreground};
     display: flex;
     flex-direction: column;
@@ -23,8 +23,8 @@ export const StyledBoxHeader = styled.div`
     justify-content: space-between;
     background-color: ${cv.default100};
     border-bottom: solid 1px ${cv.default200};
-    border-top-left-radius: 8px;
-    border-top-right-radius: 8px;
+    border-top-left-radius: 4px;
+    border-top-right-radius: 4px;
     padding: 8px 20px;
 `;
 
@@ -47,7 +47,7 @@ export const StyledBoxFooter = styled.div`
     justify-content: space-between;
     background-color: ${cv.default100};
     border-top: solid 1px ${cv.default200};
-    border-bottom-left-radius: 8px;
-    border-bottom-right-radius: 8px;
+    border-bottom-left-radius: 4px;
+    border-bottom-right-radius: 4px;
     padding: 8px 20px;
 `;

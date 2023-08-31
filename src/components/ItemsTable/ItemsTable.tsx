@@ -10,7 +10,7 @@ export type ItemsTableProps = {
 const StyledTable = styled.div`
     border-top: solid 1px ${cv.default200};
     border-bottom: solid 1px ${cv.default200};
-    border-radius: 8px;
+    border-radius: 6px;
 `;
 
 function ItemsTableComponent({ children }: ItemsTableProps) {
@@ -41,13 +41,13 @@ const StyledRow = styled.div`
 
     &:first-of-type {
         border-top: none;
-        border-top-left-radius: 8px;
-        border-top-right-radius: 8px;
+        border-top-left-radius: 6px;
+        border-top-right-radius: 6px;
     }
 
     &:last-child {
-        border-bottom-left-radius: 8px;
-        border-bottom-right-radius: 8px;
+        border-bottom-left-radius: 6px;
+        border-bottom-right-radius: 6px;
     }
 `;
 StyledRow.displayName = 'ItemsTable.Row';

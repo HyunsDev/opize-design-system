@@ -22,7 +22,7 @@ const meta: Meta<typeof Button> = {
             control: {
                 type: 'radio',
             },
-            options: ['small', 'medium', 'large'],
+            options: ['small', 'regular', 'medium', 'large'],
         },
         variant: {
             control: {

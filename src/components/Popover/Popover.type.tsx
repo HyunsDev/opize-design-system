@@ -6,6 +6,6 @@ export interface PopoverProps extends React.HTMLAttributes<HTMLDivElement> {
 
 export interface PopoverTriggerProps extends ButtonProps {}
 
-export interface PopoverContentProps {
+export interface PopoverContentProps extends React.ComponentPropsWithRef<'div'> {
     children?: React.ReactNode;
 }

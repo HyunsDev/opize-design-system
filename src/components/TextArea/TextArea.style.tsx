@@ -36,8 +36,8 @@ export const StyledTextArea = styled.textarea<StyledTextAreaProps>`
     background-color: transparent;
     transition: background 200ms;
     padding: 8px 12px;
-    font-size: 14px;
-    border-radius: 8px;
+    font-size: ${cv.formFontSizeMedium};
+    border-radius: ${cv.formBorderRadiusMedium};
     border: solid 1px ${(props) => (props.$isError ? cv.red : cv.default200)};
     background-color: ${cv.background};
     color: ${cv.foreground};
