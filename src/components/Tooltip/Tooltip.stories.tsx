@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Flex, Text, Tooltip } from '..';
-import { ChatCenteredDots } from 'phosphor-react';
+import { ChatCenteredDots } from '@phosphor-icons/react';
 
 const meta: Meta<typeof Tooltip> = {
     title: 'Opize Component/Tooltip',

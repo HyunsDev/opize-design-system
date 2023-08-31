@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Menu } from '..';
-import { CaretDown, TrashSimple } from 'phosphor-react';
+import { CaretDown, TrashSimple } from '@phosphor-icons/react';
 
 const meta: Meta<typeof Menu> = {
     title: 'Opize Component/Menu',

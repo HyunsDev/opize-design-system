@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { Avatar, Flex, Header, Input, Menu, Text } from '../../../..';
 import ODSLogo from '../../assets/opize-design-system-logo.png';
 import OpizeLogo from '../../assets/opize-logo.png';
-import { MagnifyingGlass } from 'phosphor-react';
+import { MagnifyingGlass } from '@phosphor-icons/react';
 import { useState } from 'react';
 
 const HeaderIconImg = styled.img`

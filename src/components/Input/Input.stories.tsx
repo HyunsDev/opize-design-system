@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Flex, Input } from '..';
-import { ArrowCircleUp } from 'phosphor-react';
+import { ArrowCircleUp } from '@phosphor-icons/react';
 
 const meta: Meta<typeof Input> = {
     title: 'HTML-Like Component/Input',

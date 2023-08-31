@@ -1,4 +1,4 @@
-import { DotsThreeVertical } from 'phosphor-react';
+import { DotsThreeVertical } from '@phosphor-icons/react';
 import {
     A,
     Avatar,

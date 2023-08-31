@@ -24,6 +24,7 @@
         "build-storybook": "storybook build -o storybook-static"
     },
     "devDependencies": {
+        "@phosphor-icons/react": "^2.0.10",
         "@storybook/addon-essentials": "^7.2.1",
         "@storybook/addon-interactions": "^7.2.1",
         "@storybook/addon-links": "^7.2.1",
@@ -47,7 +48,6 @@
         "eslint-plugin-react-hooks": "^4.6.0",
         "eslint-plugin-react-refresh": "^0.4.3",
         "eslint-plugin-storybook": "^0.6.13",
-        "phosphor-react": "^1.4.1",
         "react": "^18.2.0",
         "react-docgen-typescript-plugin": "^1.0.5",
         "react-dom": "^18.2.0",
@@ -62,7 +62,7 @@
         "vite-tsconfig-paths": "^4.2.0"
     },
     "peerDependencies": {
-        "phosphor-react": "^1.4.1",
+        "@phosphor-icons/react": "^2.0.10",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
         "styled-components": "^6.0.7"

@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { CaretDown, Minus, Plus } from 'phosphor-react';
+import { CaretDown, Minus, Plus } from '@phosphor-icons/react';
 
 import { ButtonGroup, Button, Flex, Popover, Menu } from '..';
 

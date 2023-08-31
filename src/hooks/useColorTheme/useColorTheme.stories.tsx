@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { Atom, Moon, Sun } from 'phosphor-react';
+import { Atom, Moon, Sun } from '@phosphor-icons/react';
 
 import { Menu, Text, Code, useColorTheme, Flex } from '../..';
 

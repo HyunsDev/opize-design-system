@@ -1,5 +1,5 @@
 import { Meta, StoryObj } from '@storybook/react';
-import { UserCircle } from 'phosphor-react';
+import { UserCircle } from '@phosphor-icons/react';
 
 import { ItemsTable, Menu } from '..';
 

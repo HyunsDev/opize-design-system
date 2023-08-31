@@ -1,5 +1,5 @@
 import React from 'react';
-import { WarningOctagon } from 'phosphor-react';
+import { WarningOctagon } from '@phosphor-icons/react';
 import { ErrorContent, ErrorLabel, StyledError } from './Error.style';
 
 export interface ErrorProps extends React.ComponentPropsWithRef<'div'> {
