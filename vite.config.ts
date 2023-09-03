@@ -26,7 +26,7 @@ export default defineConfig({
                 'react',
                 'react-dom',
                 'styled-components',
-                'phosphor-react',
+                '@phosphor-icons/react',
                 '**/*.stories.tsx',
             ],
             output: {

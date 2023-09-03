@@ -1,4 +1,4 @@
-import { css, styled } from 'styled-components';
+import { styled } from 'styled-components';
 import { cv } from '../..';
 
 interface StyledSkeletonProps {
@@ -29,7 +29,7 @@ export const StyledSkeleton = styled.span<StyledSkeletonProps>`
 
     ${(props) =>
         props.$show &&
-        css`
+        `
             &::after {
                 content: '';
                 position: absolute;

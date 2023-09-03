@@ -81,7 +81,7 @@ export const StyledNote = styled.div<StyledNoteProps>`
     display: flex;
     justify-content: space-between;
     border: solid 1px;
-    border-radius: 8px;
+    border-radius: 5px;
     padding: 12px 12px;
     gap: 12px;
 

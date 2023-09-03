@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
-import { Flex, Text, Tooltip } from '..';
-import { ChatCenteredDots } from 'phosphor-react';
+import { Button, Flex, Text, Tooltip } from '..';
+import { ChatCenteredDots } from '@phosphor-icons/react';
 
 const meta: Meta<typeof Tooltip> = {
     title: 'Opize Component/Tooltip',
@@ -37,6 +37,21 @@ export const WithNode: Story = {
     render: (args) => (
         <Tooltip {...args}>
             <Text>Element</Text>
+        </Tooltip>
+    ),
+};
+
+export const WithButton: Story = {
+    args: {
+        content: (
+            <Flex.Row>
+                <ChatCenteredDots /> Comment
+            </Flex.Row>
+        ),
+    },
+    render: (args) => (
+        <Tooltip {...args}>
+            <Button>Button</Button>
         </Tooltip>
     ),
 };

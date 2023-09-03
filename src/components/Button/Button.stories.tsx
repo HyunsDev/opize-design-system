@@ -2,7 +2,7 @@
 import { useRef, useState } from 'react';
 
 import type { Meta, StoryObj } from '@storybook/react';
-import { Check, Download, Upload } from 'phosphor-react';
+import { Check, Download, Upload } from '@phosphor-icons/react';
 import { Button, Flex } from '..';
 
 const meta: Meta<typeof Button> = {
@@ -22,7 +22,7 @@ const meta: Meta<typeof Button> = {
             control: {
                 type: 'radio',
             },
-            options: ['small', 'medium', 'large'],
+            options: ['small', 'regular', 'medium', 'large'],
         },
         variant: {
             control: {

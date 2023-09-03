@@ -21,27 +21,33 @@ const getSizeStyle = ({ $size }: StyledSelectContainerProps) => {
     switch ($size) {
         case 'small':
             return `
-                font-size: 14px;
-                height: 32px;
-                border-radius: 6px;
+                font-size: ${cv.formFontSizeSmall};
+                height: ${cv.formHeightSmall};
+                border-radius: ${cv.formBorderRadiusSmall};
+            `;
+        case 'regular':
+            return `
+                font-size: ${cv.formFontSizeRegular};
+                height: ${cv.formHeightRegular};
+                border-radius: ${cv.formBorderRadiusRegular};
             `;
         case 'medium':
             return `
-                font-size: 14px;
-                height: 40px;
-                border-radius: 8px;
+                font-size: ${cv.formFontSizeMedium};
+                height: ${cv.formHeightMedium};
+                border-radius: ${cv.formBorderRadiusMedium};
             `;
         case 'large':
             return `
-                font-size: 16px;
-                height: 48px;
-                border-radius: 10x;
+                font-size: ${cv.formFontSizeLarge};
+                height: ${cv.formHeightLarge};
+                border-radius: ${cv.formBorderRadiusLarge};
             `;
     }
 };
 
 export interface StyledSelectContainerProps {
-    $size: 'small' | 'medium' | 'large';
+    $size: 'small' | 'regular' | 'medium' | 'large';
     $disabled: boolean;
     $width: string;
     $isError: boolean;
@@ -70,7 +76,7 @@ export const StyledSelectContainer = styled.div<StyledSelectContainerProps>`
 `;
 
 export interface StyledSelectProps {
-    $size: 'small' | 'medium' | 'large';
+    $size: 'small' | 'regular' | 'medium' | 'large';
     $width: string;
 }
 
@@ -80,6 +86,11 @@ const getSelectSizeStyle = ({ $size }: StyledSelectProps) => {
             return `
                 padding: 0px 8px;
                 padding-right: 28px;
+            `;
+        case 'regular':
+            return `
+                padding: 0px 10px;
+                padding-right: 30px;
             `;
         case 'medium':
             return `
@@ -126,7 +137,7 @@ export const StyledSelect = styled.select<StyledSelectProps>`
 `;
 
 interface StyledSelectSuffixProps {
-    $size: 'small' | 'medium' | 'large';
+    $size: 'small' | 'regular' | 'medium' | 'large';
 }
 
 const getSelectSuffixSizeStyle = ({ $size }: StyledSelectSuffixProps) => {
@@ -134,6 +145,10 @@ const getSelectSuffixSizeStyle = ({ $size }: StyledSelectSuffixProps) => {
         case 'small':
             return `
                 right: 8px;
+            `;
+        case 'regular':
+            return `
+                right: 10px;
             `;
         case 'medium':
             return `

@@ -1,6 +1,6 @@
 import React from 'react';
 
-import { Share } from 'phosphor-react';
+import { Share } from '@phosphor-icons/react';
 
 import { PolymorphicRef } from '../../utils/Polymorphic';
 import { AProps } from './A.type';

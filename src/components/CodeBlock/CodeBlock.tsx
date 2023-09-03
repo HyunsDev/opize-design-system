@@ -9,7 +9,7 @@ import {
 
 import { oneLight } from 'react-syntax-highlighter/dist/esm/styles/prism';
 import React, { useState } from 'react';
-import { Check, Copy } from 'phosphor-react';
+import { Check, Copy } from '@phosphor-icons/react';
 import { cv } from '../..';
 
 export type CodeBlockProps = {

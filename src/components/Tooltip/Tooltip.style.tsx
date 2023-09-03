@@ -47,12 +47,10 @@ export const StyledTooltip = styled.div<{ $direction: TooltipProps['direction'] 
     background-color: ${cv.foreground};
     color: ${cv.background};
     font-size: 14px;
-    border-radius: 10px;
+    border-radius: 4px;
     padding: 6px 10px;
     white-space: pre;
     pointer-events: none;
-
-    ${(props) => getDirectionStyle(props.$direction || 'top')};
 
     &::after {
         content: '';
@@ -61,6 +59,8 @@ export const StyledTooltip = styled.div<{ $direction: TooltipProps['direction'] 
         border-width: 5px;
         pointer-events: none;
     }
+
+    ${(props) => getDirectionStyle(props.$direction || 'top')};
 `;
 
 export const TooltipContainer = styled.div<{ $isHover: boolean }>`

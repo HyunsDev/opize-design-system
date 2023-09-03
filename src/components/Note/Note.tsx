@@ -1,6 +1,6 @@
 import React from 'react';
 import { NoteAction, NoteContent, NoteLabel, StyledNote, StyledNoteLeft } from './Note.style';
-import { CheckCircle, Info, Warning, WarningOctagon } from 'phosphor-react';
+import { CheckCircle, Info, Warning, WarningOctagon } from '@phosphor-icons/react';
 
 export interface NoteProps extends React.ComponentPropsWithRef<'div'> {
     action?: React.ReactNode;

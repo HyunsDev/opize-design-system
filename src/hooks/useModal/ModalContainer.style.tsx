@@ -14,8 +14,6 @@ export const StyledModalContainerWrapper = styled.div<StyledModalContainerWrappe
     display: flex;
     align-items: center;
     justify-content: center;
-    user-select: none;
-    pointer-events: none;
     padding: 16px;
 
     @media (max-width: 400px) {

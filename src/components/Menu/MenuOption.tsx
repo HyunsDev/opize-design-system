@@ -1,21 +1,19 @@
 import React, { forwardRef } from 'react';
 import { MenuOptionProps } from './Menu.type';
-import { StyledOption } from './Menu.style';
-import { Spinner } from '..';
+import { Button } from '..';
 import { usePopoverContext } from '../Popover/Popover.context';
 
 export const MenuOption = forwardRef<HTMLButtonElement, MenuOptionProps>((props, ref) => {
     const {
-        children,
-        variant = 'default',
-        isLoading = false,
-        disabled = false,
-        prefix,
-        suffix,
         autoClose = true,
+        variant = 'tertiary',
+        align = 'start',
+        size = 'regular',
+        width = '100%',
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         ref: _,
         onClick,
+        children,
         ...otherProps
     } = props;
 
@@ -27,23 +25,16 @@ export const MenuOption = forwardRef<HTMLButtonElement, MenuOptionProps>((props,
     };
 
     return (
-        <StyledOption
+        <Button
             ref={ref}
-            disabled={disabled || isLoading}
-            $variant={variant}
             onClick={handleClick}
+            align={align}
+            variant={variant}
+            size={size}
+            width={width}
             {...otherProps}
         >
-            {isLoading ? (
-                <Spinner
-                    size={20}
-                    color={'var(--button-spinner-color)'}
-                />
-            ) : (
-                prefix && <span className="button-prefix">{prefix}</span>
-            )}
-            <span className="button-child">{children}</span>
-            {suffix && <span className="button-suffix">{suffix}</span>}
-        </StyledOption>
+            {children}
+        </Button>
     );
 });

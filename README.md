@@ -43,9 +43,9 @@ Opize Design System은 현재 개발중인 프로젝트로, 아직은 이 라이
 ### Install
 
 ```bash
-> npm install opize-design-system styled-components phosphor-react
+> npm install opize-design-system styled-components @phosphor-icons/react
 
-> yarn add opize-design-system styled-components phosphor-react
+> yarn add opize-design-system styled-components @phosphor-icons/react
 ```
 
 ### Setup

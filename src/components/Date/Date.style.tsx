@@ -20,26 +20,32 @@ const getSizeStyle = ({ $size }: StyledDateContainerProps) => {
     switch ($size) {
         case 'small':
             return `
-                font-size: 14px;
-                height: 32px;
-                border-radius: 6px;
+                font-size: ${cv.formFontSizeSmall};
+                height: ${cv.formHeightSmall};
+                border-radius: ${cv.formBorderRadiusSmall}
+            `;
+        case 'regular':
+            return `
+                font-size: ${cv.formFontSizeRegular};
+                height: ${cv.formHeightRegular};
+                border-radius: ${cv.formBorderRadiusRegular}
             `;
         case 'medium':
             return `
-                font-size: 14px;
-                height: 40px;
-                border-radius: 8px;
+            font-size: ${cv.formFontSizeMedium};
+                height: ${cv.formHeightMedium};
+                border-radius: ${cv.formBorderRadiusMedium}
             `;
         case 'large':
             return `
-                font-size: 16px;
-                height: 48px;
-                border-radius: 10px;
+                font-size: ${cv.formFontSizeLarge};
+                height: ${cv.formHeightLarge};
+                border-radius: ${cv.formBorderRadiusLarge}
             `;
     }
 };
 export interface StyledDateContainerProps {
-    $size: 'small' | 'medium' | 'large';
+    $size: 'small' | 'regular' | 'medium' | 'large';
     $disabled: boolean;
     $readOnly: boolean;
     $width: string;
@@ -69,7 +75,7 @@ export const StyledDateContainer = styled.div<StyledDateContainerProps>`
 `;
 
 export interface StyledDateProps {
-    $size: 'small' | 'medium' | 'large';
+    $size: 'small' | 'regular' | 'medium' | 'large';
 }
 
 const getDateSizeStyle = ({ $size }: StyledDateProps) => {
@@ -77,6 +83,10 @@ const getDateSizeStyle = ({ $size }: StyledDateProps) => {
         case 'small':
             return `
                 padding: 0px 8px;
+            `;
+        case 'regular':
+            return `
+                padding: 0px 10px;
             `;
         case 'medium':
             return `

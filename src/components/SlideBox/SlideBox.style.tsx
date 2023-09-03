@@ -19,7 +19,7 @@ const getSlideBoxPageTransform = (position: 'left' | 'center' | 'right') => {
 };
 
 export interface StyledSlideBoxPageProps {
-    position: 'left' | 'center' | 'right';
+    $position: 'left' | 'center' | 'right';
 }
 
 export const StyledSlideBoxPage = styled.div<StyledSlideBoxPageProps>`
@@ -28,7 +28,7 @@ export const StyledSlideBoxPage = styled.div<StyledSlideBoxPageProps>`
     position: absolute;
     width: 100%;
     transition: transform 300ms;
-    transform: ${(props) => getSlideBoxPageTransform(props.position)};
+    transform: ${(props) => getSlideBoxPageTransform(props.$position)};
 
     @media (max-width: 767px) {
         padding: 0px 4px;

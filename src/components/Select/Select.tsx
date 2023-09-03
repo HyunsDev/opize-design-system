@@ -8,7 +8,7 @@ import {
 } from './Select.style';
 import { StyledInputLabel } from '../Input/Input.style';
 import { Error } from '../..';
-import { CaretDown } from 'phosphor-react';
+import { CaretDown } from '@phosphor-icons/react';
 
 export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, ref) => {
     const {

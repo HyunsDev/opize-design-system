@@ -13,6 +13,11 @@ const getSizeStyle = ({ $size }: StyledErrorProps) => {
                 font-size: 14px;
                 line-height: 18px;
             `;
+        case 'regular':
+            return `
+                font-size: 14px;
+                line-height: 20px;
+            `;
         case 'medium':
             return `
                 font-size: 14px;
@@ -41,6 +46,11 @@ const getLabelSizeStyle = ({ $size }: StyledErrorProps) => {
             return `
                 font-size: 16px;
                 line-height: 18px;
+            `;
+        case 'regular':
+            return `
+                font-size: 16px;
+                line-height: 20px;
             `;
         case 'medium':
             return `

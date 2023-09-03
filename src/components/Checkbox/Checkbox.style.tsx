@@ -37,19 +37,19 @@ const getSizeStyle = ({ $size }: StyledCheckboxProps) => {
             return `
                 width: 16px;
                 height: 16px;
-                border-radius: 6px;
+                border-radius: 4px;
             `;
         case 'medium':
             return `
                 width: 24px;
                 height: 24px;
-                border-radius: 8px;
+                border-radius: 4px;
             `;
         case 'large':
             return `
                 width: 32px;
                 height: 32px;
-                border-radius: 10px;
+                border-radius: 6px;
             `;
     }
 };

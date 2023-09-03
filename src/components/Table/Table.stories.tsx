@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Flex, Menu, Table } from '..';
-import { DotsThreeVertical } from 'phosphor-react';
+import { DotsThreeVertical } from '@phosphor-icons/react';
 
 const meta: Meta<typeof Table> = {
     title: 'HTML-Like Component/Table',

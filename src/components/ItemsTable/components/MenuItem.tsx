@@ -1,5 +1,5 @@
 import { Menu } from '../..';
-import { DotsThreeVertical } from 'phosphor-react';
+import { DotsThreeVertical } from '@phosphor-icons/react';
 import { ItemContainer } from './Item.style';
 
 export interface MenuItemProps {
