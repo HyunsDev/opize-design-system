@@ -32,7 +32,8 @@ const GlobalStyles = createGlobalStyle`
     @media (prefers-color-scheme: dark) {
         body {
             ${colorCSSVariables.dark};
-            background-color: var(--bg-page2);
+            background-color: var(--background);
+            color: var(--foreground);
         }
     }
 
