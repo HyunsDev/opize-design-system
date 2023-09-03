@@ -25,7 +25,7 @@ export const SlideBoxPage = forwardRef<HTMLDivElement, SlideBoxPageProps>((props
     return (
         <StyledSlideBoxPage
             ref={domRef}
-            position={position}
+            $position={position}
             {...otherProps}
         >
             {children}
