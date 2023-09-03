@@ -29,6 +29,7 @@ export function useButton<T extends React.ElementType = 'button'>(props: ButtonP
 
     const spinnerSize = {
         small: 18,
+        regular: 20,
         medium: 20,
         large: 24,
     }[size];
