@@ -29,11 +29,29 @@ const GlobalStyles = createGlobalStyle`
         ${styleConstantVariable};
     }
 
+    body {
+        ${colorCSSVariables.light};
+        background-color: var(--background);
+        color: var(--foreground);
+
+        * {
+            ::selection {
+                background: #74fde0;
+            }
+        }
+    }
+
     @media (prefers-color-scheme: dark) {
         body {
             ${colorCSSVariables.dark};
             background-color: var(--background);
             color: var(--foreground);
+
+            * {
+                ::selection {
+                    background: #7270ff;
+                }
+            }
         }
     }
 
