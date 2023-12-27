@@ -3,7 +3,7 @@ import { ColorPalette } from './color.type';
 export const darkColorPalette: ColorPalette = {
     white: '#ffffff',
     black: '#000000',
-    background: '#000000',
+    background: '#131314',
     default100: '#27272a',
     default200: '#3f3f46',
     default300: '#52525b',
