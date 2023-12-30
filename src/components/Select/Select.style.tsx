@@ -41,6 +41,7 @@ const getSizeStyle = ({ $size }: StyledSelectContainerProps) => {
 
 export interface StyledSelectContainerProps {
     $size: 'small' | 'regular' | 'medium';
+    $variant: 'primary' | 'secondary';
     $disabled: boolean;
     $width: string;
     $isError: boolean;
@@ -51,19 +52,29 @@ export const StyledSelectContainer = styled.div<StyledSelectContainerProps>`
     display: flex;
     align-items: center;
     transition: 200ms;
-    border: solid 1px ${(props) => (props.$isError ? cv.statusRed : cv.border)};
+    border: solid 1px
+        ${(props) =>
+            props.$isError
+                ? cv.statusRed
+                : props.$variant === 'primary'
+                ? cv.border
+                : 'transparent'};
     background-color: ${(props) => (props.$disabled ? cv.gray100 : cv.background)};
     width: ${(props) => props.$width || '100%'};
 
     ${(props) => getSizeStyle(props)};
+
+    &:hover {
+        border: solid 1px ${(props) => (props.$isError ? cv.statusRed : cv.border)};
+    }
 
     &:focus-within {
         ${(props) =>
             props.$disabled
                 ? ''
                 : `
-            border: solid 1px ${cv.gray400};
-            background-color: ${cv.background};
+            border: solid 1px ${cv.gray100};
+            background-color: ${cv.gray100};
         `}
     }
 `;

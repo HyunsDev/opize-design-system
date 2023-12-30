@@ -14,7 +14,8 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, ref) =>
     const {
         label,
         error,
-        size = 'medium',
+        size = 'regular',
+        variant = 'primary',
         disabled = false,
         width = '100%',
         placeholder,
@@ -29,6 +30,7 @@ export const Select = forwardRef<HTMLSelectElement, SelectProps>((props, ref) =>
                 $disabled={disabled}
                 $isError={!!error}
                 $size={size}
+                $variant={variant}
                 $width={width}
             >
                 <StyledSelect

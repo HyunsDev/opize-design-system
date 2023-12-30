@@ -40,6 +40,7 @@ const getSizeStyle = ({ $size }: StyledDateContainerProps) => {
 export interface StyledDateContainerProps {
     $size: 'small' | 'regular' | 'medium';
     $disabled: boolean;
+    $variant: 'primary' | 'secondary';
     $readOnly: boolean;
     $width: string;
     $isError: boolean;
@@ -49,20 +50,35 @@ export const StyledDateContainer = styled.div<StyledDateContainerProps>`
     display: flex;
     align-items: center;
     transition: 200ms;
-    border: solid 1px ${(props) => (props.$isError ? cv.statusRed : cv.border)};
+    border: solid 1px
+        ${(props) =>
+            props.$isError
+                ? cv.statusRed
+                : props.$variant === 'primary'
+                ? cv.border
+                : 'transparent'};
     background-color: ${(props) =>
         props.$disabled || props.$readOnly ? cv.gray100 : cv.background};
     width: ${(props) => props.$width || '100%'};
 
     ${(props) => getSizeStyle(props)};
 
+    &:hover {
+        ${(props) =>
+            props.$disabled || props.$readOnly
+                ? ''
+                : `
+            border: solid 1px ${cv.border};
+        `}
+    }
+
     &:focus-within {
         ${(props) =>
             props.$disabled || props.$readOnly
                 ? ''
                 : `
-            border: solid 1px ${cv.gray400};
-            background-color: ${cv.background};
+            border: solid 1px ${cv.gray100};
+            background-color: ${cv.gray100};
         `}
     }
 `;

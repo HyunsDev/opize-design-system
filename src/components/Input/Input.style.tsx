@@ -41,31 +41,65 @@ const getSizeStyle = ({ $size }: StyledInputContainerProps) => {
 
 export interface StyledInputContainerProps {
     $size: 'small' | 'regular' | 'medium';
+    $variant: 'primary' | 'secondary';
     $disabled: boolean;
     $readOnly: boolean;
     $width: string;
     $isError: boolean;
 }
+const getVariantStyle = ({
+    $variant,
+    $disabled,
+    $readOnly,
+    $isError,
+}: StyledInputContainerProps) => {
+    switch ($variant) {
+        case 'primary':
+            return `
+                border: solid 1px ${$isError ? cv.statusRed : cv.border};
+                background-color: ${$disabled || $readOnly ? cv.gray100 : cv.background};
+
+                &:focus-within {
+                    ${
+                        $disabled || $readOnly
+                            ? ''
+                            : `
+                            border: solid 1px ${cv.gray100};
+                            background-color: ${cv.gray100};
+                        `
+                    }
+                }
+            `;
+        case 'secondary':
+            return `
+                border: solid 1px transparent;
+                background-color: ${$disabled || $readOnly ? cv.gray100 : cv.background};
+
+                &:hover {
+                    border: solid 1px ${$isError ? cv.statusRed : cv.border};
+                }
+
+                &:focus-within {
+                    ${
+                        $disabled || $readOnly
+                            ? ';'
+                            : `
+                            background-color: ${cv.gray100};
+                        `
+                    }
+                }
+            `;
+    }
+};
+
 export const StyledInputContainer = styled.div<StyledInputContainerProps>`
     display: flex;
     align-items: center;
     transition: 200ms;
-    border: solid 1px ${(props) => (props.$isError ? cv.statusRed : cv.border)};
-    background-color: ${(props) =>
-        props.$disabled || props.$readOnly ? cv.gray100 : cv.background};
+
     width: ${(props) => props.$width || '100%'};
-
     ${(props) => getSizeStyle(props)};
-
-    &:focus-within {
-        ${(props) =>
-            props.$disabled || props.$readOnly
-                ? ''
-                : `
-            border: solid 1px ${cv.gray400};
-            background-color: ${cv.background};
-        `}
-    }
+    ${(props) => getVariantStyle(props)};
 `;
 
 export interface StyledInputProps {

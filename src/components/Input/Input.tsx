@@ -13,7 +13,8 @@ import { Error, Spinner } from '../..';
 
 export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
     const {
-        size = 'medium',
+        size = 'regular',
+        variant = 'primary',
         type = 'text',
         label,
         error,
@@ -32,6 +33,7 @@ export const Input = forwardRef<HTMLInputElement, InputProps>((props, ref) => {
             {label && <StyledInputLabel>{label}</StyledInputLabel>}
             <StyledInputContainer
                 $size={size}
+                $variant={variant}
                 $width={width}
                 $disabled={disabled || isLoading}
                 $readOnly={readOnly}
