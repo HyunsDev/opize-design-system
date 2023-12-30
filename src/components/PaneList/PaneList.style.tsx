@@ -30,7 +30,7 @@ export const StyledPanelistItemA = styled.a<StyledPaneListItemProps>`
     padding: 0px 12px;
     height: 40px;
     border-radius: 8px;
-    background-color: ${(props) => (props.$selected ? cv.default100 : cv.background)};
+    background-color: ${(props) => (props.$selected ? cv.gray100 : cv.background)};
     transition: background-color 100ms;
     user-select: none;
     text-decoration: none;
@@ -41,6 +41,6 @@ export const StyledPanelistItemA = styled.a<StyledPaneListItemProps>`
     transition: background-color 200ms;
 
     &:hover {
-        background-color: ${cv.default100};
+        background-color: ${cv.gray050};
     }
 `;
