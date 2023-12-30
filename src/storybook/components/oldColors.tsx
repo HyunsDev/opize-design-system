@@ -55,7 +55,7 @@ const ColorShow = styled.div<{ color: string }>`
     border: solid 1px var(--border3);
 `;
 
-export function Colors() {
+export function BaseColors() {
     const isDarkMode = false;
 
     return (
