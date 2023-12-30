@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { cv } from '../..';
+import { cv, typos } from '../..';
 
 export interface StyledDateOuterContainerProps {
     $width: string;
@@ -8,44 +8,37 @@ export const StyledDateOuterContainer = styled.div<StyledDateOuterContainerProps
     display: flex;
     flex-direction: column;
     width: ${(props) => props.$width};
-    gap: 6px;
+    gap: 4px;
 `;
 
 export const StyledDateLabel = styled.div`
-    color: ${cv.default600};
-    font-size: 12px;
+    ${typos.label};
 `;
 
 const getSizeStyle = ({ $size }: StyledDateContainerProps) => {
     switch ($size) {
         case 'small':
             return `
-                font-size: ${cv.formFontSizeSmall};
-                height: ${cv.formHeightSmall};
-                border-radius: ${cv.formBorderRadiusSmall}
+                font-size: ${cv.var.inputSmFontSize};
+                height: ${cv.var.inputSmHeight};
+                border-radius: ${cv.var.inputSmRound}
             `;
         case 'regular':
             return `
-                font-size: ${cv.formFontSizeRegular};
-                height: ${cv.formHeightRegular};
-                border-radius: ${cv.formBorderRadiusRegular}
+                font-size: ${cv.var.inputRgFontSize};
+                height: ${cv.var.inputRgHeight};
+                border-radius: ${cv.var.inputRgRound}
             `;
         case 'medium':
             return `
-            font-size: ${cv.formFontSizeMedium};
-                height: ${cv.formHeightMedium};
-                border-radius: ${cv.formBorderRadiusMedium}
-            `;
-        case 'large':
-            return `
-                font-size: ${cv.formFontSizeLarge};
-                height: ${cv.formHeightLarge};
-                border-radius: ${cv.formBorderRadiusLarge}
+            font-size: ${cv.var.inputMdFontSize};
+                height: ${cv.var.inputMdHeight};
+                border-radius: ${cv.var.inputMdRound}
             `;
     }
 };
 export interface StyledDateContainerProps {
-    $size: 'small' | 'regular' | 'medium' | 'large';
+    $size: 'small' | 'regular' | 'medium';
     $disabled: boolean;
     $readOnly: boolean;
     $width: string;
@@ -56,9 +49,8 @@ export const StyledDateContainer = styled.div<StyledDateContainerProps>`
     display: flex;
     align-items: center;
     transition: 200ms;
-    border: solid 1px ${(props) => (props.$isError ? cv.red : cv.default200)};
-    background-color: ${(props) =>
-        props.$disabled || props.$readOnly ? cv.default100 : cv.background};
+    border: solid 1px ${(props) => (props.$isError ? cv.statusRed : cv.border)};
+    background-color: ${(props) => (props.$disabled || props.$readOnly ? cv.gray100 : cv.gray050)};
     width: ${(props) => props.$width || '100%'};
 
     ${(props) => getSizeStyle(props)};
@@ -68,33 +60,29 @@ export const StyledDateContainer = styled.div<StyledDateContainerProps>`
             props.$disabled || props.$readOnly
                 ? ''
                 : `
-            border: solid 1px ${cv.default400};
+            border: solid 1px ${cv.gray400};
             background-color: ${cv.background};
         `}
     }
 `;
 
 export interface StyledDateProps {
-    $size: 'small' | 'regular' | 'medium' | 'large';
+    $size: 'small' | 'regular' | 'medium';
 }
 
 const getDateSizeStyle = ({ $size }: StyledDateProps) => {
     switch ($size) {
         case 'small':
             return `
-                padding: 0px 8px;
+                padding: ${cv.var.inputSmPadding};
             `;
         case 'regular':
             return `
-                padding: 0px 10px;
+                padding: ${cv.var.inputRgPadding};
             `;
         case 'medium':
             return `
-                padding: 0px 12px;
-            `;
-        case 'large':
-            return `
-                padding: 0px 16px;
+                padding: ${cv.var.inputMdPadding};
             `;
     }
 };
@@ -114,21 +102,21 @@ export const StyledDate = styled.input<StyledDateProps>`
     ${(props) => getDateSizeStyle(props)};
 
     &::placeholder {
-        color: ${cv.default400};
+        color: ${cv.placeholder};
     }
 
     &:disabled {
-        color: ${cv.default600};
+        color: ${cv.gray500};
         cursor: not-allowed;
         &::placeholder {
-            color: ${cv.default400};
+            color: ${cv.placeholder};
         }
     }
 
     &:read-only {
-        color: ${cv.default600};
+        color: ${cv.gray050};
         &::placeholder {
-            color: ${cv.default400};
+            color: ${cv.placeholder};
         }
     }
 
@@ -149,7 +137,7 @@ export const StyledDate = styled.input<StyledDateProps>`
     }
 
     &::-webkit-calendar-picker-indicator {
-        stroke: ${cv.foreground};
+        stroke: ${cv.text};
         cursor: pointer;
     }
 `;

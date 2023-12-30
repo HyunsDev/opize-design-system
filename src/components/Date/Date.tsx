@@ -10,7 +10,7 @@ export type DateProps = Omit<React.ComponentPropsWithRef<'input'>, 'size'> & {
     label?: React.ReactNode;
     error?: React.ReactNode;
     type?: 'date' | 'datetime-local' | 'month' | 'time' | 'week';
-    size?: 'small' | 'regular' | 'medium' | 'large';
+    size?: 'small' | 'regular' | 'medium';
     disabled?: boolean;
     readOnly?: boolean;
     width?: string;
