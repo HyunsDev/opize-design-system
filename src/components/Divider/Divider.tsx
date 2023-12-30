@@ -1,7 +1,6 @@
 import { styled } from 'styled-components';
-
-import { cv } from '../../deprecated-style';
 import { forwardRef } from 'react';
+import { cv } from '../..';
 
 export interface DividerProps extends React.ComponentPropsWithRef<'div'> {
     color?: string;
@@ -23,7 +22,7 @@ const StyledDivider = styled.div<StyledDividerProps>`
 `;
 
 export const Divider = forwardRef<HTMLDivElement, DividerProps>((props, ref) => {
-    const { color = cv.default200, margin, width, ...rest } = props;
+    const { color = cv.border, margin, width, ...rest } = props;
     return (
         <StyledDivider
             ref={ref}
