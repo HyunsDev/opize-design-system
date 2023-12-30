@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { styled } from 'styled-components';
-
-import { cv } from '../../../deprecated-style';
+import { cv } from '../../..';
 
 const BoxLayoutOuter = styled.div<{
     $backgroundColor: string;

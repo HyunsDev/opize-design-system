@@ -1,6 +1,5 @@
 import { styled } from 'styled-components';
-
-import { cv } from '../../deprecated-style';
+import { cv } from '../..';
 
 const StyledLoader = styled.div<{ $size: number }>`
     position: relative;
