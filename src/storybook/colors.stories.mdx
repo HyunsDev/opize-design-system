@@ -13,9 +13,13 @@ import { Moon } from '@phosphor-icons/react';
 import { cv } from 'opize-design-system'
 import { styled } from 'styled-components'
 
-// cv.bg_element1 === 'var(--bg-element1)'
+// cv.gray100 === 'var(--gray100)'
 const Text = styled.p`
-    background: ${cv.default100};
+    // 방법 1
+    background: ${cv.gray100};
+
+    // 방법 2
+    background: ${({theme}) => theme.cv.gray100};
 `
 ...
 <Text>Text</Text>
