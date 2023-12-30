@@ -8,7 +8,7 @@ export const MenuOption = forwardRef<HTMLButtonElement, MenuOptionProps>((props,
         autoClose = true,
         variant = 'tertiary',
         align = 'start',
-        size = 'regular',
+        size = 'small',
         width = '100%',
         // eslint-disable-next-line @typescript-eslint/no-unused-vars
         ref: _,

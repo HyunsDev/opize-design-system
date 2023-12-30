@@ -28,7 +28,7 @@ export const StyledPopoverContent = styled.div<StyledPopoverProps>`
     background-color: ${cv.background};
     border: 1px solid ${cv.border};
     box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
-    padding: 6px 8px;
+    padding: 4px;
     border-radius: ${cv.var.inputRgRound};
 
     @keyframes FadeInKeyframes {
