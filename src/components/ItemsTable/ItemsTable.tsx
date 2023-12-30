@@ -1,15 +1,15 @@
 import { styled } from 'styled-components';
 
-import { cv } from '../../deprecated-style';
 import { AvatarItem, ComponentItem, TextItem, MenuItem } from './components';
+import { cv } from '../..';
 
 export type ItemsTableProps = {
     children: React.ReactNode;
 };
 
 const StyledTable = styled.div`
-    border-top: solid 1px ${cv.default200};
-    border-bottom: solid 1px ${cv.default200};
+    border-top: solid 1px ${cv.border};
+    border-bottom: solid 1px ${cv.border};
     border-radius: 6px;
 `;
 
@@ -25,9 +25,9 @@ const StyledRow = styled.div`
     justify-content: space-between;
     padding: 16px;
     gap: 8px;
-    border-right: solid 1px ${cv.default200};
-    border-left: solid 1px ${cv.default200};
-    border-top: solid 1px ${cv.default200};
+    border-right: solid 1px ${cv.border};
+    border-left: solid 1px ${cv.border};
+    border-top: solid 1px ${cv.border};
 
     font-size: 14px;
 
