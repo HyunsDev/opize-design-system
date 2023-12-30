@@ -43,10 +43,13 @@ const themes = {
     var: styleVariables,
 };
 
+export type Theme = typeof themes;
+
 export function StyleProvider({ children }: { children: React.ReactNode }) {
     return (
-        <GlobalStyle>
-            <ThemeProvider theme={themes}>{children}</ThemeProvider>
-        </GlobalStyle>
+        <ThemeProvider theme={themes}>
+            <GlobalStyle />
+            {children}
+        </ThemeProvider>
     );
 }
