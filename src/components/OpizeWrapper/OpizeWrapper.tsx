@@ -1,9 +1,9 @@
 import { createGlobalStyle } from 'styled-components';
-import { colorCSSVariables } from '../../style/colors/colorPalette';
+import { colorCSSVariables } from '../../deprecated-style/colors/colorPalette';
 import { ModalContextProvider } from '../../hooks/useModal/Modal.context';
 import { TopLoadingContextProvider } from '../../hooks/useTopLoading/TopLoading.context';
 import { ColorThemeProvider } from '../../hooks/useColorTheme/ColorTheme.context';
-import { styleConstantVariable } from '../../style/constant/constants';
+import { styleConstantVariable } from '../../deprecated-style/constant/constants';
 
 const GlobalStyles = createGlobalStyle`
     * {

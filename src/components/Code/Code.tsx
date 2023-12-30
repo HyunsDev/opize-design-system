@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { cv } from '../../style';
+import { cv } from '../../deprecated-style';
 import React from 'react';
 
 export interface CodeProps extends React.ComponentProps<'code'> {

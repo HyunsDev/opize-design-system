@@ -1,6 +1,6 @@
 import { styled, keyframes } from 'styled-components';
 import { OpizeWrapper } from '../..';
-import { colorPalettes } from '../../style/colors/colorPalette';
+import { colorPalettes } from '../../deprecated-style/colors/colorPalette';
 
 const fadeIn = keyframes`
     0% {

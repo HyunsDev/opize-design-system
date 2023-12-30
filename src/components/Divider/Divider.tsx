@@ -1,6 +1,6 @@
 import { styled } from 'styled-components';
 
-import { cv } from '../../style';
+import { cv } from '../../deprecated-style';
 import { forwardRef } from 'react';
 
 export interface DividerProps extends React.ComponentPropsWithRef<'div'> {
