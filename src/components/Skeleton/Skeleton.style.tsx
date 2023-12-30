@@ -40,10 +40,10 @@ export const StyledSkeleton = styled.span<StyledSkeletonProps>`
                 border-radius: 4px;
                 background-image: linear-gradient(
                     270deg,
-                    ${cv.default100},
-                    ${cv.default200},
-                    ${cv.default200},
-                    ${cv.default100}
+                    ${cv.gray100},
+                    ${cv.gray200},
+                    ${cv.gray200},
+                    ${cv.gray100}
                 );
                 background-size: 400% 100%;
                 animation: moving-background 8s ease-in-out infinite;
