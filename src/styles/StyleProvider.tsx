@@ -26,7 +26,7 @@ const GlobalStyle = createGlobalStyle`
     body {
         background-color: ${cv.background};
         color: ${cv.text};
-        font-size: 400;
+        font-weight: 400;
     }
 
     a {
