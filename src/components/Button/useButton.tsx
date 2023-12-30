@@ -10,7 +10,7 @@ export function useButton<T extends React.ElementType = 'button'>(props: ButtonP
         as,
         children,
         width = 'fit-content',
-        size = 'medium',
+        size = 'regular',
         variant = 'secondary',
         color = 'gray',
         iconOnly: isIconOnly = false,
