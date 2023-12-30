@@ -8,20 +8,32 @@ import {
 } from './Switch.style';
 import { Error } from '../..';
 
-export type SwitchProps = React.ComponentPropsWithRef<'input'> & {
+export type SwitchProps = Omit<React.ComponentPropsWithRef<'input'>, 'size'> & {
     label?: React.ReactNode;
     error?: React.ReactNode;
     disabled?: boolean;
     width?: string;
+    size?: 'small' | 'regular' | 'medium';
 };
 
 export const Switch = forwardRef<HTMLInputElement, SwitchProps>((props, ref) => {
-    const { children, label, error, disabled = false, width = 'fit-content', ...rest } = props;
+    const {
+        children,
+        label,
+        error,
+        size = 'regular',
+        disabled = false,
+        width = 'fit-content',
+        ...rest
+    } = props;
 
     return (
         <StyledSwitchOuterContainer $width={width}>
             {label && <StyledSwitchLabel>{label}</StyledSwitchLabel>}
-            <StyledSwitchContainer $disabled={disabled}>
+            <StyledSwitchContainer
+                $disabled={disabled}
+                $size={size}
+            >
                 <StyledSwitch
                     ref={ref}
                     type="checkbox"
