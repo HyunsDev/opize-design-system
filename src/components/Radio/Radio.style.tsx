@@ -10,7 +10,7 @@ export const StyledRadioContainer = styled.div<{
     justify-content: flex-start;
     gap: 8px;
 
-    color: ${(props) => (props.$disabled ? cv.default400 : cv.foreground)};
+    color: ${(props) => (props.$disabled ? cv.gray500 : cv.foreground)};
     font-size: 14px;
 
     cursor: ${(props) => (props.$disabled ? 'not-allowed' : 'pointer')};
@@ -23,13 +23,13 @@ export const StyledRadio = styled.input`
     width: 16px;
     height: 16px;
     border-radius: 8px;
-    border: 2px solid ${cv.default200};
+    border: 2px solid ${cv.border};
     outline: none;
     transition: 150ms;
     background-color: ${cv.background};
 
     &:hover {
-        background-color: ${cv.default100};
+        background-color: ${cv.gray100};
     }
 
     &::after {
@@ -41,7 +41,7 @@ export const StyledRadio = styled.input`
         width: 0px;
         height: 0px;
         border-radius: 6px;
-        background-color: ${cv.default600};
+        background-color: ${cv.gray600};
     }
 
     &:checked {
@@ -55,11 +55,11 @@ export const StyledRadio = styled.input`
 
     &:disabled {
         cursor: not-allowed;
-        background-color: ${cv.default100};
-        border-color: ${cv.default300};
+        background-color: ${cv.gray100};
+        border-color: ${cv.gray300};
 
         &::after {
-            background-color: ${cv.default300};
+            background-color: ${cv.gray300};
         }
     }
 `;
