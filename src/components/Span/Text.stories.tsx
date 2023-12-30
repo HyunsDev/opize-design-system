@@ -18,7 +18,7 @@ type Story = StoryObj<typeof Span>;
 export const Primary: Story = {
     args: {
         children: 'Span',
-        color: cv.red,
+        color: cv.statusRed,
     },
     render: (args) => (
         <Text>

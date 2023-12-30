@@ -21,7 +21,7 @@ export type ColorDotProps = React.ComponentPropsWithRef<'div'> & {
 const colorMap: {
     [key in ColorDotColor]: string;
 } = {
-    default: cv.gray400,
+    gray: cv.gray400,
     background: cv.background,
     foreground: cv.foreground,
     red: cv.statusRed,

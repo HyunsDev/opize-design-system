@@ -59,7 +59,7 @@ export const CodeBlock = ({
                                 {copyResult ? (
                                     <Check
                                         size={16}
-                                        color={cv.green}
+                                        color={cv.statusGreen}
                                         weight="bold"
                                     />
                                 ) : (

@@ -14,6 +14,6 @@ export const StyledRadioGroup = styled.div<StyledRadioGroupProps>`
 `;
 
 export const StyledRadioGroupLabel = styled.div`
-    color: ${cv.default600};
+    color: ${cv.gray600};
     font-size: 12px;
 `;
