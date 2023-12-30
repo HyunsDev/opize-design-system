@@ -21,14 +21,14 @@ export const Primary: Story = {
             <>
                 <Button
                     variant="secondary"
-                    size="large"
+                    size="medium"
                     onClick={() => null}
                 >
                     Button
                 </Button>
                 <Button
                     variant="primary"
-                    size="large"
+                    size="medium"
                     onClick={() => null}
                 >
                     Button
