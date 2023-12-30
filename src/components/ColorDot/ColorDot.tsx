@@ -3,7 +3,7 @@ import { cv } from '../..';
 import { forwardRef } from 'react';
 
 export type ColorDotColor =
-    | 'default'
+    | 'gray'
     | 'background'
     | 'foreground'
     | 'red'
@@ -21,14 +21,14 @@ export type ColorDotProps = React.ComponentPropsWithRef<'div'> & {
 const colorMap: {
     [key in ColorDotColor]: string;
 } = {
-    default: cv.default400,
+    default: cv.gray400,
     background: cv.background,
     foreground: cv.foreground,
-    red: cv.red,
-    yellow: cv.yellow,
-    green: cv.green,
-    blue: cv.blue,
-    violet: cv.violet,
+    red: cv.statusRed,
+    yellow: cv.statusYellow,
+    green: cv.statusGreen,
+    blue: cv.statusBlue,
+    violet: cv.statusViolet,
 };
 
 interface StyledColorDotProps {
@@ -46,7 +46,7 @@ const StyledColorDot = styled.div<StyledColorDotProps>`
 `;
 
 export const ColorDot = forwardRef<HTMLDivElement, ColorDotProps>((props, ref) => {
-    const { color = 'default', size = '12px', ...rest } = props;
+    const { color = 'gray', size = '12px', ...rest } = props;
 
     const _color = colorMap?.[color] || color;
     return (
