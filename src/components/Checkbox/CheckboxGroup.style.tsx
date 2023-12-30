@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { cv } from '../..';
+import { typos } from '../..';
 
 export type StyledCheckboxGroupProps = {
     $width: string;
@@ -14,6 +14,5 @@ export const StyledCheckboxGroup = styled.div<StyledCheckboxGroupProps>`
 `;
 
 export const StyledCheckboxGroupLabel = styled.div`
-    color: ${cv.default600};
-    font-size: 12px;
+    ${typos.label}
 `;
