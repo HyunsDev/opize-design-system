@@ -1,5 +1,6 @@
 import { Meta } from '@storybook/addon-docs';
-import { Colors } from './components/colors.tsx';
+import { BaseColors } from './components/baseColors.tsx';
+import { SemanticColors } from './components/semanticColors.tsx';
 import { Moon } from '@phosphor-icons/react';
 
 <Meta title="Docs/Colors" />
@@ -12,9 +13,13 @@ import { Moon } from '@phosphor-icons/react';
 import { cv } from 'opize-design-system'
 import { styled } from 'styled-components'
 
-// cv.bg_element1 === 'var(--bg-element1)'
+// cv.gray100 === 'var(--gray100)'
 const Text = styled.p`
-    background: ${cv.default100};
+    // 방법 1
+    background: ${cv.gray100};
+
+    // 방법 2
+    background: ${({theme}) => theme.cv.gray100};
 `
 ...
 <Text>Text</Text>
@@ -22,23 +27,16 @@ const Text = styled.p`
 
 > ### 💬 Comment
 >
-> 현재 컴포넌트를 개발하면서 필요한 색상한 추가한 상태입니다. 지속적으로 다양한 색을 추가할 예정입니다.
-
-## Dark mode
-
-Opize Design System은 다크모드를 지원합니다. 화면 상단 달( <Moon /> ) 아이콘을 클릭해보세요.
-
-리액트 내부에서는 `useColorTheme()` 훅을 이용하여 테마를 변경할 수 있습니다. 자세한 내용는 `HOOK/useColorTheme` 문서를 참고해주세요.
-
-```tsx
-import { useColorTheme } from 'opize-design-system';
-
-function Element() {
-    const { colorTheme, nowColorTheme, setColorTheme } = useColorTheme()
-    ...
-}
-```
+> 과거 ODS는 다크모드를 지원하였으나, 개발 자원 상의 문제 현재는 지원하지 않습니다.
 
 ## Color Palette
 
-<Colors />
+### Base Colors
+
+<BaseColors />
+
+<br />
+
+### Semantic Colors
+
+<SemanticColors />

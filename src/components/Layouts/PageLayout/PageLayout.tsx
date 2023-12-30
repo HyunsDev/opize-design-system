@@ -1,8 +1,7 @@
 import React from 'react';
 
 import { styled } from 'styled-components';
-
-import { cv } from '../../../style';
+import { cv } from '../../..';
 
 const Content = styled.div`
     flex: 1;

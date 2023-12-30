@@ -3,8 +3,8 @@ import { cv } from '../..';
 
 export const StyledFooterContainer = styled.div`
     width: 100%;
-    background-color: ${cv.default100};
-    border-top: solid 1px ${cv.default200};
+    background-color: ${cv.gray100};
+    border-top: solid 1px ${cv.border};
     position: relative;
     padding: 36px 0px;
 `;

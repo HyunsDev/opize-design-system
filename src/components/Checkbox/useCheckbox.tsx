@@ -1,7 +1,7 @@
 export interface CheckboxProps {
     name?: string;
     disabled?: boolean;
-    size?: 'small' | 'medium' | 'large';
+    size?: 'small' | 'regular' | 'medium';
 }
 
 export function useCheckbox(props: CheckboxProps) {

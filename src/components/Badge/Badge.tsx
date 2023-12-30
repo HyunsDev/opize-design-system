@@ -11,7 +11,7 @@ const DotSizeMap = {
 
 const DotColorMap = {
     primary: {
-        default: 'background',
+        gray: 'background',
         red: 'background',
         blue: 'background',
         green: 'background',
@@ -19,7 +19,7 @@ const DotColorMap = {
         violet: 'background',
     },
     secondary: {
-        default: cv.default600,
+        gray: cv.gray600,
         red: 'red',
         blue: 'blue',
         green: 'green',
@@ -27,7 +27,7 @@ const DotColorMap = {
         violet: 'violet',
     },
     tertiary: {
-        default: cv.default600,
+        gray: cv.gray600,
         red: 'red',
         blue: 'blue',
         green: 'green',
@@ -38,7 +38,7 @@ const DotColorMap = {
 
 export function Badge({
     children,
-    color = 'default',
+    color = 'gray',
     variant = 'primary',
     size = 'medium',
     dot = false,

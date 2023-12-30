@@ -34,17 +34,17 @@ export const StyledModalOverlay = styled.div<StyledModalOverlayProps>`
     background-color: ${cv.foreground};
 
     transition: 300ms;
-    opacity: ${(props) => (props.$isOpen ? 0.2 : 0)};
+    opacity: ${(props) => (props.$isOpen ? 0.1 : 0)};
 
     @keyframes opacity {
         0% {
             opacity: 0;
         }
         100% {
-            opacity: 0.2;
+            opacity: 0.1;
         }
     }
-    animation: opacity 300ms;
+    animation: opacity 200ms;
 `;
 
 export type StyledModalContainerProps = {
@@ -56,7 +56,7 @@ export const StyledModalContainer = styled.section<StyledModalContainerProps>`
     z-index: 10000;
     background-color: ${cv.background};
     color: ${cv.foreground};
-    border-radius: 12px;
+    border-radius: ${cv.var.inputRgRound};
     box-shadow: 0 0 12px 0 rgba(0, 0, 0, 0.1);
     width: ${(props) => props.$width};
     max-width: 100%;
@@ -67,17 +67,17 @@ export const StyledModalContainer = styled.section<StyledModalContainerProps>`
 
     transition: 300ms;
     opacity: ${(props) => (props.$isOpen ? 1 : 0)};
-    transform: translateY(${(props) => (props.$isOpen ? 0 : -20)}px);
+    transform: scale(${(props) => (props.$isOpen ? 1 : 0.9)}px);
 
     @keyframes fadeIn {
         0% {
-            transform: translateY(-20px);
+            transform: scale(0.9);
             opacity: 0;
         }
         100% {
-            transform: translateY(0px);
+            transform: scale(1);
             opacity: 1;
         }
     }
-    animation: fadeIn 300ms;
+    animation: fadeIn 200ms;
 `;

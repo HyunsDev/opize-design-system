@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { cv } from '../..';
+import { cv, typos } from '../..';
 
 export interface StyledTextAreaOuterContainerProps {
     $width?: string;
@@ -8,14 +8,13 @@ export const StyledTextAreaOuterContainer = styled.div<StyledTextAreaOuterContai
     display: flex;
     flex-direction: column;
     width: ${(props) => props.$width || '100%'};
-    gap: 6px;
+    gap: 4px;
 `;
 
 export interface StyledTextAreaLabelProps {}
 
 export const StyledTextAreaLabel = styled.div<StyledTextAreaLabelProps>`
-    color: ${cv.default600};
-    font-size: 12px;
+    ${typos.label}
 `;
 
 export interface StyledTextAreaProps {
@@ -36,35 +35,36 @@ export const StyledTextArea = styled.textarea<StyledTextAreaProps>`
     background-color: transparent;
     transition: background 200ms;
     padding: 8px 12px;
-    font-size: ${cv.formFontSizeMedium};
-    border-radius: ${cv.formBorderRadiusMedium};
-    border: solid 1px ${(props) => (props.$isError ? cv.red : cv.default200)};
+    border-radius: ${cv.var.inputMdRound};
+    border: solid 1px ${(props) => (props.$isError ? cv.statusRed : cv.border)};
     background-color: ${cv.background};
     color: ${cv.foreground};
 
+    ${typos.input};
+
     &:focus {
-        border: solid 1px ${cv.default400};
+        border: solid 1px ${cv.gray400};
         background-color: ${cv.background};
     }
 
     &::placeholder {
-        color: ${cv.default400};
+        color: ${cv.placeholder};
     }
 
     &:disabled {
-        color: ${cv.default600};
-        background-color: ${cv.default100};
+        color: ${cv.gray500};
+        background-color: ${cv.gray100};
         cursor: not-allowed;
         &::placeholder {
-            color: ${cv.default400};
+            color: ${cv.gray400};
         }
     }
 
     &:read-only {
-        color: ${cv.default600};
-        background-color: ${cv.default100};
+        color: ${cv.gray500};
+        background-color: ${cv.gray100};
         &::placeholder {
-            color: ${cv.default400};
+            color: ${cv.gray400};
         }
     }
 `;

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { cv } from '../..';
+import { cv, typos } from '../..';
 
 export interface StyledSwitchOuterContainerProps {
     $width: string;
@@ -12,19 +12,30 @@ export const StyledSwitchOuterContainer = styled.div<StyledSwitchOuterContainerP
 `;
 
 export const StyledSwitchLabel = styled.div`
-    color: ${cv.default600};
-    font-size: 12px;
+    ${typos.label}
 `;
 
 export type StyledSwitchContainerProps = {
     $disabled: boolean;
+    $size?: 'small' | 'regular' | 'medium';
+};
+const getContainerSizeStyle = (size?: 'small' | 'regular' | 'medium') => {
+    switch (size) {
+        case 'small':
+            return cv.var.inputSmHeight;
+        case 'regular':
+            return cv.var.inputRgHeight;
+        case 'medium':
+            return cv.var.inputMdHeight;
+    }
 };
 export const StyledSwitchContainer = styled.div<StyledSwitchContainerProps>`
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    color: ${(props) => (props.$disabled ? cv.default400 : cv.foreground)};
+    height: ${(props) => getContainerSizeStyle(props.$size)};
+    color: ${(props) => (props.$disabled ? cv.gray400 : cv.foreground)};
 `;
 
 export const StyledSwitch = styled.input`
@@ -34,7 +45,7 @@ export const StyledSwitch = styled.input`
     height: 24px;
     border: none;
     border-radius: 12px;
-    background-color: ${cv.default200};
+    background-color: ${cv.gray200};
     transition: 250ms;
 
     display: flex;
@@ -72,7 +83,7 @@ export const StyledSwitch = styled.input`
     }
 
     &:checked {
-        background-color: ${cv.blue};
+        background-color: ${cv.primary};
 
         &::after {
             left: 22px;

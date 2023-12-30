@@ -30,7 +30,7 @@ export const getSizeStyle = (props: StyleBadgeProps) => {
 export const getColorStyle = (props: StyleBadgeProps) => {
     if (props.variant === 'primary') {
         switch (props.color) {
-            case 'default':
+            case 'gray':
                 return `
                         background-color: ${cv.foreground};
                         color: ${cv.background};
@@ -38,115 +38,115 @@ export const getColorStyle = (props: StyleBadgeProps) => {
                     `;
             case 'red':
                 return `
-                        background-color: ${cv.red};
+                        background-color: ${cv.statusRed};
                         color: ${cv.background};
-                        border-color: ${cv.red};
+                        border-color: ${cv.statusRed};
                     `;
             case 'blue':
                 return `
-                        background-color: ${cv.blue};
+                        background-color: ${cv.statusBlue};
                         color: ${cv.background};
-                        border-color: ${cv.blue};
+                        border-color: ${cv.statusBlue};
                     `;
             case 'green':
                 return `
-                        background-color: ${cv.green};
+                        background-color: ${cv.statusGreen};
                         color: ${cv.background};
-                        border-color: ${cv.green};
+                        border-color: ${cv.statusGreen};
                     `;
             case 'yellow':
                 return `
-                        background-color: ${cv.yellow};
+                        background-color: ${cv.statusYellow};
                         color: ${cv.background};
-                        border-color: ${cv.yellow};
+                        border-color: ${cv.statusYellow};
                     `;
             case 'violet':
                 return `
-                        background-color: ${cv.violet};
+                        background-color: ${cv.statusViolet};
                         color: ${cv.background};
-                        border-color: ${cv.violet};
+                        border-color: ${cv.statusViolet};
                     `;
         }
     }
 
     if (props.variant === 'secondary') {
         switch (props.color) {
-            case 'default':
+            case 'gray':
                 return `
-                    background-color: ${cv.default200};
-                    color: ${cv.default600};
-                    border-color: ${cv.default200};
+                    background-color: ${cv.gray200};
+                    color: ${cv.gray600};
+                    border-color: ${cv.gray200};
                 `;
             case 'red':
                 return `
-                    background-color: ${cv.red_background};
-                    color: ${cv.red};
-                    border-color: ${cv.red_background};
+                    background-color: ${cv.statusRedBg};
+                    color: ${cv.statusRed};
+                    border-color: ${cv.statusRedBg};
                 `;
             case 'blue':
                 return `
-                    background-color: ${cv.blue_background};
-                    color: ${cv.blue};
-                    border-color: ${cv.blue_background};
+                    background-color: ${cv.statusBlueBg};
+                    color: ${cv.statusBlue};
+                    border-color: ${cv.statusBlueBg};
                 `;
             case 'green':
                 return `
-                    background-color: ${cv.green_background};
-                    color: ${cv.green};
-                    border-color: ${cv.green_background};
+                    background-color: ${cv.statusGreenBg};
+                    color: ${cv.statusGreen};
+                    border-color: ${cv.statusGreenBg};
                 `;
             case 'yellow':
                 return `
-                    background-color: ${cv.yellow_background};
-                    color: ${cv.yellow};
-                    border-color: ${cv.yellow_background};
+                    background-color: ${cv.statusYellowBg};
+                    color: ${cv.statusYellow};
+                    border-color: ${cv.statusYellowBg};
                 `;
             case 'violet':
                 return `
-                    background-color: ${cv.violet_background};
-                    color: ${cv.violet};
-                    border-color: ${cv.violet_background};
+                    background-color: ${cv.statusVioletBg};
+                    color: ${cv.statusViolet};
+                    border-color: ${cv.statusVioletBg};
                 `;
         }
     }
 
     if (props.variant === 'tertiary') {
         switch (props.color) {
-            case 'default':
+            case 'gray':
                 return `
                     background-color: ${cv.background};
-                    color: ${cv.default500};
-                    border-color: ${cv.default500};
+                    color: ${cv.gray500};
+                    border-color: ${cv.gray500};
                 `;
             case 'red':
                 return `
                     background-color: ${cv.background};
-                    color: ${cv.red};
-                    border-color: ${cv.red};
+                    color: ${cv.statusRed};
+                    border-color: ${cv.statusRed};
                 `;
             case 'blue':
                 return `
                     background-color: ${cv.background};
-                    color: ${cv.blue};
-                    border-color: ${cv.blue};
+                    color: ${cv.statusBlue};
+                    border-color: ${cv.statusBlue};
                 `;
             case 'green':
                 return `
                     background-color: ${cv.background};
-                    color: ${cv.green};
-                    border-color: ${cv.green};
+                    color: ${cv.statusGreen};
+                    border-color: ${cv.statusGreen};
                 `;
             case 'yellow':
                 return `
                     background-color: ${cv.background};
-                    color: ${cv.yellow};
-                    border-color: ${cv.yellow};
+                    color: ${cv.statusYellow};
+                    border-color: ${cv.statusYellow};
                 `;
             case 'violet':
                 return `
                     background-color: ${cv.background};
-                    color: ${cv.violet};
-                    border-color: ${cv.violet};
+                    color: ${cv.statusViolet};
+                    border-color: ${cv.statusViolet};
                 `;
         }
     }

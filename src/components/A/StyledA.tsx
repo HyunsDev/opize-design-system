@@ -5,6 +5,7 @@ export type StyledAProps = {
 };
 
 export const StyledA = styled.a<StyledAProps>`
+    ${({ theme }) => theme.typo.link};
     color: ${({ $color }) => $color};
     text-decoration: none;
 

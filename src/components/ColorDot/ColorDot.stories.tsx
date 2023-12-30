@@ -26,7 +26,7 @@ const meta: Meta<typeof ColorDot> = {
     },
     args: {
         size: '12px',
-        color: 'default',
+        color: 'gray',
     },
 };
 export default meta;
@@ -38,13 +38,13 @@ export const Primary: Story = {};
 export const Colors: Story = {
     args: {
         size: '12px',
-        color: 'default',
+        color: 'gray',
     },
     render: (args) => (
         <Flex.Row
             gap="8px"
             style={{
-                backgroundColor: cv.default100,
+                backgroundColor: cv.gray100,
                 padding: '8px',
                 borderRadius: '999px',
             }}

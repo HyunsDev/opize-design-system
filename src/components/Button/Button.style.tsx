@@ -1,11 +1,12 @@
 import { css, styled } from 'styled-components';
 import { ButtonAlign, ButtonShape, ButtonSize, ButtonVariant, ButtonWidth } from './Button.type';
-import { cv } from '../..';
+import { cv, getStatusColorName, typos } from '../..';
 
 export interface StyledButtonProps {
     $width: ButtonWidth;
     $size: ButtonSize;
     $variant: ButtonVariant;
+    $color: 'gray' | 'yellow' | 'red' | 'green' | 'blue' | 'violet';
     $shape: ButtonShape;
     $align: ButtonAlign;
     $iconOnly: boolean;
@@ -16,27 +17,21 @@ export const getSizeStyle = (props: StyledButtonProps) => {
         switch (props.$size) {
             case 'small':
                 return `
-                    font-size: ${cv.formFontSizeSmall};
-                    width: ${cv.formHeightSmall};
-                    height: ${cv.formHeightSmall};
+                    font-size: ${cv.var.inputSmFontSize};
+                    width: ${cv.var.inputSmHeight};
+                    height: ${cv.var.inputSmHeight};
                 `;
             case 'regular':
                 return `
-                    font-size: ${cv.formFontSizeRegular};
-                    width: ${cv.formHeightRegular};
-                    height: ${cv.formHeightRegular};
+                    font-size: ${cv.var.inputRgFontSize};
+                    width: ${cv.var.inputRgHeight};
+                    height: ${cv.var.inputRgHeight};
                 `;
             case 'medium':
                 return `
-                    font-size: ${cv.formFontSizeMedium};
-                    width: ${cv.formHeightMedium};
-                    height: ${cv.formHeightMedium};
-                `;
-            case 'large':
-                return `
-                    font-size: ${cv.formFontSizeLarge};
-                    width: ${cv.formHeightLarge};
-                    height:${cv.formHeightLarge};
+                    font-size: ${cv.var.inputMdFontSize};
+                    width: ${cv.var.inputMdHeight};
+                    height: ${cv.var.inputMdHeight};
                 `;
         }
     }
@@ -44,27 +39,22 @@ export const getSizeStyle = (props: StyledButtonProps) => {
     switch (props.$size) {
         case 'small':
             return `
-                font-size: ${cv.formFontSizeSmall};
-                padding: 0px 12px;
-                height: ${cv.formHeightSmall};
+                font-size: ${cv.var.inputSmFontSize};
+                padding: ${cv.var.inputSmPadding};
+                height: ${cv.var.inputSmHeight};
             `;
         case 'regular':
             return `
-                font-size: ${cv.formFontSizeRegular};
-                padding: 0px 12px;
-                height: ${cv.formHeightRegular};
+                font-size: ${cv.var.inputRgFontSize};
+                padding: ${cv.var.inputRgPadding};
+                height: ${cv.var.inputRgHeight};
+            
             `;
         case 'medium':
             return `
-                font-size: ${cv.formFontSizeMedium};
-                padding: 0px 16px;
-                height: ${cv.formHeightMedium};
-            `;
-        case 'large':
-            return `
-                font-size: ${cv.formFontSizeLarge};
-                padding: 0px 20px;
-                height: ${cv.formHeightLarge};
+                font-size: ${cv.var.inputMdFontSize};
+                padding: ${cv.var.inputMdPadding};
+                height: ${cv.var.inputMdHeight};
             `;
     }
 };
@@ -79,121 +69,107 @@ export const getShapeStyle = ({ $size, $shape }: StyledButtonProps) => {
     switch ($size) {
         case 'small':
             return `
-                border-radius: ${cv.formBorderRadiusSmall};
+                border-radius: ${cv.var.inputSmRound};
             `;
         case 'regular':
             return `
-                border-radius: ${cv.formBorderRadiusRegular};
+                border-radius: ${cv.var.inputRgRound};
             `;
         case 'medium':
             return `
-                border-radius: ${cv.formBorderRadiusMedium};
-            `;
-        case 'large':
-            return `
-                border-radius: ${cv.formBorderRadiusLarge};
+                border-radius: ${cv.var.inputMdRound};
             `;
     }
 };
 
-export const getVariantStyle = ({ $variant }: StyledButtonProps) => {
-    switch ($variant) {
+export const getVariantStyle = ({ $variant: variant, $color: color }: StyledButtonProps) => {
+    switch (variant) {
         case 'primary':
+            if (color === 'gray') {
+                return `
+                    background-color: ${cv.gray950};
+                    color: ${cv.background};
+                    border: 1px solid ${cv.gray950};
+                    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
+
+                    &:hover {
+                        background-color: ${cv.gray900};
+                        border-color: ${cv.gray900};
+                    }
+
+                    &:active {
+                        background-color: ${cv.gray800};
+                        border-color: ${cv.gray800};
+                    }
+
+                    &:disabled {
+                        background-color: ${cv[getStatusColorName(color, 'BgLg')]};
+                        border-color: ${cv[getStatusColorName(color, 'BgLg')]};
+                        --button-spinner-color: ${cv.background};
+                    }
+                `;
+            }
+
             return `
-                background-color: ${cv.foreground};
+                background-color: ${cv[getStatusColorName(color)]};
                 color: ${cv.background};
-                border: 1px solid ${cv.foreground};
+                border: 1px solid ${cv[getStatusColorName(color)]};
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
                 &:hover {
-                    background-color: ${cv.default800};
-                    border-color: ${cv.default800};
+                    filter: brightness(95%);
                 }
 
                 &:active {
-                    background-color: ${cv.default700};
-                    border-color: ${cv.default700};
+                    filter: brightness(92%);
                 }
 
                 &:disabled {
-                    background-color: ${cv.default300};
-                    border-color: ${cv.default300};
+                    background-color: ${cv[getStatusColorName(color, 'BgDk')]};
+                    border-color: ${cv[getStatusColorName(color, 'BgDk')]};
                     --button-spinner-color: ${cv.background};
                 }
             `;
+
         case 'secondary':
             return `
-                background-color: ${cv.background};
-                color: ${cv.foreground};
-                border: 1px solid ${cv.default200};
+                background-color: ${cv.gray050};
+                border: 1px solid ${cv.gray200};
+                color: ${cv[getStatusColorName(color)]};
+                box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.05);
 
                 &:hover {
-                    background-color: ${cv.default100};
+                    filter: brightness(97%);
                 }
 
                 &:active {
-                    background-color: ${cv.default200};
-                    border-color: ${cv.default200};
+                    filter: brightness(95%);
                 }
 
                 &:disabled {
                     background-color: ${cv.background};
-                    border-color: ${cv.default200};
-                    color: ${cv.default400};
-                    --button-spinner-color: ${cv.default500};
+                    color: ${cv[getStatusColorName(color, 'BgDk')]};
+                    --button-spinner-color: ${cv[getStatusColorName(color, 'BgDk')]};
                 }
             `;
         case 'tertiary':
             return `
                 background-color: ${cv.background};
-                color: ${cv.foreground};
+                color: ${cv[getStatusColorName(color)]};
                 border: 1px solid ${cv.background};
 
                 &:hover {
-                    background-color: ${cv.default100};
+                    background-color: ${cv.gray100};
                 }
 
                 &:active {
-                    background-color: ${cv.default200};
+                    filter: brightness(95%);
                 }
 
                 &:disabled {
                     background-color: ${cv.background};
-                    color: ${cv.default400};
-                    --button-spinner-color: ${cv.default500};
-                }
-            `;
-        case 'danger':
-            return `
-                background-color: ${cv.red};
-                color: ${cv.background};
-                border: 1px solid ${cv.red};
-
-                &:hover {
-                    background-color: ${cv.red_dark};
-                    border-color: ${cv.red_dark};
-                }
-
-                &:disabled {
-                    background-color: ${cv.default300};
-                    border-color: ${cv.default300};
-                    --button-spinner-color: ${cv.background};
-                }
-            `;
-        case 'warning':
-            return `
-                background-color: ${cv.yellow};
-                color: ${cv.background};
-                border: 1px solid ${cv.yellow};
-
-                &:hover {
-                    background-color: ${cv.yellow_dark};
-                    border-color: ${cv.yellow_dark};
-                }
-
-                &:disabled {
-                    background-color: ${cv.default300};
-                    border-color: ${cv.default300};
-                    --button-spinner-color: ${cv.background};
+                    color: ${cv[getStatusColorName(color, 'BgDk')]};
+                    --button-spinner-color: ${cv[getStatusColorName(color, 'BgDk')]};
                 }
             `;
     }
@@ -212,11 +188,8 @@ export const StyledButton = styled.button<StyledButtonProps>`
     text-decoration: none;
 
     transition-property: background-color, color, border-color, box-shadow;
-    transition: 150ms ease, transform 200ms ease, width 200ms ease;
-
-    &:active {
-        transform: scale(0.98);
-    }
+    transition: 100ms cubic-bezier(0, 0.3, 0.6, 1), transform 100ms cubic-bezier(0, 0.3, 0.6, 1),
+        width 200ms ease, background-color 0ms;
 
     &:disabled {
         cursor: not-allowed;
@@ -225,6 +198,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
         }
     }
 
+    ${typos.input};
     ${(props) => getVariantStyle(props)};
     ${(props) => getSizeStyle(props)};
     ${(props) => getShapeStyle(props)};

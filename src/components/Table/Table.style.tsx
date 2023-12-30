@@ -36,8 +36,8 @@ export interface StyledTableColumnProps {
     $align: 'left' | 'center' | 'right';
 }
 export const StyledTableColumn = styled.th<StyledTableColumnProps>`
-    color: ${cv.default500};
-    background-color: ${cv.default100};
+    color: ${cv.gray500};
+    background-color: ${cv.gray100};
     font-weight: 500;
 
     width: auto;
@@ -76,7 +76,7 @@ export const StyledTableCell = styled.td<StyledTableCellProps>`
 
     font-size: 14px;
     text-align: ${({ $align }) => $align};
-    border-bottom: solid 1px ${cv.default200};
+    border-bottom: solid 1px ${cv.border};
 
     & > .cell-inner {
         display: flex;

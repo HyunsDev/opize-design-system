@@ -5,7 +5,7 @@ export const PagePageHead = () => {
         <PageHead title="Page Head">
             <Button
                 variant="primary"
-                size="large"
+                size="medium"
             >
                 Button
             </Button>

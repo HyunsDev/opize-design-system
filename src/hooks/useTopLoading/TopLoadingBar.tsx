@@ -10,7 +10,7 @@ const StyledTopLoadingBarContainer = styled.div<StyledTopLoadingBarContainerProp
     left: 0;
     width: 100%;
     height: 3px;
-    background-color: ${(props) => (props.$isShow ? cv.default200 : 'rgba(0,0,0,0)')};
+    background-color: ${(props) => (props.$isShow ? cv.gray200 : 'rgba(0,0,0,0)')};
     user-select: none;
     pointer-events: none;
     transition: 200ms;

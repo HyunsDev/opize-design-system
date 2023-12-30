@@ -1,51 +1,22 @@
-import { styled } from 'styled-components';
-
-import { cv } from '../../style';
 import React from 'react';
+import { StatusColor, cv, getStatusColorName } from '../..';
+import styled from 'styled-components';
 
 export interface CodeProps extends React.ComponentProps<'code'> {
     size?: string;
-    color?: 'default' | 'blue' | 'green' | 'yellow' | 'red' | 'violet';
+    color?: StatusColor;
     borderRadius?: string;
 }
 
-const getColorStyle = (color: CodeProps['color']) => {
-    switch (color) {
-        case 'blue':
-            return `
-                background-color: ${cv.blue_background};
-                color: ${cv.blue};
-            `;
-        case 'green':
-            return `
-                background-color: ${cv.green_background};
-                color: ${cv.green};
-            `;
-        case 'yellow':
-            return `
-                background-color: ${cv.yellow_background};
-                color: ${cv.yellow};
-            `;
-        case 'red':
-            return `
-                background-color: ${cv.red_background};
-                color: ${cv.red};
-            `;
-        case 'violet':
-            return `
-                background-color: ${cv.violet_background};
-                color: ${cv.violet};
-            `;
-        default:
-            return `
-                background-color: ${cv.default200};
-                color: ${cv.foreground};
-            `;
-    }
+const getColorStyle = (color: StatusColor) => {
+    return `
+        background-color: ${cv[getStatusColorName(color, 'BgLg')]};
+        color: ${cv[getStatusColorName(color)]};
+    `;
 };
 
 interface StyledCodeProps {
-    $color: CodeProps['color'];
+    $color: StatusColor;
     $size?: CodeProps['size'];
     $borderRadius: CodeProps['borderRadius'];
 }
@@ -61,12 +32,12 @@ const StyledCode = styled.code<StyledCodeProps>`
 `;
 
 export const Code = React.forwardRef<HTMLDivElement, CodeProps>((props, ref) => {
-    const { children, ...rest } = props;
+    const { children, color = 'gray', ...rest } = props;
     return (
         <StyledCode
             ref={ref}
             $borderRadius="6px"
-            $color="default"
+            $color={color}
             {...rest}
         >
             {children}

@@ -37,12 +37,12 @@ HeaderNavRight.displayName = 'Header.Nav.Right';
 
 const HeaderNavA = styled.a`
     text-decoration: none;
-    color: ${cv.default400};
+    color: ${cv.gray400};
     cursor: pointer;
     font-size: 14px;
     transition: 150ms;
     &:hover {
-        color: ${cv.default600};
+        color: ${cv.gray600};
     }
 `;
 HeaderNavA.displayName = 'Header.Nav.A';

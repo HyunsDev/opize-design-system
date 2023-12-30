@@ -9,9 +9,9 @@ interface StyledBoxContainerProps {
 export const StyledBoxContainer = styled.div<StyledBoxContainerProps>`
     background-color: ${cv.background};
     width: ${(props) => props.$width};
-    border: solid 1px ${(props) => (props.$variant === 'primary' ? cv.default200 : cv.red)};
+    border: solid 1px ${(props) => (props.$variant === 'primary' ? cv.gray200 : cv.statusRed)};
     border-radius: 5px;
-    color: ${cv.foreground};
+    color: ${cv.text};
     display: flex;
     flex-direction: column;
     padding: 0px;
@@ -21,8 +21,8 @@ export const StyledBoxHeader = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: ${cv.default100};
-    border-bottom: solid 1px ${cv.default200};
+    background-color: ${cv.gray100};
+    border-bottom: solid 1px ${cv.border};
     border-top-left-radius: 4px;
     border-top-right-radius: 4px;
     padding: 8px 20px;
@@ -45,8 +45,7 @@ export const StyledBoxFooter = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
-    background-color: ${cv.default100};
-    border-top: solid 1px ${cv.default200};
+    border-top: solid 1px ${cv.border};
     border-bottom-left-radius: 4px;
     border-bottom-right-radius: 4px;
     padding: 8px 20px;

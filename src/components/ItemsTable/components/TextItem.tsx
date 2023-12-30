@@ -2,8 +2,8 @@ import React from 'react';
 
 import { styled } from 'styled-components';
 
-import { cv } from '../../../style';
 import { ItemContainerProps } from './Item.style';
+import { cv } from '../../..';
 
 export interface TextItemProps {
     flex?: number;
@@ -22,12 +22,12 @@ const TextItemContainer = styled.div<ItemContainerProps>`
 `;
 
 const TextDiv = styled.div`
-    color: ${cv.foreground};
+    color: ${cv.text};
     font-size: 14px;
 `;
 
 const SubTextDiv = styled.div`
-    color: ${cv.default700};
+    color: ${cv.gray700};
     font-size: 14px;
 `;
 
