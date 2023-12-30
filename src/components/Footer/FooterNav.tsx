@@ -19,7 +19,7 @@ const FooterNavTitle = styled.div`
 const FooterNavA = styled.a`
     font-size: 14px;
     text-decoration: none;
-    color: ${cv.default400};
+    color: ${cv.gray400};
     cursor: pointer;
 
     &:hover {
