@@ -9,7 +9,7 @@ export const StyledHeaderMenuContainer = styled.div<StyledHeaderMenuProps>`
     display: flex;
     justify-content: center;
     width: 100%;
-    border-bottom: 1px solid ${cv.default200};
+    border-bottom: 1px solid ${cv.border};
     user-select: none;
     transition: box-shadow 200ms;
     z-index: 10;

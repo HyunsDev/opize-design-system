@@ -22,7 +22,7 @@ export const StyledSimpleHeaderContainer = styled.div<SimpleHeaderContainerProps
     ${(props) =>
         props.$isScrolling &&
         `
-            border-bottom: 1px solid ${cv.default200};
+            border-bottom: 1px solid ${cv.border};
         `};
 `;
 
@@ -61,12 +61,12 @@ SimpleHeaderRight.displayName = 'SimpleHeader.Right';
 
 export const SimpleHeaderA = styled.a`
     text-decoration: none;
-    color: ${cv.default400};
+    color: ${cv.gray400};
     cursor: pointer;
     font-size: 14px;
     transition: 150ms;
     &:hover {
-        color: ${cv.default600};
+        color: ${cv.gray600};
     }
 `;
 SimpleHeaderA.displayName = 'SimpleHeader.A';

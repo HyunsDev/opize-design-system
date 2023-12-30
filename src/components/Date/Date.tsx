@@ -10,7 +10,8 @@ export type DateProps = Omit<React.ComponentPropsWithRef<'input'>, 'size'> & {
     label?: React.ReactNode;
     error?: React.ReactNode;
     type?: 'date' | 'datetime-local' | 'month' | 'time' | 'week';
-    size?: 'small' | 'regular' | 'medium' | 'large';
+    size?: 'small' | 'regular' | 'medium';
+    variant?: 'primary' | 'secondary';
     disabled?: boolean;
     readOnly?: boolean;
     width?: string;
@@ -22,7 +23,8 @@ export function Date(props: DateProps) {
         error,
         type = 'date',
         width = '100%',
-        size = 'medium',
+        size = 'regular',
+        variant = 'primary',
         disabled = false,
         readOnly = false,
         ...rest
@@ -36,6 +38,7 @@ export function Date(props: DateProps) {
                 $isError={!!error}
                 $readOnly={readOnly}
                 $size={size}
+                $variant={variant}
                 $width={width}
             >
                 <StyledDate

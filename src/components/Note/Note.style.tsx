@@ -1,89 +1,43 @@
 import { styled } from 'styled-components';
 import { NoteProps } from './Note';
-import { cv } from '../..';
+import { cv, getStatusColorName, typos } from '../..';
 
 export interface StyledNoteProps {
     $variant: NoteProps['variant'];
     $fill: NoteProps['fill'];
 }
 
+const variantMap = {
+    info: 'gray',
+    success: 'blue',
+    warning: 'yellow',
+    error: 'red',
+    good: 'green',
+} as const;
+
 const getVariantStyle = (props: StyledNoteProps) => {
     if (props.$fill) {
-        switch (props.$variant) {
-            case 'success':
-                return `
-                    background-color: ${cv.blue_background};
-                    border-color: ${cv.blue_background};
-                    color: ${cv.blue};
-                `;
-            case 'warning':
-                return `
-                    background-color: ${cv.yellow_background};
-                    border-color: ${cv.yellow_background};
-                    color: ${cv.yellow};
-                `;
-            case 'error':
-                return `
-                    background-color: ${cv.red_background};
-                    border-color: ${cv.red_background};
-                    color: ${cv.red};
-                `;
-            case 'good':
-                return `
-                    background-color: ${cv.green_background};
-                    border-color: ${cv.green_background};
-                    color: ${cv.green};
-                `;
-            default:
-                return `
-                    background-color: ${cv.default100};
-                    border-color: ${cv.default100};
-                    color: ${cv.default700};
-                `;
-        }
+        return `
+            background-color: ${cv[getStatusColorName(variantMap[props.$variant || 'info'], 'Bg')]};
+            border-color: ${cv[getStatusColorName(variantMap[props.$variant || 'info'], 'Bg')]};
+            color: ${cv[getStatusColorName(variantMap[props.$variant || 'info'])]};
+        `;
     }
-
-    switch (props.$variant) {
-        case 'success':
-            return `
-                background-color: ${cv.background};
-                border-color: ${cv.blue_background};
-                color: ${cv.blue};
-            `;
-        case 'warning':
-            return `
-                background-color: ${cv.background};
-                border-color: ${cv.yellow_background};
-                color: ${cv.yellow};
-            `;
-        case 'error':
-            return `
-                background-color: ${cv.background};
-                border-color: ${cv.red_background};
-                color: ${cv.red};
-            `;
-        case 'info':
-            return `
-                background-color: ${cv.background};
-                border-color: ${cv.green_background};
-                color: ${cv.green};
-            `;
-        default:
-            return `
-                background-color: ${cv.background};
-                border-color: ${cv.default200};
-                color: ${cv.foreground};
-            `;
-    }
+    return `
+        background-color: ${cv.background};
+        border-color: ${cv[getStatusColorName(variantMap[props.$variant || 'info'], 'Bg')]};
+        color: ${cv[getStatusColorName(variantMap[props.$variant || 'info'])]};
+    `;
 };
 
 export const StyledNote = styled.div<StyledNoteProps>`
     display: flex;
     justify-content: space-between;
-    border: solid 1px;
-    border-radius: 5px;
-    padding: 12px 12px;
+    border: solid 1px ${cv.border};
+    border-radius: ${cv.var.inputRgRound};
+    padding: 8px 12px;
     gap: 12px;
+    ${typos.p}
 
     ${(props) => getVariantStyle(props)};
 `;
@@ -103,7 +57,7 @@ export const NoteLabel = styled.div`
 export const NoteContent = styled.div`
     display: flex;
     font-size: 14px;
-    line-height: 20px;
+    line-height: 18px;
 `;
 
 export const NoteAction = styled.div``;

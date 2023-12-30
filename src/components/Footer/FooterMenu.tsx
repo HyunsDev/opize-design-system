@@ -8,12 +8,12 @@ const FooterMenuItem = styled.div`
     display: flex;
     align-items: center;
     font-size: 12px;
-    color: ${cv.default400};
+    color: ${cv.gray400};
     line-height: 24px;
 
     svg {
         height: 20px;
-        fill: ${cv.default400};
+        fill: ${cv.gray400};
     }
 `;
 FooterMenuItem.displayName = 'Footer.Menu.Item';

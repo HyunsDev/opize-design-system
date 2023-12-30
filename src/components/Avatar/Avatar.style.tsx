@@ -15,7 +15,7 @@ export const StyledAvatar = styled.span<StyledAvatarProps>`
     opacity: ${(props) => (props.$disabled ? 0.5 : 1)};
 
     background-color: ${cv.background};
-    border: 1px solid ${cv.default100};
+    border: 1px solid ${cv.gray100};
 
     transition: opacity 200ms;
 `;

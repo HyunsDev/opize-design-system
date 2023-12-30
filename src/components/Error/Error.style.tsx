@@ -35,7 +35,7 @@ export const StyledError = styled.div<StyledErrorProps>`
     display: flex;
     align-items: center;
     gap: 6px;
-    color: ${cv.red};
+    color: ${cv.statusRed};
 
     ${(props) => getSizeStyle(props)};
 `;

@@ -39,7 +39,7 @@ const AvatarName = styled.div`
 
 const AvatarLabel = styled.div`
     font-size: 14px;
-    color: ${cv.default700};
+    color: ${cv.gray700};
 `;
 
 export function AvatarItem({ flex = 1, width, icon, name, label }: AvatarItemProps) {

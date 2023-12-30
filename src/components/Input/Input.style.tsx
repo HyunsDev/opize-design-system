@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { cv } from '../..';
+import { cv, typos } from '../..';
 
 export interface StyledInputOuterContainerProps {
     $width: string;
@@ -13,66 +13,93 @@ export const StyledInputOuterContainer = styled.div<StyledInputOuterContainerPro
 `;
 
 export const StyledInputLabel = styled.div`
-    color: ${cv.default600};
-    font-size: 12px;
+    ${typos.label}
 `;
 
 const getSizeStyle = ({ $size }: StyledInputContainerProps) => {
     switch ($size) {
         case 'small':
             return `
-                font-size: ${cv.formFontSizeSmall};
-                height: ${cv.formHeightSmall};
-                border-radius: ${cv.formBorderRadiusSmall};
+                font-size: ${cv.var.inputMdFontSize};
+                height: ${cv.var.inputSmHeight};
+                border-radius: ${cv.var.inputSmRound};
             `;
         case 'regular':
             return `
-                font-size: ${cv.formFontSizeRegular};
-                height: ${cv.formHeightRegular};
-                border-radius: ${cv.formBorderRadiusRegular};
+                font-size: ${cv.var.inputMdFontSize};
+                height: ${cv.var.inputRgHeight};
+                border-radius: ${cv.var.inputRgRound};
             `;
         case 'medium':
             return `
-                font-size: ${cv.formFontSizeMedium};
-                height: ${cv.formHeightMedium};
-                border-radius: ${cv.formBorderRadiusMedium};
-            `;
-        case 'large':
-            return `
-                font-size: ${cv.formFontSizeLarge};
-                height: ${cv.formHeightLarge};
-                border-radius: ${cv.formBorderRadiusLarge};
+                font-size: ${cv.var.inputMdFontSize};
+                height: ${cv.var.inputMdHeight};
+                border-radius: ${cv.var.inputMdRound};
             `;
     }
 };
 
 export interface StyledInputContainerProps {
-    $size: 'small' | 'regular' | 'medium' | 'large';
+    $size: 'small' | 'regular' | 'medium';
+    $variant: 'primary' | 'secondary';
     $disabled: boolean;
     $readOnly: boolean;
     $width: string;
     $isError: boolean;
 }
+const getVariantStyle = ({
+    $variant,
+    $disabled,
+    $readOnly,
+    $isError,
+}: StyledInputContainerProps) => {
+    switch ($variant) {
+        case 'primary':
+            return `
+                border: solid 1px ${$isError ? cv.statusRed : cv.border};
+                background-color: ${$disabled || $readOnly ? cv.gray100 : cv.background};
+
+                &:focus-within {
+                    ${
+                        $disabled || $readOnly
+                            ? ''
+                            : `
+                            border: solid 1px ${cv.gray100};
+                            background-color: ${cv.gray100};
+                        `
+                    }
+                }
+            `;
+        case 'secondary':
+            return `
+                border: solid 1px transparent;
+                background-color: ${$disabled || $readOnly ? cv.gray100 : cv.background};
+
+                &:hover {
+                    border: solid 1px ${$isError ? cv.statusRed : cv.border};
+                }
+
+                &:focus-within {
+                    ${
+                        $disabled || $readOnly
+                            ? ';'
+                            : `
+                            background-color: ${cv.gray100};
+                        `
+                    }
+                }
+            `;
+    }
+};
+
 export const StyledInputContainer = styled.div<StyledInputContainerProps>`
     display: flex;
     align-items: center;
     transition: 200ms;
-    border: solid 1px ${(props) => (props.$isError ? cv.red : cv.default200)};
-    background-color: ${(props) =>
-        props.$disabled || props.$readOnly ? cv.default100 : cv.background};
+
     width: ${(props) => props.$width || '100%'};
-
     ${(props) => getSizeStyle(props)};
-
-    &:focus-within {
-        ${(props) =>
-            props.$disabled || props.$readOnly
-                ? ''
-                : `
-            border: solid 1px ${cv.default400};
-            background-color: ${cv.background};
-        `}
-    }
+    ${(props) => getVariantStyle(props)};
 `;
 
 export interface StyledInputProps {
@@ -84,19 +111,15 @@ const getInputSizeStyle = ({ $size }: StyledInputProps) => {
     switch ($size) {
         case 'small':
             return `
-                padding: 0px 8px;
+                padding: ${cv.var.inputSmPadding};
             `;
         case 'regular':
             return `
-                padding: 0px 10px;
+                padding: ${cv.var.inputRgPadding};
             `;
         case 'medium':
             return `
-                padding: 0px 12px;
-            `;
-        case 'large':
-            return `
-                padding: 0px 16px;
+                padding: ${cv.var.inputMdPadding};
             `;
     }
 };
@@ -113,24 +136,25 @@ export const StyledInput = styled.input<StyledInputProps>`
     transition: 200ms;
     color: ${cv.foreground};
 
+    ${typos.input};
     ${(props) => getInputSizeStyle(props)};
 
     &::placeholder {
-        color: ${cv.default400};
+        color: ${cv.placeholder};
     }
 
     &:disabled {
-        color: ${cv.default600};
+        color: ${cv.gray500};
         cursor: not-allowed;
         &::placeholder {
-            color: ${cv.default400};
+            color: ${cv.placeholder};
         }
     }
 
     &:read-only {
-        color: ${cv.default600};
+        color: ${cv.gray500};
         &::placeholder {
-            color: ${cv.default400};
+            color: ${cv.placeholder};
         }
     }
 `;

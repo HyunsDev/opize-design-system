@@ -1,5 +1,5 @@
 'use client';
 
-export * from './style';
+export * from './styles';
 export * from './components';
 export * from './hooks';

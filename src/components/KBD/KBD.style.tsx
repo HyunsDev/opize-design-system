@@ -10,7 +10,7 @@ export const StyledKBD = styled.kbd`
     height: 28px;
     background-color: ${cv.background};
     border-radius: 6px;
-    border: 1px solid ${cv.default200};
+    border: 1px solid ${cv.border};
     gap: 4px;
 `;
 

@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { cv } from '../..';
+import { cv, typos } from '../..';
 
 export interface StyledCheckboxOuterContainerProps {
     $width: string;
@@ -8,27 +8,38 @@ export const StyledCheckboxOuterContainer = styled.div<StyledCheckboxOuterContai
     display: flex;
     flex-direction: column;
     width: ${(props) => props.$width};
-    gap: 6px;
+    gap: 4px;
 `;
 
 export const StyledCheckboxLabel = styled.div`
-    color: ${cv.default600};
-    font-size: 12px;
+    ${typos.label}
 `;
 
 export type StyledCheckboxContainerProps = {
     $disabled: boolean;
+    $size?: 'small' | 'regular' | 'medium';
+};
+const getContainerSizeStyle = (size?: 'small' | 'regular' | 'medium') => {
+    switch (size) {
+        case 'small':
+            return cv.var.inputSmHeight;
+        case 'regular':
+            return cv.var.inputRgHeight;
+        case 'medium':
+            return cv.var.inputMdHeight;
+    }
 };
 export const StyledCheckboxContainer = styled.div<StyledCheckboxContainerProps>`
     display: flex;
     align-items: center;
     gap: 8px;
     font-size: 14px;
-    color: ${(props) => (props.$disabled ? cv.default400 : cv.foreground)};
+    color: ${(props) => (props.$disabled ? cv.statusGrayBgDk : cv.foreground)};
+    height: ${(props) => getContainerSizeStyle(props.$size)};
 `;
 
 export interface StyledCheckboxProps {
-    $size: 'small' | 'medium' | 'large';
+    $size: 'small' | 'regular' | 'medium';
 }
 
 const getSizeStyle = ({ $size }: StyledCheckboxProps) => {
@@ -39,13 +50,13 @@ const getSizeStyle = ({ $size }: StyledCheckboxProps) => {
                 height: 16px;
                 border-radius: 4px;
             `;
-        case 'medium':
+        case 'regular':
             return `
                 width: 24px;
                 height: 24px;
                 border-radius: 4px;
             `;
-        case 'large':
+        case 'medium':
             return `
                 width: 32px;
                 height: 32px;
@@ -59,9 +70,9 @@ export const StyledCheckbox = styled.input<StyledCheckboxProps>`
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: 200ms;
+    transition: 150ms;
 
-    border: solid 1px ${cv.default200};
+    border: solid 1px ${cv.gray200};
     background-color: ${cv.background};
     cursor: pointer;
 
@@ -69,8 +80,8 @@ export const StyledCheckbox = styled.input<StyledCheckboxProps>`
 
     &:disabled {
         cursor: not-allowed;
-        background-color: ${cv.default400};
-        border: solid 1px ${cv.default400};
+        background-color: ${cv.gray400};
+        border: solid 1px ${cv.gray400};
     }
 
     &:checked {
@@ -79,14 +90,16 @@ export const StyledCheckbox = styled.input<StyledCheckboxProps>`
         background-size: 100% 100%;
         background-position: 50%;
         background-repeat: no-repeat;
-        background-color: ${cv.blue};
-        border: solid 1px ${cv.blue};
+        background-color: ${cv.statusBlue};
+        border: solid 1px ${cv.statusBlue};
 
         &:disabled {
-            background-color: ${cv.default400};
-            border: solid 1px ${cv.default400};
+            background-color: ${cv.gray400};
+            border: solid 1px ${cv.gray400};
         }
     }
 `;
 
-export const StyledCheckboxContent = styled.div``;
+export const StyledCheckboxContent = styled.div`
+    ${typos.input};
+`;

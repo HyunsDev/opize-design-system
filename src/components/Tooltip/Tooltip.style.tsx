@@ -47,7 +47,7 @@ export const StyledTooltip = styled.div<{ $direction: TooltipProps['direction'] 
     background-color: ${cv.foreground};
     color: ${cv.background};
     font-size: 14px;
-    border-radius: 4px;
+    border-radius: 6px;
     padding: 6px 10px;
     white-space: pre;
     pointer-events: none;

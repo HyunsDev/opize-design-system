@@ -5,7 +5,7 @@ import { StyledAProps } from './StyledA';
 import { cv } from '../..';
 
 export function useA<T extends React.ElementType = 'a'>(props: AProps<T>) {
-    const { ref, as = 'a', children, isShowIcon = false, color = cv.blue, ...otherProps } = props;
+    const { ref, as = 'a', children, isShowIcon = false, color = cv.link, ...otherProps } = props;
 
     const domRef = React.useRef<PolymorphicRef<T>>(ref);
 

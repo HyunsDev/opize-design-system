@@ -2,7 +2,7 @@ import { styled } from 'styled-components';
 import { cv } from '../..';
 
 export const StyledTabNav = styled.div`
-    border-bottom: solid 1px ${cv.default200};
+    border-bottom: solid 1px ${cv.border};
     align-items: center;
     display: flex;
     position: relative;
@@ -36,7 +36,7 @@ export const HoverBox = styled.div<FlowProps & { $show: boolean }>`
     width: ${(props) => props.$width}px;
     margin-bottom: 4px;
     background-color: rgba(0, 0, 0, 0);
-    ${(props) => props.$show && `background-color: ${cv.default100}`};
+    ${(props) => props.$show && `background-color: ${cv.gray100}`};
 `;
 
 export const ItemDiv = styled.div`
@@ -52,7 +52,7 @@ export const Item = styled.div<{ $selected: boolean; $disabled: boolean }>`
     transition: 200ms;
     font-weight: 400;
     color: ${(props) =>
-        props.$selected ? cv.foreground : props.$disabled ? cv.default400 : cv.default700};
+        props.$selected ? cv.foreground : props.$disabled ? cv.gray400 : cv.gray700};
     &:hover {
         color: ${(props) => !props.$disabled && cv.foreground};
     }

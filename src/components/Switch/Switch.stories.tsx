@@ -24,5 +24,6 @@ export const WithLabel: Story = {
     args: {
         children: 'Switch',
         label: 'Switch Label',
+        size: 'regular',
     },
 };

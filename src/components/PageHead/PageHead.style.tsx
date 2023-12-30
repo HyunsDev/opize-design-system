@@ -8,7 +8,7 @@ export const StyledPageHeadContainer = styled.div`
     justify-content: center;
     width: 100%;
     height: 128px;
-    border-bottom: 1px solid ${cv.default200};
+    border-bottom: 1px solid ${cv.border};
 `;
 
 export interface StyledPageHeadProps {

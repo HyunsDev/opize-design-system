@@ -6,7 +6,7 @@ import { useCheckbox } from './useCheckbox';
 export type CheckboxGroupProps = Omit<React.ComponentPropsWithRef<'div'>, 'onChange'> & {
     name?: string;
     disabled?: boolean;
-    size?: 'small' | 'medium' | 'large';
+    size?: 'small' | 'regular' | 'medium';
     gap?: string;
     width?: string;
     label?: React.ReactNode;
@@ -17,7 +17,7 @@ export const CheckboxGroup = React.forwardRef<HTMLDivElement, CheckboxGroupProps
         children,
         name,
         disabled,
-        size = 'medium',
+        size = 'regular',
         gap = '8px',
         width = '100%',
         label,

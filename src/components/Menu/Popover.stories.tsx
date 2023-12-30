@@ -1,7 +1,7 @@
 import { Meta, StoryObj } from '@storybook/react';
 
 import { Menu } from '..';
-import { CaretDown, TrashSimple } from '@phosphor-icons/react';
+import { CaretDown } from '@phosphor-icons/react';
 
 const meta: Meta<typeof Menu> = {
     title: 'Opize Component/Menu',
@@ -24,15 +24,8 @@ export const Primary: Story = {
                 <Menu.Option>Option 1</Menu.Option>
                 <Menu.Option>Option 2</Menu.Option>
                 <Menu.Option>Option 3</Menu.Option>
-                <Menu.Option variant="danger">Danger</Menu.Option>
                 <Menu.Option disabled>disabled</Menu.Option>
                 <Menu.Option isLoading>isLoading</Menu.Option>
-                <Menu.Option
-                    variant="danger"
-                    isLoading
-                >
-                    isLoading
-                </Menu.Option>
             </Menu.Content>
         </Menu>
     ),
@@ -47,12 +40,6 @@ export const WithPrefix: Story = {
                 <Menu.Option prefix="🍔">Option 1</Menu.Option>
                 <Menu.Option prefix="🍕">Option 2</Menu.Option>
                 <Menu.Option prefix="🍟">Option 3</Menu.Option>
-                <Menu.Option
-                    prefix={<TrashSimple />}
-                    variant="danger"
-                >
-                    Option 4
-                </Menu.Option>
             </Menu.Content>
         </Menu>
     ),
@@ -67,12 +54,6 @@ export const WithSuffix: Story = {
                 <Menu.Option suffix="🍔">Option 1</Menu.Option>
                 <Menu.Option suffix="🍕">Option 2</Menu.Option>
                 <Menu.Option suffix="🍟">Option 3</Menu.Option>
-                <Menu.Option
-                    prefix={<TrashSimple />}
-                    variant="danger"
-                >
-                    Option 4
-                </Menu.Option>
             </Menu.Content>
         </Menu>
     ),
@@ -106,12 +87,6 @@ export const NestedMenu: Story = {
                         <Menu.Option suffix="🍔">Option 1</Menu.Option>
                         <Menu.Option suffix="🍕">Option 2</Menu.Option>
                         <Menu.Option suffix="🍟">Option 3</Menu.Option>
-                        <Menu.Option
-                            prefix={<TrashSimple />}
-                            variant="danger"
-                        >
-                            Option 4
-                        </Menu.Option>
                     </Menu.Content>
                 </Menu>
             </Menu.Content>

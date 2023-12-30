@@ -2,7 +2,7 @@ import React from 'react';
 
 import { styled } from 'styled-components';
 
-import { cv } from '../../../style';
+import { cv } from '../../../deprecated-style';
 
 const Content = styled.div`
     flex: 1;

@@ -12,19 +12,22 @@ import { useCheckboxContext } from './Checkbox.context';
 export type CheckboxProps = Omit<React.ComponentPropsWithRef<'input'>, 'size'> & {
     children?: React.ReactNode;
     label?: React.ReactNode;
-    size?: 'small' | 'medium' | 'large';
+    size?: 'small' | 'regular' | 'medium';
     width?: string;
 };
 
 export const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>((props, ref) => {
     const domRef = useDOMRef(ref);
-    const { children, name, disabled = false, size = 'medium', width = '100%', ...rest } = props;
+    const { children, name, disabled = false, size = 'regular', width = '100%', ...rest } = props;
     const context = useCheckboxContext();
 
     return (
         <StyledCheckboxOuterContainer $width={width}>
             {props.label && <StyledCheckboxLabel>{props.label}</StyledCheckboxLabel>}
-            <StyledCheckboxContainer $disabled={disabled || context?.disabled || false}>
+            <StyledCheckboxContainer
+                $disabled={disabled || context?.disabled || false}
+                $size={size || context?.size}
+            >
                 <StyledCheckbox
                     ref={domRef}
                     type="checkbox"

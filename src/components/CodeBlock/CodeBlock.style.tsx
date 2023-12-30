@@ -10,7 +10,7 @@ export const StyledCodeBlockContainer = styled.div<StyledCodeBlockContainerProps
     width: ${(props) => props.$width};
     height: fit-content;
     overflow: hidden;
-    border: 1px solid ${cv.default200};
+    border: 1px solid ${cv.border};
     border-radius: 8px;
     & > pre {
         margin: 0 !important;
@@ -40,7 +40,7 @@ export const StyledCodeBlockHeader = styled.div`
     border-top-left-radius: 8px;
     border-bottom: none;
     background-color: ${cv.background};
-    border-bottom: 1px solid ${cv.default200};
+    border-bottom: 1px solid ${cv.border};
     height: 44px;
 `;
 
@@ -69,11 +69,11 @@ export const CodeBlockAction = styled.button`
     transition: 150ms;
 
     &:hover {
-        background-color: ${cv.default100};
+        background-color: ${cv.gray100};
     }
 
     &:active {
-        background-color: ${cv.default200};
+        background-color: ${cv.gray200};
     }
 `;
 CodeBlockAction.displayName = 'CodeBlock.Action';
