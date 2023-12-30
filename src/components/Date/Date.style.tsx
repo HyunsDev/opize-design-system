@@ -50,7 +50,8 @@ export const StyledDateContainer = styled.div<StyledDateContainerProps>`
     align-items: center;
     transition: 200ms;
     border: solid 1px ${(props) => (props.$isError ? cv.statusRed : cv.border)};
-    background-color: ${(props) => (props.$disabled || props.$readOnly ? cv.gray100 : cv.gray050)};
+    background-color: ${(props) =>
+        props.$disabled || props.$readOnly ? cv.gray100 : cv.background};
     width: ${(props) => props.$width || '100%'};
 
     ${(props) => getSizeStyle(props)};
@@ -114,7 +115,7 @@ export const StyledDate = styled.input<StyledDateProps>`
     }
 
     &:read-only {
-        color: ${cv.gray050};
+        color: ${cv.gray500};
         &::placeholder {
             color: ${cv.placeholder};
         }

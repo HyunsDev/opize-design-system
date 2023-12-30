@@ -4,7 +4,7 @@ export type InputProps = Omit<React.ComponentPropsWithRef<'input'>, 'prefix' | '
     error?: React.ReactNode;
     prefix?: React.ReactNode;
     suffix?: React.ReactNode;
-    size?: 'small' | 'regular' | 'medium' | 'large';
+    size?: 'small' | 'regular' | 'medium';
     disabled?: boolean;
     readOnly?: boolean;
     isLoading?: boolean;
