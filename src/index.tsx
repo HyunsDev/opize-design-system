@@ -1,5 +1,5 @@
 'use client';
 
-export * from './style';
+export * from './deprecated-style';
 export * from './components';
 export * from './hooks';
