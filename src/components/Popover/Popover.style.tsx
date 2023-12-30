@@ -26,10 +26,10 @@ export const StyledPopoverContent = styled.div<StyledPopoverProps>`
         $directionY === 'top' ? `bottom: ${$buttonHeight + 4}px;` : `top: ${$buttonHeight + 4}px;`};
 
     background-color: ${cv.background};
-    border: 1px solid ${cv.default200};
-    box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.08);
-    padding: 8px;
-    border-radius: 12px;
+    border: 1px solid ${cv.border};
+    box-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.05);
+    padding: 6px 8px;
+    border-radius: ${cv.var.inputRgRound};
 
     @keyframes FadeInKeyframes {
         0% {
