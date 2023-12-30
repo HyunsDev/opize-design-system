@@ -1,7 +1,7 @@
 import { ThemeProvider, createGlobalStyle } from 'styled-components';
 import { lightSemanticColorPalette, lightBaseColorPalette, colorCSSVariable } from './colors';
 import { typos } from './typo';
-import { styleVariables } from './variable';
+import { styleVariables, variableCSSVariable } from './variable';
 import { cv } from '.';
 
 const GlobalStyle = createGlobalStyle`
@@ -14,7 +14,7 @@ const GlobalStyle = createGlobalStyle`
 
     :root {
         ${colorCSSVariable};
-
+        ${variableCSSVariable};
         transition: 0.125s all ease-in;
         scroll-padding-top: 64px;
 

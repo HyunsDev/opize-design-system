@@ -1,3 +1,5 @@
+import { buildCssVariables } from '../utils';
+
 export const styleVariables = {
     inputSmRound: '4px',
     inputRgRound: '5px',
@@ -15,3 +17,7 @@ export const styleVariables = {
     inputRgPadding: '0 12px',
     inputMdPadding: '0 16px',
 };
+
+export const variableCSSVariable = buildCssVariables({
+    ...styleVariables,
+});

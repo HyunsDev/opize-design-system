@@ -5,13 +5,15 @@ export type PrimarySemanticColor = 'primary' | 'primaryLg' | 'primaryDk';
 export type SecondarySemanticColor = 'secondary' | 'secondaryLg' | 'secondaryDk';
 
 export type StatusBaseSemanticColor =
+    | 'statusGray'
     | 'statusRed'
     | 'statusYellow'
     | 'statusGreen'
     | 'statusBlue'
     | 'statusViolet';
+export type StatusColor = 'gray' | 'red' | 'yellow' | 'green' | 'blue' | 'violet';
 
-type StatusColorVariant = 'Lg' | 'Dk' | 'Bg' | 'BgLg' | 'BgDk';
+export type StatusColorVariant = 'Lg' | 'Dk' | 'Bg' | 'BgLg' | 'BgDk';
 export type StatusSemanticColor =
     | StatusBaseSemanticColor
     | `${StatusBaseSemanticColor}${StatusColorVariant}`;

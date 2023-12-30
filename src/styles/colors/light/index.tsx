@@ -5,6 +5,12 @@ import { lightSemanticColorPalette } from './semanticColorPalette';
 
 export { lightBaseColorPalette, lightSemanticColorPalette };
 
+export const lightColorPalette = {
+    ...lightSemanticColorPalette,
+    ...lightBaseColorPalette,
+};
+
 export const colorCSSVariable = buildCssVariables({
     ...lightSemanticColorPalette,
+    ...lightBaseColorPalette,
 });

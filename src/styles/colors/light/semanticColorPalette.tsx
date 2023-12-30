@@ -13,6 +13,13 @@ export const lightSemanticColorPalette: SemanticColorPalette = {
     secondaryLg: lightBaseColorPalette.blue100,
     secondaryDk: lightBaseColorPalette.blue300,
 
+    statusGray: lightBaseColorPalette.gray900,
+    statusGrayLg: lightBaseColorPalette.gray800,
+    statusGrayDk: lightBaseColorPalette.gray950,
+    statusGrayBg: lightBaseColorPalette.gray200,
+    statusGrayBgLg: lightBaseColorPalette.gray100,
+    statusGrayBgDk: lightBaseColorPalette.gray300,
+
     statusRed: lightBaseColorPalette.red500,
     statusRedLg: lightBaseColorPalette.red400,
     statusRedDk: lightBaseColorPalette.red600,
