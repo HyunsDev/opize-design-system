@@ -100,6 +100,7 @@ export const StyledDate = styled.input<StyledDateProps>`
     background-color: transparent;
     transition: 200ms;
 
+    ${typos.input};
     ${(props) => getDateSizeStyle(props)};
 
     &::placeholder {

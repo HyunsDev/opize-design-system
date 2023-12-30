@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { cv } from '../..';
+import { cv, typos } from '../..';
 
 export interface StyledCheckboxOuterContainerProps {
     $width: string;
@@ -8,11 +8,11 @@ export const StyledCheckboxOuterContainer = styled.div<StyledCheckboxOuterContai
     display: flex;
     flex-direction: column;
     width: ${(props) => props.$width};
+    gap: 4px;
 `;
 
 export const StyledCheckboxLabel = styled.div`
-    color: ${cv.label};
-    font-size: 12px;
+    ${typos.label}
 `;
 
 export type StyledCheckboxContainerProps = {
@@ -100,4 +100,6 @@ export const StyledCheckbox = styled.input<StyledCheckboxProps>`
     }
 `;
 
-export const StyledCheckboxContent = styled.div``;
+export const StyledCheckboxContent = styled.div`
+    ${typos.input};
+`;

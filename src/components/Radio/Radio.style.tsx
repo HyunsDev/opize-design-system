@@ -1,5 +1,5 @@
 import { styled } from 'styled-components';
-import { cv } from '../..';
+import { cv, typos } from '../..';
 
 export const StyledRadioContainer = styled.div<{
     $disabled: boolean;
@@ -64,4 +64,6 @@ export const StyledRadio = styled.input`
     }
 `;
 
-export const StyledRadioLabel = styled.div``;
+export const StyledRadioLabel = styled.div`
+    ${typos.input};
+`;

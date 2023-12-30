@@ -1,6 +1,6 @@
 import { css, styled } from 'styled-components';
 import { ButtonAlign, ButtonShape, ButtonSize, ButtonVariant, ButtonWidth } from './Button.type';
-import { cv, getStatusColorName } from '../..';
+import { cv, getStatusColorName, typos } from '../..';
 
 export interface StyledButtonProps {
     $width: ButtonWidth;
@@ -198,6 +198,7 @@ export const StyledButton = styled.button<StyledButtonProps>`
         }
     }
 
+    ${typos.input};
     ${(props) => getVariantStyle(props)};
     ${(props) => getSizeStyle(props)};
     ${(props) => getShapeStyle(props)};

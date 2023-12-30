@@ -71,7 +71,7 @@ const meta: Meta<typeof Button> = {
     },
     args: {
         width: 'fit-content',
-        size: 'medium',
+        size: 'regular',
         variant: 'primary',
         iconOnly: false,
         shape: 'square',

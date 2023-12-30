@@ -102,6 +102,7 @@ export const StyledInput = styled.input<StyledInputProps>`
     transition: 200ms;
     color: ${cv.foreground};
 
+    ${typos.input};
     ${(props) => getInputSizeStyle(props)};
 
     &::placeholder {

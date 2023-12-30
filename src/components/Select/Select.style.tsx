@@ -105,7 +105,7 @@ export const StyledSelect = styled.select<StyledSelectProps>`
     background-color: transparent;
     transition: 200ms;
     cursor: pointer;
-
+    ${typos.input};
     ${(props) => getSelectSizeStyle(props)};
 
     &:disabled {
