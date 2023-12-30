@@ -143,15 +143,43 @@ export const LoadingStory: Story = {
 };
 
 const AllButtonTemplate = (args: any) => {
-    const variants = ['primary', 'secondary', 'tertiary', 'danger', 'warning'];
+    const sizes = ['small', 'regular', 'medium'];
+    const variants = ['primary', 'secondary', 'tertiary'];
+    const colors = ['gray', 'yellow', 'red', 'green', 'blue', 'violet'];
 
     return (
         <Flex
-            direction="row"
+            direction="column"
             align="start"
             gap="20px"
         >
-            {variants.map((variant) => (
+            {sizes.map((size) => (
+                <Flex
+                    direction="column"
+                    align="start"
+                    justify="start"
+                    gap="4px"
+                >
+                    {variants.map((variant) => (
+                        <Flex
+                            direction="row"
+                            align="start"
+                            gap="8px"
+                        >
+                            {colors.map((color) => (
+                                <Button
+                                    {...args}
+                                    variant={variant}
+                                    color={color}
+                                    size={size}
+                                    children={`Button`}
+                                />
+                            ))}
+                        </Flex>
+                    ))}
+                </Flex>
+            ))}
+            {/* {variants.map((variant) => (
                 <Flex
                     direction="column"
                     align="start"
@@ -166,23 +194,17 @@ const AllButtonTemplate = (args: any) => {
                         <Button
                             {...args}
                             variant={variant}
-                            children={`${variant}`}
+                            children={`Button`}
                         />
                         <Button
                             {...args}
                             variant={variant}
-                            children={`${variant}`}
+                            children={`Button`}
                             disabled
-                        />
-                        <Button
-                            {...args}
-                            variant={variant}
-                            children={`${variant}`}
-                            isLoading
                         />
                     </Flex>
                 </Flex>
-            ))}
+            ))} */}
         </Flex>
     );
 };
