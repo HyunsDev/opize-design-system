@@ -17,11 +17,12 @@ export interface StyledPopoverProps {
 
 export const StyledPopoverContent = styled.div<StyledPopoverProps>`
     display: ${({ $isOpen }) => ($isOpen ? 'block' : 'none')};
-
     position: absolute;
     z-index: 100;
 
     ${({ $directionX }) => ($directionX === 'left' ? 'right: 0;' : 'left: 0;')};
+    ${({ $directionY, $buttonHeight }) =>
+        $directionY === 'top' ? `bottom: ${$buttonHeight + 4}px;` : `top: ${$buttonHeight + 4}px;`};
 
     background-color: ${cv.background};
     border: 1px solid ${cv.border};
