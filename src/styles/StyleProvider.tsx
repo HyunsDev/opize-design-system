@@ -21,6 +21,7 @@ const GlobalStyle = createGlobalStyle`
         text-rendering: optimizeLegibility;
         -webkit-font-smoothing: antialiased;
         touch-action: manipulation;
+        font-display: fallback;
     }
 
     body {
