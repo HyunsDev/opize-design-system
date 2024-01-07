@@ -7,6 +7,7 @@ export interface SpanProps extends React.ComponentProps<'span'> {
     warp?: 'normal' | 'nowrap' | 'pre' | 'pre-wrap';
     size?: string;
     color?: string;
+    lineHeight?: string;
 }
 
 interface StyledSpanProps {
@@ -15,6 +16,7 @@ interface StyledSpanProps {
     $warp?: 'normal' | 'nowrap' | 'pre' | 'pre-wrap';
     $size?: string;
     $color?: string;
+    $lineHeight?: string;
 }
 
 const StyledSpan = styled.span<StyledSpanProps>`
@@ -26,10 +28,11 @@ const StyledSpan = styled.span<StyledSpanProps>`
     font-size: ${(props) => props.$size || 'inherit'};
     color: ${(props) => props.$color || 'inherit'};
     white-space: ${(props) => props.$warp || 'inherit'};
+    line-height: ${(props) => props.$lineHeight || 'inherit'};
 `;
 
 export const Span = forwardRef<HTMLSpanElement, SpanProps>(
-    ({ font, weight, warp, size, color, ...props }, ref) => {
+    ({ font, weight, warp, size, color, lineHeight, ...props }, ref) => {
         return (
             <StyledSpan
                 ref={ref}
@@ -38,6 +41,7 @@ export const Span = forwardRef<HTMLSpanElement, SpanProps>(
                 $warp={warp}
                 $size={size}
                 $color={color}
+                $lineHeight={lineHeight}
                 {...props}
             />
         );
