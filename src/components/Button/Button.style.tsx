@@ -103,8 +103,8 @@ export const getVariantStyle = ({ $variant: variant, $color: color }: StyledButt
                     }
 
                     &:disabled {
-                        background-color: ${cv[getStatusColorName(color, 'BgLg')]};
-                        border-color: ${cv[getStatusColorName(color, 'BgLg')]};
+                        background-color: ${cv[getStatusColorName(color, 'BgDk')]};
+                        border-color: ${cv[getStatusColorName(color, 'BgDk')]};
                         --button-spinner-color: ${cv.background};
                     }
                 `;
